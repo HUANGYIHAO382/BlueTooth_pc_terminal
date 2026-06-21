@@ -1,0 +1,13 @@
+# 电脑端瑞光血压计 BLE（与厂家 PDF / Android Demo 一致）
+#
+# 推荐：使用本项目独立虚拟环境（不污染系统 Python）
+#   1) 双击 setup_venv.bat  或  PowerShell: .\setup_venv.ps1
+#   2) 双击 start_pc_demo.bat 启动
+#
+# 手动（已有 .venv 时）：
+#   .venv\Scripts\python.exe -m pip install -r requirements.txt
+#   .venv\Scripts\python.exe run_gui.py
+bleak>=0.21.0
+PySide6>=6.5.0
+# 与 HeartRateMonitor 项目一致：用 qasync 把 asyncio 与 Qt 主循环合并，Windows 下 bleak(WinRT) 扫描更可靠
+qasync>=0.27.0

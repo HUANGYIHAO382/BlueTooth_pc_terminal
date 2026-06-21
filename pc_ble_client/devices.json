@@ -1,0 +1,26 @@
+[
+  {
+    "mac": "F8:3D:7E:09:BD:BB",
+    "name": "HUAWEI Band HR-DBB",
+    "type": "band",
+    "role": "client",
+    "auto_connect": true,
+    "last_connected": "2026-06-15 18:13",
+    "protocol": null,
+    "notes": "",
+    "group": "",
+    "strategy": ""
+  },
+  {
+    "mac": "A4:C1:38:55:39:2A",
+    "name": "BP06D2A2507010009",
+    "type": "bp",
+    "role": "server",
+    "auto_connect": true,
+    "last_connected": "2026-06-14 17:14",
+    "protocol": null,
+    "notes": "",
+    "group": "",
+    "strategy": ""
+  }
+]

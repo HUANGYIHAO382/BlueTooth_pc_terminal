@@ -1,0 +1,148 @@
+================================================================================
+本仓库（Android 厂家 Demo）里：蓝牙「发现设备」与「握手测量」分别在做什么
+================================================================================
+适用对象：在 Windows PC 上用 bleak 扫不到血压计、想对照本机 Android 工程逻辑时阅读。
+
+--------------------------------------------------------------------------------
+零点、协议分层（与厂家 PDF「帧结构 / 工作流程」对应）
+--------------------------------------------------------------------------------
+- PDF 里的 CC 80 / AA 80 帧，是在 **已经建立 BLE 的 GATT 连接之后**，通过
+  FFF2（终端写）和 FFF1（计发通知）传送的「应用层透传」，不是「扫描阶段」发的包。
+- 因此：终端要向血压计发包才能测——指的是 **连上后往 FFF2 写**（本工程 CMD_CONNECT
+  等）；这与「扫描列表里找不找得到设备」是两层问题。PC 端实现见 bp_protocol.py 顶部说明。
+
+--------------------------------------------------------------------------------
+一、扫描阶段（找设备）—— 与 FFF0 服务无关
+--------------------------------------------------------------------------------
+1) BLE 路径（BluetoothConnMeasureActivity，连上后 isBLE=true）
+   - 入口：用户打开蓝牙并授予定位权限后，调用 startScan()。
+   - 实现：ViseBle.getInstance().startScan(periodScanCallback)。
+   - 底层：ViseBle 的 ScanCallback 最终调用的是 Android 已弃用 API
+     BluetoothAdapter.startLeScan(LeScanCallback)，不是 Nordic 的 ScanCallback
+     那条分支（代码里 Nordic 的 scanCallback 基本未接业务）。
+   - 全局配置（BluetoothDeviceManager.init，Application 启动时执行）：
+       ViseBle.config()
+           .setScanTimeout(8 * 1000)        // 单轮扫描约 8 秒后 stopLeScan
+           .setScanRepeatInterval(5 * 1000)
+     含义见 baseble/callback/scan/ScanCallback.java：在 scanTimeout>0 时，
+     启动一次 startLeScan，并在 8 秒后若「仍无任何设备进 Store」则 onScanTimeout，
+     若已有设备则 onScanFinish。
+   - 设备过滤（periodScanCallback.onDeviceFound）：
+     * 广播名必须非空；
+     * 名称包含 "RBP" 或 "BP"；
+     * 自动连上血压计的分支还要求名称再包含字母 "A"（与具体型号有关）。
+     满足后 stopScan()，并用 BluetoothDeviceManager.connect() 发起 GATT 连接。
+
+2) 经典蓝牙发现路径（BluetoothManager + BluetoothService）
+   - 当 BLE 扫描超时且未连上时，Activity 里 onScanTimeout 会走
+     bluetoothManager.startBTAffair(...)，内部可能是 startDiscovery() 找
+     双模/经典名可见的设备；单模纯 BLE（DEVICE_TYPE_LE）则走 GATT 连接。
+   - 这与 PC 上 bleak 只扫 BLE 广播不是同一条栈；若你的血压计在系统里
+     只以「已配对经典设备」形式出现、几乎不打 BLE 广播，手机/Android 能
+     连而 PC 列表空，是有可能的。
+
+3) 与 PC（bleak + WinRT）的差异
+   - Android：startLeScan + 8 秒窗口内多次 onLeScan 往 Store 里累加。
+   - Windows：本 PC 工具使用多轮 ``BleakScanner.discover``（可选 ``return_adv`` 合并广播名），
+     不再使用 ``BleakScanner.start/stop``，以避免 bleak 1.x 移除内部 API 导致的异常。
+   - 不能改变操作系统驱动或无线电环境；若血压计当前未发 BLE 广播，PC 与手机表现可能不一致。
+
+--------------------------------------------------------------------------------
+二、握手与测量阶段（已连上 GATT 之后）
+--------------------------------------------------------------------------------
+1) UUID（与厂家 PDF 一致）
+   - 服务：0000fff0-...
+   - 通知：0000fff1-...（血压计 -> 手机/PC 上报数据）
+   - 写入：0000fff2-...（手机/PC -> 血压计发指令）
+
+2) 指令常量（BluetoothConnMeasureActivity 里十六进制字符串）
+   - CONNECT_ORDER   cc80020301010001
+   - POWER_ORDER     cc80020304040001
+   - START_MEASURE   cc80020301020002
+   - STOP_ORDER      cc80020301030003
+
+3) 典型流程（88A 等需先发连接指令的型号）
+   - GATT 连接成功 -> 发现服务 discoverServices
+   - 绑定 notify（FFF1），向 FFF2 写入连接指令
+   - 再写查电；Android 里若电压数值 > 3600 才发启动测量（见 Activity setPower）
+   - 测量过程中解析 notify 里的十六进制串得到收缩压/舒张压/脉搏
+
+4) TYPE_9000 / BP0542 类（BluetoothService 等）
+   - 设备名前缀 BP0542 时可能跳过部分指令顺序；PC 端用「TYPE_9000」勾选
+     与 run_full_measurement 分支对齐。
+
+--------------------------------------------------------------------------------
+二点五、能搜到手环但搜不到血压计（常见）
+--------------------------------------------------------------------------------
+1) 手机是否仍连着血压计：多数计同时只接受一台主机，连着手机时 PC 往往收不到广播。
+2) 是否勾选了「过滤无名设备」：血压计广播里经常没有完整 Local Name，会被整台滤掉，
+   请取消勾选后重扫；列表里可能出现「(无广播名)」——记下 MAC，用「按地址连接」试连。
+   PC 端还可使用「批量探测无广播名设备（检测 FFF0）」按钮自动逐台短连对齐。
+3) 是否勾选了「仅显示 RBP/BP」：若你的型号广播名不含这些子串，会被全部隐藏。
+4) 本 PC 工具已优先使用「持续扫描 + 广告回调」合并 AdvertisementData.local_name，
+   仍没有该 MAC 时，多半是当前状态下设备根本未发 BLE 广播（与手环行为不同）。
+5) 列表里出现「(无广播名)」仍可能是血压计：BLE 规范允许设备不在广播里放可读名称；
+   应用层协议（CC/AA）与广播名无关；应用识别靠连上后是否暴露 FFF0 服务。
+6) 在 Android 厂家 Demo 里记下设备 MAC，在 PC 上跳过扫描直接「按 MAC 直连」：
+   若直连能连上并出现 FFF0，则只是「列表里不好认」；若直连也失败，再查配对/驱动。
+7) 列表里若出现 NGM…/NGN… 等乱码名，多为其它 BLE 周边误显示在 Local Name 字段，
+   不必强行当成血压计；厂家 Demo 用「名称含 RBP/BP」也只是 UI 过滤策略，与 PDF 协议无关。
+
+--------------------------------------------------------------------------------
+三、为什么 PC「根本搜不到任何蓝牙设备」时优先排查环境
+--------------------------------------------------------------------------------
+1) 若列表里连手机、手环、耳机等都完全没有：
+   - 多半是 Windows 蓝牙未开、驱动异常、或 bleak 与当前 Python/事件循环
+     组合异常；本工程已用 qasync 把 asyncio 与 Qt 主循环合并，避免子线程
+     跑 WinRT 扫描失败。
+   - 可先用其它任意 BLE 设备验证 PC 能否扫到广播。
+
+2) 若其它设备有，唯独没有血压计：
+   - 确认血压计已开机、未与手机保持连接（很多设备同时只连一台主机）。
+   - 取消 PC 界面「过滤无名设备」；若广播名为空，过滤后会列表为空。
+   - 取消「仅显示 RBP/BP」试一次（你的型号广播名可能不含这些子串）。
+   - 用「按 MAC 直连」：若 Android 已显示 MAC，在 PC 上跳过扫描直接连，
+     若直连也失败，则不是「列表过滤」问题而是连接/配对层问题。
+
+3) 握手（FFF2 写指令）只发生在连接成功之后；扫描阶段不会去「握手」，
+   也不会根据 FFF0 是否在广播里过滤——多数血压计广播包未必带完整服务 UUID。
+
+================================================================================
+附录：app 模块（厂家 SDK Demo）里「扫描」相关代码到底在哪、和 PC 为何无关
+================================================================================
+一、你要找的「方式方法」在工程里的位置（全部是 Android API，不能搬到 Windows 直接跑）
+  1) 入口界面：app/.../MainActivity.java
+     - 按钮打开 BluetoothConnMeasureActivity（蓝牙连接与测量页）。
+  2) BLE 扫描：app/.../BluetoothConnMeasureActivity.java
+     - startScan() → ViseBle.getInstance().startScan(periodScanCallback)
+     - 全局 ViseBle 配置在 app/.../com/iknet/ble/common/BluetoothDeviceManager.java
+       的 init()（由 BaseApp.onCreate 调用）：单轮约 8 秒的 startLeScan 窗口等。
+     - 过滤逻辑（自动连设备）：设备名非空，且含 "RBP" 或 "BP"，且厂家代码里还要求
+       名称再含字母 "A" 才会 stopScan 并 connect；否则 8 秒超时后走下面第 3 条。
+  3) 经典蓝牙发现（与 PC 的「纯 BLE 扫描」不是同一条路）：
+     - BluetoothConnMeasureActivity.onScanTimeout → bluetoothManager.startBTAffair(...)
+     - app/.../iknetbluetoothlibrary/BluetoothManager.java
+       searchBluetooth() → doDiscovery() → BluetoothAdapter.startDiscovery()
+     - 搜到设备：BroadcastReceiver 里 ACTION_FOUND，用「getName() + "-" + getAddress()」
+       拼成字符串 str，取前 3 字符 arg：若 arg.equals("RBP") 或 str.contains("BP") 则加入列表。
+       （若系统返回的名为 null，行为依赖 Android/Java 拼接结果，可能与预期不符。）
+  4) 真正连上后的测量与发指令：BluetoothService、BluetoothGATTConnModel、
+     BluetoothConnMeasureActivity 里的 CONNECT_ORDER 等——这才是 PDF 里 FFF0/FFF1/FFF2
+     与 CC/AA 帧；与「扫描」是后一阶段。
+
+二、为什么「看了 app 里方法」PC 仍可能扫不到血压仪
+  - app 里用的是 **Android 蓝牙栈**（startLeScan / startDiscovery）；PC 端用的是
+    **Windows WinRT + bleak**。厂家并没有在 app 里提供 Windows 的扫描实现，只提供
+    **协议与流程参考**（连上后发什么包见 iknetbluetoothlibrary 与 Activity 常量）。
+  - 若血压计主要靠 **经典发现** 才出现在厂家手机的逻辑里，而几乎不打 BLE 广播，
+    则 Android Demo 可能仍「等超时 → startDiscovery」找到，PC 只做 BLE 扫描就永远列表里没有。
+
+三、若你指的是「手机装这个 app 也扫不到血压仪」（不是 PC）
+  - 先确认定位权限、蓝牙权限（Android 12+ 的 BLUETOOTH_SCAN / CONNECT、附近设备）。
+  - 看蓝牙广播名是否满足厂家过滤（尤其 BLE 分支里还要求名称含字母 "A"）。
+  - 等满约 8 秒看是否会转入经典 startDiscovery 再出设备。
+  - 关掉其它手机连接、血压计开机重新放 discoverable。
+
+================================================================================
+文档结束（与 pc_ble_client/bp_demo_app.py、bp_protocol.py 注释一致即可）
+================================================================================

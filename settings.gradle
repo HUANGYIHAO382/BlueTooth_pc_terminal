@@ -1,0 +1,38 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven {
+            url = uri("https://maven.aliyun.com/nexus/content/groups/public/")
+        }
+        maven {
+            url = uri("https://maven.aliyun.com/nexus/content/repositories/jcenter")
+        }
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url 'https://repo1.maven.org/maven2/' }
+    }
+}
+dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven {
+            allowInsecureProtocol = true
+            url = uri("https://maven.aliyun.com/nexus/content/groups/public/")
+        }
+        maven {
+            url = uri("https://maven.aliyun.com/nexus/content/repositories/jcenter")
+        }
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://repo1.maven.org/maven2/' }
+    }
+}
+
+//蓝牙demo
+rootProject.name = "BlueToothDemo"
+include ':app', ':baseble'

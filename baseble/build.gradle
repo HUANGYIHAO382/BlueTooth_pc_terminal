@@ -1,0 +1,30 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.vise.baseble'
+    compileSdk 30
+
+    defaultConfig {
+        minSdk 18
+        targetSdk 30
+        versionCode 26
+        versionName "2.0.6"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    implementation 'com.vise.xiaoyaoyou:viselog:1.1.0'
+}

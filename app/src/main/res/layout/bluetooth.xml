@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+		
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+			
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/bluetooth_connect_bg"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/rela_bluetooth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp" >
+					
+                    <ImageView
+                        android:id="@+id/imgAnim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:rotation="90"
+                        android:contentDescription="@null"
+                        android:padding="10dp"
+                        android:src="@mipmap/bluetooth_lind" />
+						
+                    <TextView 
+                        android:id="@+id/tv_heart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="16sp"
+                        android:layout_centerInParent="true"
+                        />
+                    
+                </RelativeLayout>
+
+            </LinearLayout>
+			
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_juxing"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
+                <LinearLayout 
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:orientation="vertical">
+                    <TextView 
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/connection_state_"
+                        android:textSize="14sp"/>
+                    <TextView 
+                        android:id="@+id/tv_connect_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bt_is_not_connected"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+                <LinearLayout 
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:orientation="vertical">
+                    <TextView 
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bt_meter_power_"
+                        android:textSize="14sp"/>
+                    <LinearLayout 
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView 
+		                    android:id="@+id/tv_turgoscope_power"
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:text="0"
+		                    android:textSize="16sp"/>
+                        <TextView 
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:layout_marginLeft="5dp"
+		                    android:text="mV"
+		                    android:textSize="16sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/measure_tip" />
+            
+            <Button
+                android:id="@+id/btn_stop_measure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/login_button"
+                android:layout_margin="10dp"
+                android:textSize="16sp"
+                android:textColor="@drawable/font_pressed_selector"
+                android:text="@string/connecting" />
+            
+            <!-- <LinearLayout
+                android:id="@+id/linear_bluetooth"
+                style="@style/width_match_height_wrap"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/twelve"
+                    android:layout_marginTop="20dp"
+                    android:drawableLeft="@drawable/my_account_xiangyou"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/eigth"
+                    android:text="@string/bluetoothdevice"
+                    android:textColor="@color/gray_font_color" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="@dimen/twelve"
+                    android:layout_marginRight="@dimen/twelve"
+                    android:layout_marginTop="@dimen/eigth"
+                    android:background="@drawable/detail_pic_bg" >
+
+                    <TextView
+                        android:id="@+id/tv_bluetooth_deviceName"
+                        style="@style/wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="6dp" />
+
+                    <TextView
+                        android:id="@+id/tv_bluetooth_connected"
+                        style="@style/wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:drawablePadding="16dp"
+                        android:drawableRight="@drawable/phone_model" />
+                </RelativeLayout>
+				
+                <Button
+                    android:id="@+id/sendView"
+                    style="@style/button_style"
+                    android:layout_marginLeft="@dimen/twelve"
+                    android:layout_marginRight="@dimen/twelve"
+                    android:layout_marginTop="20dp"
+                    android:onClick="doClick"
+                    android:text="@string/start_measurement" />
+            </LinearLayout> -->
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

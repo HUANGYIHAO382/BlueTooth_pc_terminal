@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BlueToothDemo</string>
+
+    <string name="connecting">Connecting...</string>
+    <string name="stop_measurement">Stop Measurement</string>
+    <string name="continue_measurement">Continue Measurement</string>
+    <string name="re_test">Retest</string>
+    <string name="connect_bluetooth">Bluetooth Connected</string>
+    <string name="not_connect_bluetooth">Bluetooth Not Connected</string>
+    <string name="was_connected">Connected.</string>
+    <string name="unable_to_connect_device">Unable to connect device:</string>
+    <string name="start_measure">Start Measurement</string>
+    <string name="connection_state_">Connection Status:</string>
+    <string name="bt_is_not_connected">Bluetooth Not Connected</string>
+    <string name="bt_meter_power_">Blood Pressure Monitor Battery:</string>
+    <string name="measure_tip">Please remain quiet during measurement!</string>
+    <string name="systolic_pressure_">Systolic Pressure:</string>
+    <string name="diastolic_pressure_">Diastolic Pressure:</string>
+    <string name="pulse_">Pulse Rate:</string>
+</resources>
