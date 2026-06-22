@@ -14,3 +14,7 @@
 
 # PC 端 Python 虚拟环境（见 pc_ble_client/setup_venv.bat）
 pc_ble_client/.venv/
+
+# Python 编译缓存，不应提交到仓库
+__pycache__/
+*.pyc

@@ -20,6 +20,7 @@
 
 from __future__ import annotations
 
+import argparse
 import asyncio
 import traceback
 from datetime import datetime
@@ -29,14 +30,12 @@ from PySide6.QtCore import QObject, Qt, QSettings, QTimer, Signal
 from PySide6.QtWidgets import (
     QApplication,
     QFileDialog,
-    QGroupBox,
     QHBoxLayout,
     QLabel,
     QMainWindow,
     QMessageBox,
     QSplitter,
     QStatusBar,
-    QTextEdit,
     QVBoxLayout,
     QWidget,
 )
@@ -56,13 +55,16 @@ from device_profile import (
     norm_mac,
     type_label,
 )
+from gateway_config import GatewayConfigStore, detect_lan_ip
+from gateway_controller import GatewayController
 from multi_ble_backend import MultiBleBackend
-from reading_format import format_bp_pressure, format_bp_result, format_hr
+from reading_format import format_bp_result
 from tv_link import TvLink
 from ui_panels import (
     DevicePoolPanel,
     FunctionPanel,
     GlobalBar,
+    LogTabsWidget,
     ProfileEditDialog,
     SessionPanel,
 )
@@ -79,39 +81,54 @@ class SignalBridge(QObject):
     disconnect_finished = Signal()
     measure_finished = Signal(bool, str)
     measurement_result = Signal(str, int, int, int)  # (mac, sys, dia, pulse)
+    bp_session_changed = Signal(str, bool)  # (mac, connected)
 
 
 class MainWindow(QMainWindow):
     """主窗口：组装四区面板，接线后端 / 档案 / TV 联动。"""
 
-    def __init__(self) -> None:
+    def __init__(self, cli_overrides: Optional[dict] = None) -> None:
         super().__init__()
+        self._cli = cli_overrides or {}
         self.setWindowTitle("多路 BLE 测试端（设备档案 + 四区布局 + TV 联动）")
-        self.resize(1240, 780)
+        self.resize(1240, 820)
 
         self._settings = QSettings("RuiguangBpTest", "PcBleClient")
         self._store = DeviceProfileStore()
+        self._gw_store = GatewayConfigStore()
+        self._apply_cli_to_gateway()
+
         self._bridge = SignalBridge()
         self._backend = MultiBleBackend(self._bridge)
-        self._tv = TvLink(on_log=lambda m: self._bridge.log_line.emit(m))
+        self._tv = TvLink(
+            on_log=lambda m: self._bridge.log_line.emit(m),
+            on_protocol_log=self._append_protocol_log,
+        )
+        self._gateway = GatewayController(
+            self._gw_store,
+            self._tv,
+            self._backend,
+            on_run_log=self._append_log_raw,
+            on_protocol_log=self._append_protocol_log,
+            on_status=self._set_status,
+        )
 
         # 运行态标志
         self._scan_busy = False
         self._connect_busy = False
         self._batch_probe_busy = False
         self._measuring = False
-        self._awaiting_start = False
         self._hr_push_enabled = False
         self._bp_push_enabled = False
         # 预连接池总开关：默认开启——只要设备在池里(auto_connect=True)，扫描到就自动连
         self._auto_connect = True
-        self._tv_port = 18500
-        # 扫描到的 MAC -> 显示名（连接成功后写入档案 name）
+
         self._scan_names: Dict[str, str] = {}
-        # MAC -> 连接来源（"手动" / "预连接池"），供区域2「来源」列展示
         self._conn_source: Dict[str, str] = {}
 
         self._build_ui()
+        self._gateway.apply_ui_to_bar(self.bar)
+        self._update_window_title()
         self._wire_bridge()
         self._wire_panels()
 
@@ -125,9 +142,54 @@ class MainWindow(QMainWindow):
         self._disconnect_timer.setSingleShot(True)
         self._disconnect_timer.timeout.connect(self._on_disconnect_all)
 
-        self._append_log("已启动（qasync 合并事件循环）。扫描使用多轮 BleakScanner.discover。")
-        self._append_log("提示：右键设备可「加入/编辑预连接池」；勾选「自动连接」后，扫描到池内设备会自动连接。")
+        self._append_log("已启动（qasync）。默认协议：P0 双信道（A=18500 遥测，B=18501 测压闭环）。")
+        self._append_log("启动后将自动 bind 18500+18501 并发送 SCRIPT_READY（listen_port=18501）。")
         QTimer.singleShot(800, self._on_refresh_clicked)
+        QTimer.singleShot(1200, self._auto_start_gateway)
+
+    @asyncSlot()
+    async def _auto_start_gateway(self) -> None:
+        """P0 默认开机即网关：双信道 + SCRIPT_READY。"""
+        if not self._gw_store.config.auto_start_gateway:
+            return
+        ok = await self._gateway.ensure_tv()
+        self.bar.set_channel_b_status(self._tv.is_channel_b_running)
+        if ok:
+            c = self._gw_store.config
+            self._append_log(
+                f"[TV] 网关已启动 P0：A={c.port_a} B={c.port_b} "
+                f"script_ip={c.effective_script_ip()}"
+            )
+        else:
+            self._append_log("[TV] 自动启动网关失败，请检查端口占用或防火墙。")
+
+    def _apply_cli_to_gateway(self) -> None:
+        """命令行参数覆盖 gateway.json。"""
+        c = self._gw_store.config
+        if self._cli.get("emulator"):
+            c.protocol_stage = "P0"
+            c.tv_unicast_ip = "127.0.0.1"
+            c.no_broadcast = True
+            c.script_ip = "10.0.2.2"
+            c.text_mode = False
+            c.json_mode = True
+        if self._cli.get("protocol_stage"):
+            c.protocol_stage = self._cli["protocol_stage"]
+        if self._cli.get("tv_unicast_ip"):
+            c.tv_unicast_ip = self._cli["tv_unicast_ip"]
+            c.tv_mode = "unicast"
+        if self._cli.get("tv_ip"):
+            c.tv_ip = self._cli["tv_ip"]
+        if self._cli.get("no_broadcast"):
+            c.no_broadcast = True
+        if self._cli.get("script_ip"):
+            c.script_ip = self._cli["script_ip"]
+        self._gw_store.save()
+
+    def _update_window_title(self) -> None:
+        self.setWindowTitle(
+            "多路 BLE 网关测试端 — " + self._gateway.version_title_suffix()
+        )
 
     # ──────────────────────────────────────────────────────────────
     # UI 组装
@@ -156,14 +218,9 @@ class MainWindow(QMainWindow):
         top_split.setSizes([360, 300, 540])
         main_split.addWidget(top_split)
 
-        # 运行日志（全宽）
-        gb_log = QGroupBox("运行日志")
-        gl = QVBoxLayout(gb_log)
-        self.text_log = QTextEdit()
-        self.text_log.setReadOnly(True)
-        self.text_log.setMinimumHeight(120)
-        gl.addWidget(self.text_log)
-        main_split.addWidget(gb_log)
+        # 运行日志（分 Tab）
+        self.log_panel = LogTabsWidget()
+        main_split.addWidget(self.log_panel)
         main_split.setStretchFactor(0, 3)
         main_split.setStretchFactor(1, 1)
 
@@ -189,6 +246,18 @@ class MainWindow(QMainWindow):
         self._bridge.disconnect_finished.connect(lambda: self._refresh_sessions_ui())
         self._bridge.measure_finished.connect(self._on_measure_finished)
         self._bridge.measurement_result.connect(self._on_measurement_result)
+        self._bridge.bp_session_changed.connect(self._on_bp_session_changed)
+
+    def _on_bp_session_changed(self, mac: str, connected: bool) -> None:
+        """血压计连接/断开时同步 TV 网关与界面会话表。"""
+        name = self._scan_names.get(norm_mac(mac), "")
+        if connected:
+            asyncio.create_task(self._gateway.on_bp_connected(mac, name))
+        else:
+            asyncio.create_task(self._gateway.on_bp_disconnected(mac))
+            self._set_status(f"血压计已断开: {mac}")
+        # 意外断开（休眠等）也会走此信号，必须刷新区域2
+        self._refresh_sessions_ui()
 
     def _wire_panels(self) -> None:
         # 区域1 设备池
@@ -229,12 +298,20 @@ class MainWindow(QMainWindow):
 
         # 区域4 底部栏
         self.bar.refresh_requested.connect(self._on_refresh_clicked)
-        self.bar.clear_log_requested.connect(self.text_log.clear)
+        self.bar.clear_log_requested.connect(self.log_panel.clear_all)
         self.bar.save_log_requested.connect(self._on_save_log)
         self.bar.save_pool_requested.connect(self._on_save_pool)
         self.bar.tv_test_requested.connect(self._on_tv_test)
         self.bar.tv_linkage_toggled.connect(self._on_tv_linkage_toggled)
         self.bar.tv_config_changed.connect(self._on_tv_config_changed)
+        self.bar.detect_script_ip_requested.connect(self._on_detect_script_ip)
+
+        td = self.func.tv_debug
+        td.send_script_ready_requested.connect(self._on_send_script_ready)
+        td.simulate_start_requested.connect(lambda: self._gateway.simulate_start(use_p0=False))
+        td.simulate_start_measure_requested.connect(
+            lambda: self._gateway.simulate_start(use_p0=True)
+        )
 
         # 初始化预连接池视图（管理表 + 计数）
         self._refresh_pool_views()
@@ -250,9 +327,19 @@ class MainWindow(QMainWindow):
     # 日志 / 状态
     # ──────────────────────────────────────────────────────────────
 
-    def _append_log(self, text: str) -> None:
+    def _append_log_raw(self, text: str) -> None:
         ts = datetime.now().strftime("%H:%M:%S")
-        self.text_log.append(f"[{ts}] {text}")
+        self.log_panel.append_run(f"[{ts}] {text}")
+
+    def _append_log(self, text: str) -> None:
+        self._append_log_raw(text)
+        if "FFF1:" in text or "写入 FFF2" in text:
+            self.log_panel.append_ble(text)
+
+    def _append_protocol_log(self, text: str) -> None:
+        ts = datetime.now().strftime("%H:%M:%S")
+        self.log_panel.append_tv(f"[{ts}] {text}")
+        self.func.tv_debug.append_outbound(text)
 
     def _set_status(self, text: str) -> None:
         self._status_label.setText(text)
@@ -341,7 +428,7 @@ class MainWindow(QMainWindow):
             else:
                 names = ", ".join(pending)
                 self._append_log(f"[预连接池] 命中 {len(pending)} 台待自动连接：{names}")
-                self._run_auto_connect(pending)
+                asyncio.create_task(self._run_auto_connect(pending))
 
     def _on_auto_refresh_toggled(self, on: bool) -> None:
         if on:
@@ -468,7 +555,6 @@ class MainWindow(QMainWindow):
         """预连接池自动连接（不弹窗）。"""
         await self._do_connect(mac, source="预连接池", interactive=False)
 
-    @asyncSlot(list)
     async def _run_auto_connect(self, macs: List[str]) -> None:
         """按顺序自动连接多台预连接池设备（避免 WinRT 并发连接冲突）。"""
         for mac in macs:
@@ -577,43 +663,24 @@ class MainWindow(QMainWindow):
     # ──────────────────────────────────────────────────────────────
 
     def _on_heart_rate(self, mac: str, bpm: int) -> None:
-        # 统一「处理后」的展示文本：心率: 86 BPM（不含 MAC / 原始 hex）
-        text = format_hr(bpm)
-        ts = datetime.now().strftime("%H:%M:%S")
-        # 业务操作「实时日志」格式：[时间戳] 心率: 86 BPM —— 这一行就是推送给 TV 的内容
-        line = f"[{ts}] {text}"
+        line, _reading = self._gateway.on_heart_rate(mac, bpm)
         self.func.set_hr(bpm)
         self.func.append_hr_log(line)
-        self._append_log(text)        # 运行日志保留当前呈现
-        self._set_status(text)
-        # 推送到 TV：text 即「实时日志」整行（含时间戳），TV 端直接呈现这条信息流
-        if self._hr_push_enabled and self._tv.is_running:
-            self._tv.send_hr(mac=mac, bpm=bpm, text=line)
+        self._append_log_raw(line.split("] ", 1)[-1] if "] " in line else line)
 
     def _on_bp_pressure(self, mmhg: int) -> None:
-        """血压计加压过程：更新实时压力标签 + 业务面板实时日志 + （勾选后）推送到 TV。"""
-        ts = datetime.now().strftime("%H:%M:%S")
-        line = f"[{ts}] {format_bp_pressure(mmhg)}"
+        mac = self._backend.active_bp_address or ""
+        line = self._gateway.on_bp_pressure(mmhg, mac=mac)
+        if line is None:
+            return
         self.func.set_bp_pressure(mmhg)
         self.func.append_bp_log(line)
-        # 推送加压过程到 TV：勾选「推送血压到 TV」或 TV 联动模式，且 TV 已启动
-        if (self._bp_push_enabled or self.bar.is_linkage_on()) and self._tv.is_running:
-            mac = self._backend.active_bp_address or ""
-            self._tv.send_pressure(mac=mac, mmhg=mmhg, text=line)
 
     def _on_measurement_result(self, mac: str, sys_: int, dia_: int, pulse: int) -> None:
-        text = format_bp_result(sys_, dia_, pulse)
-        ts = datetime.now().strftime("%H:%M:%S")
-        # 与心率统一：业务面板实时日志 / 推送给 TV 的都是「实时日志」整行（含时间戳）
-        line = f"[{ts}] {text}"
+        line = self._gateway.on_measurement_result(mac, sys_, dia_, pulse)
         self.func.set_bp_result(sys_, dia_, pulse)
         self.func.append_bp_log(line)
-        self._append_log(text)        # 运行日志保留当前呈现
-        # 回推 TV：勾选「推送血压到 TV」或处于 TV 联动模式，且 TV 已启动
-        if (self._bp_push_enabled or self.bar.is_linkage_on()) and self._tv.is_running:
-            self._tv.send_result(
-                device="bp", mac=mac, sys_=sys_, dia_=dia_, pulse=pulse, text=line
-            )
+        self._append_log_raw(format_bp_result(sys_, dia_, pulse))
 
     # ──────────────────────────────────────────────────────────────
     # 血压测量（分步 + 一键 + TV 联动）
@@ -655,38 +722,29 @@ class MainWindow(QMainWindow):
 
     @asyncSlot()
     async def _on_full_measure(self) -> None:
-        """开始测量：TV 联动模式下先等 TV 的 START，再走一键完整测量。"""
+        """开始测量：经 GatewayController + MeasureFsm 统一入口。"""
         if self._measuring:
             return
         self._measuring = True
         self.func.bp.set_busy(True)
         force = self.func.bp.is_force()
         d9 = self.func.bp.is_type9000()
+        self._gateway.linkage_enabled = self.bar.is_linkage_on()
+        self._gateway.bp_push_enabled = self._bp_push_enabled
         try:
-            # TV 联动：发 READY → 等 START
             if self.bar.is_linkage_on():
-                if not await self._ensure_tv():
-                    self._bridge.measure_finished.emit(False, "TV 联动已开启但 UDP 未能启动，测量取消。")
-                    return
-                active = self._backend.active_bp_address or ""
-                name = self._scan_names.get(active, "")
-                self.func.set_tv_status("等待 TV 授权（已发送 READY）...", waiting=True)
-                self._tv.send_ready(device="bp", mac=active, name=name)
-                self._append_log("已向 TV 发送 READY，等待 START 指令（最多 120 秒）…")
-                self._awaiting_start = True
-                try:
-                    await self._tv.wait_for_start("bp", timeout=120.0)
-                    self.func.set_tv_status("TV 已授权，开始测量", active=True)
-                    self._append_log("收到 TV 端 START 指令，开始测量。")
-                except asyncio.TimeoutError:
-                    self.func.set_tv_status("TV 联动：等待 START 超时", active=False)
-                    self._bridge.measure_finished.emit(False, "等待 TV START 超时（120 秒），测量取消。")
-                    return
-                finally:
-                    self._awaiting_start = False
-
-            await self._backend.run_full_measurement(force, d9)
-            self._bridge.measure_finished.emit(True, "测量流程结束")
+                self.func.set_tv_status("等待 TV 授权…", waiting=True)
+            active = self._backend.active_bp_address or ""
+            name = self._scan_names.get(active, "")
+            ok, msg = await self._gateway.run_full_measure(
+                force=force,
+                device_type_9000=d9,
+                active_mac=active,
+                device_name=name,
+            )
+            self._bridge.measure_finished.emit(ok, msg)
+            if ok and self.bar.is_linkage_on():
+                self.func.set_tv_status("TV 联动：已启用", active=True)
         except Exception as e:  # noqa: BLE001
             self._bridge.measure_finished.emit(False, str(e))
         finally:
@@ -789,27 +847,22 @@ class MainWindow(QMainWindow):
 
     def _on_hr_push_toggled(self, on: bool) -> None:
         self._hr_push_enabled = on
+        self._gateway.hr_push_enabled = on
         if on:
-            # 异步确保 TV 已启动
             self._ensure_tv_fire_and_forget()
 
     def _on_bp_push_toggled(self, on: bool) -> None:
         self._bp_push_enabled = on
+        self._gateway.bp_push_enabled = on
         if on:
             self._ensure_tv_fire_and_forget()
 
     async def _ensure_tv(self) -> bool:
-        """确保 TV UDP 已按当前配置启动；返回是否可用。"""
-        cfg = self.bar.get_tv_config()
-        try:
-            if (not self._tv.is_running) or (self._tv_port != cfg["port"]):
-                await self._tv.start(cfg["port"])
-                self._tv_port = cfg["port"]
-            self._tv.set_target(mode=cfg["mode"], ip=cfg["ip"])
-            return True
-        except Exception as e:  # noqa: BLE001
-            self._append_log(f"[TV] 启动失败: {e!r}")
-            return False
+        self._gateway.sync_config_from_ui(self.bar.get_tv_config())
+        ok = await self._gateway.ensure_tv()
+        self.bar.set_channel_b_status(self._tv.is_channel_b_running)
+        self._update_window_title()
+        return ok
 
     @asyncSlot()
     async def _ensure_tv_fire_and_forget(self) -> None:
@@ -817,19 +870,22 @@ class MainWindow(QMainWindow):
 
     @asyncSlot(bool)
     async def _on_tv_linkage_toggled(self, on: bool) -> None:
+        self._gateway.linkage_enabled = on
         if on:
             ok = await self._ensure_tv()
             if ok:
                 self.func.set_tv_status("TV 联动：已启用（等待测量触发）", active=True)
-                self._append_log("已启用 TV 联动模式：测量将先发 READY 并等待 TV 的 START。")
+                self._append_log("已启用 TV 联动：测量前等待 TV 的 START / START_MEASURE。")
             else:
                 self.bar.chk_linkage.setChecked(False)
         else:
             self.func.set_tv_status("TV 联动：未启用")
-            self._append_log("已关闭 TV 联动模式：点「开始测量」立即执行。")
+            self._append_log("已关闭 TV 联动模式。")
 
     @asyncSlot()
     async def _on_tv_config_changed(self) -> None:
+        self._gateway.sync_config_from_ui(self.bar.get_tv_config())
+        self._update_window_title()
         if self._tv.is_running:
             await self._ensure_tv()
 
@@ -837,9 +893,21 @@ class MainWindow(QMainWindow):
     async def _on_tv_test(self) -> None:
         if not await self._ensure_tv():
             return
+        self._gateway.send_ping()
         cfg = self.bar.get_tv_config()
-        self._tv.send_ping()
-        self._append_log(f"[TV] 已向 {cfg['ip']}:{cfg['port']} 发送 PING（等待 TV 回 PONG）。")
+        self._append_log(f"[TV] 已发送 PING → {cfg.get('ip')}:{cfg.get('port_a')}")
+
+    @asyncSlot()
+    async def _on_send_script_ready(self) -> None:
+        if await self._ensure_tv():
+            self._gateway.send_script_ready()
+
+    def _on_detect_script_ip(self) -> None:
+        ip = detect_lan_ip()
+        self.bar.edit_script_ip.setText(ip)
+        self._gw_store.config.script_ip = ip
+        self._gw_store.save()
+        self._append_log(f"已检测 script_ip: {ip}")
 
     # ──────────────────────────────────────────────────────────────
     # 杂项
@@ -850,7 +918,7 @@ class MainWindow(QMainWindow):
         if not path:
             return
         with open(path, "w", encoding="utf-8") as fp:
-            fp.write(self.text_log.toPlainText())
+            fp.write(self.log_panel.text_run.toPlainText())
         self._append_log(f"已保存: {path}")
 
     def closeEvent(self, event) -> None:  # noqa: ANN001
@@ -865,7 +933,7 @@ class MainWindow(QMainWindow):
 
     async def _shutdown(self) -> None:
         try:
-            await self._tv.stop()
+            await self._gateway.stop_tv()
         except Exception:  # noqa: BLE001
             pass
         try:
@@ -874,11 +942,42 @@ class MainWindow(QMainWindow):
             pass
 
 
-def main() -> None:
+def parse_cli(argv: Optional[List[str]] = None) -> dict:
+    """解析命令行，供 run_gui / 直接启动使用。"""
+    p = argparse.ArgumentParser(description="PC BLE 网关 GUI")
+    p.add_argument("--protocol-stage", choices=["L0", "T0", "P0"], default=None)
+    p.add_argument(
+        "--emulator",
+        action="store_true",
+        help="AS 模拟器预设：P0 + 单播 127.0.0.1 + script_ip=10.0.2.2 + 禁用广播",
+    )
+    p.add_argument("--tv-ip", default=None, help="TV 单播 IP（广播模式下的加固单播）")
+    p.add_argument("--tv-unicast-ip", default=None, help="单播目标，模拟器常用 127.0.0.1")
+    p.add_argument("--no-broadcast", action="store_true")
+    p.add_argument("--script-ip", default=None)
+    ns = p.parse_args(argv)
+    out: dict = {}
+    if ns.emulator:
+        out["emulator"] = True
+    if ns.protocol_stage:
+        out["protocol_stage"] = ns.protocol_stage
+    if ns.tv_ip:
+        out["tv_ip"] = ns.tv_ip
+    if ns.tv_unicast_ip:
+        out["tv_unicast_ip"] = ns.tv_unicast_ip
+    if ns.no_broadcast:
+        out["no_broadcast"] = True
+    if ns.script_ip:
+        out["script_ip"] = ns.script_ip
+    return out
+
+
+def main(argv: Optional[List[str]] = None) -> None:
+    cli = parse_cli(argv)
     app = QApplication([])
     loop = QEventLoop(app)
     asyncio.set_event_loop(loop)
-    w = MainWindow()
+    w = MainWindow(cli_overrides=cli)
     w.show()
     app.lastWindowClosed.connect(loop.stop)
     with loop:

@@ -76,7 +76,7 @@ def main() -> int:
         print("pip 安装依赖失败，请把完整报错复制给开发者。")
         return r
 
-    run_cmd = [sys.executable, str(app)]
+    run_cmd = [sys.executable, str(app), *sys.argv[1:]]
     print("正在启动界面:", " ".join(run_cmd))
     return subprocess.call(run_cmd, cwd=str(root))
 

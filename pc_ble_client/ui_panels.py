@@ -874,6 +874,10 @@ class FunctionPanel(QGroupBox):
         self.pool_manager = PoolManagerWidget()
         self.tabs.addTab(self.pool_manager, "预连接池管理")
 
+        # Tab4：TV 联调（协议报文预览 + 模拟 START）
+        self.tv_debug = TvDebugWidget()
+        self.tabs.addTab(self.tv_debug, "TV 联调")
+
         # 透传子面板信号转发
         self.hr.push_toggled.connect(self.hr_push_toggled)
         self.bp.start_measure.connect(self.bp_start_measure)
@@ -925,6 +929,84 @@ class FunctionPanel(QGroupBox):
         self.lbl_tv_status.setStyleSheet(f"padding: 4px; border-radius: 4px; background: {bg};")
 
 
+class TvDebugWidget(QWidget):
+  """
+  TV 联调面板：最近发出的报文预览 + 模拟 TV 控制指令。
+
+  信号：
+      send_script_ready_requested()
+      simulate_start_requested()
+      simulate_start_measure_requested()
+  """
+
+  send_script_ready_requested = Signal()
+  simulate_start_requested = Signal()
+  simulate_start_measure_requested = Signal()
+
+  def __init__(self, parent: Optional[QWidget] = None) -> None:
+    super().__init__(parent)
+    root = QVBoxLayout(self)
+    row = QHBoxLayout()
+    self.btn_ready = QPushButton("发送 SCRIPT_READY")
+    self.btn_ready.clicked.connect(self.send_script_ready_requested)
+    row.addWidget(self.btn_ready)
+    self.btn_sim_start = QPushButton("模拟 TV: START")
+    self.btn_sim_start.clicked.connect(self.simulate_start_requested)
+    row.addWidget(self.btn_sim_start)
+    self.btn_sim_measure = QPushButton("模拟 TV: START_MEASURE")
+    self.btn_sim_measure.clicked.connect(self.simulate_start_measure_requested)
+    row.addWidget(self.btn_sim_measure)
+    row.addStretch()
+    root.addLayout(row)
+    root.addWidget(QLabel("最近发出的 TV 报文（最多 20 条）："))
+    self.text_msgs = QTextEdit()
+    self.text_msgs.setReadOnly(True)
+    self.text_msgs.setMinimumHeight(120)
+    root.addWidget(self.text_msgs, stretch=1)
+
+  def append_outbound(self, line: str) -> None:
+    """追加一条发出报文；超过 20 条时删最旧。"""
+    lines = self.text_msgs.toPlainText().splitlines()
+    lines.append(line)
+    if len(lines) > 20:
+      lines = lines[-20:]
+    self.text_msgs.setPlainText("\n".join(lines))
+    self.text_msgs.verticalScrollBar().setValue(self.text_msgs.verticalScrollBar().maximum())
+
+
+class LogTabsWidget(QGroupBox):
+  """运行日志分区：运行 | TV 协议 | BLE 调试。"""
+
+  def __init__(self, parent: Optional[QWidget] = None) -> None:
+    super().__init__("运行日志", parent)
+    lay = QVBoxLayout(self)
+    self.tabs = QTabWidget()
+    self.text_run = QTextEdit()
+    self.text_run.setReadOnly(True)
+    self.text_tv = QTextEdit()
+    self.text_tv.setReadOnly(True)
+    self.text_ble = QTextEdit()
+    self.text_ble.setReadOnly(True)
+    self.tabs.addTab(self.text_run, "运行")
+    self.tabs.addTab(self.text_tv, "TV 协议")
+    self.tabs.addTab(self.text_ble, "BLE 调试")
+    lay.addWidget(self.tabs)
+
+  def append_run(self, text: str) -> None:
+    self.text_run.append(text)
+
+  def append_tv(self, text: str) -> None:
+    self.text_tv.append(text)
+
+  def append_ble(self, text: str) -> None:
+    self.text_ble.append(text)
+
+  def clear_all(self) -> None:
+    self.text_run.clear()
+    self.text_tv.clear()
+    self.text_ble.clear()
+
+
 # ──────────────────────────────────────────────────────────────────────
 # 区域4：底部全局栏 + TV 推送配置
 # ──────────────────────────────────────────────────────────────────────
@@ -949,66 +1031,136 @@ class GlobalBar(QGroupBox):
     tv_test_requested = Signal()
     tv_linkage_toggled = Signal(bool)
     tv_config_changed = Signal()
+    detect_script_ip_requested = Signal()
 
     def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("全局控制 / TV 联动（区域4）", parent)
-        root = QHBoxLayout(self)
-        root.setSpacing(10)
+        outer = QVBoxLayout(self)
+        row_main = QHBoxLayout()
+        row_main.setSpacing(10)
 
         # 左：全局按钮
         self.btn_refresh = QPushButton("刷新")
         self.btn_refresh.clicked.connect(self.refresh_requested)
-        root.addWidget(self.btn_refresh)
+        row_main.addWidget(self.btn_refresh)
         self.btn_clear_log = QPushButton("清空日志")
         self.btn_clear_log.clicked.connect(self.clear_log_requested)
-        root.addWidget(self.btn_clear_log)
+        row_main.addWidget(self.btn_clear_log)
         self.btn_save_log = QPushButton("保存日志")
         self.btn_save_log.clicked.connect(self.save_log_requested)
-        root.addWidget(self.btn_save_log)
+        row_main.addWidget(self.btn_save_log)
         self.btn_save_pool = QPushButton("保存预连接配置")
         self.btn_save_pool.setToolTip("把当前预连接池状态强制写入 devices.json")
         self.btn_save_pool.clicked.connect(self.save_pool_requested)
-        root.addWidget(self.btn_save_pool)
+        row_main.addWidget(self.btn_save_pool)
 
-        # 预连接池计数状态
         self.lbl_pool_count = QLabel("预连接池：0 个设备")
         self.lbl_pool_count.setStyleSheet("padding: 2px 8px; border-radius: 4px; background: #e3f2fd;")
-        root.addWidget(self.lbl_pool_count)
+        row_main.addWidget(self.lbl_pool_count)
+        row_main.addStretch()
+        outer.addLayout(row_main)
 
-        root.addSpacing(20)
-        root.addWidget(_vline())
-        root.addSpacing(10)
+        row_tv = QHBoxLayout()
+        row_tv.setSpacing(8)
 
-        # 右：TV 推送配置
-        root.addWidget(QLabel("TV 推送"))
+        # 协议阶段
+        row_tv.addWidget(QLabel("协议阶段"))
+        self.combo_stage = QComboBox()
+        self.combo_stage.addItem("L0 纯文本", "L0")
+        self.combo_stage.addItem("T0 JSON+文本", "T0")
+        self.combo_stage.addItem("P0 双信道", "P0")
+        self.combo_stage.setCurrentIndex(2)  # 默认 P0 产品协议
+        self.combo_stage.currentIndexChanged.connect(lambda _i: self.tv_config_changed.emit())
+        row_tv.addWidget(self.combo_stage)
+
+        row_tv.addWidget(_vline())
+
+        row_tv.addWidget(QLabel("TV 推送"))
         self.combo_mode = QComboBox()
         self.combo_mode.addItem("广播", "broadcast")
         self.combo_mode.addItem("单播", "unicast")
         self.combo_mode.currentIndexChanged.connect(self._on_mode_changed)
-        root.addWidget(self.combo_mode)
-        root.addWidget(QLabel("IP"))
+        row_tv.addWidget(self.combo_mode)
+        row_tv.addWidget(QLabel("IP"))
         self.edit_ip = QLineEdit("255.255.255.255")
-        self.edit_ip.setFixedWidth(140)
-        self.edit_ip.setEnabled(False)  # 广播模式下禁用
+        self.edit_ip.setFixedWidth(120)
+        self.edit_ip.setEnabled(False)
         self.edit_ip.editingFinished.connect(self.tv_config_changed)
-        root.addWidget(self.edit_ip)
-        root.addWidget(QLabel("端口"))
+        row_tv.addWidget(self.edit_ip)
+        row_tv.addWidget(QLabel("单播IP"))
+        self.edit_unicast = QLineEdit()
+        self.edit_unicast.setPlaceholderText("模拟器填 127.0.0.1")
+        self.edit_unicast.setFixedWidth(120)
+        self.edit_unicast.editingFinished.connect(self.tv_config_changed)
+        row_tv.addWidget(self.edit_unicast)
+        row_tv.addWidget(QLabel("端口A"))
         self.spin_port = QSpinBox()
         self.spin_port.setRange(1, 65535)
         self.spin_port.setValue(18500)
         self.spin_port.valueChanged.connect(lambda _v: self.tv_config_changed.emit())
-        root.addWidget(self.spin_port)
+        row_tv.addWidget(self.spin_port)
+
+        self.chk_json = QCheckBox("JSON")
+        self.chk_json.setChecked(True)
+        self.chk_json.toggled.connect(lambda _v: self.tv_config_changed.emit())
+        row_tv.addWidget(self.chk_json)
+        self.chk_text = QCheckBox("文本")
+        self.chk_text.setChecked(True)
+        self.chk_text.toggled.connect(lambda _v: self.tv_config_changed.emit())
+        row_tv.addWidget(self.chk_text)
+        self.chk_no_broadcast = QCheckBox("禁用广播")
+        self.chk_no_broadcast.toggled.connect(lambda _v: self.tv_config_changed.emit())
+        row_tv.addWidget(self.chk_no_broadcast)
+
+        row_tv.addWidget(QLabel("script_ip"))
+        self.edit_script_ip = QLineEdit()
+        self.edit_script_ip.setPlaceholderText("自动检测")
+        self.edit_script_ip.setFixedWidth(110)
+        self.edit_script_ip.editingFinished.connect(self.tv_config_changed)
+        row_tv.addWidget(self.edit_script_ip)
+        self.btn_detect_ip = QPushButton("检测")
+        self.btn_detect_ip.clicked.connect(self.detect_script_ip_requested)
+        row_tv.addWidget(self.btn_detect_ip)
+
+        self.lbl_b_status = QLabel("B: —")
+        self.lbl_b_status.setStyleSheet("padding: 2px 6px; background: #eee; border-radius: 3px;")
+        row_tv.addWidget(self.lbl_b_status)
+
         self.btn_test = QPushButton("测试连接")
         self.btn_test.clicked.connect(self.tv_test_requested)
-        root.addWidget(self.btn_test)
-        self.chk_linkage = QCheckBox("启用 TV 联动模式")
-        self.chk_linkage.setToolTip(
-            "开启后：血压测量流程变为 连接→发 READY→等待 TV 的 START→测量→回推 RESULT；\n"
-            "关闭则点「开始测量」立即执行。"
-        )
+        row_tv.addWidget(self.btn_test)
+        self.chk_linkage = QCheckBox("TV 联动")
+        self.chk_linkage.setToolTip("测量前发 READY 并等待 TV 的 START / START_MEASURE")
         self.chk_linkage.toggled.connect(self.tv_linkage_toggled)
-        root.addWidget(self.chk_linkage)
-        root.addStretch()
+        row_tv.addWidget(self.chk_linkage)
+        row_tv.addStretch()
+        outer.addLayout(row_tv)
+
+    def set_channel_b_status(self, ok: bool) -> None:
+        if ok:
+            self.lbl_b_status.setText("B: 已监听")
+            self.lbl_b_status.setStyleSheet("padding: 2px 6px; background: #d4edda; border-radius: 3px;")
+        else:
+            self.lbl_b_status.setText("B: 未监听")
+            self.lbl_b_status.setStyleSheet("padding: 2px 6px; background: #eee; border-radius: 3px;")
+
+    def set_gateway_config(self, cfg: object) -> None:
+        """从 GatewayConfig 回填控件。"""
+        stage = getattr(cfg, "protocol_stage", "P0")
+        i = self.combo_stage.findData(stage)
+        if i >= 0:
+            self.combo_stage.setCurrentIndex(i)
+        mode = getattr(cfg, "tv_mode", "broadcast")
+        j = self.combo_mode.findData(mode)
+        if j >= 0:
+            self.combo_mode.setCurrentIndex(j)
+        self.edit_ip.setText(getattr(cfg, "tv_ip", "255.255.255.255"))
+        self.edit_unicast.setText(getattr(cfg, "tv_unicast_ip", ""))
+        self.spin_port.setValue(int(getattr(cfg, "port_a", 18500)))
+        self.chk_json.setChecked(bool(getattr(cfg, "json_mode", True)))
+        self.chk_text.setChecked(bool(getattr(cfg, "text_mode", True)))
+        self.chk_no_broadcast.setChecked(bool(getattr(cfg, "no_broadcast", False)))
+        self.edit_script_ip.setText(getattr(cfg, "script_ip", ""))
 
     def _on_mode_changed(self, _idx: int) -> None:
         is_unicast = self.combo_mode.currentData() == "unicast"
@@ -1019,9 +1171,15 @@ class GlobalBar(QGroupBox):
 
     def get_tv_config(self) -> dict:
         return {
+            "protocol_stage": str(self.combo_stage.currentData() or "P0"),
             "mode": str(self.combo_mode.currentData() or "broadcast"),
             "ip": self.edit_ip.text().strip() or "255.255.255.255",
-            "port": int(self.spin_port.value()),
+            "unicast_ip": self.edit_unicast.text().strip(),
+            "port_a": int(self.spin_port.value()),
+            "text_mode": self.chk_text.isChecked(),
+            "json_mode": self.chk_json.isChecked(),
+            "no_broadcast": self.chk_no_broadcast.isChecked(),
+            "script_ip": self.edit_script_ip.text().strip(),
         }
 
     def is_linkage_on(self) -> bool:
