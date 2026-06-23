@@ -8,7 +8,7 @@
   "text_mode": false,
   "json_mode": true,
   "no_broadcast": true,
-  "script_ip": "10.0.2.2",
+  "script_ip": "10.10.2.2",
   "script_ready_interval_sec": 60,
   "device_ready_interval_sec": 10,
   "progress_throttle_ms": 200,

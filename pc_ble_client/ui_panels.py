@@ -1075,22 +1075,34 @@ class GlobalBar(QGroupBox):
 
         row_tv.addWidget(_vline())
 
-        row_tv.addWidget(QLabel("TV 推送"))
+        row_tv.addWidget(QLabel("TV推送"))
         self.combo_mode = QComboBox()
         self.combo_mode.addItem("广播", "broadcast")
         self.combo_mode.addItem("单播", "unicast")
+        self.combo_mode.setToolTip(
+            "广播：向 255.255.255.255:18500 发 A 信道（发现/心率/DEVICE_READY）\n"
+            "单播：仅向下方「TV IP」发 A 信道"
+        )
         self.combo_mode.currentIndexChanged.connect(self._on_mode_changed)
         row_tv.addWidget(self.combo_mode)
-        row_tv.addWidget(QLabel("IP"))
+        row_tv.addWidget(QLabel("TV IP"))
         self.edit_ip = QLineEdit("255.255.255.255")
         self.edit_ip.setFixedWidth(120)
         self.edit_ip.setEnabled(False)
+        self.edit_ip.setToolTip("仅「TV推送=单播」时使用：A 信道单播目标")
         self.edit_ip.editingFinished.connect(self.tv_config_changed)
         row_tv.addWidget(self.edit_ip)
-        row_tv.addWidget(QLabel("单播IP"))
+        row_tv.addWidget(QLabel("机顶盒IP"))
         self.edit_unicast = QLineEdit()
-        self.edit_unicast.setPlaceholderText("模拟器填 127.0.0.1")
-        self.edit_unicast.setFixedWidth(120)
+        self.edit_unicast.setPlaceholderText("真机填机顶盒IP；模拟器 127.0.0.1")
+        self.edit_unicast.setFixedWidth(130)
+        self.edit_unicast.setToolTip(
+            "对应 gateway.json 的 tv_unicast_ip。\n"
+            "PC 向 A 信道(18500) 单播加固：SCRIPT_READY、DEVICE_READY、心率等。\n"
+            "真机：机顶盒局域网 IP（设置→网络里查看）。\n"
+            "模拟器：127.0.0.1（配合 adb redir 18500）。\n"
+            "测血压 ACK/进度/结果走 B 信道 reply_to，不依赖本项。"
+        )
         self.edit_unicast.editingFinished.connect(self.tv_config_changed)
         row_tv.addWidget(self.edit_unicast)
         row_tv.addWidget(QLabel("端口A"))
@@ -1109,13 +1121,21 @@ class GlobalBar(QGroupBox):
         self.chk_text.toggled.connect(lambda _v: self.tv_config_changed.emit())
         row_tv.addWidget(self.chk_text)
         self.chk_no_broadcast = QCheckBox("禁用广播")
+        self.chk_no_broadcast.setToolTip(
+            "勾选后 A 信道不再发 255.255.255.255 广播，\n"
+            "必须填写「机顶盒IP」；真机联调建议不勾选。"
+        )
         self.chk_no_broadcast.toggled.connect(lambda _v: self.tv_config_changed.emit())
         row_tv.addWidget(self.chk_no_broadcast)
 
         row_tv.addWidget(QLabel("script_ip"))
         self.edit_script_ip = QLineEdit()
-        self.edit_script_ip.setPlaceholderText("自动检测")
+        self.edit_script_ip.setPlaceholderText("PC 局域网 IP")
         self.edit_script_ip.setFixedWidth(110)
+        self.edit_script_ip.setToolTip(
+            "写入 SCRIPT_READY.script_ip，TV 据此向 PC:18501 发 START_MEASURE。\n"
+            "真机填 PC 在 WiFi/网线下的 IP，可点「检测」。"
+        )
         self.edit_script_ip.editingFinished.connect(self.tv_config_changed)
         row_tv.addWidget(self.edit_script_ip)
         self.btn_detect_ip = QPushButton("检测")
