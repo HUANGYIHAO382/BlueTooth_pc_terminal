@@ -15,6 +15,10 @@
 # PC 端 Python 虚拟环境（见 pc_ble_client/setup_venv.bat）
 pc_ble_client/.venv/
 
+# PyInstaller 打包产物（体积大，只把 zip 传到 GitHub Releases）
+pc_ble_client/build/
+pc_ble_client/dist/
+
 # Python 编译缓存，不应提交到仓库
 __pycache__/
 *.pyc

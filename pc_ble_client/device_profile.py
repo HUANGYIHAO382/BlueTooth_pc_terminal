@@ -6,7 +6,9 @@
 - 把「某台 MAC 是手环还是血压计、用什么角色连、是否预连接」这些信息记下来，
   下次扫描到同一台设备就能自动标记类型、一键按既定方式连接，省去每次手选。
 
-存储位置：与本文件同目录的 ``devices.json``（旧版 ``device_profiles.json`` 会自动迁移）。
+存储位置：应用可写根目录下的 ``devices.json``
+（源码运行时为 ``pc_ble_client/``；绿色版 exe 为 exe 同目录）。
+旧版 ``device_profiles.json`` 会自动迁移。
 用纯 JSON（而非 SQLite）是为了方便你直接用记事本查看/手改。
 
 数据结构（与需求文档一致）::
@@ -34,6 +36,8 @@ from dataclasses import dataclass, asdict, field
 from datetime import datetime
 from typing import Dict, List, Optional
 
+from app_paths import get_app_dir
+
 # 设备类型常量
 TYPE_BAND = "band"   # 心率手环（标准 0x180D / 0x2A37）
 TYPE_BP = "bp"       # 瑞光血压计（FFF0 / FFF1 / FFF2）
@@ -43,7 +47,7 @@ TYPE_SCALE = "scale" # 体脂秤（暂未实现，仅档案占位）
 ROLE_CLIENT = "client"
 ROLE_SERVER = "server"
 
-# 档案文件名（放在本模块同目录）
+# 档案文件名（放在应用可写根目录，见 app_paths.get_app_dir）
 _PROFILE_FILENAME = "devices.json"
 # 旧文件名：若存在则自动迁移到新文件名（兼容历史版本）
 _LEGACY_FILENAME = "device_profiles.json"
@@ -120,7 +124,8 @@ class DeviceProfileStore:
 
     def __init__(self, path: Optional[str] = None) -> None:
         if path is None:
-            here = os.path.dirname(os.path.abspath(__file__))
+            # 与 gateway.json 一样：绿色版写到 exe 旁，源码写到本目录
+            here = str(get_app_dir())
             path = os.path.join(here, _PROFILE_FILENAME)
             # 历史兼容：旧 device_profiles.json 存在而新 devices.json 不存在时迁移
             legacy = os.path.join(here, _LEGACY_FILENAME)

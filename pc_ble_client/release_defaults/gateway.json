@@ -1,0 +1,17 @@
+{
+  "protocol_stage": "P0",
+  "tv_mode": "unicast",
+  "tv_ip": "255.255.255.255",
+  "tv_unicast_ip": "127.0.0.1",
+  "port_a": 18500,
+  "port_b": 18501,
+  "text_mode": false,
+  "json_mode": true,
+  "no_broadcast": false,
+  "script_ip": "",
+  "script_ready_interval_sec": 60,
+  "device_ready_interval_sec": 10,
+  "progress_throttle_ms": 200,
+  "hr_throttle_ms": 1000,
+  "auto_start_gateway": true
+}

@@ -13,11 +13,22 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any, Literal, Optional
 
+from app_paths import get_app_dir
+
 # 协议阶段：L0=纯文本 Legacy；T0=18500 JSON+可选文本；P0=双信道闭环
 ProtocolStage = Literal["L0", "T0", "P0"]
 
 GATEWAY_VERSION = "2.3.0"
-DEFAULT_GATEWAY_PATH = Path(__file__).resolve().parent / "gateway.json"
+
+
+def get_default_gateway_path() -> Path:
+    """
+    gateway.json 的默认路径。
+
+    - 源码运行：pc_ble_client/gateway.json
+    - 绿色版 exe：与 PCBleGateway.exe 同目录（用户可改、可保存）
+    """
+    return get_app_dir() / "gateway.json"
 
 
 def detect_lan_ip() -> str:
@@ -150,7 +161,8 @@ class GatewayConfigStore:
     """读写 gateway.json。"""
 
     def __init__(self, path: Optional[Path] = None) -> None:
-        self.path = path or DEFAULT_GATEWAY_PATH
+        # 未指定路径时，按「源码 / 绿色版」规则选可写目录
+        self.path = path or get_default_gateway_path()
         self._config = GatewayConfig()
         self.load()
 

@@ -1,19 +1,29 @@
 # Start pc_ble_client GUI (PowerShell, ASCII-only)
+# Prefer project .venv; if missing, print how to create it.
+
 Set-Location -LiteralPath $PSScriptRoot
 
 $VenvPy = Join-Path $PSScriptRoot ".venv\Scripts\python.exe"
-$Py312 = "B:\python3.12\python.exe"
 
 if (Test-Path -LiteralPath $VenvPy) {
-    & $VenvPy run_gui.py
+    Write-Host "Starting with project venv: $VenvPy"
+    & $VenvPy run_gui.py @args
     exit $LASTEXITCODE
 }
 
-if (Test-Path -LiteralPath $Py312) {
-    Write-Host "WARN: no .venv, using B:\python3.12. Run .\setup_venv.ps1 first."
-    & $Py312 run_gui.py
+Write-Host "No project .venv found."
+Write-Host "Creating it now (one-time setup) ..."
+& (Join-Path $PSScriptRoot "setup_venv.ps1")
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "setup_venv.ps1 failed. Fix Python install, then retry."
     exit $LASTEXITCODE
 }
 
-Write-Error "No .venv and no B:\python3.12\python.exe. Run .\setup_venv.ps1 first."
-exit 1
+if (-not (Test-Path -LiteralPath $VenvPy)) {
+    Write-Error "Still no .venv after setup. Abort."
+    exit 1
+}
+
+Write-Host "Starting with project venv: $VenvPy"
+& $VenvPy run_gui.py @args
+exit $LASTEXITCODE
