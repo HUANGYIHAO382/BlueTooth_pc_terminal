@@ -1,22 +1,26 @@
 # BlueToothDemo — 家庭端医疗健康蓝牙网关
 
 [![GitHub](https://img.shields.io/badge/GitHub-BlueTooth__pc__terminal-blue)](https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal)
+[![Release](https://img.shields.io/github/v/release/HUANGYIHAO382/BlueTooth_pc_terminal)](https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal/releases/latest)
 
 本仓库是**家庭端医疗健康场景**下的蓝牙设备接入与联调工程，包含两部分：
 
 | 子项目 | 技术栈 | 作用 |
 |--------|--------|------|
-| **PC 网关脚本** `pc_ble_client/` | Python 3.10+ / PySide6 / bleak | Windows 桌面网关：连接血压计/手环，通过 UDP 向 TV 机顶盒推送数据 |
+| **PC 网关** `pc_ble_client/` | Python 3.10+ / PySide6 / bleak | Windows 桌面网关：连接血压计/手环，通过 UDP 向 TV 机顶盒推送数据 |
 | **Android 血压计 Demo** `app/` + `baseble/` | Java / Android Gradle | 厂家参考 Demo：瑞光血压计 BLE 扫描、握手、测量（可独立在手机上运行） |
 
-PC 端与 Android Demo **互不依赖**：PC 脚本按厂家 PDF 与 Android Demo 对齐协议，但日常联调 TV 时只需运行 `pc_ble_client`。
+PC 端与 Android Demo **互不依赖**：PC 按厂家 PDF 与 Android Demo 对齐协议，日常联调 TV 时只需运行 PC 网关。
+
+**不想装 Python？** 直接下载 [Releases 绿色版](https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal/releases/latest)，解压后双击 `PCBleGateway.exe` 即可（见下方「发布版」）。
 
 ---
 
 ## 目录
 
 - [整体架构](#整体架构)
-- [快速开始（PC 网关）](#快速开始pc-网关)
+- [发布版（绿色 exe，推荐多数用户）](#发布版绿色-exe推荐多数用户)
+- [从源码运行（PC 网关）](#从源码运行pc-网关)
 - [快速开始（Android Demo）](#快速开始android-demo)
 - [PC 网关功能说明](#pc-网关功能说明)
 - [支持的设备与 BLE 协议](#支持的设备与-ble-协议)
@@ -54,14 +58,58 @@ Android Demo（独立）：手机 ──BLE──► 瑞光血压计（参考实
 
 ---
 
-## 快速开始（PC 网关）
+## 发布版（绿色 exe，推荐多数用户）
+
+适合：**不需要安装 Python**、只想拷贝即用的联调/演示人员。
+
+| 项 | 说明 |
+|----|------|
+| 最新发布 | [v1.0.0](https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal/releases/tag/v1.0.0) / [全部 Releases](https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal/releases) |
+| 下载文件 | `PCBleGateway-*-win64.zip`（Windows 64 位便携包） |
+| 系统要求 | Windows 10/11，本机蓝牙支持 BLE；与 TV 联调时需同一局域网 |
+
+### 如何下载并运行
+
+```text
+1. 打开 Releases 页面，下载最新的 PCBleGateway-*-win64.zip
+2. 解压到任意目录（例如 D:\PCBleGateway\）
+3. 双击 PCBleGateway.exe 启动
+4. 若 Windows SmartScreen 提示「未知发布者」，选择「仍要运行」
+```
+
+直达：https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal/releases/latest
+
+### 解压后目录说明
+
+| 文件 / 目录 | 作用 |
+|-------------|------|
+| `PCBleGateway.exe` | 主程序，双击启动 |
+| `gateway.json` | TV IP、端口、协议阶段等（可用记事本修改） |
+| `devices.json` | 已保存的蓝牙设备档案 |
+| `README.txt` | 英文简要说明 |
+| `_internal\` | 运行库（勿删、勿单独移动 exe） |
+
+**整份文件夹一起拷贝**到其他电脑即可，不要只拷贝单个 `.exe`。
+
+### 首次使用（与源码版相同）
+
+1. 打开 Windows 系统蓝牙；确保血压计/手环 **未被手机占用**；
+2. 在界面扫描设备 → 右键标为「血压计」或「手环」→ 连接；
+3. 底部栏填写 TV 的局域网 IP，勾选推送到 TV；
+4. 开始测量，或等待 TV 发来的联动指令。
+
+---
+
+## 从源码运行（PC 网关）
+
+适合：需要改代码、调试协议，或自行重新打包绿色版的开发者。
 
 ### 环境要求
 
 | 项 | 要求 |
 |----|------|
 | 操作系统 | Windows 10/11（需开启系统蓝牙） |
-| Python | **3.10 及以上**（推荐 3.12） |
+| Python | **3.10 及以上**（推荐 3.12）；启动脚本会自动探测本机 Python |
 | 网络 | PC 与 TV 在同一局域网（联调 UDP 时） |
 | 硬件 | 支持 BLE 的蓝牙适配器；瑞光血压计或标准心率手环 |
 
@@ -73,6 +121,8 @@ Android Demo（独立）：手机 ──BLE──► 瑞光血压计（参考实
 3. 双击 start_pc_demo.bat     # 安装依赖并启动图形界面
 ```
 
+脚本会优先使用项目内 `.venv`；若本机没有写死路径的 Python，也会通过 `py` 启动器或 PATH 自动查找 3.10+。
+
 ### 方式二：命令行启动
 
 ```powershell
@@ -81,6 +131,8 @@ cd pc_ble_client
 .\.venv\Scripts\python.exe run_gui.py         # 安装依赖 + 启动 GUI
 ```
 
+可选：设置环境变量 `PC_BLE_PYTHON` 为某台机器上 `python.exe` 的完整路径，再运行 `setup_venv.ps1`。
+
 ### 方式三：模拟器联调模式
 
 与 Android Studio 模拟器联调 TV 端时，可加 `--emulator` 参数（脚本 IP 默认 `10.0.2.2`）：
@@ -88,6 +140,16 @@ cd pc_ble_client
 ```powershell
 .\.venv\Scripts\python.exe run_gui.py --emulator
 ```
+
+### 自行打包绿色版（开发者）
+
+```powershell
+cd pc_ble_client
+.\build_exe.ps1                # 完整打包（需已有 .venv）
+# .\build_exe.ps1 -SkipBuild   # 仅重新拷贝默认配置并打 zip
+```
+
+产物在 `pc_ble_client/dist/`：可运行目录 `PCBleGateway\`，以及上传 Releases 用的 zip。
 
 ### 界面四区说明
 
@@ -99,12 +161,6 @@ cd pc_ble_client
 | 区域 2 | 会话 | 当前已连接设备（只读展示 MAC、角色、状态） |
 | 区域 3 | 功能面板 | 连接设置 + 业务操作（按设备类型切换心率/血压 Tab） |
 | 区域 4 | 底部栏 | 全局操作、TV 推送开关、协议阶段与 IP/端口配置 |
-
-**首次使用建议：**
-
-1. 确保血压计/手环未被手机占用（否则 PC 易出现 `Unreachable`）；
-2. 扫描 → 在列表中右键将设备标为「血压计」或「手环」→ 连接；
-3. 底部栏填写 TV IP，勾选推送选项，开始测量或等待 TV 联动指令。
 
 ---
 
@@ -305,8 +361,11 @@ BlueToothDemo/
 **Q：TV 收不到 UDP？**  
 检查防火墙是否放行 UDP 18500/18501；确认 PC 与 TV 同网段；`gateway.json` 中 `tv_unicast_ip` 是否填对。
 
+**Q：绿色版双击没反应 / 被拦截？**  
+先看 Windows SmartScreen 是否拦截；杀毒软件可能误报。请保持 `_internal` 与 exe 在同一文件夹。仍不行可改用下方「从源码运行」。
+
 **Q：`pip` 或 `bleak` 安装失败？**  
-使用项目内 `.venv`，避免 Anaconda base 环境；或执行 `py -3.12 run_gui.py` 指定 Python 3.12。
+使用项目内 `.venv`，避免 Anaconda base 环境；或执行 `py -3.12 run_gui.py` 指定 Python 3.12。也可用环境变量 `PC_BLE_PYTHON` 指向正确的 `python.exe`。
 
 **Q：手环 MAC 选了血压计角色？**  
 心率服务 `0x180D` 与瑞光 `FFF0` 在 UUID 比较时易混淆，务必在设备池右键设置正确类型。
@@ -320,7 +379,8 @@ BlueToothDemo/
 
 | 项 | 当前值 |
 |----|--------|
-| PC 网关版本 | `2.3.0`（见 `gateway_config.GATEWAY_VERSION`） |
+| 公开发布 | **[v1.0.0](https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal/releases/tag/v1.0.0)**（Windows 绿色版首发） |
+| 网关内部版本号 | `2.3.0`（见 `gateway_config.GATEWAY_VERSION`，与配置/协议演进对应） |
 | 远程仓库 | https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal |
 | 主分支 | `main` |
 
