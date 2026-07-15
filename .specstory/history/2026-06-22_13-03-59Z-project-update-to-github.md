@@ -221,3 +221,11708 @@ Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\B
 <summary>Tool use: **run_terminal_command_v2**</summary>
 
 </details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+已确认远程仓库地址：https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal.git。</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\.gitignore</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git diff --stat</summary>
+
+```bash
+Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git diff --stat
+```
+
+```
+warning: in the working copy of '.specstory/history/2026-05-14_02-36-06Z-blood-pressure-monitor-connection-guidance.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/项目结构与模块解耦说明.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/multi_ble_backend.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/reading_format.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/run_gui.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/tv_link.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/ui_panels.py', LF will be replaced by CRLF the next time Git touches it
+ .specstory/.project.json                           |    2 +
+ ...Z-blood-pressure-monitor-connection-guidance.md | 2872 +++++++++-----------
+ .specstory/statistics.json                         |    8 +-
+ ...247\243\350\200\246\350\257\264\346\230\216.md" |    2 +
+ .../__pycache__/bp_demo_app.cpython-312.pyc        |  Bin 58980 -&gt; 66903 bytes
+ .../__pycache__/multi_ble_backend.cpython-312.pyc  |  Bin 46099 -&gt; 60615 bytes
+ .../__pycache__/reading_format.cpython-312.pyc     |  Bin 3194 -&gt; 6557 bytes
+ pc_ble_client/__pycache__/tv_link.cpython-312.pyc  |  Bin 15005 -&gt; 22016 bytes
+ .../__pycache__/ui_panels.cpython-312.pyc          |  Bin 66279 -&gt; 78752 bytes
+ pc_ble_client/bp_demo_app.py                       |  289 +-
+ pc_ble_client/devices.json                         |    4 +-
+ pc_ble_client/multi_ble_backend.py                 |  526 +++-
+ pc_ble_client/reading_format.py                    |  130 +-
+ pc_ble_client/run_gui.py                           |    2 +-
+ pc_ble_client/tv_link.py                           |  447 +--
+ pc_ble_client/ui_panels.py                         |  220 +-
+ ...17\241\346\211\213\350\257\264\346\230\216.txt" |  148 -
+ 17 files changed, 2526 insertions(+), 2124 deletions(-)
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+用户希望将项目推送到 GitHub。
+
+正在准备推送。需要把 __pycache__ 加入 .gitignore，然后提交源码、新模块、配置文件和文档。
+
+发现 __pycache__ 已被 Git 跟踪，需要先用 git rm --cached 清理，再加入 .gitignore。.specstory 目录可能保留。正在检查 gateway.json 和 devices.json 是否包含敏感信息。
+
+正在读取 gateway.json 和 devices.json 的内容。准备执行 git 提交与推送，可能需要网络权限。</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\pc_ble_client\gateway.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\pc_ble_client\devices.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+已检查相关文件，未发现敏感信息，仅包含本地设备MAC地址和配置。</details></think>
+
+_**Agent (default)**_
+
+正在整理提交内容：排除 `__pycache__`，加入网关升级相关代码与文档，然后提交并推送到 GitHub。
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\.gitignore</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git rm -r --cached pc_ble_client/__pycache__ 2>$null; git add .gitignore; git add pc_ble_client/*.py pc_ble_client/*.json; git add docs/; git add .specstory/; git add "docs/项目结构与模块解耦说明.md"</summary>
+
+```bash
+Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git rm -r --cached pc_ble_client/__pycache__ 2>$null; git add .gitignore; git add pc_ble_client/*.py pc_ble_client/*.json; git add docs/; git add .specstory/; git add "docs/项目结构与模块解耦说明.md"
+```
+
+```
+rm 'pc_ble_client/__pycache__/ble_runner.cpython-312.pyc'
+rm 'pc_ble_client/__pycache__/bp_demo_app.cpython-312.pyc'
+rm 'pc_ble_client/__pycache__/bp_protocol.cpython-312.pyc'
+rm 'pc_ble_client/__pycache__/device_profile.cpython-312.pyc'
+rm 'pc_ble_client/__pycache__/hr_ble.cpython-312.pyc'
+rm 'pc_ble_client/__pycache__/hr_ble_backend.cpython-312.pyc'
+rm 'pc_ble_client/__pycache__/multi_ble_backend.cpython-312.pyc'
+rm 'pc_ble_client/__pycache__/reading_format.cpython-312.pyc'
+rm 'pc_ble_client/__pycache__/tv_link.cpython-312.pyc'
+rm 'pc_ble_client/__pycache__/ui_panels.cpython-312.pyc'
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/multi_ble_backend.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/reading_format.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/run_gui.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/tv_link.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/ui_panels.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/gateway_config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/gateway_controller.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/measure_fsm.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/tv_messages.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/项目结构与模块解耦说明.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/AndroidStudio双信道测试方案.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/PC网关升级测试验收清单.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/PC网关脚本功能与实现分析.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/PC网关脚本升级优化方案.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/pc_gateway升级方案.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/udp_信道设计.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/安卓SDK蓝牙扫描与握手说明.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/通讯格式文档.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/history/2026-05-14_02-36-06Z-blood-pressure-monitor-connection-guidance.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/history/2026-06-22_13-03-59Z-project-update-to-github.md', LF will be replaced by CRLF the next time Git touches it
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git status</summary>
+
+```bash
+Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git status
+```
+
+```
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+	modified:   .gitignore
+	modified:   .specstory/.project.json
+	modified:   .specstory/history/2026-05-14_02-36-06Z-blood-pressure-monitor-connection-guidance.md
+	new file:   .specstory/history/2026-06-22_13-03-59Z-project-update-to-github.md
+	modified:   .specstory/statistics.json
+	new file:   "docs/AndroidStudio\345\217\214\344\277\241\351\201\223\346\265\213\350\257\225\346\226\271\346\241\210.md"
+	new file:   "docs/PC\347\275\221\345\205\263\345\215\207\347\272\247\346\265\213\350\257\225\351\252\214\346\224\266\346\270\205\345\215\225.md"
+	new file:   "docs/PC\347\275\221\345\205\263\350\204\232\346\234\254\345\212\237\350\203\275\344\270\216\345\256\236\347\216\260\345\210\206\346\236\220.md"
+	new file:   "docs/PC\347\275\221\345\205\263\350\204\232\346\234\254\345\215\207\347\272\247\344\274\230\345\214\226\346\226\271\346\241\210.md"
+	new file:   "docs/pc_gateway\345\215\207\347\272\247\346\226\271\346\241\210.md"
+	new file:   "docs/udp_\344\277\241\351\201\223\350\256\276\350\256\241.md"
+	new file:   "docs/\345\256\211\345\215\223SDK\350\223\235\347\211\231\346\211\253\346\217\217\344\270\216\346\217\241\346\211\213\350\257\264\346\230\216.txt"
+	new file:   "docs/\347\221\236\345\205\211\345\272\267\346\263\260\345\256\266\347\224\250\350\241\200\345\216\213\350\256\241\350\223\235\347\211\231\351\200\232\350\256\257\345\215\217\350\256\256.pdf"
+	new file:   "docs/\351\200\232\350\256\257\346\240\274\345\274\217\346\226\207\346\241\243.md"
+	modified:   "docs/\351\241\271\347\233\256\347\273\223\346\236\204\344\270\216\346\250\241\345\235\227\350\247\243\350\200\246\350\257\264\346\230\216.md"
+	deleted:    pc_ble_client/__pycache__/ble_runner.cpython-312.pyc
+	deleted:    pc_ble_client/__pycache__/bp_demo_app.cpython-312.pyc
+	deleted:    pc_ble_client/__pycache__/bp_protocol.cpython-312.pyc
+	deleted:    pc_ble_client/__pycache__/device_profile.cpython-312.pyc
+	deleted:    pc_ble_client/__pycache__/hr_ble.cpython-312.pyc
+	deleted:    pc_ble_client/__pycache__/hr_ble_backend.cpython-312.pyc
+	deleted:    pc_ble_client/__pycache__/multi_ble_backend.cpython-312.pyc
+	deleted:    pc_ble_client/__pycache__/reading_format.cpython-312.pyc
+	deleted:    pc_ble_client/__pycache__/tv_link.cpython-312.pyc
+	deleted:    pc_ble_client/__pycache__/ui_panels.cpython-312.pyc
+	modified:   pc_ble_client/bp_demo_app.py
+	modified:   pc_ble_client/devices.json
+	new file:   pc_ble_client/gateway.json
+	new file:   pc_ble_client/gateway_config.py
+	new file:   pc_ble_client/gateway_controller.py
+	new file:   pc_ble_client/measure_fsm.py
+	modified:   pc_ble_client/multi_ble_backend.py
+	modified:   pc_ble_client/reading_format.py
+	modified:   pc_ble_client/run_gui.py
+	modified:   pc_ble_client/tv_link.py
+	new file:   pc_ble_client/tv_messages.py
+	modified:   pc_ble_client/ui_panels.py
+
+Changes not staged for commit:
+  (use "git add/rm &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+	deleted:    "pc_ble_client/\345\256\211\345\215\223SDK\350\223\235\347\211\231\346\211\253\346\217\217\344\270\216\346\217\241\346\211\213\350\257\264\346\230\216.txt"
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Cancelled
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git add "pc_ble_client/安卓SDK蓝牙扫描与握手说明.txt"; git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "$(@'
+PC 网关升级：双信道 UDP、测量状态机与配套文档
+
+新增 gateway 控制器、测量 FSM 和 TV 消息模块，重构 BLE/UDP 链路；补充协议与测试文档，并将 SDK 说明移至 docs/；停止跟踪 __pycache__。
+'@)"</summary>
+
+```bash
+Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git add "pc_ble_client/安卓SDK蓝牙扫描与握手说明.txt"; git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "$(@'
+PC 网关升级：双信道 UDP、测量状态机与配套文档
+
+新增 gateway 控制器、测量 FSM 和 TV 消息模块，重构 BLE/UDP 链路；补充协议与测试文档，并将 SDK 说明移至 docs/；停止跟踪 __pycache__。
+'@)"
+```
+
+```
+[main 13a8a5a] PC 网关升级：双信道 UDP、测量状态机与配套文档
+ 37 files changed, 6915 insertions(+), 1976 deletions(-)
+ create mode 100644 .specstory/history/2026-06-22_13-03-59Z-project-update-to-github.md
+ create mode 100644 "docs/AndroidStudio\345\217\214\344\277\241\351\201\223\346\265\213\350\257\225\346\226\271\346\241\210.md"
+ create mode 100644 "docs/PC\347\275\221\345\205\263\345\215\207\347\272\247\346\265\213\350\257\225\351\252\214\346\224\266\346\270\205\345\215\225.md"
+ create mode 100644 "docs/PC\347\275\221\345\205\263\350\204\232\346\234\254\345\212\237\350\203\275\344\270\216\345\256\236\347\216\260\345\210\206\346\236\220.md"
+ create mode 100644 "docs/PC\347\275\221\345\205\263\350\204\232\346\234\254\345\215\207\347\272\247\344\274\230\345\214\226\346\226\271\346\241\210.md"
+ create mode 100644 "docs/pc_gateway\345\215\207\347\272\247\346\226\271\346\241\210.md"
+ create mode 100644 "docs/udp_\344\277\241\351\201\223\350\256\276\350\256\241.md"
+ rename "pc_ble_client/\345\256\211\345\215\223SDK\350\223\235\347\211\231\346\211\253\346\217\217\344\270\216\346\217\241\346\211\213\350\257\264\346\230\216.txt" =&gt; "docs/\345\256\211\345\215\223SDK\350\223\235\347\211\231\346\211\253\346\217\217\344\270\216\346\217\241\346\211\213\350\257\264\346\230\216.txt" (100%)
+ create mode 100644 "docs/\347\221\236\345\205\211\345\272\267\346\263\260\345\256\266\347\224\250\350\241\200\345\216\213\350\256\241\350\223\235\347\211\231\351\200\232\350\256\257\345\215\217\350\256\256.pdf"
+ create mode 100644 "docs/\351\200\232\350\256\257\346\240\274\345\274\217\346\226\207\346\241\243.md"
+ delete mode 100644 pc_ble_client/__pycache__/ble_runner.cpython-312.pyc
+ delete mode 100644 pc_ble_client/__pycache__/bp_demo_app.cpython-312.pyc
+ delete mode 100644 pc_ble_client/__pycache__/bp_protocol.cpython-312.pyc
+ delete mode 100644 pc_ble_client/__pycache__/device_profile.cpython-312.pyc
+ delete mode 100644 pc_ble_client/__pycache__/hr_ble.cpython-312.pyc
+ delete mode 100644 pc_ble_client/__pycache__/hr_ble_backend.cpython-312.pyc
+ delete mode 100644 pc_ble_client/__pycache__/multi_ble_backend.cpython-312.pyc
+ delete mode 100644 pc_ble_client/__pycache__/reading_format.cpython-312.pyc
+ delete mode 100644 pc_ble_client/__pycache__/tv_link.cpython-312.pyc
+ delete mode 100644 pc_ble_client/__pycache__/ui_panels.cpython-312.pyc
+ create mode 100644 pc_ble_client/gateway.json
+ create mode 100644 pc_ble_client/gateway_config.py
+ create mode 100644 pc_ble_client/gateway_controller.py
+ create mode 100644 pc_ble_client/measure_fsm.py
+ create mode 100644 pc_ble_client/tv_messages.py
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+提交已成功。现在推送至 GitHub。</details></think>
+
+_**Agent (default)**_
+
+提交已完成，正在推送到 GitHub。
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git push origin main</summary>
+
+```bash
+Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git push origin main
+```
+
+```
+To https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal.git
+   12bbc61..13a8a5a  main -&gt; main
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git status</summary>
+
+```bash
+Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git status
+```
+
+```
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+项目已成功更新到 GitHub。
+
+**远程仓库：** https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal.git  
+**分支：** `main`  
+**最新提交：** `13a8a5a` — PC 网关升级：双信道 UDP、测量状态机与配套文档
+
+### 本次提交主要内容
+
+1. **PC 网关代码**
+   - 新增：`gateway_config.py`、`gateway_controller.py`、`measure_fsm.py`、`tv_messages.py`、`gateway.json`
+   - 更新：`bp_demo_app.py`、`multi_ble_backend.py`、`tv_link.py`、`ui_panels.py` 等
+
+2. **文档**
+   - 新增 UDP 信道设计、PC 网关升级方案、通讯格式文档、协议 PDF 等
+   - 将 `安卓SDK蓝牙扫描与握手说明.txt` 从 `pc_ble_client/` 移至 `docs/`
+
+3. **仓库清理**
+   - 在 `.gitignore` 中忽略 `__pycache__/` 和 `*.pyc`
+   - 从仓库中移除已跟踪的 Python 编译缓存
+
+当前工作区已干净，与远程 `origin/main` 同步。
+
+---
+
+_**User**_
+
+增加一个readme，并且上传去github，对这个项目进行详细说明。
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+正在准备项目的README文件。将包含详细的项目说明，并上传至GitHub仓库。</details></think>
+
+_**Agent (default)**_
+
+先梳理项目结构和核心模块，再编写详细的 README 并推送到 GitHub。
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **175** results in **1** directory</summary>
+
+Directory: **c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo** (175 files)
+
+| File |
+|------|
+| `../baseble/src/main/java/com/vise/baseble/model/resolver/BluetoothClassResolver.java` |
+| `../baseble/proguard-rules.pro` |
+| `../pc_ble_client/bp_demo_app.py` |
+| `../.idea/runConfigurations.xml` |
+| `../pc_ble_client\gateway_controller.py` |
+| `../baseble/src/main/java/com/vise/baseble/common/BleConfig.java` |
+| `../baseble/src/main/java/com/vise/baseble/common/ConnectState.java` |
+| `../baseble/src/main/java/com/vise/baseble/exception/InitiatedException.java` |
+| `../baseble/src/main/java/com/vise/baseble/model/resolver/GattAttributeResolver.java` |
+| `../app/src/main/java/com/iknet/ble/event/NotifyDataEvent.java` |
+| `../baseble/src/main/java/com/vise/baseble/model/adrecord/AdRecord.java` |
+| `../pc_ble_client\devices.json` |
+| `../gradlew.bat` |
+| `../baseble/src/main/java/com/vise/baseble/exception/BleException.java` |
+| `../pc_ble_client\__pycache__\measure_fsm.cpython-312.pyc` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/IHandler.java` |
+| `../pc_ble_client\__pycache__\tv_link.cpython-312.pyc` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/BluetoothConnModel.java` |
+| `../docs\安卓SDK蓝牙扫描与握手说明.txt` |
+| `../gradlew` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/BluetoothService.java` |
+| `../app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml` |
+| `../baseble/src/main/java/com/vise/baseble/core/BluetoothGattChannel.java` |
+| `../baseble/src/main/java/com/vise/baseble/exception/handler/DefaultBleExceptionHandler.java` |
+| `../.idea/gradle.xml` |
+| `../app/src/main/res/drawable/toast_shape.xml` |
+| `../app/src/main/res/layout/common_layout_toast.xml` |
+| `../app/src/main/java/com/iknet/ble/common/ToastUtil.java` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/util/LogUtil.java` |
+| `../pc_ble_client\__pycache__\ui_panels.cpython-312.pyc` |
+| `../pc_ble_client/tv_link.py` |
+| `../app/src/main/res/drawable/ic_launcher_background.xml` |
+| `../docs\项目结构与模块解耦说明.md` |
+| `../pc_ble_client\gateway.json` |
+| `../pc_ble_client/ui_panels.py` |
+| `../docs/AndroidStudio双信道测试方案.md` |
+| `../pc_ble_client\__pycache__\gateway_config.cpython-312.pyc` |
+| `../baseble/src/main/java/com/vise/baseble/exception/ConnectException.java` |
+| `../baseble/src/main/java/com/vise/baseble/common/BleExceptionCode.java` |
+| `../baseble/src/main/AndroidManifest.xml` |
+| `../pc_ble_client\__pycache__\gateway_controller.cpython-312.pyc` |
+| `../.vscode/settings.json` |
+| `../baseble/src/main/java/com/vise/baseble/utils/HexUtil.java` |
+| `../baseble/src/main/java/com/vise/baseble/callback/scan/SingleFilterScanCallback.java` |
+| `../app/src/main/res/drawable/font_pressed_selector.xml` |
+| `../pc_ble_client\reading_format.py` |
+| `../pc_ble_client/ble_runner.py` |
+| `../app/src/main/res/drawable-v24/ic_launcher_foreground.xml` |
+| `../pc_ble_client/hr_ble_backend.py` |
+| `../app/src/test/java/com/iknet/bloodmeasuredemo/ExampleUnitTest.java` |
+| `../settings.gradle` |
+| `../baseble/src/main/java/com/vise/baseble/exception/OtherException.java` |
+| `../baseble/src/main/java/com/vise/baseble/model/BluetoothLeDeviceStore.java` |
+| `../app/src/main/java/com/iknet/bloodmeasuredemo/BluetoothConnMeasureActivity.java` |
+| `../baseble/src/main/java/com/vise/baseble/callback/scan/IScanCallback.java` |
+| `../.idea/.gitignore` |
+| `../pc_ble_client/hr_ble.py` |
+| `../pc_ble_client/devices.json` |
+| `../.cursorindexingignore` |
+| `../baseble/.gitignore` |
+| `../.idea/encodings.xml` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/BlueToothStateMachine.java` |
+| `../app/src/main/res/anim/tip.xml` |
+| `../docs\pc_gateway升级方案.md` |
+| `../.specstory\history\2026-06-22_13-03-59Z-project-update-to-github.md` |
+| `../pc_ble_client\tv_messages.py` |
+| `../app/src/main/java/com/iknet/bloodmeasuredemo/BaseApp.java` |
+| `../app/src/main/java/com/iknet/bloodmeasuredemo/MainActivity.java` |
+| `../app/src/main/java/com/iknet/bloodmeasuredemo/MeasurementResultActivity.java` |
+| `../app/proguard-rules.pro` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/MeasurementResult.java` |
+| `../pc_ble_client\run_gui.py` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/BluetoothManager.java` |
+| `../docs\PC网关升级测试验收清单.md` |
+| `../app/src/main/res/layout/activity_measure_result.xml` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/util/ClsUtils.java` |
+| `../baseble/src/main/java/com/vise/baseble/callback/IConnectCallback.java` |
+| `../app/src/main/java/com/iknet/ble/event/ConnectEvent.java` |
+| `../baseble/src/main/java/com/vise/baseble/common/BluetoothServiceType.java` |
+| `../baseble/src/main/java/com/vise/baseble/exception/GattException.java` |
+| `../.specstory/.project.json` |
+| `../baseble/src/main/java/com/vise/baseble/callback/IBleCallback.java` |
+| `../docs/项目结构与模块解耦说明.md` |
+| `../.specstory\.project.json` |
+| `../.idea/jarRepositories.xml` |
+| `../gradle.properties` |
+| `../pc_ble_client\__pycache__\tv_messages.cpython-312.pyc` |
+| `../baseble/src/main/java/com/vise/baseble/utils/AdRecordUtil.java` |
+| `../app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml` |
+| `../app/src/main/java/com/iknet/ble/event/ScanEvent.java` |
+| `../baseble/src/main/java/com/vise/baseble/model/BluetoothLeDevice.java` |
+| `../app/.gitignore` |
+| `../.idea/misc.xml` |
+| `../app/src/main/java/com/iknet/ble/event/CallbackDataEvent.java` |
+| `../pc_ble_client/setup_venv.ps1` |
+| `../docs\udp_信道设计.md` |
+| `../docs\PC网关脚本功能与实现分析.md` |
+| `../pc_ble_client\__pycache__\bp_demo_app.cpython-312.pyc` |
+| `../pc_ble_client\__pycache__\multi_ble_backend.cpython-312.pyc` |
+| `../gradle/wrapper/gradle-wrapper.properties` |
+| `../build.gradle` |
+| `../docs\瑞光康泰家用血压计蓝牙通讯协议.pdf` |
+| `../baseble/src/main/java/com/vise/baseble/callback/scan/ScanCallback.java` |
+| `../.idea/AndroidProjectSystem.xml` |
+| `../.specstory/history/2026-05-14_02-36-06Z-blood-pressure-monitor-connection-guidance.md` |
+| `../pc_ble_client\tv_link.py` |
+| `../baseble/src/main/java/com/vise/baseble/core/DeviceMirror.java` |
+| `../.vscode\settings.json` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/util/FrameUtil.java` |
+| `../baseble/src/main/java/com/vise/baseble/callback/scan/ListFilterScanCallback.java` |
+| `../.idea/deploymentTargetSelector.xml` |
+| `../app/src/main/java/com/iknet/utils/mytools.java` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/util/PermissionUtil.java` |
+| `../app/src/androidTest/java/com/iknet/bloodmeasuredemo/ExampleInstrumentedTest.java` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/config/ShareConfig.java` |
+| `../pc_ble_client/reading_format.py` |
+| `../pc_ble_client\gateway_config.py` |
+| `../.gitignore` |
+| `../pc_ble_client\ui_panels.py` |
+| `../app/src/main/AndroidManifest.xml` |
+| `../pc_ble_client/multi_ble_backend.py` |
+| `../app/src/main/res/layout/activity_main.xml` |
+| `../baseble/src/main/res/values/strings.xml` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/model/ResultFromTurg.java` |
+| `../baseble/src/main/java/com/vise/baseble/exception/TimeoutException.java` |
+| `../baseble/src/main/java/com/vise/baseble/callback/scan/IScanFilter.java` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/BluetoothStateMachineGatt.java` |
+| `../baseble/src/main/java/com/vise/baseble/utils/BleUtil.java` |
+| `../.specstory/statistics.json` |
+| `../pc_ble_client/安卓SDK蓝牙扫描与握手说明.txt` |
+| `../app/src/main/res/values/styles.xml` |
+| `../baseble/src/main/java/com/vise/baseble/ViseBle.java` |
+| `../pc_ble_client/bp_protocol.py` |
+| `../baseble/src/main/java/com/vise/baseble/core/LruHashMap.java` |
+| `../app/src/main/res/drawable/login_button.xml` |
+| `../app/build.gradle` |
+| `../.specstory\history\2026-05-14_02-36-06Z-blood-pressure-monitor-connection-guidance.md` |
+| `../pc_ble_client/device_profile.py` |
+| `../pc_ble_client\measure_fsm.py` |
+| `../docs\AndroidStudio双信道测试方案.md` |
+| `../baseble/src/main/java/com/vise/baseble/callback/scan/UuidFilterScanCallback.java` |
+| `../pc_ble_client/requirements.txt` |
+| `../pc_ble_client/start_pc_demo_py_launcher.bat` |
+| `../.idea/appInsightsSettings.xml` |
+| `../baseble/src/main/java/com/vise/baseble/core/DeviceMirrorPool.java` |
+| `../app/src/main/res/layout/bluetooth.xml` |
+| `../.idea/compiler.xml` |
+| `../baseble/src/main/java/com/vise/baseble/common/BleConstant.java` |
+| `../baseble/src/main/java/com/vise/baseble/callback/scan/RegularFilterScanCallback.java` |
+| `../baseble/src/main/java/com/vise/baseble/model/adrecord/AdRecordStore.java` |
+| `../pc_ble_client/ruiguang_bp_pc.py` |
+| `../pc_ble_client\__pycache__\reading_format.cpython-312.pyc` |
+| `../pc_ble_client/start_pc_demo.bat` |
+| `../pc_ble_client/setup_venv.bat` |
+| `../.specstory/cli/config.toml` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/BluetoothGATTConnModel.java` |
+| `../pc_ble_client\bp_demo_app.py` |
+| `../.specstory\statistics.json` |
+| `../baseble/src/main/java/com/vise/baseble/callback/IRssiCallback.java` |
+| `../app/src/main/res/values/colors.xml` |
+| `../docs/pc_gateway升级方案.md` |
+| `../docs\通讯格式文档.md` |
+| `../baseble/src/main/java/com/vise/baseble/exception/handler/BleExceptionHandler.java` |
+| `../app/src/main/res/values/strings.xml` |
+| `../app/src/main/java/com/iknet/iknetbluetoothlibrary/BluetoothSocketConfig.java` |
+| `../baseble/src/main/java/com/vise/baseble/model/resolver/CompanyIdentifierResolver.java` |
+| `../app/src/main/java/com/iknet/ble/common/BluetoothDeviceManager.java` |
+| `../app/src/main/res/values-en/strings.xml` |
+| `../baseble/build.gradle` |
+| `../pc_ble_client/start_pc_demo.ps1` |
+| `../docs\PC网关脚本升级优化方案.md` |
+| `../pc_ble_client/run_gui.py` |
+| `../baseble/src/main/java/com/vise/baseble/common/PropertyType.java` |
+| `../pc_ble_client\multi_ble_backend.py` |
+| `../docs/udp_信道设计.md` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\docs\项目结构与模块解耦说明.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\pc_ble_client\run_gui.py</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **41** results in **1** directory</summary>
+
+Directory: **c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo** (41 files)
+
+| File |
+|------|
+| `../pc_ble_client\__pycache__\measure_fsm.cpython-312.pyc` |
+| `../pc_ble_client\__pycache__\multi_ble_backend.cpython-312.pyc` |
+| `../pc_ble_client/reading_format.py` |
+| `../pc_ble_client\tv_link.py` |
+| `../pc_ble_client/安卓SDK蓝牙扫描与握手说明.txt` |
+| `../pc_ble_client/run_gui.py` |
+| `../pc_ble_client/multi_ble_backend.py` |
+| `../pc_ble_client\reading_format.py` |
+| `../pc_ble_client\measure_fsm.py` |
+| `../pc_ble_client/tv_link.py` |
+| `../pc_ble_client\devices.json` |
+| `../pc_ble_client\__pycache__\gateway_config.cpython-312.pyc` |
+| `../pc_ble_client/hr_ble.py` |
+| `../pc_ble_client\bp_demo_app.py` |
+| `../pc_ble_client/requirements.txt` |
+| `../pc_ble_client/bp_protocol.py` |
+| `../pc_ble_client\tv_messages.py` |
+| `../pc_ble_client\gateway.json` |
+| `../pc_ble_client\gateway_controller.py` |
+| `../pc_ble_client\__pycache__\gateway_controller.cpython-312.pyc` |
+| `../pc_ble_client/setup_venv.ps1` |
+| `../pc_ble_client/ui_panels.py` |
+| `../pc_ble_client\__pycache__\tv_link.cpython-312.pyc` |
+| `../pc_ble_client\multi_ble_backend.py` |
+| `../pc_ble_client/ruiguang_bp_pc.py` |
+| `../pc_ble_client/bp_demo_app.py` |
+| `../pc_ble_client/setup_venv.bat` |
+| `../pc_ble_client/start_pc_demo.ps1` |
+| `../pc_ble_client/hr_ble_backend.py` |
+| `../pc_ble_client\__pycache__\ui_panels.cpython-312.pyc` |
+| `../pc_ble_client\__pycache__\bp_demo_app.cpython-312.pyc` |
+| `../pc_ble_client\run_gui.py` |
+| `../pc_ble_client/start_pc_demo_py_launcher.bat` |
+| `../pc_ble_client/device_profile.py` |
+| `../pc_ble_client/ble_runner.py` |
+| `../pc_ble_client/start_pc_demo.bat` |
+| `../pc_ble_client/devices.json` |
+| `../pc_ble_client\__pycache__\reading_format.cpython-312.pyc` |
+| `../pc_ble_client\gateway_config.py` |
+| `../pc_ble_client\__pycache__\tv_messages.cpython-312.pyc` |
+| `../pc_ble_client\ui_panels.py` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\docs\PC网关脚本功能与实现分析.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\pc_ble_client\requirements.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\docs\通讯格式文档.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\app\src\main\java\com\iknet\bloodmeasuredemo\MainActivity.java</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\pc_ble_client\gateway_controller.py</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\settings.gradle</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "c:\\Users\\黄先生\\Desktop\\家庭端医疗健康\\蓝牙血压计\\BlueToothDemo\\BlueToothDemo",
+  "pattern": "README"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "c:\\Users\\黄先生\\Desktop\\家庭端医疗健康\\蓝牙血压计\\BlueToothDemo\\BlueToothDemo",
+  "pattern": "README",
+  "topFiles": [
+    {
+      "matchCount": 3,
+      "uri": ".specstory/history/2026-05-14_02-36-06Z-blood-pressure-monitor-connection-guidance.md"
+    },
+    {
+      "matchCount": 3,
+      "uri": ".specstory\\history\\2026-05-14_02-36-06Z-blood-pressure-monitor-connection-guidance.md"
+    }
+  ],
+  "totalFiles": 2,
+  "totalMatches": 6
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+项目根目录下尚未发现README文件。</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\pc_ble_client\gateway_config.py</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\docs\udp_信道设计.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\pc_ble_client\bp_demo_app.py</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+已掌握足够上下文，准备撰写一份全面的README文档。
+
+正在规划README的具体结构：项目概述、架构图、Android演示与PC网关两部分、快速启动指南、模块详细说明、协议阶段L0/T0/P0、支持设备列表、文档索引、依赖环境及仓库结构。文档将使用中文撰写，随后提交并推送到GitHub。</details></think>
+
+_**Agent (default)**_
+
+正在编写详细的 README.md。
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo\README.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git add README.md; git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "$(@'
+添加项目 README：架构说明、快速开始与文档索引
+
+为 PC 网关与 Android Demo 提供完整的中文使用说明，涵盖 BLE/UDP 协议阶段与联调指引。
+'@)"; git push origin main</summary>
+
+```bash
+Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git add README.md; git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "$(@'
+添加项目 README：架构说明、快速开始与文档索引
+
+为 PC 网关与 Android Demo 提供完整的中文使用说明，涵盖 BLE/UDP 协议阶段与联调指引。
+'@)"; git push origin main
+```
+
+```
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+[main 1d1327a] 添加项目 README：架构说明、快速开始与文档索引
+ 1 file changed, 341 insertions(+)
+ create mode 100644 README.md
+To https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal.git
+   13a8a5a..1d1327a  main -&gt; main
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+README 已创建并推送到 GitHub。
+
+**仓库地址：** https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal  
+**提交：** `1d1327a` — 添加项目 README：架构说明、快速开始与文档索引
+
+### README 主要内容
+
+1. **项目定位** — PC 网关（Python/PySide6）+ Android 血压计 Demo（Java）双模块说明  
+2. **整体架构图** — BLE 采集 → PC 网关 → UDP → TV 机顶盒的数据流  
+3. **快速开始** — `setup_venv.bat` / `start_pc_demo.bat` 三步启动，含 `--emulator` 模拟器模式  
+4. **界面四区说明** — 设备池、会话、功能面板、底部栏各自职责  
+5. **模块关系** — `gateway_controller`、`measure_fsm`、`tv_link` 等文件说明  
+6. **设备协议** — 瑞光血压计 FFF0/FFF1 与标准心率 0x180D 对照表  
+7. **UDP 协议阶段** — L0 / T0 / P0 与端口 18500/18501 说明  
+8. **配置说明** — `gateway.json`、`devices.json` 字段释义  
+9. **文档索引** — 链接到 `docs/` 下全部设计文档  
+10. **常见问题** — 扫描失败、Unreachable、TV 收不到包等排查指引  
+
+在 GitHub 打开仓库首页即可看到完整 README。如需补充截图、演示 GIF 或英文版，告诉我即可。
+
+---
+
+_**User**_
+
+更新至github
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+用户希望将更改推送到 GitHub。</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git status; git diff --stat</summary>
+
+```bash
+Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git status; git diff --stat
+```
+
+```
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+	modified:   .specstory/.project.json
+	modified:   .specstory/history/2026-05-14_02-36-06Z-blood-pressure-monitor-connection-guidance.md
+	modified:   .specstory/history/2026-06-22_13-03-59Z-project-update-to-github.md
+	modified:   .specstory/statistics.json
+	modified:   pc_ble_client/devices.json
+	modified:   pc_ble_client/gateway.json
+	modified:   pc_ble_client/ui_panels.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+warning: in the working copy of '.specstory/.project.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/history/2026-06-22_13-03-59Z-project-update-to-github.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pc_ble_client/ui_panels.py', LF will be replaced by CRLF the next time Git touches it
+ ...Z-blood-pressure-monitor-connection-guidance.md | 67845 +++++++++++++------
+ ...026-06-22_13-03-59Z-project-update-to-github.md |   942 +
+ .specstory/statistics.json                         |    16 +-
+ pc_ble_client/devices.json                         |     4 +-
+ pc_ble_client/gateway.json                         |     2 +-
+ pc_ble_client/ui_panels.py                         |    32 +-
+ 6 files changed, 49751 insertions(+), 19090 deletions(-)
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+正在检查 gateway.json、devices.json 和 ui_panels.py 中的实际代码变更。</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git diff pc_ble_client/gateway.json pc_ble_client/devices.json pc_ble_client/ui_panels.py</summary>
+
+```bash
+Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git diff pc_ble_client/gateway.json pc_ble_client/devices.json pc_ble_client/ui_panels.py
+```
+
+```
+warning: in the working copy of 'pc_ble_client/ui_panels.py', LF will be replaced by CRLF the next time Git touches it
+diff --git a/pc_ble_client/devices.json b/pc_ble_client/devices.json
+index 03adfff..699d26d 100644
+--- a/pc_ble_client/devices.json
++++ b/pc_ble_client/devices.json
+@@ -5,7 +5,7 @@
+     "type": "band",
+     "role": "client",
+     "auto_connect": true,
+-    "last_connected": "2026-06-22 17:17",
++    "last_connected": "2026-06-23 15:51",
+     "protocol": null,
+     "notes": "",
+     "group": "",
+@@ -17,7 +17,7 @@
+     "type": "bp",
+     "role": "server",
+     "auto_connect": true,
+-    "last_connected": "2026-06-22 20:50",
++    "last_connected": "2026-06-23 11:58",
+     "protocol": null,
+     "notes": "",
+     "group": "",
+diff --git a/pc_ble_client/gateway.json b/pc_ble_client/gateway.json
+index b90473b..96216ab 100644
+--- a/pc_ble_client/gateway.json
++++ b/pc_ble_client/gateway.json
+@@ -8,7 +8,7 @@
+   "text_mode": false,
+   "json_mode": true,
+   "no_broadcast": true,
+-  "script_ip": "10.0.2.2",
++  "script_ip": "10.10.2.2",
+   "script_ready_interval_sec": 60,
+   "device_ready_interval_sec": 10,
+   "progress_throttle_ms": 200,
+diff --git a/pc_ble_client/ui_panels.py b/pc_ble_client/ui_panels.py
+index 9928795..7f9dcbb 100644
+--- a/pc_ble_client/ui_panels.py
++++ b/pc_ble_client/ui_panels.py
+@@ -1075,22 +1075,34 @@ class GlobalBar(QGroupBox):
+ 
+         row_tv.addWidget(_vline())
+ 
+-        row_tv.addWidget(QLabel("TV 推送"))
++        row_tv.addWidget(QLabel("TV推送"))
+         self.combo_mode = QComboBox()
+         self.combo_mode.addItem("广播", "broadcast")
+         self.combo_mode.addItem("单播", "unicast")
++        self.combo_mode.setToolTip(
++            "广播：向 255.255.255.255:18500 发 A 信道（发现/心率/DEVICE_READY）\n"
++            "单播：仅向下方「TV IP」发 A 信道"
++        )
+         self.combo_mode.currentIndexChanged.connect(self._on_mode_changed)
+         row_tv.addWidget(self.combo_mode)
+-        row_tv.addWidget(QLabel("IP"))
++        row_tv.addWidget(QLabel("TV IP"))
+         self.edit_ip = QLineEdit("255.255.255.255")
+         self.edit_ip.setFixedWidth(120)
+         self.edit_ip.setEnabled(False)
++        self.edit_ip.setToolTip("仅「TV推送=单播」时使用：A 信道单播目标")
+         self.edit_ip.editingFinished.connect(self.tv_config_changed)
+         row_tv.addWidget(self.edit_ip)
+-        row_tv.addWidget(QLabel("单播IP"))
++        row_tv.addWidget(QLabel("机顶盒IP"))
+         self.edit_unicast = QLineEdit()
+-        self.edit_unicast.setPlaceholderText("模拟器填 127.0.0.1")
+-        self.edit_unicast.setFixedWidth(120)
++        self.edit_unicast.setPlaceholderText("真机填机顶盒IP；模拟器 127.0.0.1")
++        self.edit_unicast.setFixedWidth(130)
++        self.edit_unicast.setToolTip(
++            "对应 gateway.json 的 tv_unicast_ip。\n"
++            "PC 向 A 信道(18500) 单播加固：SCRIPT_READY、DEVICE_READY、心率等。\n"
++            "真机：机顶盒局域网 IP（设置→网络里查看）。\n"
++            "模拟器：127.0.0.1（配合 adb redir 18500）。\n"
++            "测血压 ACK/进度/结果走 B 信道 reply_to，不依赖本项。"
++        )
+         self.edit_unicast.editingFinished.connect(self.tv_config_changed)
+         row_tv.addWidget(self.edit_unicast)
+         row_tv.addWidget(QLabel("端口A"))
+@@ -1109,13 +1121,21 @@ class GlobalBar(QGroupBox):
+         self.chk_text.toggled.connect(lambda _v: self.tv_config_changed.emit())
+         row_tv.addWidget(self.chk_text)
+         self.chk_no_broadcast = QCheckBox("禁用广播")
++        self.chk_no_broadcast.setToolTip(
++            "勾选后 A 信道不再发 255.255.255.255 广播，\n"
++            "必须填写「机顶盒IP」；真机联调建议不勾选。"
++        )
+         self.chk_no_broadcast.toggled.connect(lambda _v: self.tv_config_changed.emit())
+         row_tv.addWidget(self.chk_no_broadcast)
+ 
+         row_tv.addWidget(QLabel("script_ip"))
+         self.edit_script_ip = QLineEdit()
+-        self.edit_script_ip.setPlaceholderText("自动检测")
++        self.edit_script_ip.setPlaceholderText("PC 局域网 IP")
+         self.edit_script_ip.setFixedWidth(110)
++        self.edit_script_ip.setToolTip(
++            "写入 SCRIPT_READY.script_ip，TV 据此向 PC:18501 发 START_MEASURE。\n"
++            "真机填 PC 在 WiFi/网线下的 IP，可点「检测」。"
++        )
+         self.edit_script_ip.editingFinished.connect(self.tv_config_changed)
+         row_tv.addWidget(self.edit_script_ip)
+         self.btn_detect_ip = QPushButton("检测")
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+已更新 ui_panels.py。GlobalBar 中 TV 配置的提示和标签已改进。</details></think>
+
+_**Agent (default)**_
+
+正在提交并推送更改：主要是 TV 联调界面标签与提示优化。
+
+
+_**Agent (default)**_
+
+Cancelled
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git add pc_ble_client/ui_panels.py pc_ble_client/gateway.json pc_ble_client/devices.json; git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "$(@'
+优化 TV 联调配置区标签与 ToolTip 说明
+
+底部栏「TV推送/机顶盒IP/script_ip」等字段补充中文提示，便于真机与模拟器联调区分。
+'@)"; git push origin main</summary>
+
+```bash
+Set-Location "c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo"; git add pc_ble_client/ui_panels.py pc_ble_client/gateway.json pc_ble_client/devices.json; git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "$(@'
+优化 TV 联调配置区标签与 ToolTip 说明
+
+底部栏「TV推送/机顶盒IP/script_ip」等字段补充中文提示，便于真机与模拟器联调区分。
+'@)"; git push origin main
+```
+
+```
+warning: in the working copy of 'pc_ble_client/ui_panels.py', LF will be replaced by CRLF the next time Git touches it
+[main 6f1b037] 优化 TV 联调配置区标签与 ToolTip 说明
+ 3 files changed, 29 insertions(+), 9 deletions(-)
+To https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal.git
+   1d1327a..6f1b037  main -&gt; main
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+已成功更新到 GitHub。
+
+**仓库：** https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal  
+**提交：** `6f1b037` — 优化 TV 联调配置区标签与 ToolTip 说明
+
+### 本次推送内容
+
+| 文件 | 变更 |
+|------|------|
+| `pc_ble_client/ui_panels.py` | 底部栏 TV 配置标签优化（「TV推送」「机顶盒IP」等），补充 ToolTip 说明 |
+| `pc_ble_client/gateway.json` | `script_ip` 更新为 `10.10.2.2` |
+| `pc_ble_client/devices.json` | 设备最近连接时间更新 |
+
+`.specstory/` 下的本地对话记录未纳入本次提交（属于 IDE 本地状态）。如需一并上传，告诉我即可。
+
+_**Agent (default)**_
+
+先定位项目里视频播放的实现位置和用法，再分析模拟器卡顿原因并给出压缩与优化方案。
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="semantic_search_full">
+<details>
+<summary>Tool use: **semantic_search_full**</summary>
+
+
+Parameters:
+
+```json
+{
+  "explanation": "",
+  "query": "Where is video playback implemented in the app or TV?",
+  "topK": 10
+}
+```
+Result:
+
+```json
+{
+  "codeResults": [
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "isSignature": true,
+            "lineNumber": 60,
+            "text": "class TvLink:"
+          },
+          {
+            "lineNumber": 61,
+            "text": "    \"\"\""
+          },
+          {
+            "lineNumber": 62,
+            "text": "    双信道 TV UDP 通道。"
+          },
+          {
+            "lineNumber": 63
+          },
+          {
+            "lineNumber": 64,
+            "text": "    - 信道 A（port_a）：发现、遥测、T0 阶段也可收 Legacy START"
+          },
+          {
+            "lineNumber": 65,
+            "text": "    - 信道 B（port_b）：P0 血压控制闭环（仅 P0 阶段 bind）"
+          },
+          {
+            "lineNumber": 66,
+            "text": "    \"\"\""
+          },
+          {
+            "lineNumber": 67
+          },
+          {
+            "lineNumber": 68,
+            "text": "    def __init__("
+          },
+          {
+            "lineNumber": 69,
+            "text": "        self,"
+          },
+          {
+            "lineNumber": 70,
+            "text": "        on_log: Optional[Callable[[str], None]] = None,"
+          },
+          {
+            "lineNumber": 71,
+            "text": "        on_protocol_log: Optional[Callable[[str], None]] = None,"
+          },
+          {
+            "lineNumber": 72,
+            "text": "    ) -\u003e None:"
+          },
+          {
+            "lineNumber": 73,
+            "text": "        self._on_log = on_log or (lambda _m: None)"
+          },
+          {
+            "lineNumber": 74,
+            "text": "        self._on_protocol_log = on_protocol_log or (lambda _m: None)"
+          },
+          {
+            "lineNumber": 75,
+            "text": "        self.on_message: Optional[Callable[[dict, tuple, str], None]] = None"
+          },
+          {
+            "lineNumber": 76
+          },
+          {
+            "lineNumber": 77,
+            "text": "        self._transport_a: Optional[asyncio.DatagramTransport] = None"
+          },
+          {
+            "lineNumber": 78,
+            "text": "        self._transport_b: Optional[asyncio.DatagramTransport] = None"
+          },
+          {
+            "lineNumber": 79,
+            "text": "        self._port_a = 18500"
+          },
+          {
+            "lineNumber": 80,
+            "text": "        self._port_b = 18501"
+          },
+          {
+            "lineNumber": 81
+          },
+          {
+            "lineNumber": 82,
+            "text": "        self._config = GatewayConfig()"
+          },
+          {
+            "lineNumber": 83,
+            "text": "        self._start_waiters: dict[str, asyncio.Future] = {}"
+          },
+          {
+            "lineNumber": 84
+          },
+          {
+            "lineNumber": 85,
+            "text": "        # 兼容旧代码：text_mode 属性映射到 config"
+          },
+          {
+            "lineNumber": 86,
+            "text": "        self.text_mode: bool = True"
+          },
+          {
+            "lineNumber": 87
+          },
+          {
+            "lineNumber": 88,
+            "text": "    @property"
+          },
+          {
+            "lineNumber": 89,
+            "text": "    def is_running(self) -\u003e bool:"
+          },
+          {
+            "lineNumber": 90,
+            "text": "        return self._transport_a is not None"
+          },
+          {
+            "lineNumber": 91
+          },
+          {
+            "lineNumber": 92,
+            "text": "    @property"
+          },
+          {
+            "lineNumber": 93,
+            "text": "    def is_channel_b_running(self) -\u003e bool:"
+          },
+          {
+            "lineNumber": 94,
+            "text": "        return self._transport_b is not None"
+          },
+          {
+            "lineNumber": 95
+          },
+          {
+            "lineNumber": 96,
+            "text": "    @property"
+          },
+          {
+            "lineNumber": 97,
+            "text": "    def protocol_stage(self) -\u003e ProtocolStage:"
+          },
+          {
+            "lineNumber": 98,
+            "text": "        return self._config.protocol_stage"
+          },
+          {
+            "lineNumber": 99
+          },
+          {
+            "lineNumber": 100,
+            "text": "    def apply_config(self, config: GatewayConfig) -\u003e None:"
+          },
+          {
+            "lineNumber": 101,
+            "text": "        \"\"\"应用网关配置（发送目标、阶段、双发开关）。\"\"\""
+          },
+          {
+            "lineNumber": 102,
+            "text": "        self._config = config"
+          },
+          {
+            "lineNumber": 103,
+            "text": "        self.text_mode = config.text_mode"
+          },
+          {
+            "lineNumber": 104
+          },
+          {
+            "lineNumber": 105,
+            "text": "    async def start(self, config: Optional[GatewayConfig] = None) -\u003e None:"
+          },
+          {
+            "lineNumber": 106,
+            "text": "        \"\"\"启动信道 A；P0 阶段同时启动信道 B。\"\"\""
+          },
+          {
+            "lineNumber": 107,
+            "text": "        if config is not None:"
+          },
+          {
+            "lineNumber": 108,
+            "text": "            self.apply_config(config)"
+          },
+          {
+            "lineNumber": 109,
+            "text": "        await self.stop()"
+          },
+          {
+            "lineNumber": 110,
+            "text": "        await self._bind_channel(\"A\", self._config.port_a)"
+          },
+          {
+            "lineNumber": 111,
+            "text": "        if self._config.protocol_stage == \"P0\":"
+          },
+          {
+            "lineNumber": 112,
+            "text": "            await self._bind_channel(\"B\", self._config.port_b)"
+          },
+          {
+            "lineNumber": 113
+          },
+          {
+            "lineNumber": 114,
+            "text": "    async def _bind_channel(self, label: str, port: int) -\u003e None:"
+          },
+          {
+            "lineNumber": 115,
+            "text": "        loop = asyncio.get_running_loop()"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 397
+          },
+          "startPosition": {
+            "column": 12,
+            "line": 56
+          }
+        },
+        "relativeWorkspacePath": ".\\pc_ble_client\\tv_link.py",
+        "signatures": {}
+      },
+      "score": 0.25137099623680115
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 71,
+            "text": "| PC→TV 格式 | 纯文本一行 | JSON（可与文本双发） | JSON |"
+          },
+          {
+            "lineNumber": 72,
+            "text": "| TV→PC 测血压 | &#96;START&#96; → **PC_IP:18500** | 仍可 18500；识别 &#96;START_MEASURE&#96; | **PC_IP:18501** &#96;START_MEASURE&#96; |"
+          },
+          {
+            "lineNumber": 73,
+            "text": "| PC 监听 | **18500**（与 TV 同端口收发） | 18500 + **可选** 18501 | **必须** &#96;0.0.0.0:18501&#96; |"
+          },
+          {
+            "lineNumber": 74,
+            "text": "| PC→TV 进度/结果 | 文本走 **18500** | JSON 可先走 **18500** | 单播 **TV:18501** |"
+          },
+          {
+            "lineNumber": 75,
+            "text": "| 发现 | 无 &#96;SCRIPT_READY&#96; | &#96;SCRIPT_READY&#96; 等 | 完整 A 信道 |"
+          },
+          {
+            "lineNumber": 76,
+            "text": "| 联调期望 | 控制台看文本行 | 角标/图表吃 JSON | 与 mock_gateway 行为一致 |"
+          },
+          {
+            "lineNumber": 77
+          },
+          {
+            "lineNumber": 78,
+            "text": "**一句话：** P0 是「TV 点 OK → 18501 闭环」；**L0/T0 阶段 START 和 JSON 仍可能都在 18500 上完成**，不要按 P0 硬验收现网脚本。"
+          },
+          {
+            "lineNumber": 79
+          },
+          {
+            "lineNumber": 80,
+            "text": "### 1.4 TV App 现状 vs 协议目标（避免和 APK 行为打架）"
+          },
+          {
+            "lineNumber": 81
+          },
+          {
+            "lineNumber": 82,
+            "text": "以下为 **TV 端（Android）当前能力** 与 **P0 目标** 的差异，联调时分开验收："
+          },
+          {
+            "lineNumber": 83
+          },
+          {
+            "lineNumber": 84,
+            "text": "| 能力 | TV 现状（约 2026-06） | P0 目标 |"
+          },
+          {
+            "lineNumber": 85,
+            "text": "|------|----------------------|---------|"
+          },
+          {
+            "lineNumber": 86,
+            "text": "| 监听 18500/18501 | 已有 | 保持 |"
+          },
+          {
+            "lineNumber": 87,
+            "text": "| 收文本心率行 | 可显示（控制台） | 可选保留 |"
+          },
+          {
+            "lineNumber": 88,
+            "text": "| 收 &#96;HEART_RATE_STREAM&#96; JSON | 部分已接 | 稳定 1Hz |"
+          },
+          {
+            "lineNumber": 89,
+            "text": "| BP &#96;DEVICE_READY&#96; / &#96;MEASURE_PROGRESS&#96; / &#96;MEASURE_RESULT&#96; | **未完整进血压 Controller** | 图表 + 存 &#96;bp_history.json&#96; |"
+          },
+          {
+            "lineNumber": 90,
+            "text": "| 血压 OK 发 &#96;START_MEASURE&#96; | **尚未接线到产品 UI** | 必须 |"
+          },
+          {
+            "lineNumber": 91,
+            "text": "| 工程师控制台 &#96;tv_heart_rate&#96; | 可点发 START（调试用） | 与用户 UI 分离（P1） |"
+          },
+          {
+            "lineNumber": 92
+          },
+          {
+            "lineNumber": 93,
+            "text": "**验收分层：**"
+          },
+          {
+            "lineNumber": 94
+          },
+          {
+            "lineNumber": 95,
+            "text": "- **L0 联调：** TV 控制台能看到 PC 文本行 → 正常。"
+          },
+          {
+            "lineNumber": 96,
+            "text": "- **T0 联调：** TV 能解析 JSON 角标/图表（Mock 或 PC T0 双发）。"
+          },
+          {
+            "lineNumber": 97,
+            "text": "- **P0 联调：** 遥控器 OK 全流程 + 真实 PC 脚本 + 机顶盒 checklist。"
+          },
+          {
+            "lineNumber": 98
+          },
+          {
+            "lineNumber": 99,
+            "text": "---"
+          },
+          {
+            "lineNumber": 100
+          },
+          {
+            "lineNumber": 101,
+            "text": "## 2. PC 网关职责边界"
+          },
+          {
+            "lineNumber": 102
+          },
+          {
+            "lineNumber": 103,
+            "text": "| PC 负责 | PC 不负责 |"
+          },
+          {
+            "lineNumber": 104,
+            "text": "|---------|-----------|"
+          },
+          {
+            "lineNumber": 105,
+            "text": "| 连接手环 / 血压计（蓝牙等） | TV UI、焦点、图表绘制 |"
+          },
+          {
+            "lineNumber": 106,
+            "text": "| &#96;run_full_measurement()&#96; 等测量流程 | 写 &#96;hr_history.json&#96; / &#96;bp_history.json&#96; |"
+          },
+          {
+            "lineNumber": 107,
+            "text": "| 将原始读数转为 **标准 JSON 字段** | 血压分档评语、AI 分析文案（TV 本地） |"
+          },
+          {
+            "lineNumber": 108,
+            "text": "| 计算 &#96;progress&#96;、&#96;phase&#96;、超时 | 30s 心率会话计时（TV 本地切流） |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 108
+          },
+          "startPosition": {
+            "line": 70
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.20693209767341614
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "isSignature": true,
+            "lineNumber": 87,
+            "text": "class MainWindow(QMainWindow):"
+          },
+          {
+            "lineNumber": 88,
+            "text": "    \"\"\"主窗口：组装四区面板，接线后端 / 档案 / TV 联动。\"\"\""
+          },
+          {
+            "lineNumber": 89
+          },
+          {
+            "lineNumber": 90,
+            "text": "    def __init__(self, cli_overrides: Optional[dict] = None) -\u003e None:"
+          },
+          {
+            "lineNumber": 91,
+            "text": "        super().__init__()"
+          },
+          {
+            "lineNumber": 92,
+            "text": "        self._cli = cli_overrides or {}"
+          },
+          {
+            "lineNumber": 93,
+            "text": "        self.setWindowTitle(\"多路 BLE 测试端（设备档案 + 四区布局 + TV 联动）\")"
+          },
+          {
+            "lineNumber": 94,
+            "text": "        self.resize(1240, 820)"
+          },
+          {
+            "lineNumber": 95
+          },
+          {
+            "lineNumber": 96,
+            "text": "        self._settings = QSettings(\"RuiguangBpTest\", \"PcBleClient\")"
+          },
+          {
+            "lineNumber": 97,
+            "text": "        self._store = DeviceProfileStore()"
+          },
+          {
+            "lineNumber": 98,
+            "text": "        self._gw_store = GatewayConfigStore()"
+          },
+          {
+            "lineNumber": 99,
+            "text": "        self._apply_cli_to_gateway()"
+          },
+          {
+            "lineNumber": 100
+          },
+          {
+            "lineNumber": 101,
+            "text": "        self._bridge = SignalBridge()"
+          },
+          {
+            "lineNumber": 102,
+            "text": "        self._backend = MultiBleBackend(self._bridge)"
+          },
+          {
+            "lineNumber": 103,
+            "text": "        self._tv = TvLink("
+          },
+          {
+            "lineNumber": 104,
+            "text": "            on_log=lambda m: self._bridge.log_line.emit(m),"
+          },
+          {
+            "lineNumber": 105,
+            "text": "            on_protocol_log=self._append_protocol_log,"
+          },
+          {
+            "lineNumber": 106,
+            "text": "        )"
+          },
+          {
+            "lineNumber": 107,
+            "text": "        self._gateway = GatewayController("
+          },
+          {
+            "lineNumber": 108,
+            "text": "            self._gw_store,"
+          },
+          {
+            "lineNumber": 109,
+            "text": "            self._tv,"
+          },
+          {
+            "lineNumber": 110,
+            "text": "            self._backend,"
+          },
+          {
+            "lineNumber": 111,
+            "text": "            on_run_log=self._append_log_raw,"
+          },
+          {
+            "lineNumber": 112,
+            "text": "            on_protocol_log=self._append_protocol_log,"
+          },
+          {
+            "lineNumber": 113,
+            "text": "            on_status=self._set_status,"
+          },
+          {
+            "lineNumber": 114,
+            "text": "        )"
+          },
+          {
+            "lineNumber": 115
+          },
+          {
+            "lineNumber": 116,
+            "text": "        # 运行态标志"
+          },
+          {
+            "lineNumber": 117,
+            "text": "        self._scan_busy = False"
+          },
+          {
+            "lineNumber": 118,
+            "text": "        self._connect_busy = False"
+          },
+          {
+            "lineNumber": 119,
+            "text": "        self._batch_probe_busy = False"
+          },
+          {
+            "lineNumber": 120,
+            "text": "        self._measuring = False"
+          },
+          {
+            "lineNumber": 121,
+            "text": "        self._hr_push_enabled = False"
+          },
+          {
+            "lineNumber": 122,
+            "text": "        self._bp_push_enabled = False"
+          },
+          {
+            "lineNumber": 123,
+            "text": "        # 预连接池总开关：默认开启——只要设备在池里(auto_connect=True)，扫描到就自动连"
+          },
+          {
+            "lineNumber": 124,
+            "text": "        self._auto_connect = True"
+          },
+          {
+            "lineNumber": 125
+          },
+          {
+            "lineNumber": 126,
+            "text": "        self._scan_names: Dict[str, str] = {}"
+          },
+          {
+            "lineNumber": 127,
+            "text": "        self._conn_source: Dict[str, str] = {}"
+          },
+          {
+            "lineNumber": 128
+          },
+          {
+            "lineNumber": 129,
+            "text": "        self._build_ui()"
+          },
+          {
+            "lineNumber": 130,
+            "text": "        self._gateway.apply_ui_to_bar(self.bar)"
+          },
+          {
+            "lineNumber": 131,
+            "text": "        self._update_window_title()"
+          },
+          {
+            "lineNumber": 132,
+            "text": "        self._wire_bridge()"
+          },
+          {
+            "lineNumber": 133,
+            "text": "        self._wire_panels()"
+          },
+          {
+            "lineNumber": 134
+          },
+          {
+            "lineNumber": 135,
+            "text": "        # 自动刷新定时器（与 HeartRateMonitor DevCtrl 一致：10s 再扫一次）"
+          },
+          {
+            "lineNumber": 136,
+            "text": "        self._auto_refresh_timer = QTimer(self)"
+          },
+          {
+            "lineNumber": 137,
+            "text": "        self._auto_refresh_timer.setInterval(10000)"
+          },
+          {
+            "lineNumber": 138,
+            "text": "        self._auto_refresh_timer.timeout.connect(self._on_auto_refresh_tick)"
+          },
+          {
+            "lineNumber": 139
+          },
+          {
+            "lineNumber": 140,
+            "text": "        # 自动断开定时器"
+          },
+          {
+            "lineNumber": 141,
+            "text": "        self._disconnect_timer = QTimer(self)"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 941
+          },
+          "startPosition": {
+            "column": 62,
+            "line": 83
+          }
+        },
+        "relativeWorkspacePath": ".\\pc_ble_client\\bp_demo_app.py",
+        "signatures": {}
+      },
+      "score": 0.20122653245925903
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "isSignature": true,
+            "lineNumber": 60,
+            "text": "class TvLink:"
+          },
+          {
+            "lineNumber": 338
+          },
+          {
+            "lineNumber": 339
+          },
+          {
+            "lineNumber": 340,
+            "text": "    # ---- 接收 ----"
+          },
+          {
+            "lineNumber": 341
+          },
+          {
+            "lineNumber": 342,
+            "text": "    def _handle_datagram(self, data: bytes, addr: tuple, channel: str) -\u003e None:"
+          },
+          {
+            "lineNumber": 343,
+            "text": "        raw = \"\""
+          },
+          {
+            "lineNumber": 344,
+            "text": "        try:"
+          },
+          {
+            "lineNumber": 345,
+            "text": "            raw = data.decode(\"utf-8\", errors=\"replace\").strip()"
+          },
+          {
+            "lineNumber": 346,
+            "text": "            msg = json.loads(raw)"
+          },
+          {
+            "lineNumber": 347,
+            "text": "            if not isinstance(msg, dict):"
+          },
+          {
+            "lineNumber": 348,
+            "text": "                msg = {\"type\": raw}"
+          },
+          {
+            "lineNumber": 349,
+            "text": "        except ValueError:"
+          },
+          {
+            "lineNumber": 350,
+            "text": "            msg = {\"type\": raw}"
+          },
+          {
+            "lineNumber": 351
+          },
+          {
+            "lineNumber": 352,
+            "text": "        mtype = str(msg.get(\"type\", \"\")).upper()"
+          },
+          {
+            "lineNumber": 353,
+            "text": "        if not mtype:"
+          },
+          {
+            "lineNumber": 354,
+            "text": "            return"
+          },
+          {
+            "lineNumber": 355
+          },
+          {
+            "lineNumber": 356,
+            "text": "        # 忽略自己发出的遥测回环"
+          },
+          {
+            "lineNumber": 357,
+            "text": "        if mtype in ("
+          },
+          {
+            "lineNumber": 358,
+            "text": "            \"SCRIPT_READY\", \"DEVICE_READY\", \"DEVICE_OFFLINE\", \"HEART_RATE_STREAM\","
+          },
+          {
+            "lineNumber": 359,
+            "text": "            \"MEASURE_PROGRESS\", \"MEASURE_RESULT\", \"MEASURE_ERROR\", \"ACK\", \"PING\","
+          },
+          {
+            "lineNumber": 360,
+            "text": "            MSG_READY, MSG_RESULT, MSG_HR, MSG_PRESSURE,"
+          },
+          {
+            "lineNumber": 361,
+            "text": "        ):"
+          },
+          {
+            "lineNumber": 362,
+            "text": "            return"
+          },
+          {
+            "lineNumber": 363
+          },
+          {
+            "lineNumber": 364,
+            "text": "        if mtype not in _INBOUND_CONTROL:"
+          },
+          {
+            "lineNumber": 365,
+            "text": "            return"
+          },
+          {
+            "lineNumber": 366
+          },
+          {
+            "lineNumber": 367,
+            "text": "        self._on_protocol_log(f\"[{channel}←{addr[0]}:{addr[1]}] {raw[:200]}\")"
+          },
+          {
+            "lineNumber": 368,
+            "text": "        self._on_log(f\"[TV] 收到 {mtype}（信道 {channel}，来自 {addr[0]}:{addr[1]}）\")"
+          },
+          {
+            "lineNumber": 369
+          },
+          {
+            "lineNumber": 370,
+            "text": "        if mtype in (\"START\", \"START_MEASURE\"):"
+          },
+          {
+            "lineNumber": 371,
+            "text": "            device = str(msg.get(\"device\", \"\") or msg.get(\"target_device\", \"\")).lower() or \"bp\""
+          },
+          {
+            "lineNumber": 372,
+            "text": "            fut = self._start_waiters.get(device)"
+          },
+          {
+            "lineNumber": 373,
+            "text": "            if fut is not None and not fut.done():"
+          },
+          {
+            "lineNumber": 374,
+            "text": "                msg[\"_channel\"] = channel"
+          },
+          {
+            "lineNumber": 375,
+            "text": "                msg[\"_addr\"] = addr"
+          },
+          {
+            "lineNumber": 376,
+            "text": "                fut.set_result(msg)"
+          },
+          {
+            "lineNumber": 377,
+            "text": "                return"
+          },
+          {
+            "lineNumber": 378
+          },
+          {
+            "lineNumber": 379,
+            "text": "        if self.on_message is not None:"
+          },
+          {
+            "lineNumber": 380,
+            "text": "            self.on_message(msg, addr, channel)"
+          },
+          {
+            "lineNumber": 381
+          },
+          {
+            "lineNumber": 382,
+            "text": "    async def wait_for_start(self, device: str = \"bp\", timeout: Optional[float] = None) -\u003e dict:"
+          },
+          {
+            "lineNumber": 383,
+            "text": "        "
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 397
+          },
+          "startPosition": {
+            "line": 59
+          }
+        },
+        "relativeWorkspacePath": ".\\pc_ble_client\\tv_link.py",
+        "signatures": {
+          "ranges": [
+            {
+              "endPosition": {
+                "column": 5,
+                "line": 61
+              },
+              "startPosition": {
+                "column": 1,
+                "line": 60
+              }
+            }
+          ]
+        }
+      },
+      "score": 0.19939400255680084
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "isSignature": true,
+            "lineNumber": 60,
+            "text": "class TvLink:"
+          },
+          {
+            "lineNumber": 179
+          },
+          {
+            "lineNumber": 180
+          },
+          {
+            "lineNumber": 181,
+            "text": "    def send_on_channel_a(self, msg: dict, *, text: str = \"\") -\u003e None:"
+          },
+          {
+            "lineNumber": 182,
+            "text": "        \"\"\""
+          },
+          {
+            "lineNumber": 183,
+            "text": "        经信道 A 发送：按阶段决定 JSON / 文本 / 双发；广播 + 单播加固。"
+          },
+          {
+            "lineNumber": 184,
+            "text": "        \"\"\""
+          },
+          {
+            "lineNumber": 185,
+            "text": "        if self._transport_a is None:"
+          },
+          {
+            "lineNumber": 186,
+            "text": "            self._on_log(\"[TV] 信道 A 未启动，发送被忽略\")"
+          },
+          {
+            "lineNumber": 187,
+            "text": "            return"
+          },
+          {
+            "lineNumber": 188
+          },
+          {
+            "lineNumber": 189,
+            "text": "        stage = self._config.protocol_stage"
+          },
+          {
+            "lineNumber": 190,
+            "text": "        payloads: list[tuple[bytes, str]] = []"
+          },
+          {
+            "lineNumber": 191
+          },
+          {
+            "lineNumber": 192,
+            "text": "        if stage == \"L0\":"
+          },
+          {
+            "lineNumber": 193,
+            "text": "            line = (text or \"\").strip()"
+          },
+          {
+            "lineNumber": 194,
+            "text": "            if line:"
+          },
+          {
+            "lineNumber": 195,
+            "text": "                payloads.append((line.encode(\"utf-8\"), line))"
+          },
+          {
+            "lineNumber": 196,
+            "text": "        else:"
+          },
+          {
+            "lineNumber": 197,
+            "text": "            if self._config.json_mode and msg:"
+          },
+          {
+            "lineNumber": 198,
+            "text": "                js = json.dumps(msg, ensure_ascii=False, separators=(\",\", \":\"))"
+          },
+          {
+            "lineNumber": 199,
+            "text": "                payloads.append((js.encode(\"utf-8\"), js))"
+          },
+          {
+            "lineNumber": 200,
+            "text": "            if self._config.text_mode and (text or \"\").strip():"
+          },
+          {
+            "lineNumber": 201,
+            "text": "                line = text.strip()"
+          },
+          {
+            "lineNumber": 202,
+            "text": "                payloads.append((line.encode(\"utf-8\"), line))"
+          },
+          {
+            "lineNumber": 203
+          },
+          {
+            "lineNumber": 204,
+            "text": "        if not payloads:"
+          },
+          {
+            "lineNumber": 205,
+            "text": "            return"
+          },
+          {
+            "lineNumber": 206
+          },
+          {
+            "lineNumber": 207,
+            "text": "        addrs: list[tuple[str, int]] = []"
+          },
+          {
+            "lineNumber": 208,
+            "text": "        if not self._config.no_broadcast:"
+          },
+          {
+            "lineNumber": 209,
+            "text": "            addrs.append((BROADCAST_ADDR, self._port_a))"
+          },
+          {
+            "lineNumber": 210,
+            "text": "        addrs.extend(self._unicast_targets())"
+          },
+          {
+            "lineNumber": 211,
+            "text": "        if not addrs:"
+          },
+          {
+            "lineNumber": 212,
+            "text": "            addrs.append((BROADCAST_ADDR, self._port_a))"
+          },
+          {
+            "lineNumber": 213
+          },
+          {
+            "lineNumber": 214,
+            "text": "        for payload, hint in payloads:"
+          },
+          {
+            "lineNumber": 215,
+            "text": "            for addr in addrs:"
+          },
+          {
+            "lineNumber": 216,
+            "text": "                self._send_raw(payload, addr, \"A\", hint[:120])"
+          },
+          {
+            "lineNumber": 217
+          },
+          {
+            "lineNumber": 218,
+            "text": "    def send_on_channel_b(self, msg: dict, reply_to: Tuple[str, int]) -\u003e None:"
+          },
+          {
+            "lineNumber": 219,
+            "text": "        \"\"\"P0 真机：经信道 B 单播回复 TV（目标一般为 TV_IP:18501）。\"\"\""
+          },
+          {
+            "lineNumber": 220,
+            "text": "        if self._transport_b is None:"
+          },
+          {
+            "lineNumber": 221,
+            "text": "            self._on_log(\"[TV] 信道 B 未启动，B 信道发送被忽略（请切到 P0 阶段）\")"
+          },
+          {
+            "lineNumber": 222,
+            "text": "            return"
+          },
+          {
+            "lineNumber": 223,
+            "text": "        js = json.dumps(msg, ensure_ascii=False, separators=(\",\", \":\"))"
+          },
+          {
+            "lineNumber": 224,
+            "text": "        self._send_raw(js.encode(\"utf-8\"), reply_to, \"B\", js[:120])"
+          },
+          {
+            "lineNumber": 225
+          },
+          {
+            "lineNumber": 226,
+            "text": "    def send_measure_reply(self, msg: dict, reply_to: Tuple[str, int]) -\u003e None:"
+          },
+          {
+            "lineNumber": 227,
+            "text": "        "
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 397
+          },
+          "startPosition": {
+            "line": 59
+          }
+        },
+        "relativeWorkspacePath": ".\\pc_ble_client\\tv_link.py",
+        "signatures": {
+          "ranges": [
+            {
+              "endPosition": {
+                "column": 5,
+                "line": 61
+              },
+              "startPosition": {
+                "column": 1,
+                "line": 60
+              }
+            }
+          ]
+        }
+      },
+      "score": 0.19933456182479858
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "isSignature": true,
+            "lineNumber": 22,
+            "text": "class GatewayController:"
+          },
+          {
+            "lineNumber": 92
+          },
+          {
+            "lineNumber": 93
+          },
+          {
+            "lineNumber": 94,
+            "text": "    async def ensure_tv(self) -\u003e bool:"
+          },
+          {
+            "lineNumber": 95,
+            "text": "        \"\"\"按当前配置启动 UDP：P0 时 A(18500)+B(18501) 双 bind。\"\"\""
+          },
+          {
+            "lineNumber": 96,
+            "text": "        try:"
+          },
+          {
+            "lineNumber": 97,
+            "text": "            c = self._store.config"
+          },
+          {
+            "lineNumber": 98,
+            "text": "            if c.normalize_ports_for_stage():"
+          },
+          {
+            "lineNumber": 99,
+            "text": "                self._store.save()"
+          },
+          {
+            "lineNumber": 100,
+            "text": "                self._on_run_log("
+          },
+          {
+            "lineNumber": 101,
+            "text": "                    f\"[TV] 已校正 P0 端口：A={c.port_a} B={c.port_b}\""
+          },
+          {
+            "lineNumber": 102,
+            "text": "                )"
+          },
+          {
+            "lineNumber": 103,
+            "text": "            await self._tv.start(self._store.config)"
+          },
+          {
+            "lineNumber": 104,
+            "text": "            self._start_script_ready_loop()"
+          },
+          {
+            "lineNumber": 105,
+            "text": "            if c.protocol_stage == \"P0\":"
+          },
+          {
+            "lineNumber": 106,
+            "text": "                self.send_script_ready()"
+          },
+          {
+            "lineNumber": 107,
+            "text": "            self.sync_bp_ready_from_backend()"
+          },
+          {
+            "lineNumber": 108,
+            "text": "            return True"
+          },
+          {
+            "lineNumber": 109,
+            "text": "        except Exception as e:  # noqa: BLE001"
+          },
+          {
+            "lineNumber": 110,
+            "text": "            self._on_run_log(f\"[TV] 启动失败: {e!r}\")"
+          },
+          {
+            "lineNumber": 111,
+            "text": "            return False"
+          },
+          {
+            "lineNumber": 112
+          },
+          {
+            "lineNumber": 113,
+            "text": "    async def stop_tv(self) -\u003e None:"
+          },
+          {
+            "lineNumber": 114,
+            "text": "        self._stop_script_ready_loop()"
+          },
+          {
+            "lineNumber": 115,
+            "text": "        self._stop_device_ready_loop()"
+          },
+          {
+            "lineNumber": 116,
+            "text": "        # 网关关闭时通知 TV 血压计离线（避免角标残留「可测量」）"
+          },
+          {
+            "lineNumber": 117,
+            "text": "        if self._bp_connected and self._tv.is_running:"
+          },
+          {
+            "lineNumber": 118,
+            "text": "            self._tv.send_json_a("
+          },
+          {
+            "lineNumber": 119,
+            "text": "                device_offline(device=\"BP\", reason=\"gateway_stopped\")"
+          },
+          {
+            "lineNumber": 120,
+            "text": "            )"
+          },
+          {
+            "lineNumber": 121,
+            "text": "            self._on_protocol_log(\"[A→] DEVICE_OFFLINE gateway_stopped\")"
+          },
+          {
+            "lineNumber": 122,
+            "text": "        self._bp_connected.clear()"
+          },
+          {
+            "lineNumber": 123,
+            "text": "        await self._tv.stop()"
+          },
+          {
+            "lineNumber": 124
+          },
+          {
+            "lineNumber": 125,
+            "text": "    def _start_script_ready_loop(self) -\u003e None:"
+          },
+          {
+            "lineNumber": 126,
+            "text": "        self._stop_script_ready_loop()"
+          },
+          {
+            "lineNumber": 127,
+            "text": "        if self._store.config.protocol_stage == \"L0\":"
+          },
+          {
+            "lineNumber": 128,
+            "text": "            return"
+          },
+          {
+            "lineNumber": 129
+          },
+          {
+            "lineNumber": 130,
+            "text": "        async def _loop() -\u003e None:"
+          },
+          {
+            "lineNumber": 131,
+            "text": "            while True:"
+          },
+          {
+            "lineNumber": 132,
+            "text": "                self.send_script_ready()"
+          },
+          {
+            "lineNumber": 133,
+            "text": "                await asyncio.sleep(max(5, self._store.config.script_ready_interval_sec))"
+          },
+          {
+            "lineNumber": 134
+          },
+          {
+            "lineNumber": 135,
+            "text": "        try:"
+          },
+          {
+            "lineNumber": 136,
+            "text": "            loop = asyncio.get_running_loop()"
+          },
+          {
+            "lineNumber": 137,
+            "text": "            self._ready_task = loop.create_task(_loop())"
+          },
+          {
+            "lineNumber": 138,
+            "text": "        except RuntimeError:"
+          },
+          {
+            "lineNumber": 139,
+            "text": "            pass"
+          },
+          {
+            "lineNumber": 140
+          },
+          {
+            "lineNumber": 141,
+            "text": "    def _stop_script_ready_loop(self) -\u003e None:"
+          },
+          {
+            "lineNumber": 142,
+            "text": "        if self._ready_task is not None:"
+          },
+          {
+            "lineNumber": 143,
+            "text": "            self._ready_task.cancel()"
+          },
+          {
+            "lineNumber": 144,
+            "text": "            self._ready_task = None"
+          },
+          {
+            "lineNumber": 145
+          },
+          {
+            "lineNumber": 146,
+            "text": "    def _start_device_ready_loop(self) -\u003e None:"
+          },
+          {
+            "lineNumber": 147,
+            "text": "        "
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 413
+          },
+          "startPosition": {
+            "line": 21
+          }
+        },
+        "relativeWorkspacePath": ".\\pc_ble_client\\gateway_controller.py",
+        "signatures": {
+          "ranges": [
+            {
+              "endPosition": {
+                "column": 5,
+                "line": 23
+              },
+              "startPosition": {
+                "column": 1,
+                "line": 22
+              }
+            }
+          ]
+        }
+      },
+      "score": 0.19931040704250336
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 283,
+            "text": "**缺点：** 广播_discovery 不优雅；无内置可靠传输；多 TV 需 &#96;reply_to&#96;。  "
+          },
+          {
+            "lineNumber": 284,
+            "text": "**结论：** **演示 MVP 保留**，逻辑上按 §4 分域即可。"
+          },
+          {
+            "lineNumber": 285
+          },
+          {
+            "lineNumber": 286,
+            "text": "### 6.3 P1 · UDP + 产品化补丁（强烈推荐在 P0 上演进）"
+          },
+          {
+            "lineNumber": 287
+          },
+          {
+            "lineNumber": 288,
+            "text": "在**不改端口**前提下增加："
+          },
+          {
+            "lineNumber": 289
+          },
+          {
+            "lineNumber": 290,
+            "text": "| 补丁 | 说明 |"
+          },
+          {
+            "lineNumber": 291,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 292,
+            "text": "| 统一信封 &#96;v&#96; + &#96;payload&#96; | §5 |"
+          },
+          {
+            "lineNumber": 293,
+            "text": "| &#96;GATEWAY_HEARTBEAT&#96; | 60s，TV 显示「网关在线」 |"
+          },
+          {
+            "lineNumber": 294,
+            "text": "| 连接状态机 | &#96;Offline → GatewayOnline → DeviceReady&#96; |"
+          },
+          {
+            "lineNumber": 295,
+            "text": "| &#96;request_id&#96; 全链路 | 日志可演示「一次测量一条链」 |"
+          },
+          {
+            "lineNumber": 296,
+            "text": "| TV 设置页显示 &#96;PC IP&#96; / 信号强度（可选） | 像路由器管理页 |"
+          },
+          {
+            "lineNumber": 297
+          },
+          {
+            "lineNumber": 298,
+            "text": "**优点：** 改动小，**产品感提升最大**。  "
+          },
+          {
+            "lineNumber": 299,
+            "text": "**缺点：** 仍是无连接 UDP。  "
+          },
+          {
+            "lineNumber": 300,
+            "text": "**结论：** **演示向产品过渡的首选。**"
+          },
+          {
+            "lineNumber": 301
+          },
+          {
+            "lineNumber": 302,
+            "text": "### 6.4 P2 · PC 端 HTTP + SSE"
+          },
+          {
+            "lineNumber": 303
+          },
+          {
+            "lineNumber": 304,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 305,
+            "text": "TV  GET  http://pc:8080/api/status        → 网关与设备状态"
+          },
+          {
+            "lineNumber": 306,
+            "text": "TV  GET  http://pc:8080/api/hr/stream     → SSE 心率流"
+          },
+          {
+            "lineNumber": 307,
+            "text": "TV  POST http://pc:8080/api/bp/measure    → 启动血压"
+          },
+          {
+            "lineNumber": 308,
+            "text": "TV  GET  http://pc:8080/api/bp/result/id  → 轮询或 SSE 结果"
+          },
+          {
+            "lineNumber": 309,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 310
+          },
+          {
+            "lineNumber": 311,
+            "text": "**优点：** REST 语义清晰；易用 Postman 调试；像现代 IoT 网关。  "
+          },
+          {
+            "lineNumber": 312,
+            "text": "**缺点：** PC 要起 HTTP 服务；TV 要 HTTP 客户端；与现 UDP 代码分叉。  "
+          },
+          {
+            "lineNumber": 313,
+            "text": "**结论：** 若演示要给**非技术领导**看，HTTP 文档更好讲；开发量大于 P1。"
+          },
+          {
+            "lineNumber": 314
+          },
+          {
+            "lineNumber": 315,
+            "text": "### 6.5 P3 · WebSocket 单通道"
+          },
+          {
+            "lineNumber": 316
+          },
+          {
+            "lineNumber": 317,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 318,
+            "text": "TV ws://pc:8080/ws"
+          },
+          {
+            "lineNumber": 319,
+            "text": "  ← { type: HEART_RATE_STREAM, ... }"
+          },
+          {
+            "lineNumber": 320,
+            "text": "  ← { type: DEVICE_READY, device: BP }"
+          },
+          {
+            "lineNumber": 321,
+            "text": "  → { type: START_MEASURE, device: BP }"
+          },
+          {
+            "lineNumber": 322,
+            "text": "  ← { type: MEASURE_PROGRESS, ... }"
+          },
+          {
+            "lineNumber": 323,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 324
+          },
+          {
+            "lineNumber": 325,
+            "text": "**优点：** **一条连接**承载发现、遥测、控制；产品感强；天然双向。  "
+          },
+          {
+            "lineNumber": 326,
+            "text": "**缺点：** PC/TV 均需 WS 库；断线重连要写。  "
+          },
+          {
+            "lineNumber": 327,
+            "text": "**结论：** 若计划**长期演进为产品**，P3 是最均衡的「真产品」架构；演示可第二阶段再上。"
+          },
+          {
+            "lineNumber": 328
+          },
+          {
+            "lineNumber": 329,
+            "text": "### 6.6 P4 · MQTT"
+          },
+          {
+            "lineNumber": 330
+          },
+          {
+            "lineNumber": 331,
+            "text": "**优点：** 工业标准；QoS；多房间多设备。  "
+          },
+          {
+            "lineNumber": 332,
+            "text": "**缺点：** 需 Broker；演示环境过重。  "
+          },
+          {
+            "lineNumber": 333,
+            "text": "**结论：** 量产考虑，**演示不推荐**。"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 334
+          },
+          "startPosition": {
+            "line": 282
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\udp_信道设计.md",
+        "signatures": {}
+      },
+      "score": 0.19884559512138367
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 380,
+            "text": "TV OK → START_MEASURE@18501"
+          },
+          {
+            "lineNumber": 381,
+            "text": "  → PC ACK → UI 显示 request_id + 进入测量中"
+          },
+          {
+            "lineNumber": 382,
+            "text": "  → 加压 → UI 进度环 + MEASURE_PROGRESS@18501"
+          },
+          {
+            "lineNumber": 383,
+            "text": "  → 结果 → MEASURE_RESULT → UI 结果区 + 可选 F1 文本@18500"
+          },
+          {
+            "lineNumber": 384,
+            "text": "  → FSM 回 Idle → 可再收下一次 START"
+          },
+          {
+            "lineNumber": 385,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 386
+          },
+          {
+            "lineNumber": 387,
+            "text": "**现网：** 仅「TV 联动模式」+ &#96;START@18500&#96; + 文本结果。"
+          },
+          {
+            "lineNumber": 388
+          },
+          {
+            "lineNumber": 389,
+            "text": "#### 流 C：工程师本地测（不依赖 TV）"
+          },
+          {
+            "lineNumber": 390
+          },
+          {
+            "lineNumber": 391,
+            "text": "保持区域 3「开始测量」；P0 阶段本地按钮应走 **同一 FSM**，避免「按钮路径」和「TV 路径」两套逻辑。"
+          },
+          {
+            "lineNumber": 392
+          },
+          {
+            "lineNumber": 393,
+            "text": "#### 流 D：模拟器联调（与 TV 同事协作）"
+          },
+          {
+            "lineNumber": 394
+          },
+          {
+            "lineNumber": 395,
+            "text": "1. TV 同事：&#96;adb forward udp:18500/18501&#96;；"
+          },
+          {
+            "lineNumber": 396,
+            "text": "2. PC：&#96;TV IP = 127.0.0.1&#96;，勾选禁用广播；"
+          },
+          {
+            "lineNumber": 397,
+            "text": "3. &#96;SCRIPT_READY.script_ip&#96; 在文档中说明模拟器侧填 &#96;10.0.2.2&#96;（TV 发回 PC）；"
+          },
+          {
+            "lineNumber": 398,
+            "text": "4. 详见 [AndroidStudio双信道测试方案 §2.5](./AndroidStudio双信道测试方案.md)。"
+          },
+          {
+            "lineNumber": 399
+          },
+          {
+            "lineNumber": 400,
+            "text": "### 9.3 交互细节优化"
+          },
+          {
+            "lineNumber": 401
+          },
+          {
+            "lineNumber": 402,
+            "text": "| 问题（现网） | 优化 |"
+          },
+          {
+            "lineNumber": 403,
+            "text": "|--------------|------|"
+          },
+          {
+            "lineNumber": 404,
+            "text": "| 加压日志刷屏 | PROGRESS 节流；运行日志合并为「当前压力」标签更新 |"
+          },
+          {
+            "lineNumber": 405,
+            "text": "| 扫描与连接冲突 | 连接中暂停自动刷新（已有）；UI 明确「扫描已暂停」 |"
+          },
+          {
+            "lineNumber": 406,
+            "text": "| TV 无反应不知哪端问题 | TV 联调 Tab 显示「上次收到 TV 包」时间与内容 |"
+          },
+          {
+            "lineNumber": 407,
+            "text": "| 阶段混用导致误判 | 切换 P0 时若 18501 未监听，弹窗阻断并说明 |"
+          },
+          {
+            "lineNumber": 408,
+            "text": "| 多台 BP | 测压前会话表选「TV 默认 BP」或自动选最近连接的 BP |"
+          },
+          {
+            "lineNumber": 409
+          },
+          {
+            "lineNumber": 410,
+            "text": "### 9.4 错误与提示文案"
+          },
+          {
+            "lineNumber": 411
+          },
+          {
+            "lineNumber": 412,
+            "text": "统一经 &#96;reading_format&#96; 或消息层输出用户可读句，并映射 &#96;MEASURE_ERROR&#96;："
+          },
+          {
+            "lineNumber": 413
+          },
+          {
+            "lineNumber": 414,
+            "text": "| 场景 | UI 提示 | TV error_code |"
+          },
+          {
+            "lineNumber": 415,
+            "text": "|------|---------|---------------|"
+          },
+          {
+            "lineNumber": 416,
+            "text": "| 蓝牙断开 | 血压计已断开 | &#96;DISCONNECTED&#96; |"
+          },
+          {
+            "lineNumber": 417,
+            "text": "| 电量不足 | 电量过低，请更换电池 | &#96;LOW_BATTERY&#96; |"
+          },
+          {
+            "lineNumber": 418,
+            "text": "| 测量超时 | 测量超时 | &#96;TIMEOUT&#96; |"
+          },
+          {
+            "lineNumber": 419,
+            "text": "| 正在测压又收 START | 忽略并回 BUSY | &#96;BUSY&#96; |"
+          },
+          {
+            "lineNumber": 420
+          },
+          {
+            "lineNumber": 421,
+            "text": "---"
+          },
+          {
+            "lineNumber": 422
+          },
+          {
+            "lineNumber": 423,
+            "text": "## 10. 代码改动映射（实施 checklist）"
+          },
+          {
+            "lineNumber": 424
+          },
+          {
+            "lineNumber": 425,
+            "text": "### 10.1 R0 准备（建议第 1 迭代）"
+          },
+          {
+            "lineNumber": 426
+          },
+          {
+            "lineNumber": 427,
+            "text": "- [ ] 新建 &#96;gateway.json&#96; + &#96;GatewayConfigStore&#96;"
+          },
+          {
+            "lineNumber": 428,
+            "text": "- [ ] 新建 &#96;GatewayController&#96;，从 &#96;bp_demo_app&#96; 迁出 TV 推送逻辑"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 428
+          },
+          "startPosition": {
+            "line": 379
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本升级优化方案.md",
+        "signatures": {}
+      },
+      "score": 0.19474023580551147
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 172,
+            "text": "技术栈：**PySide6**（界面）+ **qasync**（Qt 与 asyncio 合并）+ **bleak**（Windows WinRT BLE）。"
+          },
+          {
+            "lineNumber": 173
+          },
+          {
+            "lineNumber": 174,
+            "text": "---"
+          },
+          {
+            "lineNumber": 175
+          },
+          {
+            "lineNumber": 176,
+            "text": "## 支持的设备与 BLE 协议"
+          },
+          {
+            "lineNumber": 177
+          },
+          {
+            "lineNumber": 178,
+            "text": "### 瑞光家用血压计"
+          },
+          {
+            "lineNumber": 179
+          },
+          {
+            "lineNumber": 180,
+            "text": "| 项 | 值 |"
+          },
+          {
+            "lineNumber": 181,
+            "text": "|----|-----|"
+          },
+          {
+            "lineNumber": 182,
+            "text": "| 服务 UUID | 厂商透传 &#96;FFF0&#96;（128 位形式与 SIG 基底混排，代码内已做规范比较） |"
+          },
+          {
+            "lineNumber": 183,
+            "text": "| 特征 UUID | 写 &#96;FFF2&#96;、通知 &#96;FFF1&#96; |"
+          },
+          {
+            "lineNumber": 184,
+            "text": "| 角色 | BLE **Peripheral（Server）**，PC 作为 Central 连接 |"
+          },
+          {
+            "lineNumber": 185,
+            "text": "| 协议文档 | [&#96;docs/瑞光康泰家用血压计蓝牙通讯协议.pdf&#96;](docs/瑞光康泰家用血压计蓝牙通讯协议.pdf) |"
+          },
+          {
+            "lineNumber": 186
+          },
+          {
+            "lineNumber": 187,
+            "text": "### 心率手环 / 胸带"
+          },
+          {
+            "lineNumber": 188
+          },
+          {
+            "lineNumber": 189,
+            "text": "| 项 | 值 |"
+          },
+          {
+            "lineNumber": 190,
+            "text": "|----|-----|"
+          },
+          {
+            "lineNumber": 191,
+            "text": "| 服务 UUID | &#96;0000180d-0000-1000-8000-00805f9b34fb&#96;（标准心率服务） |"
+          },
+          {
+            "lineNumber": 192,
+            "text": "| 特征 UUID | &#96;00002a37-0000-1000-8000-00805f9b34fb&#96;（心率测量） |"
+          },
+          {
+            "lineNumber": 193,
+            "text": "| 角色 | PC 订阅通知，被动接收 BPM |"
+          },
+          {
+            "lineNumber": 194,
+            "text": "| 注意 | 设备类型须在界面标为「手环」，勿与血压计 MAC 混用 |"
+          },
+          {
+            "lineNumber": 195
+          },
+          {
+            "lineNumber": 196,
+            "text": "---"
+          },
+          {
+            "lineNumber": 197
+          },
+          {
+            "lineNumber": 198,
+            "text": "## TV 联动与 UDP 协议阶段"
+          },
+          {
+            "lineNumber": 199
+          },
+          {
+            "lineNumber": 200,
+            "text": "PC 与 TV 通过 **UDP** 通信，默认端口："
+          },
+          {
+            "lineNumber": 201
+          },
+          {
+            "lineNumber": 202,
+            "text": "| 端口 | 用途 |"
+          },
+          {
+            "lineNumber": 203,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 204,
+            "text": "| **18500** | 信道 A：发现、遥测、Legacy 双向控制 |"
+          },
+          {
+            "lineNumber": 205,
+            "text": "| **18501** | 信道 B：P0 血压控制闭环（&#96;START_MEASURE&#96; → &#96;ACK&#96; → &#96;PROGRESS&#96; → &#96;RESULT&#96;） |"
+          },
+          {
+            "lineNumber": 206
+          },
+          {
+            "lineNumber": 207,
+            "text": "### 协议阶段对照"
+          },
+          {
+            "lineNumber": 208
+          },
+          {
+            "lineNumber": 209,
+            "text": "| 阶段 | 名称 | 行为摘要 |"
+          },
+          {
+            "lineNumber": 210,
+            "text": "|------|------|----------|"
+          },
+          {
+            "lineNumber": 211,
+            "text": "| **L0** | Legacy 纯文本 | 仅 18500；包体为中文可读行，如 &#96;心率,72,2026-06-22 12:00:00&#96; |"
+          },
+          {
+            "lineNumber": 212,
+            "text": "| **T0** | JSON 过渡 | 18500 发 JSON（&#96;SCRIPT_READY&#96;、&#96;HEART_RATE_STREAM&#96; 等）；可选保留文本 |"
+          },
+          {
+            "lineNumber": 213,
+            "text": "| **P0** | 双信道产品协议 | A=18500 发现/遥测；B=18501 血压测量闭环 |"
+          },
+          {
+            "lineNumber": 214
+          },
+          {
+            "lineNumber": 215,
+            "text": "当前网关默认配置见 &#96;pc_ble_client/gateway.json&#96;（&#96;protocol_stage&#96; 字段）。包体字段与样例详见 [&#96;docs/通讯格式文档.md&#96;](docs/通讯格式文档.md)。"
+          },
+          {
+            "lineNumber": 216
+          },
+          {
+            "lineNumber": 217,
+            "text": "### 联调地址参考"
+          },
+          {
+            "lineNumber": 218
+          },
+          {
+            "lineNumber": 219,
+            "text": "| 场景 | PC 脚本 IP | TV 目标 IP |"
+          },
+          {
+            "lineNumber": 220,
+            "text": "|------|------------|------------|"
+          },
+          {
+            "lineNumber": 221,
+            "text": "| 真机同网 | &#96;ipconfig&#96; 查看，如 &#96;192.168.1.100&#96; | TV 设置中的 WLAN IP |"
+          },
+          {
+            "lineNumber": 222,
+            "text": "| AS 模拟器访问宿主机 | — | TV 发往 &#96;10.0.2.2:18500&#96; |"
+          },
+          {
+            "lineNumber": 223,
+            "text": "| PC 发往模拟器 | &#96;127.0.0.1&#96;（配合 &#96;adb forward&#96;） | — |"
+          },
+          {
+            "lineNumber": 224
+          },
+          {
+            "lineNumber": 225,
+            "text": "---"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 226
+          },
+          "startPosition": {
+            "line": 171
+          }
+        },
+        "relativeWorkspacePath": ".\\README.md",
+        "signatures": {}
+      },
+      "score": 0.18986620008945465
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 36,
+            "text": "| **T0** | PC 18500 发 JSON（可双发文本） | mock 或 **升级中 PC 脚本** | 角标/图表吃 JSON；START 仍可 18500 | §5.1–§5.4（部分） |"
+          },
+          {
+            "lineNumber": 37,
+            "text": "| **P0** | 18500 A + **18501 B** 闭环 | **mock_gateway** 或 P0 PC | OK→&#96;START_MEASURE&#96;→ACK→RESULT | §5.2、§5.4、§5.5 |"
+          },
+          {
+            "lineNumber": 38
+          },
+          {
+            "lineNumber": 39,
+            "text": "**TV App 现状（约 2026-06）：** 已监听 18500/18501；文本心率、&#96;HEART_RATE_STREAM&#96; 部分可用；血压 &#96;DEVICE_READY&#96; / &#96;MEASURE_PROGRESS&#96; / &#96;MEASURE_RESULT&#96; **产品 Controller 未全接**；血压 OK 发 &#96;START_MEASURE&#96; **产品 UI 未接线**。详见 [pc_gateway升级方案 §1.4](./pc_gateway升级方案.md)。"
+          },
+          {
+            "lineNumber": 40
+          },
+          {
+            "lineNumber": 41,
+            "text": "---"
+          },
+          {
+            "lineNumber": 42
+          },
+          {
+            "lineNumber": 43,
+            "text": "## 2. 测试环境选型"
+          },
+          {
+            "lineNumber": 44
+          },
+          {
+            "lineNumber": 45,
+            "text": "### 2.1 三种环境对比"
+          },
+          {
+            "lineNumber": 46
+          },
+          {
+            "lineNumber": 47,
+            "text": "| 环境 | 适用阶段 | 信道 A 广播 | 信道 B 单播 | 推荐度 |"
+          },
+          {
+            "lineNumber": 48,
+            "text": "|------|----------|-------------|-------------|--------|"
+          },
+          {
+            "lineNumber": 49,
+            "text": "| **AS 模拟器（AVD）** | UI、Logcat | 较差（UDP/组播受限） | 需 adb 转发 | 仅 UI |"
+          },
+          {
+            "lineNumber": 50,
+            "text": "| **AS + 真机（手机/平板，同 WiFi）** | **双信道主测** | 正常 | 正常 | **强烈推荐** |"
+          },
+          {
+            "lineNumber": 51,
+            "text": "| **机顶盒（最终部署）** | 验收 | 正常 | 正常 | 上线前最后一关 |"
+          },
+          {
+            "lineNumber": 52
+          },
+          {
+            "lineNumber": 53,
+            "text": "### 2.2 推荐路线"
+          },
+          {
+            "lineNumber": 54
+          },
+          {
+            "lineNumber": 55,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 56,
+            "text": "阶段 0  AS 模拟器     → 只看界面、图表、遥控器按键（无 UDP）"
+          },
+          {
+            "lineNumber": 57,
+            "text": "阶段 1  AS + 真机     → mock_gateway，测齐信道 A + B（P0 协议）"
+          },
+          {
+            "lineNumber": 58,
+            "text": "阶段 2  AS + 真机     → 接真实 PC 脚本 pc_ble_client（L0 文本 / T0 JSON）"
+          },
+          {
+            "lineNumber": 59,
+            "text": "阶段 3  机顶盒        → 同网段完整演示（P0 + 真实硬件）"
+          },
+          {
+            "lineNumber": 60,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 61
+          },
+          {
+            "lineNumber": 62,
+            "text": "**结论：** 双信道 UDP **不要在模拟器上硬扛**；用一台与 PC **同一 WiFi** 的 Android 真机代替机顶盒开发，成功率最高。"
+          },
+          {
+            "lineNumber": 63
+          },
+          {
+            "lineNumber": 64,
+            "text": "### 2.2.1 两种 PC 端对比（mock vs 真实脚本）"
+          },
+          {
+            "lineNumber": 65
+          },
+          {
+            "lineNumber": 66,
+            "text": "| 对比项 | mock_gateway | pc_ble_client（你的脚本） |"
+          },
+          {
+            "lineNumber": 67,
+            "text": "|--------|--------------|---------------------------|"
+          },
+          {
+            "lineNumber": 68,
+            "text": "| 用途 | TV 开发自测 **P0 JSON** | 真实蓝牙 + 网关 |"
+          },
+          {
+            "lineNumber": 69,
+            "text": "| 蓝牙 | 无，假进度/假结果 | 手环 + 瑞光血压计 |"
+          },
+          {
+            "lineNumber": 70,
+            "text": "| 端口 | 18500 发 + 18501 听 | **L0：仅 18500** |"
+          },
+          {
+            "lineNumber": 71,
+            "text": "| 格式 | JSON | **L0：纯文本行**；升级后 T0/P0 JSON |"
+          },
+          {
+            "lineNumber": 72,
+            "text": "| 何时用 | TV 未接 PC、验 P0 协议 | 验真实测压、验 L0 文本推送 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 72
+          },
+          "startPosition": {
+            "line": 35
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\AndroidStudio双信道测试方案.md",
+        "signatures": {}
+      },
+      "score": 0.18947935104370117
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 457,
+            "text": "|------|:----:|------|"
+          },
+          {
+            "lineNumber": 458,
+            "text": "| 多设备 BLE 扫描 | 已实现 | 可过滤、置顶、多轮扫描 |"
+          },
+          {
+            "lineNumber": 459,
+            "text": "| 瑞光血压计连接与测量 | 已实现 | 完整/分步/TYPE_9000/电量门限 |"
+          },
+          {
+            "lineNumber": 460,
+            "text": "| 标准心率手环连接 | 已实现 | 依赖设备暴露 0x180D |"
+          },
+          {
+            "lineNumber": 461,
+            "text": "| 血压 + 心率同时连接 | 已实现 | 分 session 管理 |"
+          },
+          {
+            "lineNumber": 462,
+            "text": "| 设备档案 devices.json | 已实现 | 预连接池、导入导出 |"
+          },
+          {
+            "lineNumber": 463,
+            "text": "| 四区 GUI | 已实现 | 见 §5 |"
+          },
+          {
+            "lineNumber": 464,
+            "text": "| TV 文本推送（L0） | 已实现 | 阶段选 L0 |"
+          },
+          {
+            "lineNumber": 465,
+            "text": "| TV JSON（T0/P0） | **已实现** | 默认 T0 双发 |"
+          },
+          {
+            "lineNumber": 466,
+            "text": "| P0 18501 闭环 | **已实现** | 阶段选 P0 |"
+          },
+          {
+            "lineNumber": 467,
+            "text": "| SCRIPT_READY / FSM | **已实现** | 周期 + 手动发送 |"
+          },
+          {
+            "lineNumber": 468
+          },
+          {
+            "lineNumber": 469,
+            "text": "---"
+          },
+          {
+            "lineNumber": 470
+          },
+          {
+            "lineNumber": 471,
+            "text": "## 12. 已知限制与风险"
+          },
+          {
+            "lineNumber": 472
+          },
+          {
+            "lineNumber": 473,
+            "text": "| 现象 | 原因 / 说明 |"
+          },
+          {
+            "lineNumber": 474,
+            "text": "|------|-------------|"
+          },
+          {
+            "lineNumber": 475,
+            "text": "| 手环连接超时 / Unreachable | 手机仍占用；或未开手环心率模式；或设备不支持标准 0x180D |"
+          },
+          {
+            "lineNumber": 476,
+            "text": "| 扫描时连接失败 | WinRT 不宜扫描与连接并发；脚本已做互斥与提示 |"
+          },
+          {
+            "lineNumber": 477,
+            "text": "| 血压计无广播名 | 需取消「过滤无名设备」或用手动 MAC / 批量探测 FFF0 |"
+          },
+          {
+            "lineNumber": 478,
+            "text": "| TV 收到整段 JSON | 若 &#96;text_mode=False&#96;；现网默认应为纯文本行 |"
+          },
+          {
+            "lineNumber": 479,
+            "text": "| TV 点测量无反应（18501） | 现网 PC 未 listen 18501；应用 L0 的 START@18500 或等 PC 升级 P0 |"
+          },
+          {
+            "lineNumber": 480,
+            "text": "| &#96;scale&#96; 类型 | 菜单可设，连接时提示暂未实现 |"
+          },
+          {
+            "lineNumber": 481,
+            "text": "| 加压日志刷屏 | 每个压力通知一行；可按需做节流（未做） |"
+          },
+          {
+            "lineNumber": 482
+          },
+          {
+            "lineNumber": 483,
+            "text": "---"
+          },
+          {
+            "lineNumber": 484
+          },
+          {
+            "lineNumber": 485,
+            "text": "## 13. 与 Android 旧 Demo 的关系"
+          },
+          {
+            "lineNumber": 486
+          },
+          {
+            "lineNumber": 487,
+            "text": "仓库根目录 &#96;app/&#96; 为厂家/Android 侧 **BloodMeasureDemo**（Java + baseble），PC 端："
+          },
+          {
+            "lineNumber": 488
+          },
+          {
+            "lineNumber": 489,
+            "text": "- **协议帧**（&#96;CC 80&#96; / &#96;AA 80&#96;、FFF0/FFF1/FFF2）与 &#96;bp_protocol.py&#96; 对齐厂家 PDF；"
+          },
+          {
+            "lineNumber": 490,
+            "text": "- **扫描过滤**（名称含 RBP/BP）可选对齐 &#96;BluetoothConnMeasureActivity&#96;；"
+          },
+          {
+            "lineNumber": 491,
+            "text": "- **运行不依赖** Android 工程；PC 独立用 bleak 实现。"
+          },
+          {
+            "lineNumber": 492
+          },
+          {
+            "lineNumber": 493,
+            "text": "&#96;pc_ble_client/安卓SDK蓝牙扫描与握手说明.txt&#96; 为移植参考笔记。"
+          },
+          {
+            "lineNumber": 494
+          },
+          {
+            "lineNumber": 495,
+            "text": "---"
+          },
+          {
+            "lineNumber": 496
+          },
+          {
+            "lineNumber": 497,
+            "text": "## 14. 后续演进方向（文档级，非承诺排期）"
+          },
+          {
+            "lineNumber": 498
+          },
+          {
+            "lineNumber": 499,
+            "text": "**全量升级方案（UI / 交互 / 功能 / 优先级）：** 见 [PC网关脚本升级优化方案.md](./PC网关脚本升级优化方案.md)。  "
+          },
+          {
+            "lineNumber": 500,
+            "text": "**升级后自测：** 见 [PC网关升级测试验收清单.md](./PC网关升级测试验收清单.md)。"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 500
+          },
+          "startPosition": {
+            "line": 456
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本功能与实现分析.md",
+        "signatures": {}
+      },
+      "score": 0.18670740723609924
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 337,
+            "text": "- 自动连接多台设备时 **串行** + 短间隔，降低 Windows BLE 栈不稳定概率。"
+          },
+          {
+            "lineNumber": 338
+          },
+          {
+            "lineNumber": 339,
+            "text": "---"
+          },
+          {
+            "lineNumber": 340
+          },
+          {
+            "lineNumber": 341,
+            "text": "## 8. TV 联动（升级后 v2.0）"
+          },
+          {
+            "lineNumber": 342
+          },
+          {
+            "lineNumber": 343,
+            "text": "**模块：** &#96;tv_link.TvLink&#96; + &#96;gateway_controller.GatewayController&#96; + &#96;tv_messages.py&#96; + &#96;measure_fsm.py&#96;  "
+          },
+          {
+            "lineNumber": 344,
+            "text": "**配置：** &#96;gateway.json&#96;（默认 **T0**）"
+          },
+          {
+            "lineNumber": 345
+          },
+          {
+            "lineNumber": 346,
+            "text": "### 8.1 协议阶段"
+          },
+          {
+            "lineNumber": 347
+          },
+          {
+            "lineNumber": 348,
+            "text": "| 阶段 | 行为 |"
+          },
+          {
+            "lineNumber": 349,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 350,
+            "text": "| **L0** | 仅 F1 文本（18500） |"
+          },
+          {
+            "lineNumber": 351,
+            "text": "| **T0**（默认） | F2 JSON + 可选 F1 双发；&#96;listen_port=18500&#96; |"
+          },
+          {
+            "lineNumber": 352,
+            "text": "| **P0** | A=18500 发现/遥测；B=**18501** 测压闭环；&#96;listen_port=18501&#96; |"
+          },
+          {
+            "lineNumber": 353
+          },
+          {
+            "lineNumber": 354,
+            "text": "### 8.2 主要 JSON type（T0/P0）"
+          },
+          {
+            "lineNumber": 355
+          },
+          {
+            "lineNumber": 356,
+            "text": "&#96;SCRIPT_READY&#96;、&#96;DEVICE_READY&#96;、&#96;DEVICE_OFFLINE&#96;、&#96;HEART_RATE_STREAM&#96;、&#96;MEASURE_PROGRESS&#96;、&#96;MEASURE_RESULT&#96;、&#96;MEASURE_ERROR&#96;、&#96;ACK&#96;"
+          },
+          {
+            "lineNumber": 357
+          },
+          {
+            "lineNumber": 358,
+            "text": "### 8.3 UI"
+          },
+          {
+            "lineNumber": 359
+          },
+          {
+            "lineNumber": 360,
+            "text": "- 底部 **协议阶段** / JSON+文本 / script_ip / **B 信道状态**"
+          },
+          {
+            "lineNumber": 361,
+            "text": "- **TV 联调** Tab：报文预览、模拟 START / START_MEASURE"
+          },
+          {
+            "lineNumber": 362,
+            "text": "- 日志 **TV 协议** Tab"
+          },
+          {
+            "lineNumber": 363
+          },
+          {
+            "lineNumber": 364,
+            "text": "格式详见 [通讯格式文档.md](./通讯格式文档.md)。**验收清单：** [PC网关升级测试验收清单.md](./PC网关升级测试验收清单.md)"
+          },
+          {
+            "lineNumber": 365
+          },
+          {
+            "lineNumber": 366,
+            "text": "### 8.2 数据流（推送血压示例）"
+          },
+          {
+            "lineNumber": 367
+          },
+          {
+            "lineNumber": 368,
+            "text": "&#96;&#96;&#96;text"
+          },
+          {
+            "lineNumber": 369,
+            "text": "血压计 --BLE--\u003e multi_ble_backend --解析--\u003e"
+          },
+          {
+            "lineNumber": 370,
+            "text": "  bp_demo_app._on_bp_pressure / _on_measurement_result"
+          },
+          {
+            "lineNumber": 371,
+            "text": "    --\u003e reading_format 生成行文本"
+          },
+          {
+            "lineNumber": 372,
+            "text": "    --\u003e 区域3 实时日志"
+          },
+          {
+            "lineNumber": 373,
+            "text": "    --\u003e 运行日志（简要）"
+          },
+          {
+            "lineNumber": 374,
+            "text": "    --\u003e tv_link.send_pressure / send_result（若勾选推送或联动）"
+          },
+          {
+            "lineNumber": 375,
+            "text": "         --\u003e UDP 18500 --\u003e TV App 显示该行"
+          },
+          {
+            "lineNumber": 376,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 377
+          },
+          {
+            "lineNumber": 378,
+            "text": "### 8.3 与目标协议差距"
+          },
+          {
+            "lineNumber": 379
+          },
+          {
+            "lineNumber": 380,
+            "text": "完整对照见 [pc_gateway升级方案.md §3](./pc_gateway升级方案.md) 与 [通讯格式文档.md §5.3](./通讯格式文档.md)。  "
+          },
+          {
+            "lineNumber": 381,
+            "text": "升级路线：**L0（现网）→ T0（18500 加 JSON）→ P0（18501 闭环）**。"
+          },
+          {
+            "lineNumber": 382
+          },
+          {
+            "lineNumber": 383,
+            "text": "---"
+          },
+          {
+            "lineNumber": 384
+          },
+          {
+            "lineNumber": 385,
+            "text": "## 9. 关键数据流（端到端）"
+          },
+          {
+            "lineNumber": 386
+          },
+          {
+            "lineNumber": 387,
+            "text": "### 9.1 用户手动连接血压计并测量"
+          },
+          {
+            "lineNumber": 388
+          },
+          {
+            "lineNumber": 389,
+            "text": "&#96;&#96;&#96;mermaid"
+          },
+          {
+            "lineNumber": 390,
+            "text": "sequenceDiagram"
+          },
+          {
+            "lineNumber": 391,
+            "text": "    participant U as 用户"
+          },
+          {
+            "lineNumber": 392,
+            "text": "    participant UI as MainWindow"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 392
+          },
+          "startPosition": {
+            "line": 336
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本功能与实现分析.md",
+        "signatures": {}
+      },
+      "score": 0.18644380569458008
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 196,
+            "text": "| **T0** | 18500 广播/单播 JSON（可双发 text） | **18500**（兼容 Legacy START） | **PC_IP:18500**（推荐先保持） | JSON 可先走 **18500** 或 **18501**（与 TV 约定） |"
+          },
+          {
+            "lineNumber": 197,
+            "text": "| **P0** | 18500 广播/单播 | **&#96;0.0.0.0:18501&#96;** | **PC_IP:18501** | **&#96;reply_to&#96; 或 TV 源地址 :18501** 单播 |"
+          },
+          {
+            "lineNumber": 198
+          },
+          {
+            "lineNumber": 199,
+            "text": "**&#96;SCRIPT_READY&#96; 里的 &#96;script_ip&#96; + &#96;listen_port&#96;：** 告诉 TV「发 START 时请打到 **script_ip:listen_port**」。P0 下 &#96;listen_port&#96; 应为 **18501**，&#96;script_ip&#96; 为 PC 在局域网的真实 IP（如 &#96;192.168.1.100&#96;），**不要写 255.255.255.255**。"
+          },
+          {
+            "lineNumber": 200
+          },
+          {
+            "lineNumber": 201,
+            "text": "### 3.5.4 PC 侧最小代码形态（Python 伪代码）"
+          },
+          {
+            "lineNumber": 202
+          },
+          {
+            "lineNumber": 203,
+            "text": "&#96;&#96;&#96;python"
+          },
+          {
+            "lineNumber": 204,
+            "text": "# 信道 A：发送（每个 JSON 或文本包）"
+          },
+          {
+            "lineNumber": 205,
+            "text": "sock_a = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)"
+          },
+          {
+            "lineNumber": 206,
+            "text": "sock_a.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)"
+          },
+          {
+            "lineNumber": 207,
+            "text": "sock_a.sendto(payload, (\"255.255.255.255\", 18500))   # 广播"
+          },
+          {
+            "lineNumber": 208,
+            "text": "sock_a.sendto(payload, (TV_IP, 18500))               # 单播加固（真机强烈建议）"
+          },
+          {
+            "lineNumber": 209
+          },
+          {
+            "lineNumber": 210,
+            "text": "# 信道 B：接收（P0 必须独立线程）"
+          },
+          {
+            "lineNumber": 211,
+            "text": "sock_b = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)"
+          },
+          {
+            "lineNumber": 212,
+            "text": "sock_b.bind((\"0.0.0.0\", 18501))                      # 注意：不是 255.255.255.255"
+          },
+          {
+            "lineNumber": 213,
+            "text": "data, (tv_ip, tv_port) = sock_b.recvfrom(4096)"
+          },
+          {
+            "lineNumber": 214,
+            "text": "# 回复时单播到 TV 的 18501（或 msg[\"reply_to\"]）"
+          },
+          {
+            "lineNumber": 215,
+            "text": "sock_b.sendto(ack_json, (reply_ip, 18501))"
+          },
+          {
+            "lineNumber": 216,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 217
+          },
+          {
+            "lineNumber": 218,
+            "text": "Legacy 脚本若 **只** &#96;bind/send 18500&#96;，则 TV 的 START 必须仍发到 **18500**；等 P0 再 **额外** 开 18501，并继续一段时间 **双 listen**（18500 收 Legacy START + 18501 收 START_MEASURE）最稳妥。"
+          },
+          {
+            "lineNumber": 219
+          },
+          {
+            "lineNumber": 220,
+            "text": "---"
+          },
+          {
+            "lineNumber": 221
+          },
+          {
+            "lineNumber": 222,
+            "text": "## 3.6 Android Studio 模拟器 + 本地 PC 脚本（联调说明）"
+          },
+          {
+            "lineNumber": 223
+          },
+          {
+            "lineNumber": 224,
+            "text": "\u003e TV 开发会在 **AS 模拟器（AVD）** 里跑 APK；PC 脚本在 **Windows 本机**。这与「真机 + 同 WiFi」拓扑不同，请按下面分支处理。"
+          },
+          {
+            "lineNumber": 225
+          },
+          {
+            "lineNumber": 226,
+            "text": "### 3.6.1 推荐优先级"
+          },
+          {
+            "lineNumber": 227
+          },
+          {
+            "lineNumber": 228,
+            "text": "| 优先级 | 环境 | 适用 |"
+          },
+          {
+            "lineNumber": 229,
+            "text": "|--------|------|------|"
+          },
+          {
+            "lineNumber": 230,
+            "text": "| **1（强烈推荐）** | AS **真机** + PC 同 WiFi | L0 / T0 / P0 全量联调 |"
+          },
+          {
+            "lineNumber": 231,
+            "text": "| **2** | AS **模拟器** + &#96;adb forward&#96; | L0 文本、T0 部分 JSON；**P0 双信道仅作尝试** |"
+          },
+          {
+            "lineNumber": 232,
+            "text": "| **3** | 仅 mock_gateway + 真机 | TV 未接 Legacy 前的 P0 自测 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 233
+          },
+          "startPosition": {
+            "line": 195
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.18598319590091705
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 333,
+            "text": "**结论：** 量产考虑，**演示不推荐**。"
+          },
+          {
+            "lineNumber": 334
+          },
+          {
+            "lineNumber": 335,
+            "text": "### 6.7 P5 · mDNS 发现 + 任意传输"
+          },
+          {
+            "lineNumber": 336
+          },
+          {
+            "lineNumber": 337,
+            "text": "TV 扫描 &#96;_healthgateway._tcp.local&#96; 获 PC IP，再连 P0/P2/P3。"
+          },
+          {
+            "lineNumber": 338
+          },
+          {
+            "lineNumber": 339,
+            "text": "**优点：** 用户不用记 IP；像 AirPlay / 打印机。  "
+          },
+          {
+            "lineNumber": 340,
+            "text": "**缺点：** 机顶盒 Android 对 mDNS 支持因ROM而异。  "
+          },
+          {
+            "lineNumber": 341,
+            "text": "**结论：** 产品化锦上添花；**非首版必需**。"
+          },
+          {
+            "lineNumber": 342
+          },
+          {
+            "lineNumber": 343,
+            "text": "### 6.8 推荐演进路线（像产品的路径）"
+          },
+          {
+            "lineNumber": 344
+          },
+          {
+            "lineNumber": 345,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 346,
+            "text": "阶段 1（现在）  P0 双 UDP + 心率/血压分域矩阵（本文档 §4）"
+          },
+          {
+            "lineNumber": 347,
+            "text": "       ↓"
+          },
+          {
+            "lineNumber": 348,
+            "text": "阶段 2（演示加强） P1 统一信封 + 心跳 + 连接状态 UI + ACK/PROGRESS 补全"
+          },
+          {
+            "lineNumber": 349,
+            "text": "       ↓"
+          },
+          {
+            "lineNumber": 350,
+            "text": "阶段 3（产品原型） P3 WebSocket 单连接（或 P2 HTTP+SSE），UDP 仅作兼容"
+          },
+          {
+            "lineNumber": 351,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 352
+          },
+          {
+            "lineNumber": 353,
+            "text": "**原则：** 先让**业务分域清晰**（心率 Telemetry、血压 Control），再换传输，避免边改协议边改端口导致演示不稳定。"
+          },
+          {
+            "lineNumber": 354
+          },
+          {
+            "lineNumber": 355,
+            "text": "---"
+          },
+          {
+            "lineNumber": 356
+          },
+          {
+            "lineNumber": 357,
+            "text": "## 7. 产品化体验：连接态与演示叙事"
+          },
+          {
+            "lineNumber": 358
+          },
+          {
+            "lineNumber": 359,
+            "text": "### 7.1 TV 全局连接状态（建议详情页顶栏或卡片角）"
+          },
+          {
+            "lineNumber": 360
+          },
+          {
+            "lineNumber": 361,
+            "text": "| 状态 | 条件 | 用户文案 |"
+          },
+          {
+            "lineNumber": 362,
+            "text": "|------|------|----------|"
+          },
+          {
+            "lineNumber": 363,
+            "text": "| 网关离线 | 60s 无 &#96;SCRIPT_READY&#96;/&#96;HEARTBEAT&#96; | 未连接健康网关 |"
+          },
+          {
+            "lineNumber": 364,
+            "text": "| 网关在线 | 收到 &#96;SCRIPT_READY&#96; | 网关已连接 |"
+          },
+          {
+            "lineNumber": 365,
+            "text": "| 手环信号中 | 10s 内有 &#96;HEART_RATE_STREAM&#96; | 手环信号正常（心率可测） |"
+          },
+          {
+            "lineNumber": 366,
+            "text": "| 血压计就绪 | 收到 &#96;DEVICE_READY(BP)&#96; | 血压计就绪 |"
+          },
+          {
+            "lineNumber": 367,
+            "text": "| 测量中 | 会话态 | 测量中，请保持静止 |"
+          },
+          {
+            "lineNumber": 368
+          },
+          {
+            "lineNumber": 369,
+            "text": "心率与血压**独立角标**，互不遮挡：心率卡片只看 HR 状态；血压卡片只看 BP 状态。"
+          },
+          {
+            "lineNumber": 370
+          },
+          {
+            "lineNumber": 371,
+            "text": "### 7.2 演示脚本叙事（产品感）"
+          },
+          {
+            "lineNumber": 372
+          },
+          {
+            "lineNumber": 373,
+            "text": "**开场：** 「TV 自动发现 PC 健康网关」→ 状态变 **网关已连接**  "
+          },
+          {
+            "lineNumber": 374,
+            "text": "**心率：** 「手环广播 → TV 提示可测 → 用户 OK → 30 秒 → 写入月度趋势」  "
+          },
+          {
+            "lineNumber": 375,
+            "text": "**血压：** 「血压计就绪 → 用户 OK → TV 遥控 PC 加压 → 进度 → 120/80 写入趋势」  "
+          },
+          {
+            "lineNumber": 376,
+            "text": "**收尾：** 长期图两卡片同时展示 2月–6月 数据 —— **像家庭健康面板，而非调试控制台**"
+          },
+          {
+            "lineNumber": 377
+          },
+          {
+            "lineNumber": 378,
+            "text": "&#96;tv_heart_rate&#96; 控制台保留为**工程师视图**，默认不对用户强调（可藏到设置里）。"
+          },
+          {
+            "lineNumber": 379
+          },
+          {
+            "lineNumber": 380,
+            "text": "---"
+          },
+          {
+            "lineNumber": 381
+          },
+          {
+            "lineNumber": 382,
+            "text": "## 8. 信道 A 消息详表（按域标注）"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 383
+          },
+          "startPosition": {
+            "line": 332
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\udp_信道设计.md",
+        "signatures": {}
+      },
+      "score": 0.1858869045972824
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 80,
+            "text": "| &#96;multi_ble_backend.py&#96; | BP+HR 编排 | 发 DEVICE_READY/OFFLINE；进度回调带 phase | T0 |"
+          },
+          {
+            "lineNumber": 81,
+            "text": "| &#96;ui_panels.py&#96; | 四区调试 UI | TV 联调区、协议阶段、日志分级 | R0/T0 |"
+          },
+          {
+            "lineNumber": 82,
+            "text": "| &#96;device_profile.py&#96; | devices.json | 增加 gateway.json（TV IP、阶段、端口） | R0 |"
+          },
+          {
+            "lineNumber": 83,
+            "text": "| &#96;run_gui.py&#96; | 无 CLI | &#96;--tv-ip&#96;、&#96;--no-broadcast&#96;、&#96;--protocol-stage&#96; | R0 |"
+          },
+          {
+            "lineNumber": 84
+          },
+          {
+            "lineNumber": 85,
+            "text": "---"
+          },
+          {
+            "lineNumber": 86
+          },
+          {
+            "lineNumber": 87,
+            "text": "## 4. 升级重点（优先级）"
+          },
+          {
+            "lineNumber": 88
+          },
+          {
+            "lineNumber": 89,
+            "text": "### 4.1 P0 — 必须做（阻塞 TV 产品联调）"
+          },
+          {
+            "lineNumber": 90
+          },
+          {
+            "lineNumber": 91,
+            "text": "| # | 重点 | 原因 | 主要改动 |"
+          },
+          {
+            "lineNumber": 92,
+            "text": "|---|------|------|----------|"
+          },
+          {
+            "lineNumber": 93,
+            "text": "| **P0-1** | **TV 协议 T0 JSON 上 18500** | TV 图表/角标依赖结构化字段，不能长期靠 F1 文本 | &#96;tv_messages.py&#96; + &#96;tv_link&#96; 双发 |"
+          },
+          {
+            "lineNumber": 94,
+            "text": "| **P0-2** | **文本→字段在 PC 内转换** | 禁止 TV 正则解析「加压中: 97 mmHg」 | &#96;reading_format&#96; / 测量循环直接产出 JSON 字段 |"
+          },
+          {
+            "lineNumber": 95,
+            "text": "| **P0-3** | **SCRIPT_READY + script_ip + listen_port** | TV 需知道往哪发 START | 启动与每 60s 广播；&#96;listen_port&#96; T0=18500，P0=18501 |"
+          },
+          {
+            "lineNumber": 96,
+            "text": "| **P0-4** | **DEVICE_READY / DEVICE_OFFLINE** | TV 血压入口亮灭 | BP 连接/断开时发 JSON |"
+          },
+          {
+            "lineNumber": 97,
+            "text": "| **P0-5** | **18501 监听 + START_MEASURE 闭环** | TV 产品 OK 走 B 信道 | &#96;tv_link&#96; 第二 transport；&#96;measure_fsm&#96; |"
+          },
+          {
+            "lineNumber": 98,
+            "text": "| **P0-6** | **request_id 全链路** | 日志关联、ACK/RESULT 配对 | 状态机持有当前 request_id |"
+          },
+          {
+            "lineNumber": 99,
+            "text": "| **P0-7** | **单播 + 广播双发** | 真机/部分路由下广播不可靠 | &#96;127.0.0.1&#96;（模拟器）或 &#96;TV_IP&#96; 单播加固 |"
+          },
+          {
+            "lineNumber": 100
+          },
+          {
+            "lineNumber": 101,
+            "text": "### 4.2 P1 — 应做（体验与可维护）"
+          },
+          {
+            "lineNumber": 102
+          },
+          {
+            "lineNumber": 103,
+            "text": "| # | 重点 | 说明 |"
+          },
+          {
+            "lineNumber": 104,
+            "text": "|---|------|------|"
+          },
+          {
+            "lineNumber": 105,
+            "text": "| **P1-1** | &#96;bp_demo_app&#96; 瘦身 | TV 推送、测量触发从 MainWindow 抽到 &#96;GatewayController&#96; |"
+          },
+          {
+            "lineNumber": 106,
+            "text": "| **P1-2** | UI「协议阶段」显式化 | 下拉：L0 / T0 / P0，避免工程师误用验收标准 |"
+          },
+          {
+            "lineNumber": 107,
+            "text": "| **P1-3** | 日志分级 | 运行日志 / 协议十六进制 / TV 报文 分 Tab 或颜色 |"
+          },
+          {
+            "lineNumber": 108,
+            "text": "| **P1-4** | 加压推送节流 | 避免 UI 与 UDP 刷屏（如 200ms 合并 PROGRESS） |"
+          },
+          {
+            "lineNumber": 109,
+            "text": "| **P1-5** | &#96;gateway.json&#96; 持久化 | TV IP、端口、text_mode、stage、script_ip 重启可恢复 |"
+          },
+          {
+            "lineNumber": 110,
+            "text": "| **P1-6** | 测量错误码 | &#96;MEASURE_ERROR&#96;：TIMEOUT、LOW_BATTERY、DISCONNECTED 等 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 110
+          },
+          "startPosition": {
+            "line": 79
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本升级优化方案.md",
+        "signatures": {}
+      },
+      "score": 0.18520189821720123
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 270,
+            "text": "**4. P0 在模拟器上的预期（尽力而为）**"
+          },
+          {
+            "lineNumber": 271
+          },
+          {
+            "lineNumber": 272,
+            "text": "- PC：&#96;127.0.0.1:18500&#96; 单播 JSON + &#96;bind 0.0.0.0:18501&#96;"
+          },
+          {
+            "lineNumber": 273,
+            "text": "- TV：收到 &#96;SCRIPT_READY&#96; 后向 **&#96;10.0.2.2:18501&#96;** 发 &#96;START_MEASURE&#96;；&#96;reply_to&#96; 填模拟器侧 **18501**（TV 进程 listen 的端口）"
+          },
+          {
+            "lineNumber": 274,
+            "text": "- 若 forward 失败：换 **真机**，不要卡在模拟器上验 P0"
+          },
+          {
+            "lineNumber": 275
+          },
+          {
+            "lineNumber": 276,
+            "text": "### 3.6.4 PC 脚本建议增加的 CLI（便于 TV 模拟器联调）"
+          },
+          {
+            "lineNumber": 277
+          },
+          {
+            "lineNumber": 278,
+            "text": "| 参数 | 示例 | 作用 |"
+          },
+          {
+            "lineNumber": 279,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 280,
+            "text": "| &#96;--tv-ip&#96; | &#96;127.0.0.1&#96; | 单播 A 信道（模拟器 forward 场景） |"
+          },
+          {
+            "lineNumber": 281,
+            "text": "| &#96;--tv-ip&#96; | &#96;192.168.1.50&#96; | 单播 A 信道（真机） |"
+          },
+          {
+            "lineNumber": 282,
+            "text": "| &#96;--no-broadcast&#96; | 开关 | 模拟器调试时关闭 255.255.255.255，只单播 |"
+          },
+          {
+            "lineNumber": 283,
+            "text": "| &#96;--listen-port&#96; | &#96;18500&#96; / &#96;18501&#96; | Legacy 仅 18500；P0 控制面 18501 |"
+          },
+          {
+            "lineNumber": 284,
+            "text": "| &#96;--script-ip&#96; | &#96;10.0.2.2&#96; | 写入 &#96;SCRIPT_READY&#96;，供模拟器 TV 回连 |"
+          },
+          {
+            "lineNumber": 285
+          },
+          {
+            "lineNumber": 286,
+            "text": "详细操作与验收表见 [AndroidStudio双信道测试方案 §2.5、§7](./AndroidStudio双信道测试方案.md)。"
+          },
+          {
+            "lineNumber": 287
+          },
+          {
+            "lineNumber": 288,
+            "text": "---"
+          },
+          {
+            "lineNumber": 289
+          },
+          {
+            "lineNumber": 290,
+            "text": "## 4. 三阶段升级路线（PC 侧）"
+          },
+          {
+            "lineNumber": 291
+          },
+          {
+            "lineNumber": 292,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 293,
+            "text": "L0  Legacy text_mode（现状）"
+          },
+          {
+            "lineNumber": 294,
+            "text": "  ↓  PC 主改：同端口追加 JSON，内部做文本→字段转换"
+          },
+          {
+            "lineNumber": 295,
+            "text": "T0  18500 双格式或纯 JSON + TV 薄解析"
+          },
+          {
+            "lineNumber": 296,
+            "text": "  ↓  PC：开 18501，完整控制闭环"
+          },
+          {
+            "lineNumber": 297,
+            "text": "P0  双信道 A+B，与 mock_gateway 行为一致"
+          },
+          {
+            "lineNumber": 298,
+            "text": "  ↓  可选"
+          },
+          {
+            "lineNumber": 299,
+            "text": "P1  统一信封 v + payload + 心跳"
+          },
+          {
+            "lineNumber": 300,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 301
+          },
+          {
+            "lineNumber": 302,
+            "text": "---"
+          },
+          {
+            "lineNumber": 303
+          },
+          {
+            "lineNumber": 304,
+            "text": "## 5. T0 阶段 — PC 必做（推荐先做）"
+          },
+          {
+            "lineNumber": 305
+          },
+          {
+            "lineNumber": 306,
+            "text": "**目标：** TV 图表与角标走 JSON，**不要求**立刻开 18501。"
+          },
+          {
+            "lineNumber": 307
+          },
+          {
+            "lineNumber": 308,
+            "text": "### 5.1 任务清单"
+          },
+          {
+            "lineNumber": 309
+          },
+          {
+            "lineNumber": 310,
+            "text": "| 序号 | 任务 | 说明 |"
+          },
+          {
+            "lineNumber": 311,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 312,
+            "text": "| T0-1 | 启动/周期发 &#96;SCRIPT_READY&#96; JSON | 见 §6.1；TV 缓存 &#96;script_ip&#96;、&#96;listen_port&#96; |"
+          },
+          {
+            "lineNumber": 313,
+            "text": "| T0-2 | 发 &#96;DEVICE_READY&#96; JSON（BP 空闲） | TV 点亮血压「可测量」 |"
+          },
+          {
+            "lineNumber": 314,
+            "text": "| T0-3 | 心率：发 &#96;HEART_RATE_STREAM&#96; JSON | 可与文本双发；~1Hz |"
+          },
+          {
+            "lineNumber": 315,
+            "text": "| T0-4 | 测压过程发 &#96;MEASURE_PROGRESS&#96; JSON | **PC 内部**从「加压中: 97 mmHg」算出 &#96;pressure_mmhg&#96;、&#96;progress&#96;、&#96;phase&#96; |"
+          },
+          {
+            "lineNumber": 316,
+            "text": "| T0-5 | 结束发 &#96;MEASURE_RESULT&#96; JSON | **PC 内部**从「血压: 131/80…」解析为 &#96;systolic/diastolic/pulse&#96; |"
+          },
+          {
+            "lineNumber": 317,
+            "text": "| T0-6 | 兼容接收 TV 的 START | 继续支持 legacy &#96;START&#96; / JSON START；**同时识别** &#96;START_MEASURE&#96; |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 317
+          },
+          "startPosition": {
+            "line": 269
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.18514543771743774
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 40,
+            "text": "| TV / 真机 | &#96;192.168.1.50&#96; | TV 设置 WLAN IP，作单播目标 |"
+          },
+          {
+            "lineNumber": 41,
+            "text": "| AS 模拟器访问宿主机 | &#96;10.0.2.2&#96; | TV 发指令到 PC 时用 |"
+          },
+          {
+            "lineNumber": 42,
+            "text": "| PC 发模拟器（adb forward） | &#96;127.0.0.1&#96; | PC 单播目标 |"
+          },
+          {
+            "lineNumber": 43
+          },
+          {
+            "lineNumber": 44,
+            "text": "---"
+          },
+          {
+            "lineNumber": 45
+          },
+          {
+            "lineNumber": 46,
+            "text": "## 3. 格式族与阶段对照"
+          },
+          {
+            "lineNumber": 47
+          },
+          {
+            "lineNumber": 48,
+            "text": "同一 UDP 端口上，历史上会出现 **三种包体形态**："
+          },
+          {
+            "lineNumber": 49
+          },
+          {
+            "lineNumber": 50,
+            "text": "| 格式族 | 阶段 | 包体形态 | TV 解析方式 |"
+          },
+          {
+            "lineNumber": 51,
+            "text": "|--------|------|----------|-------------|"
+          },
+          {
+            "lineNumber": 52,
+            "text": "| **F1 · 纯文本行** | **L0（现网 PC 脚本默认）** | 一行可读中文 + 时间戳 | 整包当字符串显示 |"
+          },
+          {
+            "lineNumber": 53,
+            "text": "| **F2 · 扁平 JSON** | L0 备选 / mock / 过渡 | &#96;{\"type\":\"...\", ...}&#96; 单层字段 | 按 &#96;type&#96; 路由 |"
+          },
+          {
+            "lineNumber": 54,
+            "text": "| **F3 · 统一信封 JSON** | **P1（规划）** | &#96;v&#96; + &#96;type&#96; + &#96;payload&#96; 嵌套 | 先读 &#96;v&#96;、&#96;type&#96;，再读 &#96;payload&#96; |"
+          },
+          {
+            "lineNumber": 55
+          },
+          {
+            "lineNumber": 56,
+            "text": "**P0 产品协议**使用 **F2 扁平 JSON**（&#96;SCRIPT_READY&#96;、&#96;MEASURE_PROGRESS&#96; 等）；与现网 **F1 文本** 字段名不同，需分阶段实现。"
+          },
+          {
+            "lineNumber": 57
+          },
+          {
+            "lineNumber": 58,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 59,
+            "text": "阶段演进（包格式）："
+          },
+          {
+            "lineNumber": 60
+          },
+          {
+            "lineNumber": 61,
+            "text": "  L0   F1 纯文本（18500）          ← pc_ble_client 今天"
+          },
+          {
+            "lineNumber": 62,
+            "text": "        ↓ 可选 F2 双发"
+          },
+          {
+            "lineNumber": 63,
+            "text": "  T0   F2 JSON 上 18500 + 仍可 F1"
+          },
+          {
+            "lineNumber": 64,
+            "text": "        ↓"
+          },
+          {
+            "lineNumber": 65,
+            "text": "  P0   F2 JSON：A=18500，B=18501 闭环"
+          },
+          {
+            "lineNumber": 66,
+            "text": "        ↓"
+          },
+          {
+            "lineNumber": 67,
+            "text": "  P1   F3 统一信封 + 心跳"
+          },
+          {
+            "lineNumber": 68,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 69
+          },
+          {
+            "lineNumber": 70,
+            "text": "---"
+          },
+          {
+            "lineNumber": 71
+          },
+          {
+            "lineNumber": 72,
+            "text": "## 4. F1 · 纯文本行（L0 现网，&#96;pc_ble_client&#96;）"
+          },
+          {
+            "lineNumber": 73
+          },
+          {
+            "lineNumber": 74,
+            "text": "### 4.1 适用条件"
+          },
+          {
+            "lineNumber": 75
+          },
+          {
+            "lineNumber": 76,
+            "text": "- PC 底部勾选「推送心率/血压到 TV」"
+          },
+          {
+            "lineNumber": 77,
+            "text": "- &#96;tv_link.text_mode = True&#96;（默认）"
+          },
+          {
+            "lineNumber": 78,
+            "text": "- 端口：**18500**（单播或广播）"
+          },
+          {
+            "lineNumber": 79,
+            "text": "- **每个 UDP 包 = 一整行文本**，不是 JSON"
+          },
+          {
+            "lineNumber": 80
+          },
+          {
+            "lineNumber": 81,
+            "text": "### 4.2 行格式规范"
+          },
+          {
+            "lineNumber": 82
+          },
+          {
+            "lineNumber": 83,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 84,
+            "text": "[HH:MM:SS] \u003c业务文本\u003e"
+          },
+          {
+            "lineNumber": 85,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 86
+          },
+          {
+            "lineNumber": 87,
+            "text": "| 部分 | 说明 | 示例 |"
+          },
+          {
+            "lineNumber": 88,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 89,
+            "text": "| 时间戳 | 24 小时制，方括号包裹 | &#96;[16:58:20]&#96; |"
+          },
+          {
+            "lineNumber": 90,
+            "text": "| 业务文本 | PC 已处理好的可读句，含单位 | &#96;心率: 74 BPM&#96; |"
+          },
+          {
+            "lineNumber": 91
+          },
+          {
+            "lineNumber": 92,
+            "text": "**注意：** 时间戳在 **行内**；没有 &#96;mac&#96;、没有原始 hex、没有 JSON 外壳。"
+          },
+          {
+            "lineNumber": 93
+          },
+          {
+            "lineNumber": 94,
+            "text": "### 4.3 PC → TV 文本样例（按业务）"
+          },
+          {
+            "lineNumber": 95
+          },
+          {
+            "lineNumber": 96,
+            "text": "| 场景 | 整包内容示例 |"
+          },
+          {
+            "lineNumber": 97,
+            "text": "|------|----------------|"
+          },
+          {
+            "lineNumber": 98,
+            "text": "| 心率实时 | &#96;[15:49:06] 心率: 74 BPM&#96; |"
+          },
+          {
+            "lineNumber": 99,
+            "text": "| 血压加压中 | &#96;[16:58:20] 加压中: 97 mmHg&#96; |"
+          },
+          {
+            "lineNumber": 100,
+            "text": "| 血压结果 | &#96;[16:58:35] 血压: 131/80 mmHg，脉搏 68 BPM&#96; |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 100
+          },
+          "startPosition": {
+            "line": 39
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\通讯格式文档.md",
+        "signatures": {}
+      },
+      "score": 0.18398550152778625
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 287,
+            "text": "| [通讯格式文档.md](docs/通讯格式文档.md) | UDP 包体格式字典（L0 文本 / JSON） |"
+          },
+          {
+            "lineNumber": 288,
+            "text": "| [udp_信道设计.md](docs/udp_信道设计.md) | 双信道架构、心率/血压能力拆分 |"
+          },
+          {
+            "lineNumber": 289,
+            "text": "| [pc_gateway升级方案.md](docs/pc_gateway升级方案.md) | L0 → T0 → P0 升级清单 |"
+          },
+          {
+            "lineNumber": 290,
+            "text": "| [AndroidStudio双信道测试方案.md](docs/AndroidStudio双信道测试方案.md) | 模拟器/真机联调步骤 |"
+          },
+          {
+            "lineNumber": 291,
+            "text": "| [PC网关升级测试验收清单.md](docs/PC网关升级测试验收清单.md) | 升级后验收项 |"
+          },
+          {
+            "lineNumber": 292,
+            "text": "| [项目结构与模块解耦说明.md](docs/项目结构与模块解耦说明.md) | 心率参考项目解耦思路 |"
+          },
+          {
+            "lineNumber": 293,
+            "text": "| [安卓SDK蓝牙扫描与握手说明.txt](docs/安卓SDK蓝牙扫描与握手说明.txt) | Android BLE 扫描与握手流程 |"
+          },
+          {
+            "lineNumber": 294
+          },
+          {
+            "lineNumber": 295,
+            "text": "---"
+          },
+          {
+            "lineNumber": 296
+          },
+          {
+            "lineNumber": 297,
+            "text": "## 常见问题"
+          },
+          {
+            "lineNumber": 298
+          },
+          {
+            "lineNumber": 299,
+            "text": "**Q：扫描不到设备？**  "
+          },
+          {
+            "lineNumber": 300,
+            "text": "确认 Windows 蓝牙已开启；设备未被手机占用；血压计处于可配对/广播状态。"
+          },
+          {
+            "lineNumber": 301
+          },
+          {
+            "lineNumber": 302,
+            "text": "**Q：连接报 &#96;Unreachable&#96;？**  "
+          },
+          {
+            "lineNumber": 303,
+            "text": "多为设备已被其他终端连接。关闭手机蓝牙 App 或断开连接后重试。"
+          },
+          {
+            "lineNumber": 304
+          },
+          {
+            "lineNumber": 305,
+            "text": "**Q：TV 收不到 UDP？**  "
+          },
+          {
+            "lineNumber": 306,
+            "text": "检查防火墙是否放行 UDP 18500/18501；确认 PC 与 TV 同网段；&#96;gateway.json&#96; 中 &#96;tv_unicast_ip&#96; 是否填对。"
+          },
+          {
+            "lineNumber": 307
+          },
+          {
+            "lineNumber": 308,
+            "text": "**Q：&#96;pip&#96; 或 &#96;bleak&#96; 安装失败？**  "
+          },
+          {
+            "lineNumber": 309,
+            "text": "使用项目内 &#96;.venv&#96;，避免 Anaconda base 环境；或执行 &#96;py -3.12 run_gui.py&#96; 指定 Python 3.12。"
+          },
+          {
+            "lineNumber": 310
+          },
+          {
+            "lineNumber": 311,
+            "text": "**Q：手环 MAC 选了血压计角色？**  "
+          },
+          {
+            "lineNumber": 312,
+            "text": "心率服务 &#96;0x180D&#96; 与瑞光 &#96;FFF0&#96; 在 UUID 比较时易混淆，务必在设备池右键设置正确类型。"
+          },
+          {
+            "lineNumber": 313
+          },
+          {
+            "lineNumber": 314,
+            "text": "**Q：本仓库是 Vue 前端吗？**  "
+          },
+          {
+            "lineNumber": 315,
+            "text": "不是。PC 端为 **PySide6 桌面 GUI**，TV 端由团队单独开发；Android 部分为 Java 原生 Demo。"
+          },
+          {
+            "lineNumber": 316
+          },
+          {
+            "lineNumber": 317,
+            "text": "---"
+          },
+          {
+            "lineNumber": 318
+          },
+          {
+            "lineNumber": 319,
+            "text": "## 版本与维护"
+          },
+          {
+            "lineNumber": 320
+          },
+          {
+            "lineNumber": 321,
+            "text": "| 项 | 当前值 |"
+          },
+          {
+            "lineNumber": 322,
+            "text": "|----|--------|"
+          },
+          {
+            "lineNumber": 323,
+            "text": "| PC 网关版本 | &#96;2.3.0&#96;（见 &#96;gateway_config.GATEWAY_VERSION&#96;） |"
+          },
+          {
+            "lineNumber": 324,
+            "text": "| 远程仓库 | https://github.com/HUANGYIHAO382/BlueTooth_pc_terminal |"
+          },
+          {
+            "lineNumber": 325,
+            "text": "| 主分支 | &#96;main&#96; |"
+          },
+          {
+            "lineNumber": 326
+          },
+          {
+            "lineNumber": 327,
+            "text": "### Python 依赖（&#96;pc_ble_client/requirements.txt&#96;）"
+          },
+          {
+            "lineNumber": 328
+          },
+          {
+            "lineNumber": 329,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 330,
+            "text": "bleak\u003e=0.21.0"
+          },
+          {
+            "lineNumber": 331,
+            "text": "PySide6\u003e=6.5.0"
+          },
+          {
+            "lineNumber": 332,
+            "text": "qasync\u003e=0.27.0"
+          },
+          {
+            "lineNumber": 333,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 334
+          },
+          {
+            "lineNumber": 335,
+            "text": "---"
+          },
+          {
+            "lineNumber": 336
+          },
+          {
+            "lineNumber": 337,
+            "text": "## 许可证"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 338
+          },
+          "startPosition": {
+            "line": 286
+          }
+        },
+        "relativeWorkspacePath": ".\\README.md",
+        "signatures": {}
+      },
+      "score": 0.18218399584293365
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 107,
+            "text": "| 将原始读数转为 **标准 JSON 字段** | 血压分档评语、AI 分析文案（TV 本地） |"
+          },
+          {
+            "lineNumber": 108,
+            "text": "| 计算 &#96;progress&#96;、&#96;phase&#96;、超时 | 30s 心率会话计时（TV 本地切流） |"
+          },
+          {
+            "lineNumber": 109,
+            "text": "| 监听 TV 的 START / CANCEL | — |"
+          },
+          {
+            "lineNumber": 110,
+            "text": "| （可选）保留 text_mode 工程师一行日志 | — |"
+          },
+          {
+            "lineNumber": 111
+          },
+          {
+            "lineNumber": 112,
+            "text": "---"
+          },
+          {
+            "lineNumber": 113
+          },
+          {
+            "lineNumber": 114,
+            "text": "## 3. Legacy 现网（L0）— 你的脚本 today"
+          },
+          {
+            "lineNumber": 115
+          },
+          {
+            "lineNumber": 116,
+            "text": "### 3.1 网络"
+          },
+          {
+            "lineNumber": 117
+          },
+          {
+            "lineNumber": 118,
+            "text": "| 项 | Legacy |"
+          },
+          {
+            "lineNumber": 119,
+            "text": "|----|--------|"
+          },
+          {
+            "lineNumber": 120,
+            "text": "| 端口 | **仅 18500**（单播或广播到 TV） |"
+          },
+          {
+            "lineNumber": 121,
+            "text": "| 18501 | **未监听** |"
+          },
+          {
+            "lineNumber": 122,
+            "text": "| 编码 | UTF-8 一行文本 |"
+          },
+          {
+            "lineNumber": 123
+          },
+          {
+            "lineNumber": 124,
+            "text": "### 3.2 TV 收到的文本样例"
+          },
+          {
+            "lineNumber": 125
+          },
+          {
+            "lineNumber": 126,
+            "text": "勾选「推送心率/血压到 TV」后，每个 UDP 包为一行："
+          },
+          {
+            "lineNumber": 127
+          },
+          {
+            "lineNumber": 128,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 129,
+            "text": "[16:58:20] 加压中: 97 mmHg"
+          },
+          {
+            "lineNumber": 130,
+            "text": "[16:58:35] 血压: 131/80 mmHg，脉搏 68 BPM"
+          },
+          {
+            "lineNumber": 131,
+            "text": "[15:49:06] 心率: 74 BPM"
+          },
+          {
+            "lineNumber": 132,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 133
+          },
+          {
+            "lineNumber": 134,
+            "text": "### 3.3 TV→PC 触发测量"
+          },
+          {
+            "lineNumber": 135
+          },
+          {
+            "lineNumber": 136,
+            "text": "| 方式 | 说明 |"
+          },
+          {
+            "lineNumber": 137,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 138,
+            "text": "| 纯文本 | &#96;START&#96; |"
+          },
+          {
+            "lineNumber": 139,
+            "text": "| JSON | &#96;{\"type\":\"START\"}&#96; 或类似 |"
+          },
+          {
+            "lineNumber": 140,
+            "text": "| 发送端口 | **18500**（TV 与 PC **同端口**收发） |"
+          },
+          {
+            "lineNumber": 141,
+            "text": "| PC 监听 | **18500**（Legacy 为**单端口双向**，不是「只发不收」） |"
+          },
+          {
+            "lineNumber": 142,
+            "text": "| 文档目标（P0） | &#96;START_MEASURE&#96; + &#96;target_device=BP&#96;，走 **18501** |"
+          },
+          {
+            "lineNumber": 143,
+            "text": "| 过渡（T0） | TV 仍可发 18500；PC 同时识别 &#96;START&#96; 与 &#96;START_MEASURE&#96; |"
+          },
+          {
+            "lineNumber": 144
+          },
+          {
+            "lineNumber": 145,
+            "text": "### 3.4 联动模式（已实现部分）"
+          },
+          {
+            "lineNumber": 146
+          },
+          {
+            "lineNumber": 147,
+            "text": "- PC 可发 **READY**（多为纯文本）"
+          },
+          {
+            "lineNumber": 148,
+            "text": "- &#96;wait_for_start()&#96; 等待 TV 的 START"
+          },
+          {
+            "lineNumber": 149,
+            "text": "- 收到后 &#96;run_full_measurement()&#96; 真实测压"
+          },
+          {
+            "lineNumber": 150,
+            "text": "- 结果以 **文本行** 推送到 TV"
+          },
+          {
+            "lineNumber": 151
+          },
+          {
+            "lineNumber": 152,
+            "text": "**缺口（相对产品目标）：** 无 ACK、无 JSON PROGRESS/RESULT、无 18501、无 &#96;SCRIPT_READY&#96;。"
+          },
+          {
+            "lineNumber": 153
+          },
+          {
+            "lineNumber": 154,
+            "text": "---"
+          },
+          {
+            "lineNumber": 155
+          },
+          {
+            "lineNumber": 156,
+            "text": "## 3.5 信道与端口 FAQ（请先读）"
+          },
+          {
+            "lineNumber": 157
+          },
+          {
+            "lineNumber": 158,
+            "text": "\u003e **给 PC 同事的一句话：** PC **发** A 用 &#96;255.255.255.255:18500&#96;（广播）+ 建议再 **单播** &#96;TV_IP:18500&#96;；PC **收** B 是 **&#96;bind(\"0.0.0.0\", 18501)&#96;**，**不是** &#96;255.255.255.255:18501&#96;。"
+          },
+          {
+            "lineNumber": 159
+          },
+          {
+            "lineNumber": 160,
+            "text": "### 3.5.1 为什么不是「PC 收 255.255.255.255:18501」？"
+          },
+          {
+            "lineNumber": 161
+          },
+          {
+            "lineNumber": 162,
+            "text": "| 地址 | 含义 | 能否 bind/listen |"
+          },
+          {
+            "lineNumber": 163,
+            "text": "|------|------|------------------|"
+          },
+          {
+            "lineNumber": 164,
+            "text": "| &#96;255.255.255.255&#96; | **广播目的地址**（发送时用） | **不能**作为 PC 监听地址 |"
+          },
+          {
+            "lineNumber": 165,
+            "text": "| &#96;0.0.0.0&#96; | 本机所有网卡 | **可以**，PC 监听 B 信道用此地址 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 165
+          },
+          "startPosition": {
+            "line": 106
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.1817103624343872
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 1,
+            "text": "# PC 网关 P0 测试验收清单（v2.0 直接 P0）"
+          },
+          {
+            "lineNumber": 2
+          },
+          {
+            "lineNumber": 3,
+            "text": "默认交付为 **P0 双信道**（&#96;gateway.json&#96; → &#96;protocol_stage: P0&#96;）。L0/T0 仅工程师调试。"
+          },
+          {
+            "lineNumber": 4
+          },
+          {
+            "lineNumber": 5,
+            "text": "## 启动"
+          },
+          {
+            "lineNumber": 6
+          },
+          {
+            "lineNumber": 7,
+            "text": "&#96;&#96;&#96;powershell"
+          },
+          {
+            "lineNumber": 8,
+            "text": "cd pc_ble_client"
+          },
+          {
+            "lineNumber": 9,
+            "text": "# 真机同 WiFi（默认 P0，开机自动 bind 18500+18501）"
+          },
+          {
+            "lineNumber": 10,
+            "text": ".\\.venv\\Scripts\\python.exe run_gui.py"
+          },
+          {
+            "lineNumber": 11
+          },
+          {
+            "lineNumber": 12,
+            "text": "# Android Studio 模拟器 + adb forward"
+          },
+          {
+            "lineNumber": 13,
+            "text": ".\\.venv\\Scripts\\python.exe run_gui.py --emulator"
+          },
+          {
+            "lineNumber": 14,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 15
+          },
+          {
+            "lineNumber": 16,
+            "text": "&#96;--emulator&#96; 等价于：&#96;P0&#96; + 单播 &#96;127.0.0.1&#96; + &#96;script_ip=10.0.2.2&#96; + 禁用广播。"
+          },
+          {
+            "lineNumber": 17
+          },
+          {
+            "lineNumber": 18,
+            "text": "TV 侧需执行："
+          },
+          {
+            "lineNumber": 19
+          },
+          {
+            "lineNumber": 20,
+            "text": "&#96;&#96;&#96;powershell"
+          },
+          {
+            "lineNumber": 21,
+            "text": "adb forward udp:18500 udp:18500"
+          },
+          {
+            "lineNumber": 22,
+            "text": "adb forward udp:18501 udp:18501"
+          },
+          {
+            "lineNumber": 23,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 24
+          },
+          {
+            "lineNumber": 25,
+            "text": "---"
+          },
+          {
+            "lineNumber": 26
+          },
+          {
+            "lineNumber": 27,
+            "text": "## P0 Gate（必过）"
+          },
+          {
+            "lineNumber": 28
+          },
+          {
+            "lineNumber": 29,
+            "text": "| # | 检查项 | 期望 |"
+          },
+          {
+            "lineNumber": 30,
+            "text": "|---|--------|------|"
+          },
+          {
+            "lineNumber": 31,
+            "text": "| G1 | 启动后底部 **B: 已监听** 为绿 | bind &#96;0.0.0.0:18501&#96; |"
+          },
+          {
+            "lineNumber": 32,
+            "text": "| G2 | TV 协议 Tab 见 &#96;SCRIPT_READY&#96; | &#96;listen_port: 18501&#96;，&#96;script_ip&#96; 为 PC 局域网 IP（模拟器为 &#96;10.0.2.2&#96;） |"
+          },
+          {
+            "lineNumber": 33,
+            "text": "| G3 | 连接血压计 | 信道 A 出现 &#96;DEVICE_READY&#96; |"
+          },
+          {
+            "lineNumber": 34,
+            "text": "| G4 | 勾选推送心率并连接手环 | 信道 A 出现 &#96;HEART_RATE_STREAM&#96;（约 1Hz） |"
+          },
+          {
+            "lineNumber": 35,
+            "text": "| G5 | TV 联调 → **模拟 START_MEASURE** | 日志 ACK；若已连 BP 则真实测压 |"
+          },
+          {
+            "lineNumber": 36,
+            "text": "| G6 | 测压过程 | **仅 B 信道** 出现 &#96;MEASURE_PROGRESS&#96; / &#96;MEASURE_RESULT&#96; |"
+          },
+          {
+            "lineNumber": 37,
+            "text": "| G7 | &#96;request_id&#96; | ACK、PROGRESS、RESULT 一致 |"
+          },
+          {
+            "lineNumber": 38,
+            "text": "| G8 | 真机 TV 发 &#96;START_MEASURE@PC_IP:18501&#96; | 完整闭环 |"
+          },
+          {
+            "lineNumber": 39
+          },
+          {
+            "lineNumber": 40,
+            "text": "---"
+          },
+          {
+            "lineNumber": 41
+          },
+          {
+            "lineNumber": 42,
+            "text": "## 信道职责（P0）"
+          },
+          {
+            "lineNumber": 43
+          },
+          {
+            "lineNumber": 44,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 45,
+            "text": "A · 18500  PC→TV"
+          },
+          {
+            "lineNumber": 46,
+            "text": "  SCRIPT_READY / HEART_RATE_STREAM / DEVICE_READY / DEVICE_OFFLINE"
+          },
+          {
+            "lineNumber": 47
+          },
+          {
+            "lineNumber": 48,
+            "text": "B · 18501  双向"
+          },
+          {
+            "lineNumber": 49,
+            "text": "  TV→PC  START_MEASURE / CANCEL_MEASURE"
+          },
+          {
+            "lineNumber": 50,
+            "text": "  PC→TV  ACK / MEASURE_PROGRESS / MEASURE_RESULT / MEASURE_ERROR"
+          },
+          {
+            "lineNumber": 51,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 52
+          },
+          {
+            "lineNumber": 53,
+            "text": "---"
+          },
+          {
+            "lineNumber": 54
+          },
+          {
+            "lineNumber": 55,
+            "text": "## 常见问题"
+          },
+          {
+            "lineNumber": 56
+          },
+          {
+            "lineNumber": 57,
+            "text": "| 现象 | 处理 |"
+          },
+          {
+            "lineNumber": 58,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 59,
+            "text": "| B 未监听 | 确认协议阶段为 P0；端口 18501 是否被占用 |"
+          },
+          {
+            "lineNumber": 60,
+            "text": "| TV 收不到 A 信道 | 真机填 TV IP 到「单播IP」；模拟器用 &#96;--emulator&#96; |"
+          },
+          {
+            "lineNumber": 61,
+            "text": "| START 发 18500 无反应 | **P0 预期行为**；应发 &#96;START_MEASURE&#96; 到 **18501** |"
+          },
+          {
+            "lineNumber": 62,
+            "text": "| 进度出现在 A | 非 P0 或旧配置；删 &#96;gateway.json&#96; 重启或手动选 P0 |"
+          },
+          {
+            "lineNumber": 63
+          },
+          {
+            "lineNumber": 64,
+            "text": "---"
+          },
+          {
+            "lineNumber": 65
+          },
+          {
+            "lineNumber": 66,
+            "text": "## 修订"
+          },
+          {
+            "lineNumber": 67
+          },
+          {
+            "lineNumber": 68,
+            "text": "| 版本 | 说明 |"
+          },
+          {
+            "lineNumber": 69,
+            "text": "|------|------|"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 69
+          },
+          "startPosition": {}
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关升级测试验收清单.md",
+        "signatures": {}
+      },
+      "score": 0.18120400607585907
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 40,
+            "text": "│  │ 心率手环      │◄──────────►│  PC 网关     │◄─────────────────►│ TV 机顶盒 App"
+          },
+          {
+            "lineNumber": 41,
+            "text": "│  └──────────────┘             │ pc_ble_client│                   │"
+          },
+          {
+            "lineNumber": 42,
+            "text": "│                               └─────────────┘                   │"
+          },
+          {
+            "lineNumber": 43,
+            "text": "└─────────────────────────────────────────────────────────────────┘"
+          },
+          {
+            "lineNumber": 44
+          },
+          {
+            "lineNumber": 45,
+            "text": "Android Demo（独立）：手机 ──BLE──► 瑞光血压计（参考实现，不参与上图 UDP 链路）"
+          },
+          {
+            "lineNumber": 46,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 47
+          },
+          {
+            "lineNumber": 48,
+            "text": "**数据流向简述：**"
+          },
+          {
+            "lineNumber": 49
+          },
+          {
+            "lineNumber": 50,
+            "text": "1. PC 通过蓝牙连接医疗设备，采集心率或血压数据；"
+          },
+          {
+            "lineNumber": 51,
+            "text": "2. PC 桌面 GUI 展示实时数值、协议日志、设备状态；"
+          },
+          {
+            "lineNumber": 52,
+            "text": "3. 勾选「推送到 TV」后，PC 将格式化后的数据经 **UDP** 发给局域网内的 TV App；"
+          },
+          {
+            "lineNumber": 53,
+            "text": "4. 联动模式下，TV 发送 &#96;START&#96; / &#96;START_MEASURE&#96;，PC 再触发真实血压测量。"
+          },
+          {
+            "lineNumber": 54
+          },
+          {
+            "lineNumber": 55,
+            "text": "---"
+          },
+          {
+            "lineNumber": 56
+          },
+          {
+            "lineNumber": 57,
+            "text": "## 快速开始（PC 网关）"
+          },
+          {
+            "lineNumber": 58
+          },
+          {
+            "lineNumber": 59,
+            "text": "### 环境要求"
+          },
+          {
+            "lineNumber": 60
+          },
+          {
+            "lineNumber": 61,
+            "text": "| 项 | 要求 |"
+          },
+          {
+            "lineNumber": 62,
+            "text": "|----|------|"
+          },
+          {
+            "lineNumber": 63,
+            "text": "| 操作系统 | Windows 10/11（需开启系统蓝牙） |"
+          },
+          {
+            "lineNumber": 64,
+            "text": "| Python | **3.10 及以上**（推荐 3.12） |"
+          },
+          {
+            "lineNumber": 65,
+            "text": "| 网络 | PC 与 TV 在同一局域网（联调 UDP 时） |"
+          },
+          {
+            "lineNumber": 66,
+            "text": "| 硬件 | 支持 BLE 的蓝牙适配器；瑞光血压计或标准心率手环 |"
+          },
+          {
+            "lineNumber": 67
+          },
+          {
+            "lineNumber": 68,
+            "text": "### 方式一：一键启动（推荐）"
+          },
+          {
+            "lineNumber": 69
+          },
+          {
+            "lineNumber": 70,
+            "text": "&#96;&#96;&#96;text"
+          },
+          {
+            "lineNumber": 71,
+            "text": "1. 进入目录 pc_ble_client/"
+          },
+          {
+            "lineNumber": 72,
+            "text": "2. 双击 setup_venv.bat        # 创建独立虚拟环境 .venv（不污染系统 Python）"
+          },
+          {
+            "lineNumber": 73,
+            "text": "3. 双击 start_pc_demo.bat     # 安装依赖并启动图形界面"
+          },
+          {
+            "lineNumber": 74,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 75
+          },
+          {
+            "lineNumber": 76,
+            "text": "### 方式二：命令行启动"
+          },
+          {
+            "lineNumber": 77
+          },
+          {
+            "lineNumber": 78,
+            "text": "&#96;&#96;&#96;powershell"
+          },
+          {
+            "lineNumber": 79,
+            "text": "cd pc_ble_client"
+          },
+          {
+            "lineNumber": 80,
+            "text": ".\\setup_venv.ps1                              # 首次：创建虚拟环境"
+          },
+          {
+            "lineNumber": 81,
+            "text": ".\\.venv\\Scripts\\python.exe run_gui.py         # 安装依赖 + 启动 GUI"
+          },
+          {
+            "lineNumber": 82,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 83
+          },
+          {
+            "lineNumber": 84,
+            "text": "### 方式三：模拟器联调模式"
+          },
+          {
+            "lineNumber": 85
+          },
+          {
+            "lineNumber": 86,
+            "text": "与 Android Studio 模拟器联调 TV 端时，可加 &#96;--emulator&#96; 参数（脚本 IP 默认 &#96;10.0.2.2&#96;）："
+          },
+          {
+            "lineNumber": 87
+          },
+          {
+            "lineNumber": 88,
+            "text": "&#96;&#96;&#96;powershell"
+          },
+          {
+            "lineNumber": 89,
+            "text": ".\\.venv\\Scripts\\python.exe run_gui.py --emulator"
+          },
+          {
+            "lineNumber": 90,
+            "text": "&#96;&#96;&#96;"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 91
+          },
+          "startPosition": {
+            "line": 39
+          }
+        },
+        "relativeWorkspacePath": ".\\README.md",
+        "signatures": {}
+      },
+      "score": 0.18024979531764984
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "isSignature": true,
+            "lineNumber": 60,
+            "text": "class TvLink:"
+          },
+          {
+            "lineNumber": 112
+          },
+          {
+            "lineNumber": 113
+          },
+          {
+            "lineNumber": 114,
+            "text": "    async def _bind_channel(self, label: str, port: int) -\u003e None:"
+          },
+          {
+            "lineNumber": 115,
+            "text": "        loop = asyncio.get_running_loop()"
+          },
+          {
+            "lineNumber": 116,
+            "text": "        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)"
+          },
+          {
+            "lineNumber": 117,
+            "text": "        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)"
+          },
+          {
+            "lineNumber": 118,
+            "text": "        sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)"
+          },
+          {
+            "lineNumber": 119,
+            "text": "        try:"
+          },
+          {
+            "lineNumber": 120,
+            "text": "            sock.bind((\"0.0.0.0\", port))"
+          },
+          {
+            "lineNumber": 121,
+            "text": "        except OSError as e:"
+          },
+          {
+            "lineNumber": 122,
+            "text": "            sock.close()"
+          },
+          {
+            "lineNumber": 123,
+            "text": "            self._on_log(f\"[TV] 绑定信道 {label} 端口 {port} 失败: {e!r}\")"
+          },
+          {
+            "lineNumber": 124,
+            "text": "            raise"
+          },
+          {
+            "lineNumber": 125,
+            "text": "        transport, _ = await loop.create_datagram_endpoint("
+          },
+          {
+            "lineNumber": 126,
+            "text": "            lambda ch=label: _UdpProtocol(self._handle_datagram, ch),"
+          },
+          {
+            "lineNumber": 127,
+            "text": "            sock=sock,"
+          },
+          {
+            "lineNumber": 128,
+            "text": "        )"
+          },
+          {
+            "lineNumber": 129,
+            "text": "        if label == \"A\":"
+          },
+          {
+            "lineNumber": 130,
+            "text": "            self._transport_a = transport"
+          },
+          {
+            "lineNumber": 131,
+            "text": "            self._port_a = port"
+          },
+          {
+            "lineNumber": 132,
+            "text": "            self._on_log(f\"[TV] 信道 A 已在 0.0.0.0:{port} 启动\")"
+          },
+          {
+            "lineNumber": 133,
+            "text": "        else:"
+          },
+          {
+            "lineNumber": 134,
+            "text": "            self._transport_b = transport"
+          },
+          {
+            "lineNumber": 135,
+            "text": "            self._port_b = port"
+          },
+          {
+            "lineNumber": 136,
+            "text": "            self._on_log(f\"[TV] 信道 B 已在 0.0.0.0:{port} 启动\")"
+          },
+          {
+            "lineNumber": 137
+          },
+          {
+            "lineNumber": 138,
+            "text": "    async def stop(self) -\u003e None:"
+          },
+          {
+            "lineNumber": 139,
+            "text": "        for fut in list(self._start_waiters.values()):"
+          },
+          {
+            "lineNumber": 140,
+            "text": "            if not fut.done():"
+          },
+          {
+            "lineNumber": 141,
+            "text": "                fut.cancel()"
+          },
+          {
+            "lineNumber": 142,
+            "text": "        self._start_waiters.clear()"
+          },
+          {
+            "lineNumber": 143,
+            "text": "        if self._transport_a is not None:"
+          },
+          {
+            "lineNumber": 144,
+            "text": "            self._transport_a.close()"
+          },
+          {
+            "lineNumber": 145,
+            "text": "            self._transport_a = None"
+          },
+          {
+            "lineNumber": 146,
+            "text": "        if self._transport_b is not None:"
+          },
+          {
+            "lineNumber": 147,
+            "text": "            self._transport_b.close()"
+          },
+          {
+            "lineNumber": 148,
+            "text": "            self._transport_b = None"
+          },
+          {
+            "lineNumber": 149,
+            "text": "        self._on_log(\"[TV] UDP 已关闭\")"
+          },
+          {
+            "lineNumber": 150
+          },
+          {
+            "lineNumber": 151,
+            "text": "    def set_target(self, *, mode: str = \"broadcast\", ip: str = BROADCAST_ADDR) -\u003e None:"
+          },
+          {
+            "lineNumber": 152,
+            "text": "        \"\"\"兼容旧接口：更新 config 中的 TV 目标。\"\"\""
+          },
+          {
+            "lineNumber": 153,
+            "text": "        self._config.tv_mode = mode"
+          },
+          {
+            "lineNumber": 154,
+            "text": "        self._config.tv_ip = ip"
+          },
+          {
+            "lineNumber": 155
+          },
+          {
+            "lineNumber": 156,
+            "text": "    def _unicast_targets(self) -\u003e list[tuple[str, int]]:"
+          },
+          {
+            "lineNumber": 157,
+            "text": "        \"\"\"单播目标列表（A 信道端口）。\"\"\""
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 397
+          },
+          "startPosition": {
+            "line": 59
+          }
+        },
+        "relativeWorkspacePath": ".\\pc_ble_client\\tv_link.py",
+        "signatures": {
+          "ranges": [
+            {
+              "endPosition": {
+                "column": 5,
+                "line": 61
+              },
+              "startPosition": {
+                "column": 1,
+                "line": 60
+              }
+            }
+          ]
+        }
+      },
+      "score": 0.17916744947433472
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 27,
+            "text": "| [开发排期Checklist.md](./开发排期Checklist.md) | U1–U3 排期 |"
+          },
+          {
+            "lineNumber": 28
+          },
+          {
+            "lineNumber": 29,
+            "text": "**原则：** **复杂逻辑在 PC**（蓝牙、加压、进度计算、格式转换）；TV 只做薄解析与 UI。"
+          },
+          {
+            "lineNumber": 30
+          },
+          {
+            "lineNumber": 31,
+            "text": "### 1.2 五分钟导读（给 PC 同事的非技术版）"
+          },
+          {
+            "lineNumber": 32
+          },
+          {
+            "lineNumber": 33,
+            "text": "**连接方式：** 同局域网 **UDP**（不是网页、不是 TV 直连蓝牙）。PC 脚本 = **网关**：蓝牙连手环/血压计，UDP 跟 **TV App（机顶盒 Android）** 说话。"
+          },
+          {
+            "lineNumber": 34
+          },
+          {
+            "lineNumber": 35,
+            "text": "**两条信道（P0 终态）：**"
+          },
+          {
+            "lineNumber": 36
+          },
+          {
+            "lineNumber": 37,
+            "text": "| 端口 | 用途 | 类比 |"
+          },
+          {
+            "lineNumber": 38,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 39,
+            "text": "| **18500（A）** | PC→TV 为主：发现网关、心率流、血压计是否就绪 | 电视台广播 |"
+          },
+          {
+            "lineNumber": 40,
+            "text": "| **18501（B）** | TV↔PC：点测量、进度、结果 | 对讲机 |"
+          },
+          {
+            "lineNumber": 41
+          },
+          {
+            "lineNumber": 42,
+            "text": "**注意：** &#96;255.255.255.255&#96; 只用于 **PC 发送广播**；PC **监听** 用 &#96;0.0.0.0:18501&#96;，不能 bind 到 255.255.255.255。"
+          },
+          {
+            "lineNumber": 43
+          },
+          {
+            "lineNumber": 44,
+            "text": "**血压一次测量（P0 目标时序，文字版）：**"
+          },
+          {
+            "lineNumber": 45
+          },
+          {
+            "lineNumber": 46,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 47,
+            "text": "[开机]"
+          },
+          {
+            "lineNumber": 48,
+            "text": "  PC ──18500──► TV   SCRIPT_READY（我是谁、请往 18501 发指令）"
+          },
+          {
+            "lineNumber": 49,
+            "text": "  PC ──18500──► TV   DEVICE_READY（血压计可测）"
+          },
+          {
+            "lineNumber": 50
+          },
+          {
+            "lineNumber": 51,
+            "text": "[用户按 OK]"
+          },
+          {
+            "lineNumber": 52,
+            "text": "  TV ──18501──► PC   START_MEASURE + reply_to"
+          },
+          {
+            "lineNumber": 53,
+            "text": "  PC ──18501──► TV   ACK"
+          },
+          {
+            "lineNumber": 54,
+            "text": "  PC ──蓝牙──► 血压计  开始加压"
+          },
+          {
+            "lineNumber": 55,
+            "text": "  PC ──18501──► TV   MEASURE_PROGRESS（多次）"
+          },
+          {
+            "lineNumber": 56,
+            "text": "  PC ──18501──► TV   MEASURE_RESULT"
+          },
+          {
+            "lineNumber": 57,
+            "text": "  TV 本地写 bp_history、画图、AI 文案"
+          },
+          {
+            "lineNumber": 58
+          },
+          {
+            "lineNumber": 59,
+            "text": "[用户按返回]"
+          },
+          {
+            "lineNumber": 60,
+            "text": "  TV ──18501──► PC   CANCEL_MEASURE（可选）"
+          },
+          {
+            "lineNumber": 61,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 62
+          },
+          {
+            "lineNumber": 63,
+            "text": "**心率：** 主要走 18500 的 &#96;HEART_RATE_STREAM&#96;；TV 本地做 30s 会话，**首版不必** TV 发 START 给 PC。"
+          },
+          {
+            "lineNumber": 64
+          },
+          {
+            "lineNumber": 65,
+            "text": "**阶段别混：** 下文 **L0** 是你脚本 **今天**；**T0** 是过渡（JSON 可先全走 18500）；**P0** 才是上表完整双端口闭环。详见 §4、§1.3。"
+          },
+          {
+            "lineNumber": 66
+          },
+          {
+            "lineNumber": 67,
+            "text": "### 1.3 L0 / T0 / P0 对照（联调时必看）"
+          },
+          {
+            "lineNumber": 68
+          },
+          {
+            "lineNumber": 69,
+            "text": "| 项 | **L0 Legacy（现网 PC 脚本）** | **T0 过渡** | **P0 目标** |"
+          },
+          {
+            "lineNumber": 70,
+            "text": "|----|------------------------------|-------------|-------------|"
+          },
+          {
+            "lineNumber": 71,
+            "text": "| PC→TV 格式 | 纯文本一行 | JSON（可与文本双发） | JSON |"
+          },
+          {
+            "lineNumber": 72,
+            "text": "| TV→PC 测血压 | &#96;START&#96; → **PC_IP:18500** | 仍可 18500；识别 &#96;START_MEASURE&#96; | **PC_IP:18501** &#96;START_MEASURE&#96; |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 72
+          },
+          "startPosition": {
+            "line": 26
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.17665530741214752
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 269,
+            "text": "|------|------|--------------------------------|"
+          },
+          {
+            "lineNumber": 270,
+            "text": "| 1 | 真机安装 App，进入详情页 | 监听中 |"
+          },
+          {
+            "lineNumber": 271,
+            "text": "| 2 | PC 运行 mock_gateway | — |"
+          },
+          {
+            "lineNumber": 272,
+            "text": "| 3 | 等待 2s | &#96;[发现] 脚本上线广播: 192.168.x.x&#96; |"
+          },
+          {
+            "lineNumber": 273,
+            "text": "| 4 | 持续 | &#96;[广播非标数据]&#96; 或后续实现 &#96;[HEART_RATE_STREAM]&#96; 解析日志 |"
+          },
+          {
+            "lineNumber": 274,
+            "text": "| 5 | 停 mock_gateway | 日志停止增加 |"
+          },
+          {
+            "lineNumber": 275
+          },
+          {
+            "lineNumber": 276,
+            "text": "**Logcat 过滤：**"
+          },
+          {
+            "lineNumber": 277
+          },
+          {
+            "lineNumber": 278,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 279,
+            "text": "Tag: UDPReceiver"
+          },
+          {
+            "lineNumber": 280,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 281
+          },
+          {
+            "lineNumber": 282,
+            "text": "**AS 操作：** View → Tool Windows → Logcat → 下拉选真机 → 输入 &#96;UDPReceiver&#96;。"
+          },
+          {
+            "lineNumber": 283
+          },
+          {
+            "lineNumber": 284,
+            "text": "**当前代码注意：** 现版 &#96;DataMonitoring&#96; 对非 &#96;SCRIPT_READY&#96; 的 JSON 会打 &#96;[广播非标数据]&#96;；&#96;HEART_RATE_STREAM&#96; 属预期。协议解析按 [udp_信道设计.md](./udp_信道设计.md) 实现后，应变为结构化日志。"
+          },
+          {
+            "lineNumber": 285
+          },
+          {
+            "lineNumber": 286,
+            "text": "**通过标准：** 至少稳定收到 &#96;SCRIPT_READY&#96; 且 &#96;script_ip&#96; 正确。"
+          },
+          {
+            "lineNumber": 287
+          },
+          {
+            "lineNumber": 288,
+            "text": "---"
+          },
+          {
+            "lineNumber": 289
+          },
+          {
+            "lineNumber": 290,
+            "text": "### 5.2 阶段 2：信道 B 单测（TV 发 START → PC 回 RESULT）"
+          },
+          {
+            "lineNumber": 291
+          },
+          {
+            "lineNumber": 292,
+            "text": "**目的：** 验证 **18501 双向**；与信道 A 的 &#96;script_ip&#96; 衔接。"
+          },
+          {
+            "lineNumber": 293
+          },
+          {
+            "lineNumber": 294,
+            "text": "| 步骤 | 操作 | 预期 |"
+          },
+          {
+            "lineNumber": 295,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 296,
+            "text": "| 1 | mock_gateway 运行中，且已收到 SCRIPT_READY | scriptIp 已缓存 |"
+          },
+          {
+            "lineNumber": 297,
+            "text": "| 2 | **点击** &#96;tv_heart_rate&#96; 控制台 | 现版触发 &#96;sendStartMeasureInstruction()&#96; |"
+          },
+          {
+            "lineNumber": 298,
+            "text": "| 3 | PC 终端 | &#96;[B] 收到 ... START_MEASURE&#96; |"
+          },
+          {
+            "lineNumber": 299,
+            "text": "| 4 | TV 控制台 | &#96;[发送] 指令 -\u003e PC_IP:18501 ...&#96; |"
+          },
+          {
+            "lineNumber": 300,
+            "text": "| 5 | TV 控制台 | &#96;[接收] 18501返回: ... MEASURE_RESULT ...&#96; |"
+          },
+          {
+            "lineNumber": 301,
+            "text": "| 6 | TV 控制台 | &#96;[解析血压] 收缩压:120 舒张压:80 脉搏:72&#96; |"
+          },
+          {
+            "lineNumber": 302
+          },
+          {
+            "lineNumber": 303,
+            "text": "**通过标准：** TV→PC→TV 闭环一次；不要求图表已接血压 UI。"
+          },
+          {
+            "lineNumber": 304
+          },
+          {
+            "lineNumber": 305,
+            "text": "**若发送失败「未发现可用脚本IP」：** 先确认阶段 1 的 SCRIPT_READY 已成功。"
+          },
+          {
+            "lineNumber": 306
+          },
+          {
+            "lineNumber": 307,
+            "text": "---"
+          },
+          {
+            "lineNumber": 308
+          },
+          {
+            "lineNumber": 309,
+            "text": "### 5.3 阶段 3：信道 A 心率域（实现后验收）"
+          },
+          {
+            "lineNumber": 310
+          },
+          {
+            "lineNumber": 311,
+            "text": "对照 [心率测试方案.md](./心率测试方案.md)："
+          },
+          {
+            "lineNumber": 312
+          },
+          {
+            "lineNumber": 313,
+            "text": "| 用例 ID | 模拟方式 | 预期 UI |"
+          },
+          {
+            "lineNumber": 314,
+            "text": "|---------|----------|---------|"
+          },
+          {
+            "lineNumber": 315,
+            "text": "| HR-A1 | mock 持续 &#96;HEART_RATE_STREAM&#96; | 心率卡片角标「可测量」 |"
+          },
+          {
+            "lineNumber": 316,
+            "text": "| HR-A2 | 10s 无 stream | 角标熄灭 |"
+          },
+          {
+            "lineNumber": 317,
+            "text": "| HR-B1 | 焦点在心率卡片 + OK | 30s 倒计时、短期折线 |"
+          },
+          {
+            "lineNumber": 318,
+            "text": "| HR-B2 | 30s 结束 | 写 hr_history.json，长期图更新 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 318
+          },
+          "startPosition": {
+            "line": 268
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\AndroidStudio双信道测试方案.md",
+        "signatures": {}
+      },
+      "score": 0.1755143404006958
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 1,
+            "text": "# -*- coding: utf-8 -*-"
+          },
+          {
+            "lineNumber": 2,
+            "text": "\"\"\""
+          },
+          {
+            "lineNumber": 3,
+            "text": "多路 BLE 测试端（桌面 GUI）—— 四区分层重构版。"
+          },
+          {
+            "lineNumber": 4
+          },
+          {
+            "lineNumber": 5,
+            "text": "四个区域（见 ui_panels.py）："
+          },
+          {
+            "lineNumber": 6,
+            "text": "  区域1 设备池   DevicePoolPanel : 扫描 / 过滤 / 列表（状态标签 + 右键设类型）"
+          },
+          {
+            "lineNumber": 7,
+            "text": "  区域2 会话     SessionPanel    : 当前连接（只读：名称/MAC/角色/类型/状态 + 断开）"
+          },
+          {
+            "lineNumber": 8,
+            "text": "  区域3 功能面板 FunctionPanel   : 连接设置 Tab + 业务操作 Tab（按设备类型切换 HR/BP）"
+          },
+          {
+            "lineNumber": 9,
+            "text": "  区域4 底部栏   GlobalBar       : 全局按钮 + TV 推送配置"
+          },
+          {
+            "lineNumber": 10
+          },
+          {
+            "lineNumber": 11,
+            "text": "核心思想："
+          },
+          {
+            "lineNumber": 12,
+            "text": "  - 分层管理：把「蓝牙连接」与「业务操作（测血压/看心率）」彻底分开。"
+          },
+          {
+            "lineNumber": 13,
+            "text": "  - 设备档案：device_profile.DeviceProfileStore 记住每台 MAC 的类型/角色，"
+          },
+          {
+            "lineNumber": 14,
+            "text": "    扫描即标记「已配置/未知/已连接」，连接按档案 type 路由（band→心率，bp→血压）。"
+          },
+          {
+            "lineNumber": 15,
+            "text": "  - TV 联动：tv_link.TvLink 用 JSON over UDP 与 TV 双向通信；联动模式下血压测量"
+          },
+          {
+            "lineNumber": 16,
+            "text": "    走「连接→发 READY→等 TV 的 START→测量→回推 RESULT」。"
+          },
+          {
+            "lineNumber": 17
+          },
+          {
+            "lineNumber": 18,
+            "text": "技术栈：Python 3.10+ / PySide6 / qasync（Qt 与 asyncio 合并事件循环）。"
+          },
+          {
+            "lineNumber": 19,
+            "text": "\"\"\""
+          },
+          {
+            "lineNumber": 20
+          },
+          {
+            "lineNumber": 21,
+            "text": "from __future__ import annotations"
+          },
+          {
+            "lineNumber": 22
+          },
+          {
+            "lineNumber": 23,
+            "text": "import argparse"
+          },
+          {
+            "lineNumber": 24,
+            "text": "import asyncio"
+          },
+          {
+            "lineNumber": 25,
+            "text": "import traceback"
+          },
+          {
+            "lineNumber": 26,
+            "text": "from datetime import datetime"
+          },
+          {
+            "lineNumber": 27,
+            "text": "from typing import Dict, List, Optional, Tuple"
+          },
+          {
+            "lineNumber": 28
+          },
+          {
+            "lineNumber": 29,
+            "text": "from PySide6.QtCore import QObject, Qt, QSettings, QTimer, Signal"
+          },
+          {
+            "lineNumber": 30,
+            "text": "from PySide6.QtWidgets import ("
+          },
+          {
+            "lineNumber": 31,
+            "text": "    QApplication,"
+          },
+          {
+            "lineNumber": 32,
+            "text": "    QFileDialog,"
+          },
+          {
+            "lineNumber": 33,
+            "text": "    QHBoxLayout,"
+          },
+          {
+            "lineNumber": 34,
+            "text": "    QLabel,"
+          },
+          {
+            "lineNumber": 35,
+            "text": "    QMainWindow,"
+          },
+          {
+            "lineNumber": 36,
+            "text": "    QMessageBox,"
+          },
+          {
+            "lineNumber": 37,
+            "text": "    QSplitter,"
+          },
+          {
+            "lineNumber": 38,
+            "text": "    QStatusBar,"
+          },
+          {
+            "lineNumber": 39,
+            "text": "    QVBoxLayout,"
+          },
+          {
+            "lineNumber": 40,
+            "text": "    QWidget,"
+          },
+          {
+            "lineNumber": 41,
+            "text": ")"
+          },
+          {
+            "lineNumber": 42
+          },
+          {
+            "lineNumber": 43,
+            "text": "from qasync import QEventLoop, asyncSlot"
+          },
+          {
+            "lineNumber": 44
+          },
+          {
+            "lineNumber": 45,
+            "text": "from bp_protocol import ("
+          },
+          {
+            "lineNumber": 46,
+            "text": "    device_name_matches_legacy_android_demo,"
+          },
+          {
+            "lineNumber": 47,
+            "text": "    sort_rows_bp_name_candidates_first,"
+          },
+          {
+            "lineNumber": 48,
+            "text": ")"
+          },
+          {
+            "lineNumber": 49,
+            "text": "from device_profile import ("
+          },
+          {
+            "lineNumber": 50,
+            "text": "    DeviceProfile,"
+          },
+          {
+            "lineNumber": 51,
+            "text": "    DeviceProfileStore,"
+          },
+          {
+            "lineNumber": 52,
+            "text": "    TYPE_BAND,"
+          },
+          {
+            "lineNumber": 53,
+            "text": "    TYPE_BP,"
+          },
+          {
+            "lineNumber": 54,
+            "text": "    TYPE_SCALE,"
+          },
+          {
+            "lineNumber": 55,
+            "text": "    norm_mac,"
+          },
+          {
+            "lineNumber": 56,
+            "text": "    type_label,"
+          },
+          {
+            "lineNumber": 57,
+            "text": ")"
+          },
+          {
+            "lineNumber": 58,
+            "text": "from gateway_config import GatewayConfigStore, detect_lan_ip"
+          },
+          {
+            "lineNumber": 59,
+            "text": "from gateway_controller import GatewayController"
+          },
+          {
+            "lineNumber": 60,
+            "text": "from multi_ble_backend import MultiBleBackend"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "column": 45,
+            "line": 59
+          },
+          "startPosition": {}
+        },
+        "relativeWorkspacePath": ".\\pc_ble_client\\bp_demo_app.py",
+        "signatures": {}
+      },
+      "score": 0.1753855049610138
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="semantic_search_full"><details>
+<summary>Tool use: **semantic_search_full**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": true,
+  "glob": "*.{java,kt,xml,py,md,vue,js,ts,tsx}",
+  "pattern": "video|VideoView|ExoPlayer|MediaPlayer|mp4|播放"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "pattern": "video|VideoView|ExoPlayer|MediaPlayer|mp4|播放",
+  "topFiles": [
+    {
+      "matchCount": 12,
+      "uri": "baseble/src/main/java/com/vise/baseble/model/resolver/GattAttributeResolver.java"
+    },
+    {
+      "matchCount": 1,
+      "uri": "app/src/main/java/com/iknet/bloodmeasuredemo/BluetoothConnMeasureActivity.java"
+    },
+    {
+      "matchCount": 17,
+      "uri": ".specstory\\history\\2026-05-14_02-36-06Z-blood-pressure-monitor-connection-guidance.md"
+    },
+    {
+      "matchCount": 25,
+      "uri": "baseble/src/main/java/com/vise/baseble/model/resolver/BluetoothClassResolver.java"
+    }
+  ],
+  "totalFiles": 4,
+  "totalMatches": 55
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+这个仓库里没有视频播放代码。它主要是 PC BLE 网关和 Android 血压演示程序。</details></think>
+
+_**Agent (default)**_
+
+Glob pattern "**/*" matches every file and is not allowed. Use a more specific glob or no glob.
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **c:\Users\黄先生\Desktop\家庭端医疗健康\蓝牙血压计\BlueToothDemo\BlueToothDemo** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "glob": "docs/**",
+  "pattern": "视频|卡顿|播放"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "pattern": "视频|卡顿|播放",
+  "topFiles": [],
+  "totalFiles": 0,
+  "totalMatches": 0
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+当前仓库中没有视频相关的代码。
+
+我将从四个方向给出建议：分析模拟器视频卡顿的根因（软件解码、GPU模拟、分辨率过高、编解码器问题），提供ffmpeg压缩命令，给出Android TV模拟器优化方案，并补充ExoPlayer或MediaPlayer的代码层面优化建议。</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "c:\\Users\\黄先生\\Desktop\\家庭端医疗健康\\蓝牙血压计\\BlueToothDemo\\BlueToothDemo\\.specstory",
+  "pattern": "视频|mp4|ExoPlayer|播放"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "c:\\Users\\黄先生\\Desktop\\家庭端医疗健康\\蓝牙血压计\\BlueToothDemo\\BlueToothDemo\\.specstory",
+  "pattern": "视频|mp4|ExoPlayer|播放",
+  "topFiles": [],
+  "totalFiles": 0,
+  "totalMatches": 0
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="semantic_search_full">
+<details>
+<summary>Tool use: **semantic_search_full**</summary>
+
+
+Parameters:
+
+```json
+{
+  "explanation": "",
+  "includePattern": "docs",
+  "query": "TV app video player emulator performance",
+  "topK": 10
+}
+```
+Result:
+
+```json
+{
+  "codeResults": [
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 36,
+            "text": "| **T0** | PC 18500 发 JSON（可双发文本） | mock 或 **升级中 PC 脚本** | 角标/图表吃 JSON；START 仍可 18500 | §5.1–§5.4（部分） |"
+          },
+          {
+            "lineNumber": 37,
+            "text": "| **P0** | 18500 A + **18501 B** 闭环 | **mock_gateway** 或 P0 PC | OK→&#96;START_MEASURE&#96;→ACK→RESULT | §5.2、§5.4、§5.5 |"
+          },
+          {
+            "lineNumber": 38
+          },
+          {
+            "lineNumber": 39,
+            "text": "**TV App 现状（约 2026-06）：** 已监听 18500/18501；文本心率、&#96;HEART_RATE_STREAM&#96; 部分可用；血压 &#96;DEVICE_READY&#96; / &#96;MEASURE_PROGRESS&#96; / &#96;MEASURE_RESULT&#96; **产品 Controller 未全接**；血压 OK 发 &#96;START_MEASURE&#96; **产品 UI 未接线**。详见 [pc_gateway升级方案 §1.4](./pc_gateway升级方案.md)。"
+          },
+          {
+            "lineNumber": 40
+          },
+          {
+            "lineNumber": 41,
+            "text": "---"
+          },
+          {
+            "lineNumber": 42
+          },
+          {
+            "lineNumber": 43,
+            "text": "## 2. 测试环境选型"
+          },
+          {
+            "lineNumber": 44
+          },
+          {
+            "lineNumber": 45,
+            "text": "### 2.1 三种环境对比"
+          },
+          {
+            "lineNumber": 46
+          },
+          {
+            "lineNumber": 47,
+            "text": "| 环境 | 适用阶段 | 信道 A 广播 | 信道 B 单播 | 推荐度 |"
+          },
+          {
+            "lineNumber": 48,
+            "text": "|------|----------|-------------|-------------|--------|"
+          },
+          {
+            "lineNumber": 49,
+            "text": "| **AS 模拟器（AVD）** | UI、Logcat | 较差（UDP/组播受限） | 需 adb 转发 | 仅 UI |"
+          },
+          {
+            "lineNumber": 50,
+            "text": "| **AS + 真机（手机/平板，同 WiFi）** | **双信道主测** | 正常 | 正常 | **强烈推荐** |"
+          },
+          {
+            "lineNumber": 51,
+            "text": "| **机顶盒（最终部署）** | 验收 | 正常 | 正常 | 上线前最后一关 |"
+          },
+          {
+            "lineNumber": 52
+          },
+          {
+            "lineNumber": 53,
+            "text": "### 2.2 推荐路线"
+          },
+          {
+            "lineNumber": 54
+          },
+          {
+            "lineNumber": 55,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 56,
+            "text": "阶段 0  AS 模拟器     → 只看界面、图表、遥控器按键（无 UDP）"
+          },
+          {
+            "lineNumber": 57,
+            "text": "阶段 1  AS + 真机     → mock_gateway，测齐信道 A + B（P0 协议）"
+          },
+          {
+            "lineNumber": 58,
+            "text": "阶段 2  AS + 真机     → 接真实 PC 脚本 pc_ble_client（L0 文本 / T0 JSON）"
+          },
+          {
+            "lineNumber": 59,
+            "text": "阶段 3  机顶盒        → 同网段完整演示（P0 + 真实硬件）"
+          },
+          {
+            "lineNumber": 60,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 61
+          },
+          {
+            "lineNumber": 62,
+            "text": "**结论：** 双信道 UDP **不要在模拟器上硬扛**；用一台与 PC **同一 WiFi** 的 Android 真机代替机顶盒开发，成功率最高。"
+          },
+          {
+            "lineNumber": 63
+          },
+          {
+            "lineNumber": 64,
+            "text": "### 2.2.1 两种 PC 端对比（mock vs 真实脚本）"
+          },
+          {
+            "lineNumber": 65
+          },
+          {
+            "lineNumber": 66,
+            "text": "| 对比项 | mock_gateway | pc_ble_client（你的脚本） |"
+          },
+          {
+            "lineNumber": 67,
+            "text": "|--------|--------------|---------------------------|"
+          },
+          {
+            "lineNumber": 68,
+            "text": "| 用途 | TV 开发自测 **P0 JSON** | 真实蓝牙 + 网关 |"
+          },
+          {
+            "lineNumber": 69,
+            "text": "| 蓝牙 | 无，假进度/假结果 | 手环 + 瑞光血压计 |"
+          },
+          {
+            "lineNumber": 70,
+            "text": "| 端口 | 18500 发 + 18501 听 | **L0：仅 18500** |"
+          },
+          {
+            "lineNumber": 71,
+            "text": "| 格式 | JSON | **L0：纯文本行**；升级后 T0/P0 JSON |"
+          },
+          {
+            "lineNumber": 72,
+            "text": "| 何时用 | TV 未接 PC、验 P0 协议 | 验真实测压、验 L0 文本推送 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 72
+          },
+          "startPosition": {
+            "line": 35
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\AndroidStudio双信道测试方案.md",
+        "signatures": {}
+      },
+      "score": 0.31708240509033203
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 231,
+            "text": "| **2** | AS **模拟器** + &#96;adb forward&#96; | L0 文本、T0 部分 JSON；**P0 双信道仅作尝试** |"
+          },
+          {
+            "lineNumber": 232,
+            "text": "| **3** | 仅 mock_gateway + 真机 | TV 未接 Legacy 前的 P0 自测 |"
+          },
+          {
+            "lineNumber": 233
+          },
+          {
+            "lineNumber": 234,
+            "text": "**原因：** 模拟器 **没有** 与 PC 同网段的 &#96;192.168.x.x&#96;；&#96;255.255.255.255&#96; 广播在 AVD 内 **经常到不了宿主机**；&#96;adb forward udp&#96; 在部分 Android 版本 **不稳定**。"
+          },
+          {
+            "lineNumber": 235
+          },
+          {
+            "lineNumber": 236,
+            "text": "### 3.6.2 模拟器网络关系（PC 同事需知）"
+          },
+          {
+            "lineNumber": 237
+          },
+          {
+            "lineNumber": 238,
+            "text": "| 视角 | 地址 | 说明 |"
+          },
+          {
+            "lineNumber": 239,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 240,
+            "text": "| 模拟器 → 宿主机 PC | **&#96;10.0.2.2&#96;** | 固定映射到开发机 loopback |"
+          },
+          {
+            "lineNumber": 241,
+            "text": "| 宿主机 → 模拟器内 App | **&#96;127.0.0.1&#96;** + **adb forward 后的端口** | 不是 TV 的 WiFi IP |"
+          },
+          {
+            "lineNumber": 242,
+            "text": "| 模拟器「本机 IP」 | 多为 &#96;10.0.2.15&#96; 等 | **不要**把这个 IP 填进 PC 的 &#96;--tv-ip&#96; 给局域网单播用 |"
+          },
+          {
+            "lineNumber": 243
+          },
+          {
+            "lineNumber": 244,
+            "text": "### 3.6.3 模拟器联调步骤（TV 同事执行 adb，PC 改发送目标）"
+          },
+          {
+            "lineNumber": 245
+          },
+          {
+            "lineNumber": 246,
+            "text": "**1. TV 侧（Android Studio / 命令行）**"
+          },
+          {
+            "lineNumber": 247
+          },
+          {
+            "lineNumber": 248,
+            "text": "&#96;&#96;&#96;powershell"
+          },
+          {
+            "lineNumber": 249,
+            "text": "adb devices"
+          },
+          {
+            "lineNumber": 250,
+            "text": "adb forward udp:18500 udp:18500"
+          },
+          {
+            "lineNumber": 251,
+            "text": "adb forward udp:18501 udp:18501"
+          },
+          {
+            "lineNumber": 252,
+            "text": "adb forward --list"
+          },
+          {
+            "lineNumber": 253,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 254
+          },
+          {
+            "lineNumber": 255,
+            "text": "**2. PC 脚本参数（Legacy / T0 / mock 均类似）**"
+          },
+          {
+            "lineNumber": 256
+          },
+          {
+            "lineNumber": 257,
+            "text": "| 项 | 真机同 WiFi | **模拟器 + adb forward** |"
+          },
+          {
+            "lineNumber": 258,
+            "text": "|----|-------------|---------------------------|"
+          },
+          {
+            "lineNumber": 259,
+            "text": "| &#96;--pc-ip&#96; / &#96;script_ip&#96; | &#96;192.168.1.100&#96; | 模拟器内 TV 要发 START 时填 **&#96;10.0.2.2&#96;**（见下） |"
+          },
+          {
+            "lineNumber": 260,
+            "text": "| &#96;--tv-ip&#96; / 单播目标 | 真机 &#96;192.168.1.50&#96; | **&#96;127.0.0.1&#96;**（发到 forward 后的 18500/18501） |"
+          },
+          {
+            "lineNumber": 261,
+            "text": "| 广播 | &#96;255.255.255.255:18500&#96; | **可能无效**；模拟器场景 **必须依赖 127.0.0.1 单播** |"
+          },
+          {
+            "lineNumber": 262,
+            "text": "| PC listen B | &#96;0.0.0.0:18501&#96; | 不变；TV 经 forward 发到宿主机 18501 |"
+          },
+          {
+            "lineNumber": 263
+          },
+          {
+            "lineNumber": 264,
+            "text": "**3. Legacy L0 在模拟器上的预期**"
+          },
+          {
+            "lineNumber": 265
+          },
+          {
+            "lineNumber": 266,
+            "text": "- PC 勾选推送，向 **&#96;127.0.0.1:18500&#96;** 单播文本行 → TV 控制台应出现 &#96;[xx:xx:xx] 心率/加压…&#96;"
+          },
+          {
+            "lineNumber": 267,
+            "text": "- TV 发 START：Legacy 走 **18500** → 目标应为 **&#96;10.0.2.2:18500&#96;**（TV 端需配置或默认网关 IP；若 TV 仍发到旧 PC 局域网 IP 会失败）"
+          },
+          {
+            "lineNumber": 268,
+            "text": "- **18501 在 L0 未使用**，PC 无需 listen 18501"
+          },
+          {
+            "lineNumber": 269
+          },
+          {
+            "lineNumber": 270,
+            "text": "**4. P0 在模拟器上的预期（尽力而为）**"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 271
+          },
+          "startPosition": {
+            "line": 230
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.27045080065727234
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 1,
+            "text": "# PC 网关 P0 测试验收清单（v2.0 直接 P0）"
+          },
+          {
+            "lineNumber": 2
+          },
+          {
+            "lineNumber": 3,
+            "text": "默认交付为 **P0 双信道**（&#96;gateway.json&#96; → &#96;protocol_stage: P0&#96;）。L0/T0 仅工程师调试。"
+          },
+          {
+            "lineNumber": 4
+          },
+          {
+            "lineNumber": 5,
+            "text": "## 启动"
+          },
+          {
+            "lineNumber": 6
+          },
+          {
+            "lineNumber": 7,
+            "text": "&#96;&#96;&#96;powershell"
+          },
+          {
+            "lineNumber": 8,
+            "text": "cd pc_ble_client"
+          },
+          {
+            "lineNumber": 9,
+            "text": "# 真机同 WiFi（默认 P0，开机自动 bind 18500+18501）"
+          },
+          {
+            "lineNumber": 10,
+            "text": ".\\.venv\\Scripts\\python.exe run_gui.py"
+          },
+          {
+            "lineNumber": 11
+          },
+          {
+            "lineNumber": 12,
+            "text": "# Android Studio 模拟器 + adb forward"
+          },
+          {
+            "lineNumber": 13,
+            "text": ".\\.venv\\Scripts\\python.exe run_gui.py --emulator"
+          },
+          {
+            "lineNumber": 14,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 15
+          },
+          {
+            "lineNumber": 16,
+            "text": "&#96;--emulator&#96; 等价于：&#96;P0&#96; + 单播 &#96;127.0.0.1&#96; + &#96;script_ip=10.0.2.2&#96; + 禁用广播。"
+          },
+          {
+            "lineNumber": 17
+          },
+          {
+            "lineNumber": 18,
+            "text": "TV 侧需执行："
+          },
+          {
+            "lineNumber": 19
+          },
+          {
+            "lineNumber": 20,
+            "text": "&#96;&#96;&#96;powershell"
+          },
+          {
+            "lineNumber": 21,
+            "text": "adb forward udp:18500 udp:18500"
+          },
+          {
+            "lineNumber": 22,
+            "text": "adb forward udp:18501 udp:18501"
+          },
+          {
+            "lineNumber": 23,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 24
+          },
+          {
+            "lineNumber": 25,
+            "text": "---"
+          },
+          {
+            "lineNumber": 26
+          },
+          {
+            "lineNumber": 27,
+            "text": "## P0 Gate（必过）"
+          },
+          {
+            "lineNumber": 28
+          },
+          {
+            "lineNumber": 29,
+            "text": "| # | 检查项 | 期望 |"
+          },
+          {
+            "lineNumber": 30,
+            "text": "|---|--------|------|"
+          },
+          {
+            "lineNumber": 31,
+            "text": "| G1 | 启动后底部 **B: 已监听** 为绿 | bind &#96;0.0.0.0:18501&#96; |"
+          },
+          {
+            "lineNumber": 32,
+            "text": "| G2 | TV 协议 Tab 见 &#96;SCRIPT_READY&#96; | &#96;listen_port: 18501&#96;，&#96;script_ip&#96; 为 PC 局域网 IP（模拟器为 &#96;10.0.2.2&#96;） |"
+          },
+          {
+            "lineNumber": 33,
+            "text": "| G3 | 连接血压计 | 信道 A 出现 &#96;DEVICE_READY&#96; |"
+          },
+          {
+            "lineNumber": 34,
+            "text": "| G4 | 勾选推送心率并连接手环 | 信道 A 出现 &#96;HEART_RATE_STREAM&#96;（约 1Hz） |"
+          },
+          {
+            "lineNumber": 35,
+            "text": "| G5 | TV 联调 → **模拟 START_MEASURE** | 日志 ACK；若已连 BP 则真实测压 |"
+          },
+          {
+            "lineNumber": 36,
+            "text": "| G6 | 测压过程 | **仅 B 信道** 出现 &#96;MEASURE_PROGRESS&#96; / &#96;MEASURE_RESULT&#96; |"
+          },
+          {
+            "lineNumber": 37,
+            "text": "| G7 | &#96;request_id&#96; | ACK、PROGRESS、RESULT 一致 |"
+          },
+          {
+            "lineNumber": 38,
+            "text": "| G8 | 真机 TV 发 &#96;START_MEASURE@PC_IP:18501&#96; | 完整闭环 |"
+          },
+          {
+            "lineNumber": 39
+          },
+          {
+            "lineNumber": 40,
+            "text": "---"
+          },
+          {
+            "lineNumber": 41
+          },
+          {
+            "lineNumber": 42,
+            "text": "## 信道职责（P0）"
+          },
+          {
+            "lineNumber": 43
+          },
+          {
+            "lineNumber": 44,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 45,
+            "text": "A · 18500  PC→TV"
+          },
+          {
+            "lineNumber": 46,
+            "text": "  SCRIPT_READY / HEART_RATE_STREAM / DEVICE_READY / DEVICE_OFFLINE"
+          },
+          {
+            "lineNumber": 47
+          },
+          {
+            "lineNumber": 48,
+            "text": "B · 18501  双向"
+          },
+          {
+            "lineNumber": 49,
+            "text": "  TV→PC  START_MEASURE / CANCEL_MEASURE"
+          },
+          {
+            "lineNumber": 50,
+            "text": "  PC→TV  ACK / MEASURE_PROGRESS / MEASURE_RESULT / MEASURE_ERROR"
+          },
+          {
+            "lineNumber": 51,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 52
+          },
+          {
+            "lineNumber": 53,
+            "text": "---"
+          },
+          {
+            "lineNumber": 54
+          },
+          {
+            "lineNumber": 55,
+            "text": "## 常见问题"
+          },
+          {
+            "lineNumber": 56
+          },
+          {
+            "lineNumber": 57,
+            "text": "| 现象 | 处理 |"
+          },
+          {
+            "lineNumber": 58,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 59,
+            "text": "| B 未监听 | 确认协议阶段为 P0；端口 18501 是否被占用 |"
+          },
+          {
+            "lineNumber": 60,
+            "text": "| TV 收不到 A 信道 | 真机填 TV IP 到「单播IP」；模拟器用 &#96;--emulator&#96; |"
+          },
+          {
+            "lineNumber": 61,
+            "text": "| START 发 18500 无反应 | **P0 预期行为**；应发 &#96;START_MEASURE&#96; 到 **18501** |"
+          },
+          {
+            "lineNumber": 62,
+            "text": "| 进度出现在 A | 非 P0 或旧配置；删 &#96;gateway.json&#96; 重启或手动选 P0 |"
+          },
+          {
+            "lineNumber": 63
+          },
+          {
+            "lineNumber": 64,
+            "text": "---"
+          },
+          {
+            "lineNumber": 65
+          },
+          {
+            "lineNumber": 66,
+            "text": "## 修订"
+          },
+          {
+            "lineNumber": 67
+          },
+          {
+            "lineNumber": 68,
+            "text": "| 版本 | 说明 |"
+          },
+          {
+            "lineNumber": 69,
+            "text": "|------|------|"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 69
+          },
+          "startPosition": {}
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关升级测试验收清单.md",
+        "signatures": {}
+      },
+      "score": 0.26551389694213867
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 80,
+            "text": "| &#96;multi_ble_backend.py&#96; | BP+HR 编排 | 发 DEVICE_READY/OFFLINE；进度回调带 phase | T0 |"
+          },
+          {
+            "lineNumber": 81,
+            "text": "| &#96;ui_panels.py&#96; | 四区调试 UI | TV 联调区、协议阶段、日志分级 | R0/T0 |"
+          },
+          {
+            "lineNumber": 82,
+            "text": "| &#96;device_profile.py&#96; | devices.json | 增加 gateway.json（TV IP、阶段、端口） | R0 |"
+          },
+          {
+            "lineNumber": 83,
+            "text": "| &#96;run_gui.py&#96; | 无 CLI | &#96;--tv-ip&#96;、&#96;--no-broadcast&#96;、&#96;--protocol-stage&#96; | R0 |"
+          },
+          {
+            "lineNumber": 84
+          },
+          {
+            "lineNumber": 85,
+            "text": "---"
+          },
+          {
+            "lineNumber": 86
+          },
+          {
+            "lineNumber": 87,
+            "text": "## 4. 升级重点（优先级）"
+          },
+          {
+            "lineNumber": 88
+          },
+          {
+            "lineNumber": 89,
+            "text": "### 4.1 P0 — 必须做（阻塞 TV 产品联调）"
+          },
+          {
+            "lineNumber": 90
+          },
+          {
+            "lineNumber": 91,
+            "text": "| # | 重点 | 原因 | 主要改动 |"
+          },
+          {
+            "lineNumber": 92,
+            "text": "|---|------|------|----------|"
+          },
+          {
+            "lineNumber": 93,
+            "text": "| **P0-1** | **TV 协议 T0 JSON 上 18500** | TV 图表/角标依赖结构化字段，不能长期靠 F1 文本 | &#96;tv_messages.py&#96; + &#96;tv_link&#96; 双发 |"
+          },
+          {
+            "lineNumber": 94,
+            "text": "| **P0-2** | **文本→字段在 PC 内转换** | 禁止 TV 正则解析「加压中: 97 mmHg」 | &#96;reading_format&#96; / 测量循环直接产出 JSON 字段 |"
+          },
+          {
+            "lineNumber": 95,
+            "text": "| **P0-3** | **SCRIPT_READY + script_ip + listen_port** | TV 需知道往哪发 START | 启动与每 60s 广播；&#96;listen_port&#96; T0=18500，P0=18501 |"
+          },
+          {
+            "lineNumber": 96,
+            "text": "| **P0-4** | **DEVICE_READY / DEVICE_OFFLINE** | TV 血压入口亮灭 | BP 连接/断开时发 JSON |"
+          },
+          {
+            "lineNumber": 97,
+            "text": "| **P0-5** | **18501 监听 + START_MEASURE 闭环** | TV 产品 OK 走 B 信道 | &#96;tv_link&#96; 第二 transport；&#96;measure_fsm&#96; |"
+          },
+          {
+            "lineNumber": 98,
+            "text": "| **P0-6** | **request_id 全链路** | 日志关联、ACK/RESULT 配对 | 状态机持有当前 request_id |"
+          },
+          {
+            "lineNumber": 99,
+            "text": "| **P0-7** | **单播 + 广播双发** | 真机/部分路由下广播不可靠 | &#96;127.0.0.1&#96;（模拟器）或 &#96;TV_IP&#96; 单播加固 |"
+          },
+          {
+            "lineNumber": 100
+          },
+          {
+            "lineNumber": 101,
+            "text": "### 4.2 P1 — 应做（体验与可维护）"
+          },
+          {
+            "lineNumber": 102
+          },
+          {
+            "lineNumber": 103,
+            "text": "| # | 重点 | 说明 |"
+          },
+          {
+            "lineNumber": 104,
+            "text": "|---|------|------|"
+          },
+          {
+            "lineNumber": 105,
+            "text": "| **P1-1** | &#96;bp_demo_app&#96; 瘦身 | TV 推送、测量触发从 MainWindow 抽到 &#96;GatewayController&#96; |"
+          },
+          {
+            "lineNumber": 106,
+            "text": "| **P1-2** | UI「协议阶段」显式化 | 下拉：L0 / T0 / P0，避免工程师误用验收标准 |"
+          },
+          {
+            "lineNumber": 107,
+            "text": "| **P1-3** | 日志分级 | 运行日志 / 协议十六进制 / TV 报文 分 Tab 或颜色 |"
+          },
+          {
+            "lineNumber": 108,
+            "text": "| **P1-4** | 加压推送节流 | 避免 UI 与 UDP 刷屏（如 200ms 合并 PROGRESS） |"
+          },
+          {
+            "lineNumber": 109,
+            "text": "| **P1-5** | &#96;gateway.json&#96; 持久化 | TV IP、端口、text_mode、stage、script_ip 重启可恢复 |"
+          },
+          {
+            "lineNumber": 110,
+            "text": "| **P1-6** | 测量错误码 | &#96;MEASURE_ERROR&#96;：TIMEOUT、LOW_BATTERY、DISCONNECTED 等 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 110
+          },
+          "startPosition": {
+            "line": 79
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本升级优化方案.md",
+        "signatures": {}
+      },
+      "score": 0.26422318816185
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 71,
+            "text": "| PC→TV 格式 | 纯文本一行 | JSON（可与文本双发） | JSON |"
+          },
+          {
+            "lineNumber": 72,
+            "text": "| TV→PC 测血压 | &#96;START&#96; → **PC_IP:18500** | 仍可 18500；识别 &#96;START_MEASURE&#96; | **PC_IP:18501** &#96;START_MEASURE&#96; |"
+          },
+          {
+            "lineNumber": 73,
+            "text": "| PC 监听 | **18500**（与 TV 同端口收发） | 18500 + **可选** 18501 | **必须** &#96;0.0.0.0:18501&#96; |"
+          },
+          {
+            "lineNumber": 74,
+            "text": "| PC→TV 进度/结果 | 文本走 **18500** | JSON 可先走 **18500** | 单播 **TV:18501** |"
+          },
+          {
+            "lineNumber": 75,
+            "text": "| 发现 | 无 &#96;SCRIPT_READY&#96; | &#96;SCRIPT_READY&#96; 等 | 完整 A 信道 |"
+          },
+          {
+            "lineNumber": 76,
+            "text": "| 联调期望 | 控制台看文本行 | 角标/图表吃 JSON | 与 mock_gateway 行为一致 |"
+          },
+          {
+            "lineNumber": 77
+          },
+          {
+            "lineNumber": 78,
+            "text": "**一句话：** P0 是「TV 点 OK → 18501 闭环」；**L0/T0 阶段 START 和 JSON 仍可能都在 18500 上完成**，不要按 P0 硬验收现网脚本。"
+          },
+          {
+            "lineNumber": 79
+          },
+          {
+            "lineNumber": 80,
+            "text": "### 1.4 TV App 现状 vs 协议目标（避免和 APK 行为打架）"
+          },
+          {
+            "lineNumber": 81
+          },
+          {
+            "lineNumber": 82,
+            "text": "以下为 **TV 端（Android）当前能力** 与 **P0 目标** 的差异，联调时分开验收："
+          },
+          {
+            "lineNumber": 83
+          },
+          {
+            "lineNumber": 84,
+            "text": "| 能力 | TV 现状（约 2026-06） | P0 目标 |"
+          },
+          {
+            "lineNumber": 85,
+            "text": "|------|----------------------|---------|"
+          },
+          {
+            "lineNumber": 86,
+            "text": "| 监听 18500/18501 | 已有 | 保持 |"
+          },
+          {
+            "lineNumber": 87,
+            "text": "| 收文本心率行 | 可显示（控制台） | 可选保留 |"
+          },
+          {
+            "lineNumber": 88,
+            "text": "| 收 &#96;HEART_RATE_STREAM&#96; JSON | 部分已接 | 稳定 1Hz |"
+          },
+          {
+            "lineNumber": 89,
+            "text": "| BP &#96;DEVICE_READY&#96; / &#96;MEASURE_PROGRESS&#96; / &#96;MEASURE_RESULT&#96; | **未完整进血压 Controller** | 图表 + 存 &#96;bp_history.json&#96; |"
+          },
+          {
+            "lineNumber": 90,
+            "text": "| 血压 OK 发 &#96;START_MEASURE&#96; | **尚未接线到产品 UI** | 必须 |"
+          },
+          {
+            "lineNumber": 91,
+            "text": "| 工程师控制台 &#96;tv_heart_rate&#96; | 可点发 START（调试用） | 与用户 UI 分离（P1） |"
+          },
+          {
+            "lineNumber": 92
+          },
+          {
+            "lineNumber": 93,
+            "text": "**验收分层：**"
+          },
+          {
+            "lineNumber": 94
+          },
+          {
+            "lineNumber": 95,
+            "text": "- **L0 联调：** TV 控制台能看到 PC 文本行 → 正常。"
+          },
+          {
+            "lineNumber": 96,
+            "text": "- **T0 联调：** TV 能解析 JSON 角标/图表（Mock 或 PC T0 双发）。"
+          },
+          {
+            "lineNumber": 97,
+            "text": "- **P0 联调：** 遥控器 OK 全流程 + 真实 PC 脚本 + 机顶盒 checklist。"
+          },
+          {
+            "lineNumber": 98
+          },
+          {
+            "lineNumber": 99,
+            "text": "---"
+          },
+          {
+            "lineNumber": 100
+          },
+          {
+            "lineNumber": 101,
+            "text": "## 2. PC 网关职责边界"
+          },
+          {
+            "lineNumber": 102
+          },
+          {
+            "lineNumber": 103,
+            "text": "| PC 负责 | PC 不负责 |"
+          },
+          {
+            "lineNumber": 104,
+            "text": "|---------|-----------|"
+          },
+          {
+            "lineNumber": 105,
+            "text": "| 连接手环 / 血压计（蓝牙等） | TV UI、焦点、图表绘制 |"
+          },
+          {
+            "lineNumber": 106,
+            "text": "| &#96;run_full_measurement()&#96; 等测量流程 | 写 &#96;hr_history.json&#96; / &#96;bp_history.json&#96; |"
+          },
+          {
+            "lineNumber": 107,
+            "text": "| 将原始读数转为 **标准 JSON 字段** | 血压分档评语、AI 分析文案（TV 本地） |"
+          },
+          {
+            "lineNumber": 108,
+            "text": "| 计算 &#96;progress&#96;、&#96;phase&#96;、超时 | 30s 心率会话计时（TV 本地切流） |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 108
+          },
+          "startPosition": {
+            "line": 70
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.2630104124546051
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 362,
+            "text": "| L0-BP | PC 勾选「推送血压到 TV」，开始测量 | 文本行：&#96;加压中: xx mmHg&#96; → &#96;血压: xxx/xx mmHg，脉搏 xx BPM&#96; |"
+          },
+          {
+            "lineNumber": 363,
+            "text": "| L0-START | TV 发 &#96;START&#96; 到 **PC_IP:18500**（工程师控制台） | PC 运行日志「收到 TV 端 START」；若 PC 开联动则开始测压 |"
+          },
+          {
+            "lineNumber": 364,
+            "text": "| L0-NEG | 用 P0 标准在 **18501** 发 &#96;START_MEASURE&#96; | **L0 PC 未 listen 18501 时无反应** — 属预期，非 bug |"
+          },
+          {
+            "lineNumber": 365
+          },
+          {
+            "lineNumber": 366,
+            "text": "**通过标准：** 文本信息流稳定；**不要求** JSON 图表、**不要求** 18501 ACK/PROGRESS。"
+          },
+          {
+            "lineNumber": 367
+          },
+          {
+            "lineNumber": 368,
+            "text": "**升级后（T0）：** 同一脚本在 18500 追加 JSON → 按 §5.1、§5.4 验收角标与图表。"
+          },
+          {
+            "lineNumber": 369
+          },
+          {
+            "lineNumber": 370,
+            "text": "---"
+          },
+          {
+            "lineNumber": 371
+          },
+          {
+            "lineNumber": 372,
+            "text": "## 6. Android Studio 操作速查"
+          },
+          {
+            "lineNumber": 373
+          },
+          {
+            "lineNumber": 374,
+            "text": "### 6.1 运行与调试"
+          },
+          {
+            "lineNumber": 375
+          },
+          {
+            "lineNumber": 376,
+            "text": "| 操作 | 说明 |"
+          },
+          {
+            "lineNumber": 377,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 378,
+            "text": "| Run &#96;app&#96; | 安装 Debug APK 到选中设备 |"
+          },
+          {
+            "lineNumber": 379,
+            "text": "| Logcat 过滤 &#96;UDPReceiver&#96; | 看 UDP 收发 |"
+          },
+          {
+            "lineNumber": 380,
+            "text": "| Breakpoint | 可打在 &#96;DataMonitoring.handleBroadcastMessage&#96;、&#96;sendStartMeasureInstruction&#96; |"
+          },
+          {
+            "lineNumber": 381,
+            "text": "| Network Inspector | 对 UDP 支持有限，**以 Logcat + PC 打印为准** |"
+          },
+          {
+            "lineNumber": 382
+          },
+          {
+            "lineNumber": 383,
+            "text": "### 6.2 现版可测功能（未实现产品 UI 前）"
+          },
+          {
+            "lineNumber": 384
+          },
+          {
+            "lineNumber": 385,
+            "text": "| 功能 | 如何测 | 信道 |"
+          },
+          {
+            "lineNumber": 386,
+            "text": "|------|--------|------|"
+          },
+          {
+            "lineNumber": 387,
+            "text": "| 发现脚本 | mock 发 SCRIPT_READY | A |"
+          },
+          {
+            "lineNumber": 388,
+            "text": "| 收心率 JSON | mock 发 HEART_RATE_STREAM | A |"
+          },
+          {
+            "lineNumber": 389,
+            "text": "| 发 START_MEASURE | **点击 tv_heart_rate** | B |"
+          },
+          {
+            "lineNumber": 390,
+            "text": "| 收血压结果 | mock 回 MEASURE_RESULT | B |"
+          },
+          {
+            "lineNumber": 391
+          },
+          {
+            "lineNumber": 392,
+            "text": "### 6.3 关于 Postman"
+          },
+          {
+            "lineNumber": 393
+          },
+          {
+            "lineNumber": 394,
+            "text": "Postman **不支持标准 UDP Request** 作为日常工具。双信道测试请用："
+          },
+          {
+            "lineNumber": 395
+          },
+          {
+            "lineNumber": 396,
+            "text": "- **本方案 mock_gateway.py**（推荐）"
+          },
+          {
+            "lineNumber": 397,
+            "text": "- 或第三方 **Packet Sender**（Windows）、**netcat/ncat**"
+          },
+          {
+            "lineNumber": 398
+          },
+          {
+            "lineNumber": 399,
+            "text": "不推荐使用 Postman 测 UDP。"
+          },
+          {
+            "lineNumber": 400
+          },
+          {
+            "lineNumber": 401,
+            "text": "---"
+          },
+          {
+            "lineNumber": 402
+          },
+          {
+            "lineNumber": 403,
+            "text": "## 7. 模拟器专用：adb 转发（备选）"
+          },
+          {
+            "lineNumber": 404
+          },
+          {
+            "lineNumber": 405,
+            "text": "\u003e 完整说明见 [pc_gateway升级方案 §3.6](./pc_gateway升级方案.md)。"
+          },
+          {
+            "lineNumber": 406
+          },
+          {
+            "lineNumber": 407,
+            "text": "仅当没有真机时尝试："
+          },
+          {
+            "lineNumber": 408
+          },
+          {
+            "lineNumber": 409,
+            "text": "&#96;&#96;&#96;powershell"
+          },
+          {
+            "lineNumber": 410,
+            "text": "adb forward udp:18500 udp:18500"
+          },
+          {
+            "lineNumber": 411,
+            "text": "adb forward udp:18501 udp:18501"
+          },
+          {
+            "lineNumber": 412,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 413
+          },
+          {
+            "lineNumber": 414,
+            "text": "PC 发往 &#96;127.0.0.1:18500&#96; / &#96;18501&#96;。  "
+          },
+          {
+            "lineNumber": 415,
+            "text": "**注意：** 部分 Android 版本 adb UDP 转发不可靠，失败则必须用真机。"
+          },
+          {
+            "lineNumber": 416
+          },
+          {
+            "lineNumber": 417,
+            "text": "---"
+          },
+          {
+            "lineNumber": 418
+          },
+          {
+            "lineNumber": 419,
+            "text": "## 8. 机顶盒部署前检查清单"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 420
+          },
+          "startPosition": {
+            "line": 361
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\AndroidStudio双信道测试方案.md",
+        "signatures": {}
+      },
+      "score": 0.25744280219078064
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 71,
+            "text": "| 格式 | JSON | **L0：纯文本行**；升级后 T0/P0 JSON |"
+          },
+          {
+            "lineNumber": 72,
+            "text": "| 何时用 | TV 未接 PC、验 P0 协议 | 验真实测压、验 L0 文本推送 |"
+          },
+          {
+            "lineNumber": 73,
+            "text": "| 文档 | 本文 §4 | [pc_gateway升级方案](./pc_gateway升级方案.md) |"
+          },
+          {
+            "lineNumber": 74
+          },
+          {
+            "lineNumber": 75,
+            "text": "### 2.3 网络拓扑（阶段 1–2）"
+          },
+          {
+            "lineNumber": 76
+          },
+          {
+            "lineNumber": 77,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 78,
+            "text": "┌──────────── PC（Windows） ────────────┐"
+          },
+          {
+            "lineNumber": 79,
+            "text": "│  mock_gateway.py                      │"
+          },
+          {
+            "lineNumber": 80,
+            "text": "│    发送 → 255.255.255.255:18500  (A)  │"
+          },
+          {
+            "lineNumber": 81,
+            "text": "│    监听 ← 真机IP:18501  (B)           │"
+          },
+          {
+            "lineNumber": 82,
+            "text": "│    回复 → 真机IP:18501  (B)           │"
+          },
+          {
+            "lineNumber": 83,
+            "text": "└──────────────────┬────────────────────┘"
+          },
+          {
+            "lineNumber": 84,
+            "text": "                   │ 同一 WiFi 路由器"
+          },
+          {
+            "lineNumber": 85,
+            "text": "┌──────────────────▼────────────────────┐"
+          },
+          {
+            "lineNumber": 86,
+            "text": "│  Android 真机（AS Run 安装 APK）       │"
+          },
+          {
+            "lineNumber": 87,
+            "text": "│    监听 18500、18501                   │"
+          },
+          {
+            "lineNumber": 88,
+            "text": "│    tv_heart_rate 控制台 + 图表         │"
+          },
+          {
+            "lineNumber": 89,
+            "text": "└───────────────────────────────────────┘"
+          },
+          {
+            "lineNumber": 90,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 91
+          },
+          {
+            "lineNumber": 92,
+            "text": "### 2.4 模拟器若必须用（仅 UI）"
+          },
+          {
+            "lineNumber": 93
+          },
+          {
+            "lineNumber": 94,
+            "text": "| 问题 | 说明 |"
+          },
+          {
+            "lineNumber": 95,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 96,
+            "text": "| 255.255.255.255 广播 | 模拟器内不一定等同于局域网广播 |"
+          },
+          {
+            "lineNumber": 97,
+            "text": "| MulticastLock | 模拟器行为与真机不一致 |"
+          },
+          {
+            "lineNumber": 98,
+            "text": "| PC → 模拟器 UDP | 需 &#96;adb forward udp:18500 udp:18500&#96;，**不稳定** |"
+          },
+          {
+            "lineNumber": 99
+          },
+          {
+            "lineNumber": 100,
+            "text": "**模拟器仅用于：** 布局、HeartRateTrendView 绘制、按键事件。UDP 通过 Logcat 确认时，仍建议换真机。"
+          },
+          {
+            "lineNumber": 101
+          },
+          {
+            "lineNumber": 102,
+            "text": "---"
+          },
+          {
+            "lineNumber": 103
+          },
+          {
+            "lineNumber": 104,
+            "text": "## 3. 前置准备"
+          },
+          {
+            "lineNumber": 105
+          },
+          {
+            "lineNumber": 106,
+            "text": "### 3.1 Android 工程"
+          },
+          {
+            "lineNumber": 107
+          },
+          {
+            "lineNumber": 108,
+            "text": "| 项 | 要求 |"
+          },
+          {
+            "lineNumber": 109,
+            "text": "|----|------|"
+          },
+          {
+            "lineNumber": 110,
+            "text": "| 权限 | 已声明 &#96;INTERNET&#96;、&#96;ACCESS_WIFI_STATE&#96;、&#96;CHANGE_WIFI_MULTICAST_STATE&#96;（见 &#96;AndroidManifest.xml&#96;） |"
+          },
+          {
+            "lineNumber": 111,
+            "text": "| 运行 | AS 点击 Run，安装到真机 |"
+          },
+          {
+            "lineNumber": 112,
+            "text": "| 页面 | 进入健康监测详情页（遥控器或鼠标点进 &#96;layout_heart_rate&#96;） |"
+          },
+          {
+            "lineNumber": 113,
+            "text": "| 控制台 | 观察 &#96;tv_heart_rate&#96; 日志输出 |"
+          },
+          {
+            "lineNumber": 114
+          },
+          {
+            "lineNumber": 115,
+            "text": "### 3.2 PC 端"
+          },
+          {
+            "lineNumber": 116
+          },
+          {
+            "lineNumber": 117,
+            "text": "| 项 | 要求 |"
+          },
+          {
+            "lineNumber": 118,
+            "text": "|----|------|"
+          },
+          {
+            "lineNumber": 119,
+            "text": "| Python | 3.8+（用于模拟网关，下文提供脚本） |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 119
+          },
+          "startPosition": {
+            "line": 70
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\AndroidStudio双信道测试方案.md",
+        "signatures": {}
+      },
+      "score": 0.2555958926677704
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 380,
+            "text": "TV OK → START_MEASURE@18501"
+          },
+          {
+            "lineNumber": 381,
+            "text": "  → PC ACK → UI 显示 request_id + 进入测量中"
+          },
+          {
+            "lineNumber": 382,
+            "text": "  → 加压 → UI 进度环 + MEASURE_PROGRESS@18501"
+          },
+          {
+            "lineNumber": 383,
+            "text": "  → 结果 → MEASURE_RESULT → UI 结果区 + 可选 F1 文本@18500"
+          },
+          {
+            "lineNumber": 384,
+            "text": "  → FSM 回 Idle → 可再收下一次 START"
+          },
+          {
+            "lineNumber": 385,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 386
+          },
+          {
+            "lineNumber": 387,
+            "text": "**现网：** 仅「TV 联动模式」+ &#96;START@18500&#96; + 文本结果。"
+          },
+          {
+            "lineNumber": 388
+          },
+          {
+            "lineNumber": 389,
+            "text": "#### 流 C：工程师本地测（不依赖 TV）"
+          },
+          {
+            "lineNumber": 390
+          },
+          {
+            "lineNumber": 391,
+            "text": "保持区域 3「开始测量」；P0 阶段本地按钮应走 **同一 FSM**，避免「按钮路径」和「TV 路径」两套逻辑。"
+          },
+          {
+            "lineNumber": 392
+          },
+          {
+            "lineNumber": 393,
+            "text": "#### 流 D：模拟器联调（与 TV 同事协作）"
+          },
+          {
+            "lineNumber": 394
+          },
+          {
+            "lineNumber": 395,
+            "text": "1. TV 同事：&#96;adb forward udp:18500/18501&#96;；"
+          },
+          {
+            "lineNumber": 396,
+            "text": "2. PC：&#96;TV IP = 127.0.0.1&#96;，勾选禁用广播；"
+          },
+          {
+            "lineNumber": 397,
+            "text": "3. &#96;SCRIPT_READY.script_ip&#96; 在文档中说明模拟器侧填 &#96;10.0.2.2&#96;（TV 发回 PC）；"
+          },
+          {
+            "lineNumber": 398,
+            "text": "4. 详见 [AndroidStudio双信道测试方案 §2.5](./AndroidStudio双信道测试方案.md)。"
+          },
+          {
+            "lineNumber": 399
+          },
+          {
+            "lineNumber": 400,
+            "text": "### 9.3 交互细节优化"
+          },
+          {
+            "lineNumber": 401
+          },
+          {
+            "lineNumber": 402,
+            "text": "| 问题（现网） | 优化 |"
+          },
+          {
+            "lineNumber": 403,
+            "text": "|--------------|------|"
+          },
+          {
+            "lineNumber": 404,
+            "text": "| 加压日志刷屏 | PROGRESS 节流；运行日志合并为「当前压力」标签更新 |"
+          },
+          {
+            "lineNumber": 405,
+            "text": "| 扫描与连接冲突 | 连接中暂停自动刷新（已有）；UI 明确「扫描已暂停」 |"
+          },
+          {
+            "lineNumber": 406,
+            "text": "| TV 无反应不知哪端问题 | TV 联调 Tab 显示「上次收到 TV 包」时间与内容 |"
+          },
+          {
+            "lineNumber": 407,
+            "text": "| 阶段混用导致误判 | 切换 P0 时若 18501 未监听，弹窗阻断并说明 |"
+          },
+          {
+            "lineNumber": 408,
+            "text": "| 多台 BP | 测压前会话表选「TV 默认 BP」或自动选最近连接的 BP |"
+          },
+          {
+            "lineNumber": 409
+          },
+          {
+            "lineNumber": 410,
+            "text": "### 9.4 错误与提示文案"
+          },
+          {
+            "lineNumber": 411
+          },
+          {
+            "lineNumber": 412,
+            "text": "统一经 &#96;reading_format&#96; 或消息层输出用户可读句，并映射 &#96;MEASURE_ERROR&#96;："
+          },
+          {
+            "lineNumber": 413
+          },
+          {
+            "lineNumber": 414,
+            "text": "| 场景 | UI 提示 | TV error_code |"
+          },
+          {
+            "lineNumber": 415,
+            "text": "|------|---------|---------------|"
+          },
+          {
+            "lineNumber": 416,
+            "text": "| 蓝牙断开 | 血压计已断开 | &#96;DISCONNECTED&#96; |"
+          },
+          {
+            "lineNumber": 417,
+            "text": "| 电量不足 | 电量过低，请更换电池 | &#96;LOW_BATTERY&#96; |"
+          },
+          {
+            "lineNumber": 418,
+            "text": "| 测量超时 | 测量超时 | &#96;TIMEOUT&#96; |"
+          },
+          {
+            "lineNumber": 419,
+            "text": "| 正在测压又收 START | 忽略并回 BUSY | &#96;BUSY&#96; |"
+          },
+          {
+            "lineNumber": 420
+          },
+          {
+            "lineNumber": 421,
+            "text": "---"
+          },
+          {
+            "lineNumber": 422
+          },
+          {
+            "lineNumber": 423,
+            "text": "## 10. 代码改动映射（实施 checklist）"
+          },
+          {
+            "lineNumber": 424
+          },
+          {
+            "lineNumber": 425,
+            "text": "### 10.1 R0 准备（建议第 1 迭代）"
+          },
+          {
+            "lineNumber": 426
+          },
+          {
+            "lineNumber": 427,
+            "text": "- [ ] 新建 &#96;gateway.json&#96; + &#96;GatewayConfigStore&#96;"
+          },
+          {
+            "lineNumber": 428,
+            "text": "- [ ] 新建 &#96;GatewayController&#96;，从 &#96;bp_demo_app&#96; 迁出 TV 推送逻辑"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 428
+          },
+          "startPosition": {
+            "line": 379
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本升级优化方案.md",
+        "signatures": {}
+      },
+      "score": 0.253762811422348
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 457,
+            "text": "|------|:----:|------|"
+          },
+          {
+            "lineNumber": 458,
+            "text": "| 多设备 BLE 扫描 | 已实现 | 可过滤、置顶、多轮扫描 |"
+          },
+          {
+            "lineNumber": 459,
+            "text": "| 瑞光血压计连接与测量 | 已实现 | 完整/分步/TYPE_9000/电量门限 |"
+          },
+          {
+            "lineNumber": 460,
+            "text": "| 标准心率手环连接 | 已实现 | 依赖设备暴露 0x180D |"
+          },
+          {
+            "lineNumber": 461,
+            "text": "| 血压 + 心率同时连接 | 已实现 | 分 session 管理 |"
+          },
+          {
+            "lineNumber": 462,
+            "text": "| 设备档案 devices.json | 已实现 | 预连接池、导入导出 |"
+          },
+          {
+            "lineNumber": 463,
+            "text": "| 四区 GUI | 已实现 | 见 §5 |"
+          },
+          {
+            "lineNumber": 464,
+            "text": "| TV 文本推送（L0） | 已实现 | 阶段选 L0 |"
+          },
+          {
+            "lineNumber": 465,
+            "text": "| TV JSON（T0/P0） | **已实现** | 默认 T0 双发 |"
+          },
+          {
+            "lineNumber": 466,
+            "text": "| P0 18501 闭环 | **已实现** | 阶段选 P0 |"
+          },
+          {
+            "lineNumber": 467,
+            "text": "| SCRIPT_READY / FSM | **已实现** | 周期 + 手动发送 |"
+          },
+          {
+            "lineNumber": 468
+          },
+          {
+            "lineNumber": 469,
+            "text": "---"
+          },
+          {
+            "lineNumber": 470
+          },
+          {
+            "lineNumber": 471,
+            "text": "## 12. 已知限制与风险"
+          },
+          {
+            "lineNumber": 472
+          },
+          {
+            "lineNumber": 473,
+            "text": "| 现象 | 原因 / 说明 |"
+          },
+          {
+            "lineNumber": 474,
+            "text": "|------|-------------|"
+          },
+          {
+            "lineNumber": 475,
+            "text": "| 手环连接超时 / Unreachable | 手机仍占用；或未开手环心率模式；或设备不支持标准 0x180D |"
+          },
+          {
+            "lineNumber": 476,
+            "text": "| 扫描时连接失败 | WinRT 不宜扫描与连接并发；脚本已做互斥与提示 |"
+          },
+          {
+            "lineNumber": 477,
+            "text": "| 血压计无广播名 | 需取消「过滤无名设备」或用手动 MAC / 批量探测 FFF0 |"
+          },
+          {
+            "lineNumber": 478,
+            "text": "| TV 收到整段 JSON | 若 &#96;text_mode=False&#96;；现网默认应为纯文本行 |"
+          },
+          {
+            "lineNumber": 479,
+            "text": "| TV 点测量无反应（18501） | 现网 PC 未 listen 18501；应用 L0 的 START@18500 或等 PC 升级 P0 |"
+          },
+          {
+            "lineNumber": 480,
+            "text": "| &#96;scale&#96; 类型 | 菜单可设，连接时提示暂未实现 |"
+          },
+          {
+            "lineNumber": 481,
+            "text": "| 加压日志刷屏 | 每个压力通知一行；可按需做节流（未做） |"
+          },
+          {
+            "lineNumber": 482
+          },
+          {
+            "lineNumber": 483,
+            "text": "---"
+          },
+          {
+            "lineNumber": 484
+          },
+          {
+            "lineNumber": 485,
+            "text": "## 13. 与 Android 旧 Demo 的关系"
+          },
+          {
+            "lineNumber": 486
+          },
+          {
+            "lineNumber": 487,
+            "text": "仓库根目录 &#96;app/&#96; 为厂家/Android 侧 **BloodMeasureDemo**（Java + baseble），PC 端："
+          },
+          {
+            "lineNumber": 488
+          },
+          {
+            "lineNumber": 489,
+            "text": "- **协议帧**（&#96;CC 80&#96; / &#96;AA 80&#96;、FFF0/FFF1/FFF2）与 &#96;bp_protocol.py&#96; 对齐厂家 PDF；"
+          },
+          {
+            "lineNumber": 490,
+            "text": "- **扫描过滤**（名称含 RBP/BP）可选对齐 &#96;BluetoothConnMeasureActivity&#96;；"
+          },
+          {
+            "lineNumber": 491,
+            "text": "- **运行不依赖** Android 工程；PC 独立用 bleak 实现。"
+          },
+          {
+            "lineNumber": 492
+          },
+          {
+            "lineNumber": 493,
+            "text": "&#96;pc_ble_client/安卓SDK蓝牙扫描与握手说明.txt&#96; 为移植参考笔记。"
+          },
+          {
+            "lineNumber": 494
+          },
+          {
+            "lineNumber": 495,
+            "text": "---"
+          },
+          {
+            "lineNumber": 496
+          },
+          {
+            "lineNumber": 497,
+            "text": "## 14. 后续演进方向（文档级，非承诺排期）"
+          },
+          {
+            "lineNumber": 498
+          },
+          {
+            "lineNumber": 499,
+            "text": "**全量升级方案（UI / 交互 / 功能 / 优先级）：** 见 [PC网关脚本升级优化方案.md](./PC网关脚本升级优化方案.md)。  "
+          },
+          {
+            "lineNumber": 500,
+            "text": "**升级后自测：** 见 [PC网关升级测试验收清单.md](./PC网关升级测试验收清单.md)。"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 500
+          },
+          "startPosition": {
+            "line": 456
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本功能与实现分析.md",
+        "signatures": {}
+      },
+      "score": 0.24865972995758057
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 270,
+            "text": "**4. P0 在模拟器上的预期（尽力而为）**"
+          },
+          {
+            "lineNumber": 271
+          },
+          {
+            "lineNumber": 272,
+            "text": "- PC：&#96;127.0.0.1:18500&#96; 单播 JSON + &#96;bind 0.0.0.0:18501&#96;"
+          },
+          {
+            "lineNumber": 273,
+            "text": "- TV：收到 &#96;SCRIPT_READY&#96; 后向 **&#96;10.0.2.2:18501&#96;** 发 &#96;START_MEASURE&#96;；&#96;reply_to&#96; 填模拟器侧 **18501**（TV 进程 listen 的端口）"
+          },
+          {
+            "lineNumber": 274,
+            "text": "- 若 forward 失败：换 **真机**，不要卡在模拟器上验 P0"
+          },
+          {
+            "lineNumber": 275
+          },
+          {
+            "lineNumber": 276,
+            "text": "### 3.6.4 PC 脚本建议增加的 CLI（便于 TV 模拟器联调）"
+          },
+          {
+            "lineNumber": 277
+          },
+          {
+            "lineNumber": 278,
+            "text": "| 参数 | 示例 | 作用 |"
+          },
+          {
+            "lineNumber": 279,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 280,
+            "text": "| &#96;--tv-ip&#96; | &#96;127.0.0.1&#96; | 单播 A 信道（模拟器 forward 场景） |"
+          },
+          {
+            "lineNumber": 281,
+            "text": "| &#96;--tv-ip&#96; | &#96;192.168.1.50&#96; | 单播 A 信道（真机） |"
+          },
+          {
+            "lineNumber": 282,
+            "text": "| &#96;--no-broadcast&#96; | 开关 | 模拟器调试时关闭 255.255.255.255，只单播 |"
+          },
+          {
+            "lineNumber": 283,
+            "text": "| &#96;--listen-port&#96; | &#96;18500&#96; / &#96;18501&#96; | Legacy 仅 18500；P0 控制面 18501 |"
+          },
+          {
+            "lineNumber": 284,
+            "text": "| &#96;--script-ip&#96; | &#96;10.0.2.2&#96; | 写入 &#96;SCRIPT_READY&#96;，供模拟器 TV 回连 |"
+          },
+          {
+            "lineNumber": 285
+          },
+          {
+            "lineNumber": 286,
+            "text": "详细操作与验收表见 [AndroidStudio双信道测试方案 §2.5、§7](./AndroidStudio双信道测试方案.md)。"
+          },
+          {
+            "lineNumber": 287
+          },
+          {
+            "lineNumber": 288,
+            "text": "---"
+          },
+          {
+            "lineNumber": 289
+          },
+          {
+            "lineNumber": 290,
+            "text": "## 4. 三阶段升级路线（PC 侧）"
+          },
+          {
+            "lineNumber": 291
+          },
+          {
+            "lineNumber": 292,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 293,
+            "text": "L0  Legacy text_mode（现状）"
+          },
+          {
+            "lineNumber": 294,
+            "text": "  ↓  PC 主改：同端口追加 JSON，内部做文本→字段转换"
+          },
+          {
+            "lineNumber": 295,
+            "text": "T0  18500 双格式或纯 JSON + TV 薄解析"
+          },
+          {
+            "lineNumber": 296,
+            "text": "  ↓  PC：开 18501，完整控制闭环"
+          },
+          {
+            "lineNumber": 297,
+            "text": "P0  双信道 A+B，与 mock_gateway 行为一致"
+          },
+          {
+            "lineNumber": 298,
+            "text": "  ↓  可选"
+          },
+          {
+            "lineNumber": 299,
+            "text": "P1  统一信封 v + payload + 心跳"
+          },
+          {
+            "lineNumber": 300,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 301
+          },
+          {
+            "lineNumber": 302,
+            "text": "---"
+          },
+          {
+            "lineNumber": 303
+          },
+          {
+            "lineNumber": 304,
+            "text": "## 5. T0 阶段 — PC 必做（推荐先做）"
+          },
+          {
+            "lineNumber": 305
+          },
+          {
+            "lineNumber": 306,
+            "text": "**目标：** TV 图表与角标走 JSON，**不要求**立刻开 18501。"
+          },
+          {
+            "lineNumber": 307
+          },
+          {
+            "lineNumber": 308,
+            "text": "### 5.1 任务清单"
+          },
+          {
+            "lineNumber": 309
+          },
+          {
+            "lineNumber": 310,
+            "text": "| 序号 | 任务 | 说明 |"
+          },
+          {
+            "lineNumber": 311,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 312,
+            "text": "| T0-1 | 启动/周期发 &#96;SCRIPT_READY&#96; JSON | 见 §6.1；TV 缓存 &#96;script_ip&#96;、&#96;listen_port&#96; |"
+          },
+          {
+            "lineNumber": 313,
+            "text": "| T0-2 | 发 &#96;DEVICE_READY&#96; JSON（BP 空闲） | TV 点亮血压「可测量」 |"
+          },
+          {
+            "lineNumber": 314,
+            "text": "| T0-3 | 心率：发 &#96;HEART_RATE_STREAM&#96; JSON | 可与文本双发；~1Hz |"
+          },
+          {
+            "lineNumber": 315,
+            "text": "| T0-4 | 测压过程发 &#96;MEASURE_PROGRESS&#96; JSON | **PC 内部**从「加压中: 97 mmHg」算出 &#96;pressure_mmhg&#96;、&#96;progress&#96;、&#96;phase&#96; |"
+          },
+          {
+            "lineNumber": 316,
+            "text": "| T0-5 | 结束发 &#96;MEASURE_RESULT&#96; JSON | **PC 内部**从「血压: 131/80…」解析为 &#96;systolic/diastolic/pulse&#96; |"
+          },
+          {
+            "lineNumber": 317,
+            "text": "| T0-6 | 兼容接收 TV 的 START | 继续支持 legacy &#96;START&#96; / JSON START；**同时识别** &#96;START_MEASURE&#96; |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 317
+          },
+          "startPosition": {
+            "line": 269
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.2480325996875763
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 283,
+            "text": "**缺点：** 广播_discovery 不优雅；无内置可靠传输；多 TV 需 &#96;reply_to&#96;。  "
+          },
+          {
+            "lineNumber": 284,
+            "text": "**结论：** **演示 MVP 保留**，逻辑上按 §4 分域即可。"
+          },
+          {
+            "lineNumber": 285
+          },
+          {
+            "lineNumber": 286,
+            "text": "### 6.3 P1 · UDP + 产品化补丁（强烈推荐在 P0 上演进）"
+          },
+          {
+            "lineNumber": 287
+          },
+          {
+            "lineNumber": 288,
+            "text": "在**不改端口**前提下增加："
+          },
+          {
+            "lineNumber": 289
+          },
+          {
+            "lineNumber": 290,
+            "text": "| 补丁 | 说明 |"
+          },
+          {
+            "lineNumber": 291,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 292,
+            "text": "| 统一信封 &#96;v&#96; + &#96;payload&#96; | §5 |"
+          },
+          {
+            "lineNumber": 293,
+            "text": "| &#96;GATEWAY_HEARTBEAT&#96; | 60s，TV 显示「网关在线」 |"
+          },
+          {
+            "lineNumber": 294,
+            "text": "| 连接状态机 | &#96;Offline → GatewayOnline → DeviceReady&#96; |"
+          },
+          {
+            "lineNumber": 295,
+            "text": "| &#96;request_id&#96; 全链路 | 日志可演示「一次测量一条链」 |"
+          },
+          {
+            "lineNumber": 296,
+            "text": "| TV 设置页显示 &#96;PC IP&#96; / 信号强度（可选） | 像路由器管理页 |"
+          },
+          {
+            "lineNumber": 297
+          },
+          {
+            "lineNumber": 298,
+            "text": "**优点：** 改动小，**产品感提升最大**。  "
+          },
+          {
+            "lineNumber": 299,
+            "text": "**缺点：** 仍是无连接 UDP。  "
+          },
+          {
+            "lineNumber": 300,
+            "text": "**结论：** **演示向产品过渡的首选。**"
+          },
+          {
+            "lineNumber": 301
+          },
+          {
+            "lineNumber": 302,
+            "text": "### 6.4 P2 · PC 端 HTTP + SSE"
+          },
+          {
+            "lineNumber": 303
+          },
+          {
+            "lineNumber": 304,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 305,
+            "text": "TV  GET  http://pc:8080/api/status        → 网关与设备状态"
+          },
+          {
+            "lineNumber": 306,
+            "text": "TV  GET  http://pc:8080/api/hr/stream     → SSE 心率流"
+          },
+          {
+            "lineNumber": 307,
+            "text": "TV  POST http://pc:8080/api/bp/measure    → 启动血压"
+          },
+          {
+            "lineNumber": 308,
+            "text": "TV  GET  http://pc:8080/api/bp/result/id  → 轮询或 SSE 结果"
+          },
+          {
+            "lineNumber": 309,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 310
+          },
+          {
+            "lineNumber": 311,
+            "text": "**优点：** REST 语义清晰；易用 Postman 调试；像现代 IoT 网关。  "
+          },
+          {
+            "lineNumber": 312,
+            "text": "**缺点：** PC 要起 HTTP 服务；TV 要 HTTP 客户端；与现 UDP 代码分叉。  "
+          },
+          {
+            "lineNumber": 313,
+            "text": "**结论：** 若演示要给**非技术领导**看，HTTP 文档更好讲；开发量大于 P1。"
+          },
+          {
+            "lineNumber": 314
+          },
+          {
+            "lineNumber": 315,
+            "text": "### 6.5 P3 · WebSocket 单通道"
+          },
+          {
+            "lineNumber": 316
+          },
+          {
+            "lineNumber": 317,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 318,
+            "text": "TV ws://pc:8080/ws"
+          },
+          {
+            "lineNumber": 319,
+            "text": "  ← { type: HEART_RATE_STREAM, ... }"
+          },
+          {
+            "lineNumber": 320,
+            "text": "  ← { type: DEVICE_READY, device: BP }"
+          },
+          {
+            "lineNumber": 321,
+            "text": "  → { type: START_MEASURE, device: BP }"
+          },
+          {
+            "lineNumber": 322,
+            "text": "  ← { type: MEASURE_PROGRESS, ... }"
+          },
+          {
+            "lineNumber": 323,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 324
+          },
+          {
+            "lineNumber": 325,
+            "text": "**优点：** **一条连接**承载发现、遥测、控制；产品感强；天然双向。  "
+          },
+          {
+            "lineNumber": 326,
+            "text": "**缺点：** PC/TV 均需 WS 库；断线重连要写。  "
+          },
+          {
+            "lineNumber": 327,
+            "text": "**结论：** 若计划**长期演进为产品**，P3 是最均衡的「真产品」架构；演示可第二阶段再上。"
+          },
+          {
+            "lineNumber": 328
+          },
+          {
+            "lineNumber": 329,
+            "text": "### 6.6 P4 · MQTT"
+          },
+          {
+            "lineNumber": 330
+          },
+          {
+            "lineNumber": 331,
+            "text": "**优点：** 工业标准；QoS；多房间多设备。  "
+          },
+          {
+            "lineNumber": 332,
+            "text": "**缺点：** 需 Broker；演示环境过重。  "
+          },
+          {
+            "lineNumber": 333,
+            "text": "**结论：** 量产考虑，**演示不推荐**。"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 334
+          },
+          "startPosition": {
+            "line": 282
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\udp_信道设计.md",
+        "signatures": {}
+      },
+      "score": 0.24760830402374268
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 40,
+            "text": "| TV / 真机 | &#96;192.168.1.50&#96; | TV 设置 WLAN IP，作单播目标 |"
+          },
+          {
+            "lineNumber": 41,
+            "text": "| AS 模拟器访问宿主机 | &#96;10.0.2.2&#96; | TV 发指令到 PC 时用 |"
+          },
+          {
+            "lineNumber": 42,
+            "text": "| PC 发模拟器（adb forward） | &#96;127.0.0.1&#96; | PC 单播目标 |"
+          },
+          {
+            "lineNumber": 43
+          },
+          {
+            "lineNumber": 44,
+            "text": "---"
+          },
+          {
+            "lineNumber": 45
+          },
+          {
+            "lineNumber": 46,
+            "text": "## 3. 格式族与阶段对照"
+          },
+          {
+            "lineNumber": 47
+          },
+          {
+            "lineNumber": 48,
+            "text": "同一 UDP 端口上，历史上会出现 **三种包体形态**："
+          },
+          {
+            "lineNumber": 49
+          },
+          {
+            "lineNumber": 50,
+            "text": "| 格式族 | 阶段 | 包体形态 | TV 解析方式 |"
+          },
+          {
+            "lineNumber": 51,
+            "text": "|--------|------|----------|-------------|"
+          },
+          {
+            "lineNumber": 52,
+            "text": "| **F1 · 纯文本行** | **L0（现网 PC 脚本默认）** | 一行可读中文 + 时间戳 | 整包当字符串显示 |"
+          },
+          {
+            "lineNumber": 53,
+            "text": "| **F2 · 扁平 JSON** | L0 备选 / mock / 过渡 | &#96;{\"type\":\"...\", ...}&#96; 单层字段 | 按 &#96;type&#96; 路由 |"
+          },
+          {
+            "lineNumber": 54,
+            "text": "| **F3 · 统一信封 JSON** | **P1（规划）** | &#96;v&#96; + &#96;type&#96; + &#96;payload&#96; 嵌套 | 先读 &#96;v&#96;、&#96;type&#96;，再读 &#96;payload&#96; |"
+          },
+          {
+            "lineNumber": 55
+          },
+          {
+            "lineNumber": 56,
+            "text": "**P0 产品协议**使用 **F2 扁平 JSON**（&#96;SCRIPT_READY&#96;、&#96;MEASURE_PROGRESS&#96; 等）；与现网 **F1 文本** 字段名不同，需分阶段实现。"
+          },
+          {
+            "lineNumber": 57
+          },
+          {
+            "lineNumber": 58,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 59,
+            "text": "阶段演进（包格式）："
+          },
+          {
+            "lineNumber": 60
+          },
+          {
+            "lineNumber": 61,
+            "text": "  L0   F1 纯文本（18500）          ← pc_ble_client 今天"
+          },
+          {
+            "lineNumber": 62,
+            "text": "        ↓ 可选 F2 双发"
+          },
+          {
+            "lineNumber": 63,
+            "text": "  T0   F2 JSON 上 18500 + 仍可 F1"
+          },
+          {
+            "lineNumber": 64,
+            "text": "        ↓"
+          },
+          {
+            "lineNumber": 65,
+            "text": "  P0   F2 JSON：A=18500，B=18501 闭环"
+          },
+          {
+            "lineNumber": 66,
+            "text": "        ↓"
+          },
+          {
+            "lineNumber": 67,
+            "text": "  P1   F3 统一信封 + 心跳"
+          },
+          {
+            "lineNumber": 68,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 69
+          },
+          {
+            "lineNumber": 70,
+            "text": "---"
+          },
+          {
+            "lineNumber": 71
+          },
+          {
+            "lineNumber": 72,
+            "text": "## 4. F1 · 纯文本行（L0 现网，&#96;pc_ble_client&#96;）"
+          },
+          {
+            "lineNumber": 73
+          },
+          {
+            "lineNumber": 74,
+            "text": "### 4.1 适用条件"
+          },
+          {
+            "lineNumber": 75
+          },
+          {
+            "lineNumber": 76,
+            "text": "- PC 底部勾选「推送心率/血压到 TV」"
+          },
+          {
+            "lineNumber": 77,
+            "text": "- &#96;tv_link.text_mode = True&#96;（默认）"
+          },
+          {
+            "lineNumber": 78,
+            "text": "- 端口：**18500**（单播或广播）"
+          },
+          {
+            "lineNumber": 79,
+            "text": "- **每个 UDP 包 = 一整行文本**，不是 JSON"
+          },
+          {
+            "lineNumber": 80
+          },
+          {
+            "lineNumber": 81,
+            "text": "### 4.2 行格式规范"
+          },
+          {
+            "lineNumber": 82
+          },
+          {
+            "lineNumber": 83,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 84,
+            "text": "[HH:MM:SS] \u003c业务文本\u003e"
+          },
+          {
+            "lineNumber": 85,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 86
+          },
+          {
+            "lineNumber": 87,
+            "text": "| 部分 | 说明 | 示例 |"
+          },
+          {
+            "lineNumber": 88,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 89,
+            "text": "| 时间戳 | 24 小时制，方括号包裹 | &#96;[16:58:20]&#96; |"
+          },
+          {
+            "lineNumber": 90,
+            "text": "| 业务文本 | PC 已处理好的可读句，含单位 | &#96;心率: 74 BPM&#96; |"
+          },
+          {
+            "lineNumber": 91
+          },
+          {
+            "lineNumber": 92,
+            "text": "**注意：** 时间戳在 **行内**；没有 &#96;mac&#96;、没有原始 hex、没有 JSON 外壳。"
+          },
+          {
+            "lineNumber": 93
+          },
+          {
+            "lineNumber": 94,
+            "text": "### 4.3 PC → TV 文本样例（按业务）"
+          },
+          {
+            "lineNumber": 95
+          },
+          {
+            "lineNumber": 96,
+            "text": "| 场景 | 整包内容示例 |"
+          },
+          {
+            "lineNumber": 97,
+            "text": "|------|----------------|"
+          },
+          {
+            "lineNumber": 98,
+            "text": "| 心率实时 | &#96;[15:49:06] 心率: 74 BPM&#96; |"
+          },
+          {
+            "lineNumber": 99,
+            "text": "| 血压加压中 | &#96;[16:58:20] 加压中: 97 mmHg&#96; |"
+          },
+          {
+            "lineNumber": 100,
+            "text": "| 血压结果 | &#96;[16:58:35] 血压: 131/80 mmHg，脉搏 68 BPM&#96; |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 100
+          },
+          "startPosition": {
+            "line": 39
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\通讯格式文档.md",
+        "signatures": {}
+      },
+      "score": 0.24177873134613037
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 417,
+            "text": "---"
+          },
+          {
+            "lineNumber": 418
+          },
+          {
+            "lineNumber": 419,
+            "text": "## 8. 机顶盒部署前检查清单"
+          },
+          {
+            "lineNumber": 420
+          },
+          {
+            "lineNumber": 421,
+            "text": "全部在 **AS + 真机 + mock_gateway** 通过后，再刷机顶盒："
+          },
+          {
+            "lineNumber": 422
+          },
+          {
+            "lineNumber": 423,
+            "text": "| 序号 | 检查项 | AS 真机 | 机顶盒 |"
+          },
+          {
+            "lineNumber": 424,
+            "text": "|------|--------|:-------:|:------:|"
+          },
+          {
+            "lineNumber": 425,
+            "text": "| 1 | SCRIPT_READY 发现 | □ | □ |"
+          },
+          {
+            "lineNumber": 426,
+            "text": "| 2 | HEART_RATE_STREAM 持续收 | □ | □ |"
+          },
+          {
+            "lineNumber": 427,
+            "text": "| 3 | START_MEASURE 发出 | □ | □ |"
+          },
+          {
+            "lineNumber": 428,
+            "text": "| 4 | MEASURE_RESULT 解析 | □ | □ |"
+          },
+          {
+            "lineNumber": 429,
+            "text": "| 5 | 心率 30s 会话 + JSON | □ | □ |"
+          },
+          {
+            "lineNumber": 430,
+            "text": "| 6 | 血压加压 UI + JSON | □ | □ |"
+          },
+          {
+            "lineNumber": 431,
+            "text": "| 7 | 两卡片角标独立 | □ | □ |"
+          },
+          {
+            "lineNumber": 432,
+            "text": "| 8 | onPause 关闭 Socket 无泄漏 | □ | □ |"
+          },
+          {
+            "lineNumber": 433,
+            "text": "| 9 | 同 WiFi 真实 PC 脚本（非 mock） | 可选（§5.6 L0） | □ |"
+          },
+          {
+            "lineNumber": 434,
+            "text": "| 10 | 遥控器 OK/BACK 全流程 | □ | □ |"
+          },
+          {
+            "lineNumber": 435
+          },
+          {
+            "lineNumber": 436,
+            "text": "**机顶盒与 AS 真机差异关注：**"
+          },
+          {
+            "lineNumber": 437
+          },
+          {
+            "lineNumber": 438,
+            "text": "| 项 | 说明 |"
+          },
+          {
+            "lineNumber": 439,
+            "text": "|----|------|"
+          },
+          {
+            "lineNumber": 440,
+            "text": "| 网口/WiFi | 确认与 PC 同网段；机顶盒常以太网 |"
+          },
+          {
+            "lineNumber": 441,
+            "text": "| 系统时间 | 影响「N月」写入 JSON |"
+          },
+          {
+            "lineNumber": 442,
+            "text": "| 遥控器 | 用真遥控器测 OK/BACK，不用鼠标 |"
+          },
+          {
+            "lineNumber": 443,
+            "text": "| MulticastLock | 机顶盒 ROM 必须保留现有权限 |"
+          },
+          {
+            "lineNumber": 444
+          },
+          {
+            "lineNumber": 445,
+            "text": "---"
+          },
+          {
+            "lineNumber": 446
+          },
+          {
+            "lineNumber": 447,
+            "text": "## 9. 常见问题"
+          },
+          {
+            "lineNumber": 448
+          },
+          {
+            "lineNumber": 449,
+            "text": "| 现象 | 原因 | 处理 |"
+          },
+          {
+            "lineNumber": 450,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 451,
+            "text": "| 完全收不到 18500 | 不同 WiFi / 防火墙 | 同网段；关 PC 防火墙试 |"
+          },
+          {
+            "lineNumber": 452,
+            "text": "| 只收到 SCRIPT_READY 无后续 | mock 未循环 | 检查 mock 是否在跑 |"
+          },
+          {
+            "lineNumber": 453,
+            "text": "| 点击控制台发送失败 | 未发现 scriptIp | 先测阶段 1 |"
+          },
+          {
+            "lineNumber": 454,
+            "text": "| 18501 收不到 RESULT | PC 回包地址错 | mock 用 TV 源地址或填 &#96;--tv-ip&#96; |"
+          },
+          {
+            "lineNumber": 455,
+            "text": "| &#96;[广播非标数据]&#96; | 现版未识别 HEART_RATE_STREAM | 正常，实现解析后消失 |"
+          },
+          {
+            "lineNumber": 456,
+            "text": "| 模拟器不通 | UDP 限制 | 换真机 |"
+          },
+          {
+            "lineNumber": 457,
+            "text": "| onPause 后不再收包 | 现版 stop 不 restart | 回前台重启 App 或后续 onResume 重连 |"
+          },
+          {
+            "lineNumber": 458,
+            "text": "| L0 脚本无 JSON 图表 | PC 仍为 text_mode | 按 §5.6 验文本；T0 后再验 JSON |"
+          },
+          {
+            "lineNumber": 459,
+            "text": "| TV OK 无 START_MEASURE | 产品 UI 未接线 | 用工程师控制台发 START；或等 TV U2 |"
+          },
+          {
+            "lineNumber": 460
+          },
+          {
+            "lineNumber": 461,
+            "text": "---"
+          },
+          {
+            "lineNumber": 462
+          },
+          {
+            "lineNumber": 463,
+            "text": "## 10. 测试交付物建议"
+          },
+          {
+            "lineNumber": 464
+          },
+          {
+            "lineNumber": 465,
+            "text": "实施阶段可在仓库中维护："
+          },
+          {
+            "lineNumber": 466
+          },
+          {
+            "lineNumber": 467,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 468,
+            "text": "tools/"
+          },
+          {
+            "lineNumber": 469,
+            "text": "  mock_gateway.py      # PC 模拟网关"
+          },
+          {
+            "lineNumber": 470,
+            "text": "  send_once.py         # 可选：单条消息调试"
+          },
+          {
+            "lineNumber": 471,
+            "text": "docs/"
+          },
+          {
+            "lineNumber": 472,
+            "text": "  AndroidStudio双信道测试方案.md   # 本文档"
+          },
+          {
+            "lineNumber": 473,
+            "text": "&#96;&#96;&#96;"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 474
+          },
+          "startPosition": {
+            "line": 415
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\AndroidStudio双信道测试方案.md",
+        "signatures": {}
+      },
+      "score": 0.2388366013765335
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 437,
+            "text": "sequenceDiagram"
+          },
+          {
+            "lineNumber": 438,
+            "text": "    participant User as 用户"
+          },
+          {
+            "lineNumber": 439,
+            "text": "    participant TV as TV"
+          },
+          {
+            "lineNumber": 440,
+            "text": "    participant PC as PC网关"
+          },
+          {
+            "lineNumber": 441,
+            "text": "    participant BP as 血压计"
+          },
+          {
+            "lineNumber": 442
+          },
+          {
+            "lineNumber": 443,
+            "text": "    PC-\u003e\u003eTV: A SCRIPT_READY"
+          },
+          {
+            "lineNumber": 444,
+            "text": "    PC-\u003e\u003eTV: A DEVICE_READY(BP)"
+          },
+          {
+            "lineNumber": 445,
+            "text": "    User-\u003e\u003eTV: 焦点+OK"
+          },
+          {
+            "lineNumber": 446,
+            "text": "    TV-\u003e\u003ePC: B START_MEASURE(BP)"
+          },
+          {
+            "lineNumber": 447,
+            "text": "    PC-\u003e\u003eTV: B ACK"
+          },
+          {
+            "lineNumber": 448,
+            "text": "    PC-\u003e\u003eBP: 加压"
+          },
+          {
+            "lineNumber": 449,
+            "text": "    PC-\u003e\u003eTV: B MEASURE_PROGRESS"
+          },
+          {
+            "lineNumber": 450,
+            "text": "    BP-\u003e\u003ePC: 结果"
+          },
+          {
+            "lineNumber": 451,
+            "text": "    PC-\u003e\u003eTV: B MEASURE_RESULT"
+          },
+          {
+            "lineNumber": 452,
+            "text": "    Note over TV: bp_history.json"
+          },
+          {
+            "lineNumber": 453,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 454
+          },
+          {
+            "lineNumber": 455,
+            "text": "---"
+          },
+          {
+            "lineNumber": 456
+          },
+          {
+            "lineNumber": 457,
+            "text": "## 11. 可靠性与边界"
+          },
+          {
+            "lineNumber": 458
+          },
+          {
+            "lineNumber": 459,
+            "text": "| 场景 | 心率 | 血压 |"
+          },
+          {
+            "lineNumber": 460,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 461,
+            "text": "| 丢包 | 流式可容忍；5s 采样补点 | START 无 ACK → 5s 提示重试 |"
+          },
+          {
+            "lineNumber": 462,
+            "text": "| 重复测量 | 本地会话互斥 | request_id 去重 |"
+          },
+          {
+            "lineNumber": 463,
+            "text": "| 并发 | 心率会话中忽略新 OK | 血压 Measuring 忽略新 START |"
+          },
+          {
+            "lineNumber": 464,
+            "text": "| 网关重启 | 流中断 → HR_IDLE | DEVICE_OFFLINE → 角标灭 |"
+          },
+          {
+            "lineNumber": 465,
+            "text": "| 仅 PC 无 BP | 心率仍可用 | 血压卡片「未连接血压计」 |"
+          },
+          {
+            "lineNumber": 466
+          },
+          {
+            "lineNumber": 467,
+            "text": "---"
+          },
+          {
+            "lineNumber": 468
+          },
+          {
+            "lineNumber": 469,
+            "text": "## 12. PC / TV 改造优先级（按域 + 排期阶段）"
+          },
+          {
+            "lineNumber": 470
+          },
+          {
+            "lineNumber": 471,
+            "text": "\u003e **Mock 阶段（H/B）：** 下列 P0 项 **仅作设计对照**，代码可 stub，不联调。  "
+          },
+          {
+            "lineNumber": 472,
+            "text": "\u003e **UDP 阶段（U）：** 建议 **T0（18500 JSON）→ P0（18501 闭环）**，不要跳过 T0 直接按 P0 验收 L0 脚本。"
+          },
+          {
+            "lineNumber": 473
+          },
+          {
+            "lineNumber": 474,
+            "text": "### 12.0 阶段映射"
+          },
+          {
+            "lineNumber": 475
+          },
+          {
+            "lineNumber": 476,
+            "text": "| 优先级包 | 对应排期 | PC 侧重 | TV 侧重 |"
+          },
+          {
+            "lineNumber": 477,
+            "text": "|----------|----------|---------|---------|"
+          },
+          {
+            "lineNumber": 478,
+            "text": "| Mock 无关 | H0–H2、B0–B2 | — | UI/JSON/分析；Mock 假 PROGRESS |"
+          },
+          {
+            "lineNumber": 479,
+            "text": "| **T0** | U1 前半 / 与 PC 脚本并行 | 18500 发 JSON；文本→字段转换 | 解析 JSON 角标/图表 |"
+          },
+          {
+            "lineNumber": 480,
+            "text": "| **P0 · U1** | U1 | &#96;SCRIPT_READY&#96; + &#96;HEART_RATE_STREAM&#96; | 心率流 + 发现 UI |"
+          },
+          {
+            "lineNumber": 481,
+            "text": "| **P0 · U2** | U2 | 18501 listen + 血压闭环 JSON | BP Controller + &#96;START_MEASURE&#96; |"
+          },
+          {
+            "lineNumber": 482,
+            "text": "| **P1** | U3 后 | 统一信封、心跳 | 工程师控制台分离 |"
+          },
+          {
+            "lineNumber": 483
+          },
+          {
+            "lineNumber": 484,
+            "text": "### 12.1 共用（P0，阶段三 U1 起）"
+          },
+          {
+            "lineNumber": 485
+          },
+          {
+            "lineNumber": 486,
+            "text": "- [ ] &#96;SCRIPT_READY&#96; 增加 &#96;v&#96;、&#96;devices[]&#96;"
+          },
+          {
+            "lineNumber": 487,
+            "text": "- [ ] TV 连接状态 UI"
+          },
+          {
+            "lineNumber": 488,
+            "text": "- [ ] 消息路由：&#96;device&#96; / &#96;device_category&#96; 分派"
+          },
+          {
+            "lineNumber": 489
+          },
+          {
+            "lineNumber": 490,
+            "text": "### 12.2 心率域（P0，阶段三 U1）"
+          },
+          {
+            "lineNumber": 491
+          },
+          {
+            "lineNumber": 492,
+            "text": "- [ ] 解析 &#96;HEART_RATE_STREAM&#96; JSON（兼容文本）"
+          },
+          {
+            "lineNumber": 493,
+            "text": "- [ ] &#96;HR_SIGNAL_PRESENT&#96; 或 10s 窗口自判 Ready"
+          },
+          {
+            "lineNumber": 494,
+            "text": "- [ ] 不接信道 B"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 495
+          },
+          "startPosition": {
+            "line": 436
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\udp_信道设计.md",
+        "signatures": {}
+      },
+      "score": 0.2382403016090393
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 196,
+            "text": "| **T0** | 18500 广播/单播 JSON（可双发 text） | **18500**（兼容 Legacy START） | **PC_IP:18500**（推荐先保持） | JSON 可先走 **18500** 或 **18501**（与 TV 约定） |"
+          },
+          {
+            "lineNumber": 197,
+            "text": "| **P0** | 18500 广播/单播 | **&#96;0.0.0.0:18501&#96;** | **PC_IP:18501** | **&#96;reply_to&#96; 或 TV 源地址 :18501** 单播 |"
+          },
+          {
+            "lineNumber": 198
+          },
+          {
+            "lineNumber": 199,
+            "text": "**&#96;SCRIPT_READY&#96; 里的 &#96;script_ip&#96; + &#96;listen_port&#96;：** 告诉 TV「发 START 时请打到 **script_ip:listen_port**」。P0 下 &#96;listen_port&#96; 应为 **18501**，&#96;script_ip&#96; 为 PC 在局域网的真实 IP（如 &#96;192.168.1.100&#96;），**不要写 255.255.255.255**。"
+          },
+          {
+            "lineNumber": 200
+          },
+          {
+            "lineNumber": 201,
+            "text": "### 3.5.4 PC 侧最小代码形态（Python 伪代码）"
+          },
+          {
+            "lineNumber": 202
+          },
+          {
+            "lineNumber": 203,
+            "text": "&#96;&#96;&#96;python"
+          },
+          {
+            "lineNumber": 204,
+            "text": "# 信道 A：发送（每个 JSON 或文本包）"
+          },
+          {
+            "lineNumber": 205,
+            "text": "sock_a = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)"
+          },
+          {
+            "lineNumber": 206,
+            "text": "sock_a.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)"
+          },
+          {
+            "lineNumber": 207,
+            "text": "sock_a.sendto(payload, (\"255.255.255.255\", 18500))   # 广播"
+          },
+          {
+            "lineNumber": 208,
+            "text": "sock_a.sendto(payload, (TV_IP, 18500))               # 单播加固（真机强烈建议）"
+          },
+          {
+            "lineNumber": 209
+          },
+          {
+            "lineNumber": 210,
+            "text": "# 信道 B：接收（P0 必须独立线程）"
+          },
+          {
+            "lineNumber": 211,
+            "text": "sock_b = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)"
+          },
+          {
+            "lineNumber": 212,
+            "text": "sock_b.bind((\"0.0.0.0\", 18501))                      # 注意：不是 255.255.255.255"
+          },
+          {
+            "lineNumber": 213,
+            "text": "data, (tv_ip, tv_port) = sock_b.recvfrom(4096)"
+          },
+          {
+            "lineNumber": 214,
+            "text": "# 回复时单播到 TV 的 18501（或 msg[\"reply_to\"]）"
+          },
+          {
+            "lineNumber": 215,
+            "text": "sock_b.sendto(ack_json, (reply_ip, 18501))"
+          },
+          {
+            "lineNumber": 216,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 217
+          },
+          {
+            "lineNumber": 218,
+            "text": "Legacy 脚本若 **只** &#96;bind/send 18500&#96;，则 TV 的 START 必须仍发到 **18500**；等 P0 再 **额外** 开 18501，并继续一段时间 **双 listen**（18500 收 Legacy START + 18501 收 START_MEASURE）最稳妥。"
+          },
+          {
+            "lineNumber": 219
+          },
+          {
+            "lineNumber": 220,
+            "text": "---"
+          },
+          {
+            "lineNumber": 221
+          },
+          {
+            "lineNumber": 222,
+            "text": "## 3.6 Android Studio 模拟器 + 本地 PC 脚本（联调说明）"
+          },
+          {
+            "lineNumber": 223
+          },
+          {
+            "lineNumber": 224,
+            "text": "\u003e TV 开发会在 **AS 模拟器（AVD）** 里跑 APK；PC 脚本在 **Windows 本机**。这与「真机 + 同 WiFi」拓扑不同，请按下面分支处理。"
+          },
+          {
+            "lineNumber": 225
+          },
+          {
+            "lineNumber": 226,
+            "text": "### 3.6.1 推荐优先级"
+          },
+          {
+            "lineNumber": 227
+          },
+          {
+            "lineNumber": 228,
+            "text": "| 优先级 | 环境 | 适用 |"
+          },
+          {
+            "lineNumber": 229,
+            "text": "|--------|------|------|"
+          },
+          {
+            "lineNumber": 230,
+            "text": "| **1（强烈推荐）** | AS **真机** + PC 同 WiFi | L0 / T0 / P0 全量联调 |"
+          },
+          {
+            "lineNumber": 231,
+            "text": "| **2** | AS **模拟器** + &#96;adb forward&#96; | L0 文本、T0 部分 JSON；**P0 双信道仅作尝试** |"
+          },
+          {
+            "lineNumber": 232,
+            "text": "| **3** | 仅 mock_gateway + 真机 | TV 未接 Legacy 前的 P0 自测 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 233
+          },
+          "startPosition": {
+            "line": 195
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.22651569545269012
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 27,
+            "text": "| [开发排期Checklist.md](./开发排期Checklist.md) | U1–U3 排期 |"
+          },
+          {
+            "lineNumber": 28
+          },
+          {
+            "lineNumber": 29,
+            "text": "**原则：** **复杂逻辑在 PC**（蓝牙、加压、进度计算、格式转换）；TV 只做薄解析与 UI。"
+          },
+          {
+            "lineNumber": 30
+          },
+          {
+            "lineNumber": 31,
+            "text": "### 1.2 五分钟导读（给 PC 同事的非技术版）"
+          },
+          {
+            "lineNumber": 32
+          },
+          {
+            "lineNumber": 33,
+            "text": "**连接方式：** 同局域网 **UDP**（不是网页、不是 TV 直连蓝牙）。PC 脚本 = **网关**：蓝牙连手环/血压计，UDP 跟 **TV App（机顶盒 Android）** 说话。"
+          },
+          {
+            "lineNumber": 34
+          },
+          {
+            "lineNumber": 35,
+            "text": "**两条信道（P0 终态）：**"
+          },
+          {
+            "lineNumber": 36
+          },
+          {
+            "lineNumber": 37,
+            "text": "| 端口 | 用途 | 类比 |"
+          },
+          {
+            "lineNumber": 38,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 39,
+            "text": "| **18500（A）** | PC→TV 为主：发现网关、心率流、血压计是否就绪 | 电视台广播 |"
+          },
+          {
+            "lineNumber": 40,
+            "text": "| **18501（B）** | TV↔PC：点测量、进度、结果 | 对讲机 |"
+          },
+          {
+            "lineNumber": 41
+          },
+          {
+            "lineNumber": 42,
+            "text": "**注意：** &#96;255.255.255.255&#96; 只用于 **PC 发送广播**；PC **监听** 用 &#96;0.0.0.0:18501&#96;，不能 bind 到 255.255.255.255。"
+          },
+          {
+            "lineNumber": 43
+          },
+          {
+            "lineNumber": 44,
+            "text": "**血压一次测量（P0 目标时序，文字版）：**"
+          },
+          {
+            "lineNumber": 45
+          },
+          {
+            "lineNumber": 46,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 47,
+            "text": "[开机]"
+          },
+          {
+            "lineNumber": 48,
+            "text": "  PC ──18500──► TV   SCRIPT_READY（我是谁、请往 18501 发指令）"
+          },
+          {
+            "lineNumber": 49,
+            "text": "  PC ──18500──► TV   DEVICE_READY（血压计可测）"
+          },
+          {
+            "lineNumber": 50
+          },
+          {
+            "lineNumber": 51,
+            "text": "[用户按 OK]"
+          },
+          {
+            "lineNumber": 52,
+            "text": "  TV ──18501──► PC   START_MEASURE + reply_to"
+          },
+          {
+            "lineNumber": 53,
+            "text": "  PC ──18501──► TV   ACK"
+          },
+          {
+            "lineNumber": 54,
+            "text": "  PC ──蓝牙──► 血压计  开始加压"
+          },
+          {
+            "lineNumber": 55,
+            "text": "  PC ──18501──► TV   MEASURE_PROGRESS（多次）"
+          },
+          {
+            "lineNumber": 56,
+            "text": "  PC ──18501──► TV   MEASURE_RESULT"
+          },
+          {
+            "lineNumber": 57,
+            "text": "  TV 本地写 bp_history、画图、AI 文案"
+          },
+          {
+            "lineNumber": 58
+          },
+          {
+            "lineNumber": 59,
+            "text": "[用户按返回]"
+          },
+          {
+            "lineNumber": 60,
+            "text": "  TV ──18501──► PC   CANCEL_MEASURE（可选）"
+          },
+          {
+            "lineNumber": 61,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 62
+          },
+          {
+            "lineNumber": 63,
+            "text": "**心率：** 主要走 18500 的 &#96;HEART_RATE_STREAM&#96;；TV 本地做 30s 会话，**首版不必** TV 发 START 给 PC。"
+          },
+          {
+            "lineNumber": 64
+          },
+          {
+            "lineNumber": 65,
+            "text": "**阶段别混：** 下文 **L0** 是你脚本 **今天**；**T0** 是过渡（JSON 可先全走 18500）；**P0** 才是上表完整双端口闭环。详见 §4、§1.3。"
+          },
+          {
+            "lineNumber": 66
+          },
+          {
+            "lineNumber": 67,
+            "text": "### 1.3 L0 / T0 / P0 对照（联调时必看）"
+          },
+          {
+            "lineNumber": 68
+          },
+          {
+            "lineNumber": 69,
+            "text": "| 项 | **L0 Legacy（现网 PC 脚本）** | **T0 过渡** | **P0 目标** |"
+          },
+          {
+            "lineNumber": 70,
+            "text": "|----|------------------------------|-------------|-------------|"
+          },
+          {
+            "lineNumber": 71,
+            "text": "| PC→TV 格式 | 纯文本一行 | JSON（可与文本双发） | JSON |"
+          },
+          {
+            "lineNumber": 72,
+            "text": "| TV→PC 测血压 | &#96;START&#96; → **PC_IP:18500** | 仍可 18500；识别 &#96;START_MEASURE&#96; | **PC_IP:18501** &#96;START_MEASURE&#96; |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 72
+          },
+          "startPosition": {
+            "line": 26
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.2184911072254181
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 495,
+            "text": "| 加压前半 | 10–55 |"
+          },
+          {
+            "lineNumber": 496,
+            "text": "| 加压后半 | 56–88 |"
+          },
+          {
+            "lineNumber": 497,
+            "text": "| 减压 | 89–95 |"
+          },
+          {
+            "lineNumber": 498,
+            "text": "| 分析 | 96–100 |"
+          },
+          {
+            "lineNumber": 499
+          },
+          {
+            "lineNumber": 500,
+            "text": "---"
+          },
+          {
+            "lineNumber": 501
+          },
+          {
+            "lineNumber": 502,
+            "text": "## 8. 与 mock_gateway 的关系"
+          },
+          {
+            "lineNumber": 503
+          },
+          {
+            "lineNumber": 504,
+            "text": "仓库 [tools/mock_gateway.py](../tools/mock_gateway.py) 是 **P0 参考实现**（双信道 JSON）。"
+          },
+          {
+            "lineNumber": 505
+          },
+          {
+            "lineNumber": 506,
+            "text": "| 用途 | 说明 |"
+          },
+          {
+            "lineNumber": 507,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 508,
+            "text": "| TV 开发自测 | PC 同事未升级前，TV 可用 mock 验证 P0 |"
+          },
+          {
+            "lineNumber": 509,
+            "text": "| 行为对照 | Legacy 升级后应与 mock 的 type/字段 **一致** |"
+          },
+          {
+            "lineNumber": 510,
+            "text": "| 差异 | mock 无 text_mode；Legacy 可先 T0 双发 |"
+          },
+          {
+            "lineNumber": 511
+          },
+          {
+            "lineNumber": 512,
+            "text": "---"
+          },
+          {
+            "lineNumber": 513
+          },
+          {
+            "lineNumber": 514,
+            "text": "## 9. 分阶段交付与排期"
+          },
+          {
+            "lineNumber": 515
+          },
+          {
+            "lineNumber": 516,
+            "text": "| 排期 | PC 交付 | 联调文档 |"
+          },
+          {
+            "lineNumber": 517,
+            "text": "|------|---------|----------|"
+          },
+          {
+            "lineNumber": 518,
+            "text": "| **T0** | §5 任务 T0-1～T0-7 | [AS 方案 §4 Legacy/T0](./AndroidStudio双信道测试方案.md) |"
+          },
+          {
+            "lineNumber": 519,
+            "text": "| **U1** | &#96;SCRIPT_READY&#96; + &#96;HEART_RATE_STREAM&#96; 稳定 | AS 方案 P0 阶段 1、3 |"
+          },
+          {
+            "lineNumber": 520,
+            "text": "| **U2** | T0 血压 JSON + 可选提前 18501 | AS 方案 P0 阶段 4 |"
+          },
+          {
+            "lineNumber": 521,
+            "text": "| **U3** | 完整 P0 + 真实硬件 + 错误处理 | AS 方案 §8 机顶盒清单 |"
+          },
+          {
+            "lineNumber": 522,
+            "text": "| **P1** | &#96;v&#96;+&#96;payload&#96; 信封、&#96;GATEWAY_HEARTBEAT&#96; | udp 信道设计 §F |"
+          },
+          {
+            "lineNumber": 523
+          },
+          {
+            "lineNumber": 524,
+            "text": "---"
+          },
+          {
+            "lineNumber": 525
+          },
+          {
+            "lineNumber": 526,
+            "text": "## 10. 防火墙与环境"
+          },
+          {
+            "lineNumber": 527
+          },
+          {
+            "lineNumber": 528,
+            "text": "| 项 | 真机 + 同 WiFi | AS 模拟器 + adb forward |"
+          },
+          {
+            "lineNumber": 529,
+            "text": "|----|----------------|-------------------------|"
+          },
+          {
+            "lineNumber": 530,
+            "text": "| 端口 | UDP **18500、18501** 入站/出站放行 | 同上（本机 loopback + forward） |"
+          },
+          {
+            "lineNumber": 531,
+            "text": "| 网段 | PC 与 TV **同一局域网** | **不要求**同网段；用 127.0.0.1 / 10.0.2.2 |"
+          },
+          {
+            "lineNumber": 532,
+            "text": "| PC IP（&#96;script_ip&#96;） | &#96;ipconfig&#96; → 如 &#96;192.168.1.100&#96; | TV 回连宿主机用 **&#96;10.0.2.2&#96;** |"
+          },
+          {
+            "lineNumber": 533,
+            "text": "| TV 单播目标（&#96;--tv-ip&#96;） | 真机 WLAN IP | **&#96;127.0.0.1&#96;** |"
+          },
+          {
+            "lineNumber": 534,
+            "text": "| 广播 | &#96;255.255.255.255:18500&#96; + 单播 TV | **依赖单播**；建议 &#96;--no-broadcast&#96; |"
+          },
+          {
+            "lineNumber": 535
+          },
+          {
+            "lineNumber": 536,
+            "text": "---"
+          },
+          {
+            "lineNumber": 537
+          },
+          {
+            "lineNumber": 538,
+            "text": "## 11. 常见问题（PC 侧）"
+          },
+          {
+            "lineNumber": 539
+          },
+          {
+            "lineNumber": 540,
+            "text": "| 现象 | 处理 |"
+          },
+          {
+            "lineNumber": 541,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 542,
+            "text": "| TV 收不到包 | 真机：单播 &#96;TV_IP:18500&#96;；模拟器：改 &#96;127.0.0.1:18500&#96; 并确认 &#96;adb forward&#96; |"
+          },
+          {
+            "lineNumber": 543,
+            "text": "| 误以为 PC 要 listen &#96;255.255.255.255:18501&#96; | **错误**；PC 只 &#96;bind 0.0.0.0:18501&#96; |"
+          },
+          {
+            "lineNumber": 544,
+            "text": "| TV 有文本无图表 | TV 未接 T0 JSON 路由；PC 先发 §6 JSON |"
+          },
+          {
+            "lineNumber": 545,
+            "text": "| TV 发 START 无反应 | TV 发 18501 但 PC 只 listen 18500 → T0 同端口或 PC 开 B |"
+          },
+          {
+            "lineNumber": 546,
+            "text": "| 模拟器能收不能发 | TV START 目标应是 **10.0.2.2**，不是 PC 局域网 IP |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 546
+          },
+          "startPosition": {
+            "line": 494
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.21591979265213013
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 204,
+            "text": "---"
+          },
+          {
+            "lineNumber": 205
+          },
+          {
+            "lineNumber": 206,
+            "text": "## 6. 架构与模块解耦升级"
+          },
+          {
+            "lineNumber": 207
+          },
+          {
+            "lineNumber": 208,
+            "text": "对照 [项目结构与模块解耦说明.md](./项目结构与模块解耦说明.md)，现网 &#96;pc_ble_client&#96; 已部分解耦（&#96;hr_ble_backend&#96;、&#96;tv_link&#96;、&#96;reading_format&#96;），但 **MainWindow 仍过重**。建议："
+          },
+          {
+            "lineNumber": 209
+          },
+          {
+            "lineNumber": 210,
+            "text": "### 6.1 目标分层"
+          },
+          {
+            "lineNumber": 211
+          },
+          {
+            "lineNumber": 212,
+            "text": "&#96;&#96;&#96;text"
+          },
+          {
+            "lineNumber": 213,
+            "text": "run_gui.py / bp_demo_app.py          # 入口 + 窗口壳"
+          },
+          {
+            "lineNumber": 214,
+            "text": "    GatewayController（新建）         # 编排：BLE 事件 → UI + TV + FSM"
+          },
+          {
+            "lineNumber": 215,
+            "text": "        ├── MultiBleBackend           # 不变，补 DEVICE 事件"
+          },
+          {
+            "lineNumber": 216,
+            "text": "        ├── TvLink                    # 双信道"
+          },
+          {
+            "lineNumber": 217,
+            "text": "        ├── MeasureFsm                # P0"
+          },
+          {
+            "lineNumber": 218,
+            "text": "        ├── DeviceProfileStore        # 设备档案"
+          },
+          {
+            "lineNumber": 219,
+            "text": "        └── GatewayConfigStore（新建） # TV/协议配置"
+          },
+          {
+            "lineNumber": 220,
+            "text": "ui_panels.py                          # 纯 UI，无 bleak"
+          },
+          {
+            "lineNumber": 221,
+            "text": "tv_messages.py                        # 纯 JSON 构造"
+          },
+          {
+            "lineNumber": 222,
+            "text": "reading_format.py                     # 纯展示文本"
+          },
+          {
+            "lineNumber": 223,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 224
+          },
+          {
+            "lineNumber": 225,
+            "text": "### 6.2 可独立复用的边界（便于测试）"
+          },
+          {
+            "lineNumber": 226
+          },
+          {
+            "lineNumber": 227,
+            "text": "| 模块 | 应能独立运行/单测 |"
+          },
+          {
+            "lineNumber": 228,
+            "text": "|------|-------------------|"
+          },
+          {
+            "lineNumber": 229,
+            "text": "| &#96;tv_messages&#96; + &#96;tv_link&#96; | 无 GUI，&#96;udp_sender_test&#96; 式脚本发 JSON |"
+          },
+          {
+            "lineNumber": 230,
+            "text": "| &#96;bp_protocol.FrameParser&#96; | 已有，继续用 hex fixture 测 |"
+          },
+          {
+            "lineNumber": 231,
+            "text": "| &#96;reading_format&#96; | 输入数字 → 断言文本与 JSON 字段一致 |"
+          },
+          {
+            "lineNumber": 232,
+            "text": "| &#96;measure_fsm&#96; | mock backend，模拟 START→进度→结果 |"
+          },
+          {
+            "lineNumber": 233
+          },
+          {
+            "lineNumber": 234,
+            "text": "### 6.3 配置拆分"
+          },
+          {
+            "lineNumber": 235
+          },
+          {
+            "lineNumber": 236,
+            "text": "| 文件 | 内容 |"
+          },
+          {
+            "lineNumber": 237,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 238,
+            "text": "| &#96;devices.json&#96; | 蓝牙设备档案（已有） |"
+          },
+          {
+            "lineNumber": 239,
+            "text": "| **gateway.json**（新建） | &#96;tv_ip&#96;, &#96;tv_mode&#96;, &#96;protocol_stage&#96;, &#96;text_mode&#96;, &#96;script_ip&#96;, &#96;ports&#96;, &#96;no_broadcast&#96; |"
+          },
+          {
+            "lineNumber": 240
+          },
+          {
+            "lineNumber": 241,
+            "text": "启动时：&#96;device_profile&#96; 与 &#96;gateway&#96; 分离，避免 TV 联调参数写进设备档案。"
+          },
+          {
+            "lineNumber": 242
+          },
+          {
+            "lineNumber": 243,
+            "text": "---"
+          },
+          {
+            "lineNumber": 244
+          },
+          {
+            "lineNumber": 245,
+            "text": "## 7. 功能升级清单"
+          },
+          {
+            "lineNumber": 246
+          },
+          {
+            "lineNumber": 247,
+            "text": "### 7.1 TV / 网关功能"
+          },
+          {
+            "lineNumber": 248
+          },
+          {
+            "lineNumber": 249,
+            "text": "| 功能 | 现状 | 升级后 |"
+          },
+          {
+            "lineNumber": 250,
+            "text": "|------|------|--------|"
+          },
+          {
+            "lineNumber": 251,
+            "text": "| 网关发现 | 无 / 偶发 READY 文本 | 周期 &#96;SCRIPT_READY&#96; JSON |"
+          },
+          {
+            "lineNumber": 252,
+            "text": "| 心率推 TV | F1 文本 | + &#96;HEART_RATE_STREAM&#96; ~1Hz |"
+          },
+          {
+            "lineNumber": 253,
+            "text": "| 血压就绪 | 无 | &#96;DEVICE_READY&#96; / &#96;DEVICE_OFFLINE&#96; |"
+          },
+          {
+            "lineNumber": 254,
+            "text": "| TV 触发测压 | &#96;START&#96; @18500 | + &#96;START_MEASURE&#96;；P0 @18501 |"
+          },
+          {
+            "lineNumber": 255,
+            "text": "| 测量 ACK | 无 | P0 立即 &#96;ACK&#96; |"
+          },
+          {
+            "lineNumber": 256,
+            "text": "| 取消测量 | 无 | 收 &#96;CANCEL_MEASURE&#96; → &#96;send_stop&#96; |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 256
+          },
+          "startPosition": {
+            "line": 202
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本升级优化方案.md",
+        "signatures": {}
+      },
+      "score": 0.21341049671173096
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 337,
+            "text": "- 自动连接多台设备时 **串行** + 短间隔，降低 Windows BLE 栈不稳定概率。"
+          },
+          {
+            "lineNumber": 338
+          },
+          {
+            "lineNumber": 339,
+            "text": "---"
+          },
+          {
+            "lineNumber": 340
+          },
+          {
+            "lineNumber": 341,
+            "text": "## 8. TV 联动（升级后 v2.0）"
+          },
+          {
+            "lineNumber": 342
+          },
+          {
+            "lineNumber": 343,
+            "text": "**模块：** &#96;tv_link.TvLink&#96; + &#96;gateway_controller.GatewayController&#96; + &#96;tv_messages.py&#96; + &#96;measure_fsm.py&#96;  "
+          },
+          {
+            "lineNumber": 344,
+            "text": "**配置：** &#96;gateway.json&#96;（默认 **T0**）"
+          },
+          {
+            "lineNumber": 345
+          },
+          {
+            "lineNumber": 346,
+            "text": "### 8.1 协议阶段"
+          },
+          {
+            "lineNumber": 347
+          },
+          {
+            "lineNumber": 348,
+            "text": "| 阶段 | 行为 |"
+          },
+          {
+            "lineNumber": 349,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 350,
+            "text": "| **L0** | 仅 F1 文本（18500） |"
+          },
+          {
+            "lineNumber": 351,
+            "text": "| **T0**（默认） | F2 JSON + 可选 F1 双发；&#96;listen_port=18500&#96; |"
+          },
+          {
+            "lineNumber": 352,
+            "text": "| **P0** | A=18500 发现/遥测；B=**18501** 测压闭环；&#96;listen_port=18501&#96; |"
+          },
+          {
+            "lineNumber": 353
+          },
+          {
+            "lineNumber": 354,
+            "text": "### 8.2 主要 JSON type（T0/P0）"
+          },
+          {
+            "lineNumber": 355
+          },
+          {
+            "lineNumber": 356,
+            "text": "&#96;SCRIPT_READY&#96;、&#96;DEVICE_READY&#96;、&#96;DEVICE_OFFLINE&#96;、&#96;HEART_RATE_STREAM&#96;、&#96;MEASURE_PROGRESS&#96;、&#96;MEASURE_RESULT&#96;、&#96;MEASURE_ERROR&#96;、&#96;ACK&#96;"
+          },
+          {
+            "lineNumber": 357
+          },
+          {
+            "lineNumber": 358,
+            "text": "### 8.3 UI"
+          },
+          {
+            "lineNumber": 359
+          },
+          {
+            "lineNumber": 360,
+            "text": "- 底部 **协议阶段** / JSON+文本 / script_ip / **B 信道状态**"
+          },
+          {
+            "lineNumber": 361,
+            "text": "- **TV 联调** Tab：报文预览、模拟 START / START_MEASURE"
+          },
+          {
+            "lineNumber": 362,
+            "text": "- 日志 **TV 协议** Tab"
+          },
+          {
+            "lineNumber": 363
+          },
+          {
+            "lineNumber": 364,
+            "text": "格式详见 [通讯格式文档.md](./通讯格式文档.md)。**验收清单：** [PC网关升级测试验收清单.md](./PC网关升级测试验收清单.md)"
+          },
+          {
+            "lineNumber": 365
+          },
+          {
+            "lineNumber": 366,
+            "text": "### 8.2 数据流（推送血压示例）"
+          },
+          {
+            "lineNumber": 367
+          },
+          {
+            "lineNumber": 368,
+            "text": "&#96;&#96;&#96;text"
+          },
+          {
+            "lineNumber": 369,
+            "text": "血压计 --BLE--\u003e multi_ble_backend --解析--\u003e"
+          },
+          {
+            "lineNumber": 370,
+            "text": "  bp_demo_app._on_bp_pressure / _on_measurement_result"
+          },
+          {
+            "lineNumber": 371,
+            "text": "    --\u003e reading_format 生成行文本"
+          },
+          {
+            "lineNumber": 372,
+            "text": "    --\u003e 区域3 实时日志"
+          },
+          {
+            "lineNumber": 373,
+            "text": "    --\u003e 运行日志（简要）"
+          },
+          {
+            "lineNumber": 374,
+            "text": "    --\u003e tv_link.send_pressure / send_result（若勾选推送或联动）"
+          },
+          {
+            "lineNumber": 375,
+            "text": "         --\u003e UDP 18500 --\u003e TV App 显示该行"
+          },
+          {
+            "lineNumber": 376,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 377
+          },
+          {
+            "lineNumber": 378,
+            "text": "### 8.3 与目标协议差距"
+          },
+          {
+            "lineNumber": 379
+          },
+          {
+            "lineNumber": 380,
+            "text": "完整对照见 [pc_gateway升级方案.md §3](./pc_gateway升级方案.md) 与 [通讯格式文档.md §5.3](./通讯格式文档.md)。  "
+          },
+          {
+            "lineNumber": 381,
+            "text": "升级路线：**L0（现网）→ T0（18500 加 JSON）→ P0（18501 闭环）**。"
+          },
+          {
+            "lineNumber": 382
+          },
+          {
+            "lineNumber": 383,
+            "text": "---"
+          },
+          {
+            "lineNumber": 384
+          },
+          {
+            "lineNumber": 385,
+            "text": "## 9. 关键数据流（端到端）"
+          },
+          {
+            "lineNumber": 386
+          },
+          {
+            "lineNumber": 387,
+            "text": "### 9.1 用户手动连接血压计并测量"
+          },
+          {
+            "lineNumber": 388
+          },
+          {
+            "lineNumber": 389,
+            "text": "&#96;&#96;&#96;mermaid"
+          },
+          {
+            "lineNumber": 390,
+            "text": "sequenceDiagram"
+          },
+          {
+            "lineNumber": 391,
+            "text": "    participant U as 用户"
+          },
+          {
+            "lineNumber": 392,
+            "text": "    participant UI as MainWindow"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 392
+          },
+          "startPosition": {
+            "line": 336
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本功能与实现分析.md",
+        "signatures": {}
+      },
+      "score": 0.2117328643798828
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 1,
+            "text": "# TV 与 PC 脚本通信架构设计（v2.2）"
+          },
+          {
+            "lineNumber": 2
+          },
+          {
+            "lineNumber": 3,
+            "text": "## 1. 文档说明"
+          },
+          {
+            "lineNumber": 4
+          },
+          {
+            "lineNumber": 5,
+            "text": "本文档定义 **TV 机顶盒 App** 与 **PC 网关脚本** 之间的通信架构，并**按心率、血压拆分**各自占用的能力与消息。"
+          },
+          {
+            "lineNumber": 6
+          },
+          {
+            "lineNumber": 7,
+            "text": "**关联文档（三份配套，勿单读本文）：**"
+          },
+          {
+            "lineNumber": 8
+          },
+          {
+            "lineNumber": 9,
+            "text": "| 文档 | 角色 |"
+          },
+          {
+            "lineNumber": 10,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 11,
+            "text": "| **本文档** | 协议语义、能力矩阵、演进路线（**设计基准**） |"
+          },
+          {
+            "lineNumber": 12,
+            "text": "| [pc_gateway升级方案.md](./pc_gateway升级方案.md) | PC 从 L0 文本脚本升级到 T0/P0（**实现对照**） |"
+          },
+          {
+            "lineNumber": 13,
+            "text": "| [AndroidStudio双信道测试方案.md](./AndroidStudio双信道测试方案.md) | mock / 真机 / 模拟器联调（**验收操作**） |"
+          },
+          {
+            "lineNumber": 14,
+            "text": "| [通讯格式文档.md](./通讯格式文档.md) | UDP **包体格式**、字段样例（**格式字典**） |"
+          },
+          {
+            "lineNumber": 15,
+            "text": "| [PC网关脚本功能与实现分析.md](./PC网关脚本功能与实现分析.md) | 现网 PC 脚本功能与模块（**L0 实现**） |"
+          },
+          {
+            "lineNumber": 16
+          },
+          {
+            "lineNumber": 17,
+            "text": "**关联产品方案：**"
+          },
+          {
+            "lineNumber": 18
+          },
+          {
+            "lineNumber": 19,
+            "text": "| 文档 | 内容 |"
+          },
+          {
+            "lineNumber": 20,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 21,
+            "text": "| [心率测试方案.md](./心率测试方案.md) | 心率卡片、30s 会话、本地 JSON |"
+          },
+          {
+            "lineNumber": 22,
+            "text": "| [血压测试方案.md](./血压测试方案.md) | 血压卡片、TV 触发加压、bp_history.json |"
+          },
+          {
+            "lineNumber": 23
+          },
+          {
+            "lineNumber": 24,
+            "text": "**范围：** 协议与架构设计，不含 App 代码。联调步骤见 [AndroidStudio双信道测试方案.md](./AndroidStudio双信道测试方案.md)。v2 增加能力矩阵、连接方案对比等。"
+          },
+          {
+            "lineNumber": 25
+          },
+          {
+            "lineNumber": 26,
+            "text": "### 1.1 与开发排期的关系（v2.1）"
+          },
+          {
+            "lineNumber": 27
+          },
+          {
+            "lineNumber": 28,
+            "text": "**UDP 实现与联调属于 [开发排期Checklist.md](./开发排期Checklist.md) 阶段三（U1–U3），当前搁置。**"
+          },
+          {
+            "lineNumber": 29
+          },
+          {
+            "lineNumber": 30,
+            "text": "| 排期阶段 | App 侧 | 本协议文档 |"
+          },
+          {
+            "lineNumber": 31,
+            "text": "|----------|--------|------------|"
+          },
+          {
+            "lineNumber": 32,
+            "text": "| **阶段一 · 心率 Mock** | H0–H2：视图、JSON、分析 | **不实现** UDP；仅阅读 §2–§3 理解分域 |"
+          },
+          {
+            "lineNumber": 33,
+            "text": "| **阶段二 · 血压 Mock** | B0–B2：bp 布局、JSON、Mock 会话 | **不实现** 信道 B；Mock 假 PROGRESS/RESULT |"
+          },
+          {
+            "lineNumber": 34,
+            "text": "| **阶段三 · 硬件到后** | U1 心率 A → U2 血压 A+B → U3 机顶盒 | **按本文 §4–§10 落地** + [AndroidStudio双信道测试方案](./AndroidStudio双信道测试方案.md) |"
+          },
+          {
+            "lineNumber": 35
+          },
+          {
+            "lineNumber": 36,
+            "text": "**阶段一、二验收标准：** 模拟器 Mock 全流程通过，**不要求** PC 同网、mock_gateway、18501 监听。"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 36
+          },
+          "startPosition": {}
+        },
+        "relativeWorkspacePath": ".\\docs\\udp_信道设计.md",
+        "signatures": {}
+      },
+      "score": 0.21160846948623657
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 427,
+            "text": "- [ ] 新建 &#96;gateway.json&#96; + &#96;GatewayConfigStore&#96;"
+          },
+          {
+            "lineNumber": 428,
+            "text": "- [ ] 新建 &#96;GatewayController&#96;，从 &#96;bp_demo_app&#96; 迁出 TV 推送逻辑"
+          },
+          {
+            "lineNumber": 429,
+            "text": "- [ ] &#96;GlobalBar&#96; 增加协议阶段、script_ip、禁用广播"
+          },
+          {
+            "lineNumber": 430,
+            "text": "- [ ] &#96;run_gui.py&#96; 增加 CLI 参数解析"
+          },
+          {
+            "lineNumber": 431,
+            "text": "- [ ] 日志 Tab：运行 / TV 协议"
+          },
+          {
+            "lineNumber": 432
+          },
+          {
+            "lineNumber": 433,
+            "text": "### 10.2 T0 迭代"
+          },
+          {
+            "lineNumber": 434
+          },
+          {
+            "lineNumber": 435,
+            "text": "- [ ] 新建 &#96;tv_messages.py&#96;"
+          },
+          {
+            "lineNumber": 436,
+            "text": "- [ ] &#96;tv_link&#96; 支持 &#96;send_json(type, **fields)&#96; + 可选 text 双发"
+          },
+          {
+            "lineNumber": 437,
+            "text": "- [ ] 定时 &#96;SCRIPT_READY&#96;（60s）"
+          },
+          {
+            "lineNumber": 438,
+            "text": "- [ ] BP 连接/断开 → &#96;DEVICE_READY&#96; / &#96;DEVICE_OFFLINE&#96;"
+          },
+          {
+            "lineNumber": 439,
+            "text": "- [ ] HR → &#96;HEART_RATE_STREAM&#96;（节流 1Hz）"
+          },
+          {
+            "lineNumber": 440,
+            "text": "- [ ] 测量过程 → &#96;MEASURE_PROGRESS&#96;；结束 → &#96;MEASURE_RESULT&#96;"
+          },
+          {
+            "lineNumber": 441,
+            "text": "- [ ] &#96;wait_for_start&#96; 识别 &#96;START_MEASURE&#96;（仍可在 18500）"
+          },
+          {
+            "lineNumber": 442,
+            "text": "- [ ] 验收：[AS 方案 T0 用例](./AndroidStudio双信道测试方案.md)"
+          },
+          {
+            "lineNumber": 443
+          },
+          {
+            "lineNumber": 444,
+            "text": "### 10.3 P0 迭代"
+          },
+          {
+            "lineNumber": 445
+          },
+          {
+            "lineNumber": 446,
+            "text": "- [ ] &#96;tv_link&#96; 第二 socket &#96;bind 0.0.0.0:18501&#96;"
+          },
+          {
+            "lineNumber": 447,
+            "text": "- [ ] 新建 &#96;measure_fsm.py&#96;，接入 &#96;multi_ble_backend&#96;"
+          },
+          {
+            "lineNumber": 448,
+            "text": "- [ ] &#96;START_MEASURE&#96; → &#96;ACK&#96; → 进度/结果走 &#96;reply_to&#96;"
+          },
+          {
+            "lineNumber": 449,
+            "text": "- [ ] &#96;CANCEL_MEASURE&#96; → &#96;send_stop&#96; + &#96;MEASURE_ERROR&#96; 或静默回 Idle"
+          },
+          {
+            "lineNumber": 450,
+            "text": "- [ ] &#96;SCRIPT_READY.listen_port = 18501&#96;"
+          },
+          {
+            "lineNumber": 451,
+            "text": "- [ ] 18500 仍 listen 一段时间（兼容 Legacy START）"
+          },
+          {
+            "lineNumber": 452,
+            "text": "- [ ] 验收：[AS 方案 P0 / §8 机顶盒清单](./AndroidStudio双信道测试方案.md)"
+          },
+          {
+            "lineNumber": 453
+          },
+          {
+            "lineNumber": 454,
+            "text": "### 10.4 P1 打磨"
+          },
+          {
+            "lineNumber": 455
+          },
+          {
+            "lineNumber": 456,
+            "text": "- [ ] PROGRESS 节流、MEASURE_ERROR 全集"
+          },
+          {
+            "lineNumber": 457,
+            "text": "- [ ] 托盘、gateway 版本号"
+          },
+          {
+            "lineNumber": 458,
+            "text": "- [ ] CLI 与 GUI 共用 FSM"
+          },
+          {
+            "lineNumber": 459
+          },
+          {
+            "lineNumber": 460,
+            "text": "---"
+          },
+          {
+            "lineNumber": 461
+          },
+          {
+            "lineNumber": 462,
+            "text": "## 11. 分阶段验收标准（PC 侧）"
+          },
+          {
+            "lineNumber": 463
+          },
+          {
+            "lineNumber": 464,
+            "text": "完整操作表见 **[PC网关升级测试验收清单.md](./PC网关升级测试验收清单.md)**。"
+          },
+          {
+            "lineNumber": 465
+          },
+          {
+            "lineNumber": 466,
+            "text": "---"
+          },
+          {
+            "lineNumber": 467
+          },
+          {
+            "lineNumber": 468,
+            "text": "## 12. 风险、依赖与不回退项"
+          },
+          {
+            "lineNumber": 469
+          },
+          {
+            "lineNumber": 470,
+            "text": "| 风险 | 缓解 |"
+          },
+          {
+            "lineNumber": 471,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 472,
+            "text": "| TV 产品 UI 未发 18501 | PC T0 先在 18500 收 &#96;START_MEASURE&#96;；P0 双 listen |"
+          },
+          {
+            "lineNumber": 473,
+            "text": "| Windows 防火墙拦 UDP | 文档 + 安装脚本提示放行 18500/18501 |"
+          },
+          {
+            "lineNumber": 474,
+            "text": "| bleak / WinRT 不稳定 | 保持扫描连接互斥；不为了 P0 改 BP 裸连接策略 |"
+          },
+          {
+            "lineNumber": 475,
+            "text": "| 模拟器 UDP 不可靠 | 协议验收以真机为准；PC 提供 &#96;--tv-ip 127.0.0.1&#96; |"
+          },
+          {
+            "lineNumber": 476,
+            "text": "| TV 与 PC 字段不一致 | 以 [通讯格式文档](./通讯格式文档.md) 为单一字段源；改 type 先改文档 |"
+          },
+          {
+            "lineNumber": 477,
+            "text": "| MainWindow 继续膨胀 | R0 必须引入 &#96;GatewayController&#96; |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 478
+          },
+          "startPosition": {
+            "line": 426
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本升级优化方案.md",
+        "signatures": {}
+      },
+      "score": 0.20820605754852295
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 65,
+            "text": "|------|--------------|------------|"
+          },
+          {
+            "lineNumber": 66,
+            "text": "| 硬件模式 | 被动广播，数据**一直来** | 主动测量，**按次加压** |"
+          },
+          {
+            "lineNumber": 67,
+            "text": "| TV 角色 | 从广播流中**切一段** 30s 会话 | 必须**先发指令**才启动 |"
+          },
+          {
+            "lineNumber": 68,
+            "text": "| 下行指令 | 首版**可不依赖** PC | **必须** TV → PC |"
+          },
+          {
+            "lineNumber": 69,
+            "text": "| 实时数据 | 高频遥测（Telemetry） | 低频事件 + 单次结果 |"
+          },
+          {
+            "lineNumber": 70,
+            "text": "| 产品隐喻 | 「监测手环信号」 | 「遥控血压计测一次」 |"
+          },
+          {
+            "lineNumber": 71
+          },
+          {
+            "lineNumber": 72,
+            "text": "因此：**物理上可共用端口与发现机制，逻辑上必须分能力域（Capability Domain）**，避免血压逻辑绑在心率广播上。"
+          },
+          {
+            "lineNumber": 73
+          },
+          {
+            "lineNumber": 74,
+            "text": "---"
+          },
+          {
+            "lineNumber": 75
+          },
+          {
+            "lineNumber": 76,
+            "text": "## 3. 物理信道 vs 逻辑能力层"
+          },
+          {
+            "lineNumber": 77
+          },
+          {
+            "lineNumber": 78,
+            "text": "### 3.1 物理层（P0 目标；L0 见下表）"
+          },
+          {
+            "lineNumber": 79
+          },
+          {
+            "lineNumber": 80,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 81,
+            "text": "┌──────────────── PC 网关脚本 ─────────────────┐"
+          },
+          {
+            "lineNumber": 82,
+            "text": "│  18500 广播发送          18501 单播收发        │"
+          },
+          {
+            "lineNumber": 83,
+            "text": "└───────────┬──────────────────────▲───────────┘"
+          },
+          {
+            "lineNumber": 84,
+            "text": "            │ 信道 A                │ 信道 B"
+          },
+          {
+            "lineNumber": 85,
+            "text": "            ▼                       │"
+          },
+          {
+            "lineNumber": 86,
+            "text": "┌─────────── TV App ─────────────────┴───────────┐"
+          },
+          {
+            "lineNumber": 87,
+            "text": "│  listen 18500              listen 18501         │"
+          },
+          {
+            "lineNumber": 88,
+            "text": "│                            send → PC:18501      │"
+          },
+          {
+            "lineNumber": 89,
+            "text": "└─────────────────────────────────────────────────┘"
+          },
+          {
+            "lineNumber": 90,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 91
+          },
+          {
+            "lineNumber": 92,
+            "text": "| 物理信道 | 端口 | 方向（P0） | 定位 |"
+          },
+          {
+            "lineNumber": 93,
+            "text": "|----------|------|------------|------|"
+          },
+          {
+            "lineNumber": 94,
+            "text": "| **A · 发现与遥测** | 18500 | PC → TV（为主）；**L0/T0 时 TV→PC START 也走此端口** | 上线、设备状态、**心率流** |"
+          },
+          {
+            "lineNumber": 95,
+            "text": "| **B · 控制与结果** | 18501 | TV ↔ PC（单播） | **指令、进度、血压结果**（P0 主路径） |"
+          },
+          {
+            "lineNumber": 96
+          },
+          {
+            "lineNumber": 97,
+            "text": "**L0 现网（单端口）：** PC 与 TV 均在 **18500** 收发；无 18501；内容为 UTF-8 文本行。详见 [pc_gateway升级方案 §3](./pc_gateway升级方案.md)。"
+          },
+          {
+            "lineNumber": 98
+          },
+          {
+            "lineNumber": 99,
+            "text": "### 3.2 逻辑层（产品化抽象，与端口解耦）"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 100
+          },
+          "startPosition": {
+            "line": 64
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\udp_信道设计.md",
+        "signatures": {}
+      },
+      "score": 0.20804494619369507
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 107,
+            "text": "| 将原始读数转为 **标准 JSON 字段** | 血压分档评语、AI 分析文案（TV 本地） |"
+          },
+          {
+            "lineNumber": 108,
+            "text": "| 计算 &#96;progress&#96;、&#96;phase&#96;、超时 | 30s 心率会话计时（TV 本地切流） |"
+          },
+          {
+            "lineNumber": 109,
+            "text": "| 监听 TV 的 START / CANCEL | — |"
+          },
+          {
+            "lineNumber": 110,
+            "text": "| （可选）保留 text_mode 工程师一行日志 | — |"
+          },
+          {
+            "lineNumber": 111
+          },
+          {
+            "lineNumber": 112,
+            "text": "---"
+          },
+          {
+            "lineNumber": 113
+          },
+          {
+            "lineNumber": 114,
+            "text": "## 3. Legacy 现网（L0）— 你的脚本 today"
+          },
+          {
+            "lineNumber": 115
+          },
+          {
+            "lineNumber": 116,
+            "text": "### 3.1 网络"
+          },
+          {
+            "lineNumber": 117
+          },
+          {
+            "lineNumber": 118,
+            "text": "| 项 | Legacy |"
+          },
+          {
+            "lineNumber": 119,
+            "text": "|----|--------|"
+          },
+          {
+            "lineNumber": 120,
+            "text": "| 端口 | **仅 18500**（单播或广播到 TV） |"
+          },
+          {
+            "lineNumber": 121,
+            "text": "| 18501 | **未监听** |"
+          },
+          {
+            "lineNumber": 122,
+            "text": "| 编码 | UTF-8 一行文本 |"
+          },
+          {
+            "lineNumber": 123
+          },
+          {
+            "lineNumber": 124,
+            "text": "### 3.2 TV 收到的文本样例"
+          },
+          {
+            "lineNumber": 125
+          },
+          {
+            "lineNumber": 126,
+            "text": "勾选「推送心率/血压到 TV」后，每个 UDP 包为一行："
+          },
+          {
+            "lineNumber": 127
+          },
+          {
+            "lineNumber": 128,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 129,
+            "text": "[16:58:20] 加压中: 97 mmHg"
+          },
+          {
+            "lineNumber": 130,
+            "text": "[16:58:35] 血压: 131/80 mmHg，脉搏 68 BPM"
+          },
+          {
+            "lineNumber": 131,
+            "text": "[15:49:06] 心率: 74 BPM"
+          },
+          {
+            "lineNumber": 132,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 133
+          },
+          {
+            "lineNumber": 134,
+            "text": "### 3.3 TV→PC 触发测量"
+          },
+          {
+            "lineNumber": 135
+          },
+          {
+            "lineNumber": 136,
+            "text": "| 方式 | 说明 |"
+          },
+          {
+            "lineNumber": 137,
+            "text": "|------|------|"
+          },
+          {
+            "lineNumber": 138,
+            "text": "| 纯文本 | &#96;START&#96; |"
+          },
+          {
+            "lineNumber": 139,
+            "text": "| JSON | &#96;{\"type\":\"START\"}&#96; 或类似 |"
+          },
+          {
+            "lineNumber": 140,
+            "text": "| 发送端口 | **18500**（TV 与 PC **同端口**收发） |"
+          },
+          {
+            "lineNumber": 141,
+            "text": "| PC 监听 | **18500**（Legacy 为**单端口双向**，不是「只发不收」） |"
+          },
+          {
+            "lineNumber": 142,
+            "text": "| 文档目标（P0） | &#96;START_MEASURE&#96; + &#96;target_device=BP&#96;，走 **18501** |"
+          },
+          {
+            "lineNumber": 143,
+            "text": "| 过渡（T0） | TV 仍可发 18500；PC 同时识别 &#96;START&#96; 与 &#96;START_MEASURE&#96; |"
+          },
+          {
+            "lineNumber": 144
+          },
+          {
+            "lineNumber": 145,
+            "text": "### 3.4 联动模式（已实现部分）"
+          },
+          {
+            "lineNumber": 146
+          },
+          {
+            "lineNumber": 147,
+            "text": "- PC 可发 **READY**（多为纯文本）"
+          },
+          {
+            "lineNumber": 148,
+            "text": "- &#96;wait_for_start()&#96; 等待 TV 的 START"
+          },
+          {
+            "lineNumber": 149,
+            "text": "- 收到后 &#96;run_full_measurement()&#96; 真实测压"
+          },
+          {
+            "lineNumber": 150,
+            "text": "- 结果以 **文本行** 推送到 TV"
+          },
+          {
+            "lineNumber": 151
+          },
+          {
+            "lineNumber": 152,
+            "text": "**缺口（相对产品目标）：** 无 ACK、无 JSON PROGRESS/RESULT、无 18501、无 &#96;SCRIPT_READY&#96;。"
+          },
+          {
+            "lineNumber": 153
+          },
+          {
+            "lineNumber": 154,
+            "text": "---"
+          },
+          {
+            "lineNumber": 155
+          },
+          {
+            "lineNumber": 156,
+            "text": "## 3.5 信道与端口 FAQ（请先读）"
+          },
+          {
+            "lineNumber": 157
+          },
+          {
+            "lineNumber": 158,
+            "text": "\u003e **给 PC 同事的一句话：** PC **发** A 用 &#96;255.255.255.255:18500&#96;（广播）+ 建议再 **单播** &#96;TV_IP:18500&#96;；PC **收** B 是 **&#96;bind(\"0.0.0.0\", 18501)&#96;**，**不是** &#96;255.255.255.255:18501&#96;。"
+          },
+          {
+            "lineNumber": 159
+          },
+          {
+            "lineNumber": 160,
+            "text": "### 3.5.1 为什么不是「PC 收 255.255.255.255:18501」？"
+          },
+          {
+            "lineNumber": 161
+          },
+          {
+            "lineNumber": 162,
+            "text": "| 地址 | 含义 | 能否 bind/listen |"
+          },
+          {
+            "lineNumber": 163,
+            "text": "|------|------|------------------|"
+          },
+          {
+            "lineNumber": 164,
+            "text": "| &#96;255.255.255.255&#96; | **广播目的地址**（发送时用） | **不能**作为 PC 监听地址 |"
+          },
+          {
+            "lineNumber": 165,
+            "text": "| &#96;0.0.0.0&#96; | 本机所有网卡 | **可以**，PC 监听 B 信道用此地址 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 165
+          },
+          "startPosition": {
+            "line": 106
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\pc_gateway升级方案.md",
+        "signatures": {}
+      },
+      "score": 0.20284350216388702
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 57,
+            "text": "▼"
+          },
+          {
+            "lineNumber": 58,
+            "text": "┌─────────────────────────────────────────────────────────────────┐"
+          },
+          {
+            "lineNumber": 59,
+            "text": "│ 阶段 P0（产品闭环）                                                │"
+          },
+          {
+            "lineNumber": 60,
+            "text": "│  · bind 0.0.0.0:18501，START_MEASURE → ACK → 进度 → 结果         │"
+          },
+          {
+            "lineNumber": 61,
+            "text": "│  · 18500 与 18501 职责分离                                         │"
+          },
+          {
+            "lineNumber": 62,
+            "text": "│  · 与 mock_gateway / TV 产品 UI 验收一致                           │"
+          },
+          {
+            "lineNumber": 63,
+            "text": "└───────────────────────────────┬─────────────────────────────────┘"
+          },
+          {
+            "lineNumber": 64,
+            "text": "                                ▼"
+          },
+          {
+            "lineNumber": 65,
+            "text": "┌─────────────────────────────────────────────────────────────────┐"
+          },
+          {
+            "lineNumber": 66,
+            "text": "│ 阶段 P1（可选）                                                    │"
+          },
+          {
+            "lineNumber": 67,
+            "text": "│  · F3 统一信封、GATEWAY_HEARTBEAT、托盘/后台常驻                    │"
+          },
+          {
+            "lineNumber": 68,
+            "text": "└─────────────────────────────────────────────────────────────────┘"
+          },
+          {
+            "lineNumber": 69,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 70
+          },
+          {
+            "lineNumber": 71,
+            "text": "### 3.2 模块升级矩阵"
+          },
+          {
+            "lineNumber": 72
+          },
+          {
+            "lineNumber": 73,
+            "text": "| 模块 / 文件 | 现网 | 升级方向 | 阶段 |"
+          },
+          {
+            "lineNumber": 74,
+            "text": "|-------------|------|----------|------|"
+          },
+          {
+            "lineNumber": 75,
+            "text": "| &#96;tv_link.py&#96; | 单端口、text_mode、简单 START | 双 socket、消息路由、request_id、双发 | T0/P0 |"
+          },
+          {
+            "lineNumber": 76,
+            "text": "| **新建** &#96;tv_messages.py&#96; | 无 | JSON type 构造、校验、序列化 | T0 |"
+          },
+          {
+            "lineNumber": 77,
+            "text": "| **新建** &#96;measure_fsm.py&#96; | 逻辑散在 &#96;bp_demo_app&#96; | BP 测量状态机、CANCEL、超时 | P0 |"
+          },
+          {
+            "lineNumber": 78,
+            "text": "| &#96;reading_format.py&#96; | 仅文本 | 增加「结构化 Reading」供 JSON 复用 | T0 |"
+          },
+          {
+            "lineNumber": 79,
+            "text": "| &#96;bp_demo_app.py&#96; | 业务总线过重 | 瘦身为编排层；TV/BLE 回调下沉 | R0/T0 |"
+          },
+          {
+            "lineNumber": 80,
+            "text": "| &#96;multi_ble_backend.py&#96; | BP+HR 编排 | 发 DEVICE_READY/OFFLINE；进度回调带 phase | T0 |"
+          },
+          {
+            "lineNumber": 81,
+            "text": "| &#96;ui_panels.py&#96; | 四区调试 UI | TV 联调区、协议阶段、日志分级 | R0/T0 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 81
+          },
+          "startPosition": {
+            "column": 32,
+            "line": 56
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\PC网关脚本升级优化方案.md",
+        "signatures": {}
+      },
+      "score": 0.2028069943189621
+    },
+    {
+      "codeBlock": {
+        "detailedLines": [
+          {
+            "lineNumber": 269,
+            "text": "|------|------|--------------------------------|"
+          },
+          {
+            "lineNumber": 270,
+            "text": "| 1 | 真机安装 App，进入详情页 | 监听中 |"
+          },
+          {
+            "lineNumber": 271,
+            "text": "| 2 | PC 运行 mock_gateway | — |"
+          },
+          {
+            "lineNumber": 272,
+            "text": "| 3 | 等待 2s | &#96;[发现] 脚本上线广播: 192.168.x.x&#96; |"
+          },
+          {
+            "lineNumber": 273,
+            "text": "| 4 | 持续 | &#96;[广播非标数据]&#96; 或后续实现 &#96;[HEART_RATE_STREAM]&#96; 解析日志 |"
+          },
+          {
+            "lineNumber": 274,
+            "text": "| 5 | 停 mock_gateway | 日志停止增加 |"
+          },
+          {
+            "lineNumber": 275
+          },
+          {
+            "lineNumber": 276,
+            "text": "**Logcat 过滤：**"
+          },
+          {
+            "lineNumber": 277
+          },
+          {
+            "lineNumber": 278,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 279,
+            "text": "Tag: UDPReceiver"
+          },
+          {
+            "lineNumber": 280,
+            "text": "&#96;&#96;&#96;"
+          },
+          {
+            "lineNumber": 281
+          },
+          {
+            "lineNumber": 282,
+            "text": "**AS 操作：** View → Tool Windows → Logcat → 下拉选真机 → 输入 &#96;UDPReceiver&#96;。"
+          },
+          {
+            "lineNumber": 283
+          },
+          {
+            "lineNumber": 284,
+            "text": "**当前代码注意：** 现版 &#96;DataMonitoring&#96; 对非 &#96;SCRIPT_READY&#96; 的 JSON 会打 &#96;[广播非标数据]&#96;；&#96;HEART_RATE_STREAM&#96; 属预期。协议解析按 [udp_信道设计.md](./udp_信道设计.md) 实现后，应变为结构化日志。"
+          },
+          {
+            "lineNumber": 285
+          },
+          {
+            "lineNumber": 286,
+            "text": "**通过标准：** 至少稳定收到 &#96;SCRIPT_READY&#96; 且 &#96;script_ip&#96; 正确。"
+          },
+          {
+            "lineNumber": 287
+          },
+          {
+            "lineNumber": 288,
+            "text": "---"
+          },
+          {
+            "lineNumber": 289
+          },
+          {
+            "lineNumber": 290,
+            "text": "### 5.2 阶段 2：信道 B 单测（TV 发 START → PC 回 RESULT）"
+          },
+          {
+            "lineNumber": 291
+          },
+          {
+            "lineNumber": 292,
+            "text": "**目的：** 验证 **18501 双向**；与信道 A 的 &#96;script_ip&#96; 衔接。"
+          },
+          {
+            "lineNumber": 293
+          },
+          {
+            "lineNumber": 294,
+            "text": "| 步骤 | 操作 | 预期 |"
+          },
+          {
+            "lineNumber": 295,
+            "text": "|------|------|------|"
+          },
+          {
+            "lineNumber": 296,
+            "text": "| 1 | mock_gateway 运行中，且已收到 SCRIPT_READY | scriptIp 已缓存 |"
+          },
+          {
+            "lineNumber": 297,
+            "text": "| 2 | **点击** &#96;tv_heart_rate&#96; 控制台 | 现版触发 &#96;sendStartMeasureInstruction()&#96; |"
+          },
+          {
+            "lineNumber": 298,
+            "text": "| 3 | PC 终端 | &#96;[B] 收到 ... START_MEASURE&#96; |"
+          },
+          {
+            "lineNumber": 299,
+            "text": "| 4 | TV 控制台 | &#96;[发送] 指令 -\u003e PC_IP:18501 ...&#96; |"
+          },
+          {
+            "lineNumber": 300,
+            "text": "| 5 | TV 控制台 | &#96;[接收] 18501返回: ... MEASURE_RESULT ...&#96; |"
+          },
+          {
+            "lineNumber": 301,
+            "text": "| 6 | TV 控制台 | &#96;[解析血压] 收缩压:120 舒张压:80 脉搏:72&#96; |"
+          },
+          {
+            "lineNumber": 302
+          },
+          {
+            "lineNumber": 303,
+            "text": "**通过标准：** TV→PC→TV 闭环一次；不要求图表已接血压 UI。"
+          },
+          {
+            "lineNumber": 304
+          },
+          {
+            "lineNumber": 305,
+            "text": "**若发送失败「未发现可用脚本IP」：** 先确认阶段 1 的 SCRIPT_READY 已成功。"
+          },
+          {
+            "lineNumber": 306
+          },
+          {
+            "lineNumber": 307,
+            "text": "---"
+          },
+          {
+            "lineNumber": 308
+          },
+          {
+            "lineNumber": 309,
+            "text": "### 5.3 阶段 3：信道 A 心率域（实现后验收）"
+          },
+          {
+            "lineNumber": 310
+          },
+          {
+            "lineNumber": 311,
+            "text": "对照 [心率测试方案.md](./心率测试方案.md)："
+          },
+          {
+            "lineNumber": 312
+          },
+          {
+            "lineNumber": 313,
+            "text": "| 用例 ID | 模拟方式 | 预期 UI |"
+          },
+          {
+            "lineNumber": 314,
+            "text": "|---------|----------|---------|"
+          },
+          {
+            "lineNumber": 315,
+            "text": "| HR-A1 | mock 持续 &#96;HEART_RATE_STREAM&#96; | 心率卡片角标「可测量」 |"
+          },
+          {
+            "lineNumber": 316,
+            "text": "| HR-A2 | 10s 无 stream | 角标熄灭 |"
+          },
+          {
+            "lineNumber": 317,
+            "text": "| HR-B1 | 焦点在心率卡片 + OK | 30s 倒计时、短期折线 |"
+          },
+          {
+            "lineNumber": 318,
+            "text": "| HR-B2 | 30s 结束 | 写 hr_history.json，长期图更新 |"
+          }
+        ],
+        "range": {
+          "endPosition": {
+            "line": 318
+          },
+          "startPosition": {
+            "line": 268
+          }
+        },
+        "relativeWorkspacePath": ".\\docs\\AndroidStudio双信道测试方案.md",
+        "signatures": {}
+      },
+      "score": 0.20189949870109558
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="semantic_search_full"><details>
+<summary>Tool use: **semantic_search_full**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+当前仓库中没有找到 TV 视频播放的代码。
+
+正在整理视频播放卡顿的优化方案。将说明模拟器卡顿的原因，提供 FFmpeg 压缩命令，并建议降低分辨率和改用 H.264 编码来减轻播放压力。</details></think>
+
+_**Agent (default)**_
+
+当前仓库（`BlueTooth_pc_terminal`）主要是 **PC 蓝牙网关** 和 **血压计 Android Demo**，**没有 TV 端视频播放相关代码**。模拟器里视频卡顿，多半是 **TV App 项目** 或 **资源本身** 的问题。下面分「压缩视频」和「播放/模拟器优化」两部分说明。
+
+---
+
+## 一、为什么模拟器播视频特别卡
+
+| 原因 | 说明 |
+|------|------|
+| 无真机硬解 | 模拟器多用 **CPU 软解**，4K/高码率很容易掉帧 |
+| 分辨率过高 | 1080p/4K 在 AVD 里解码压力大 |
+| 编码格式 | H.265(HEVC)、高 Profile H.264 在模拟器上更慢 |
+| 码率太高 | 10Mbps+ 的 mp4 在开发机上容易卡 |
+| 主线程/UI 叠加 | 播视频同时还做图表、UDP、动画会加重卡顿 |
+
+**结论：** 开发阶段用 **压缩过的 720p H.264** 测 UI 即可；最终效果在 **真机/机顶盒** 上验收（和你们文档里 UDP 联调的建议一致）。
+
+---
+
+## 二、视频压缩（推荐用 FFmpeg）
+
+### 1. 安装 FFmpeg（Windows）
+
+1. 打开 https://www.gyan.dev/ffmpeg/builds/  
+2. 下载 `ffmpeg-release-essentials.zip`  
+3. 解压后把 `bin` 目录加入系统 PATH  
+4. 在 PowerShell 验证：
+
+```powershell
+ffmpeg -version
+```
+
+### 2. 推荐参数（TV / 模拟器联调）
+
+| 项 | 建议值 |
+|----|--------|
+| 分辨率 | **1280×720**（UI 演示够用） |
+| 编码 | **H.264**（不要用 H.265） |
+| Profile | **baseline** 或 **main**（兼容性最好） |
+| 帧率 | **24 或 30 fps** |
+| 视频码率 | **1.5～2.5 Mbps**（720p） |
+| 音频 | AAC 128kbps，或 `-an` 去掉音频 |
+
+### 3. 一条命令压缩（复制即用）
+
+把路径改成你的实际文件：
+
+```powershell
+# 输入：原始大视频 input.mp4
+# 输出：适合模拟器播放的 output_720p.mp4
+
+ffmpeg -i "D:\videos\input.mp4" `
+  -vf "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2" `
+  -c:v libx264 `
+  -profile:v main `
+  -level 3.1 `
+  -pix_fmt yuv420p `
+  -r 30 `
+  -b:v 2M `
+  -maxrate 2.5M `
+  -bufsize 4M `
+  -c:a aac `
+  -b:a 128k `
+  -movflags +faststart `
+  "D:\videos\output_720p.mp4"
+```
+
+参数说明（便于学习）：
+
+- `scale=1280:720`：缩放到 720p，保持比例并黑边居中  
+- `libx264`：H.264 编码，模拟器兼容好  
+- `-b:v 2M`：视频码率约 2Mbps，减轻解码压力  
+- `-movflags +faststart`：把元数据放文件头，**边下边播**更快  
+
+### 4. 只要更小体积（可接受略糊）
+
+```powershell
+ffmpeg -i "D:\videos\input.mp4" `
+  -vf "scale=854:480" `
+  -c:v libx264 -profile:v baseline -pix_fmt yuv420p `
+  -r 24 -b:v 800k `
+  -an `
+  -movflags +faststart `
+  "D:\videos\output_480p.mp4"
+```
+
+- `-an`：去掉音频，体积更小、解码更轻  
+
+### 5. 批量压缩当前文件夹下所有 mp4
+
+```powershell
+# 在视频所在目录执行；会生成 *_720p.mp4
+Get-ChildItem *.mp4 | ForEach-Object {
+  $out = $_.BaseName + "_720p.mp4"
+  ffmpeg -i $_.FullName `
+    -vf "scale=1280:720:force_original_aspect_ratio=decrease" `
+    -c:v libx264 -profile:v main -pix_fmt yuv420p `
+    -r 30 -b:v 2M -c:a aac -b:a 128k `
+    -movflags +faststart `
+    $out
+}
+```
+
+### 6. 压缩后检查信息
+
+```powershell
+ffprobe -v quiet -show_streams -select_streams v:0 "D:\videos\output_720p.mp4"
+```
+
+关注：`codec_name=h264`、`width=1280`、`height=720`、`r_frame_rate=30/1`。
+
+---
+
+## 三、Android 播放侧优化（TV App）
+
+若你们用 **ExoPlayer**（推荐），可参考：
+
+```kotlin
+// 使用 ExoPlayer 播放本地或网络 mp4
+val player = ExoPlayer.Builder(context)
+    .build()
+
+// 绑定到 SurfaceView（一般比 VideoView 更稳、更可控）
+player.setVideoSurfaceView(surfaceView)
+
+// 设置媒体源（assets 或 raw 里的压缩后 mp4）
+val uri = Uri.parse("file:///android_asset/videos/output_720p.mp4")
+player.setMediaItem(MediaItem.fromUri(uri))
+player.prepare()
+player.playWhenReady = true
+
+// 页面销毁时释放，避免模拟器越跑越卡
+override fun onDestroy() {
+    player.release()
+    super.onDestroy()
+}
+```
+
+注意点：
+
+1. **不要用主线程做重逻辑**（解析 JSON、画复杂图表和播视频叠在一起会卡）  
+2. **模拟器用 720p 资源**，真机再用 1080p  
+3. 列表/背景视频用 **缩略图或短循环**，避免多路同时硬解  
+4. `VideoView` 简单但难优化，TV 项目更建议 **ExoPlayer + SurfaceView**
+
+---
+
+## 四、Android Studio 模拟器设置
+
+在 AVD Manager 里编辑虚拟设备：
+
+| 设置 | 建议 |
+|------|------|
+| Graphics | **Hardware - GLES 2.0**（不要 Automatic 有时会变软件渲染） |
+| RAM | 至少 **2048MB**，卡顿时试 **4096MB** |
+| 系统镜像 | **x86_64** + Google APIs（比 arm 模拟快） |
+| 分辨率 | 开发用 **720p TV** 配置，不要默认 4K TV |
+
+额外建议：
+
+- 播视频测试时 **关掉 Logcat 大量刷屏**  
+- PC 网关 `run_gui.py` 和模拟器同时跑时，CPU 会被抢，可暂时关掉网关再测视频  
+
+---
+
+## 五、怎么判断是「视频太大」还是「代码问题」
+
+按这个顺序排查：
+
+1. 用 VLC 在 **PC 上** 播压缩后的 `output_720p.mp4` → 流畅则说明压缩 OK  
+2. 把 **同一个压缩文件** 拷进模拟器 `assets` 或 `sdcard` 播放  
+3. 仍卡 → 多半是 **播放器实现或 UI 叠加**；流畅 → 原片太大，继续压或换 480p  
+
+---
+
+## 六、需要你补充的信息（便于针对性改代码）
+
+当前仓库里没有 TV 视频模块。如果你愿意，可以告诉我：
+
+1. TV App 是否在 **另一个仓库**？用的 `VideoView` 还是 `ExoPlayer`？  
+2. 视频来源：**本地 assets / 网络 URL / U 盘**？  
+3. 原始视频分辨率、码率（`ffprobe` 输出或文件大小 + 时长）  
+4. 模拟器型号（Phone / Android TV / 分辨率）
+
+把 TV 项目路径或播放相关代码发过来，我可以直接帮你看该改哪几处。  
+压缩视频你可以先在本机执行上面的 `ffmpeg` 命令试一下。
